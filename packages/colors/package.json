@@ -1,0 +1,15 @@
+{
+    "name": "@makers-frontend/colors",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "version": "0.0.0",
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "tsup": "^7.2.0",
+        "typescript": "^5.2.2"
+    }
+}
