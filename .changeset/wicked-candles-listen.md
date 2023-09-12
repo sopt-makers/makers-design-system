@@ -2,4 +2,4 @@
 "@sopt-makers/colors": major
 ---
 
-sopt makers의 colors 1.0.0
+feat: mds color 1.0.0 추가
