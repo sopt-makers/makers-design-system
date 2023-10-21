@@ -10,7 +10,8 @@ export const colors = {
   gray600: "#3F3F47",
   gray700: "#2E2E35",
   gray800: "#202025",
-  gray900: "#0F0F12",
+  gray900: "#17181C",
+  gray950: "#0F1012",
   black: "#000000",
 
   blue50: "#C8E1FF",
@@ -70,7 +71,7 @@ export const colors = {
 
   attention: "#FFC234",
   error: "#F04251",
-  background: "#0F0F12", // gray900
+  background: "#0F1012", // gray950
   secondary: "#F77234",
   success: "#346FFA",
   information: "#16BF81",
