@@ -70,7 +70,7 @@ export const colors = {
 
   attention: "#FFC234",
   error: "#F04251",
-  background: #0F0F12, // gray900
+  background: "#0F0F12", // gray900
   secondary: "#F77234",
   success: "#346FFA",
   information: "#16BF81",
