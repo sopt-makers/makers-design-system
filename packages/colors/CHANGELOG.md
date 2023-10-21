@@ -1,5 +1,17 @@
 # @sopt-makers/colors
 
+## 2.1.0
+
+### Minor Changes
+
+- feat: gray950(background) 추가, gray900 수정
+
+## 2.0.0
+
+### Major Changes
+
+- 20e0868: feat: mds color grayscale 변경, 시멘틱 컬러 및 새로운 컬러 추가
+
 ## 1.0.0
 
 ### Major Changes
