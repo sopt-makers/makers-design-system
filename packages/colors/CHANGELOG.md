@@ -1,5 +1,11 @@
 # @sopt-makers/colors
 
+## 2.2.0
+
+### Minor Changes
+
+- feat: alpha color(opacity) 추가, white 빠진것 추가
+
 ## 2.1.0
 
 ### Minor Changes

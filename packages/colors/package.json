@@ -1,6 +1,6 @@
 {
     "name": "@sopt-makers/colors",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "description": "sopt-makers의 frontend repository에 사용되는 colors를 제공해요.",
     "license": "MIT",
     "main": "./dist/index.js",

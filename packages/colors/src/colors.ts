@@ -1,4 +1,5 @@
 export const colors = {
+  white: "#FFFFFF",
   gray10: "#FCFCFC",
   gray30: "#F0F0F0",
   gray50: "#E4E4E5",
@@ -75,4 +76,15 @@ export const colors = {
   secondary: "#F77234",
   success: "#346FFA",
   information: "#16BF81",
+
+  // opacity가 포함된 alpha 색상
+  grayAlpha100: "rgba(15, 15, 18, 0.8)",
+  grayAlpha200: "rgba(15, 15, 18, 0.5)",
+  grayAlpha300: "rgba(15, 15, 18, 0.2)",
+  blueAlpha100: "rgba(52, 111, 250, 0.6)",
+  blueAlpha200: "rgba(52, 111, 250, 0.3)",
+  blueAlpha300: "rgba(52, 111, 250, 0.1)",
+  redAlpha100: "rgba(240, 66, 81, 0.6)",
+  redAlpha200: "rgba(240, 66, 81, 0.3)",
+  redAlpha300: "rgba(240, 66, 81, 0.1)",
 };
