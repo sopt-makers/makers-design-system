@@ -1,5 +1,11 @@
 # @sopt-makers/colors
 
+## 3.0.0
+
+### Major Changes
+
+- 2ef2768: feat: alpha color 기존 값 변경 및 orange 컬러 추가
+
 ## 2.2.0
 
 ### Minor Changes
