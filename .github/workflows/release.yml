@@ -36,12 +36,12 @@ jobs:
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
+        with:
+          publish: yarn publish-packages
         run: |
           echo $NPM_TOKEN
           echo $NODE_AUTH_TOKEN
           cat /home/runner/work/_temp/.npmrc
-        with:
-          publish: yarn publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
