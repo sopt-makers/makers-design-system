@@ -4,7 +4,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-function {{ pascalCase name }}({ children }: Props) {
+function Input({ children }: Props) {
   return (
     <div className={S.root}>
       {children}
@@ -12,4 +12,4 @@ function {{ pascalCase name }}({ children }: Props) {
   );
 };
 
-export default {{ pascalCase name }};
+export default Input;

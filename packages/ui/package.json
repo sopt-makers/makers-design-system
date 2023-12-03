@@ -13,9 +13,14 @@
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@vanilla-extract/css": "^1.14.0",
     "eslint-config-custom": "*",
     "react": "^18.2.0",
     "tsconfig": "*",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@sopt-makers/fonts": "file:../fonts",
+    "@sopt-makers/colors": "file:../colors"
   }
 }

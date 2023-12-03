@@ -34,6 +34,16 @@ module.exports = {
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js"],
 
   rules: {
-    // add specific rules configurations here
+    "import/no-default-export": "off",
+    "import/prefer-default-export": "on",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+      }
+    ]
   },
 };
