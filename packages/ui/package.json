@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@sopt-makers/colors": "file:../colors",
-    "@sopt-makers/fonts": "file:../fonts"
+    "@sopt-makers/fonts": "file:../fonts",
+    "@vanilla-extract/sprinkles": "1.6.1"
   }
 }
