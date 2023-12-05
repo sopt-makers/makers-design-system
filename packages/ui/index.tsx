@@ -1,2 +1,2 @@
 // component exports
-export * from "./Input";
+export { default as Test } from './Test';

@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/next-plugin": "^2.3.2",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

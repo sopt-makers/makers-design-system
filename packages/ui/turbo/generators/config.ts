@@ -28,13 +28,13 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       {
         type: "add",
         path: '{{pascalCase name}}/index.tsx',
-        template: 'export * from "./{{pascalCase name}}";'
+        template: 'export { default } from "./{{pascalCase name}}";'
       },
       {
         type: "append",
         path: "index.tsx",
         pattern: /(?<insertion>\/\/ component exports)/g,
-        template: 'export * from "./{{pascalCase name}}";',
+        template: 'export { default as {{pascalCase name}} } from "./{{pascalCase name}}";',
       },
     ],
   });
