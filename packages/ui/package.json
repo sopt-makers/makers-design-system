@@ -20,7 +20,9 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@sopt-makers/colors": "file:../colors",
     "@sopt-makers/fonts": "file:../fonts",
-    "@sopt-makers/colors": "file:../colors"
+    "framer-motion": "^10.16.14"
   }
 }
