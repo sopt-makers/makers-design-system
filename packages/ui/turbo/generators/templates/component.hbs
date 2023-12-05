@@ -1,12 +1,14 @@
-import S from './style';
+import * as styles from './style';
 
 interface Props {
   children?: React.ReactNode;
 }
 
-function {{ pascalCase name }}({ children }: Props) {
+function {{ pascalCase name }}(props: Props) {
+  const { children } = props;
+
   return (
-    <div className={S.root}>
+    <div className={styles.root}>
       {children}
     </div>
   );
