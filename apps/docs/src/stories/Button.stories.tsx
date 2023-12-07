@@ -56,3 +56,18 @@ export const Another: StoryObj<ButtonStoryProps> = {
     },
   },
 };
+
+export const DefaultDisabled: StoryObj = {
+  name: "Disabled",
+  render: () => <Button disabled>Disabled</Button>,
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' }
+      ],
+    },
+  },
+};
