@@ -1,0 +1,11 @@
+export { default as IconUserCheck } from "./ic-user-check";
+export { default as IconUserEdit } from "./ic-user-edit";
+export { default as IconUserMinus } from "./ic-user-minus";
+export { default as IconUserPlus } from "./ic-user-plus";
+export { default as IconUserX } from "./ic-user-x";
+export { default as IconUser } from "./ic-user";
+export { default as IconUsersCheck } from "./ic-users-check";
+export { default as IconUsersMinus } from "./ic-user-minus";
+export { default as IconUsersPlus } from "./ic-users-plus";
+export { default as IconUsersX } from "./ic-users-x";
+export { default as IconUsers } from "./ic-users";

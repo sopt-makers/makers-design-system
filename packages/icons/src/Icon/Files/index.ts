@@ -1,0 +1,11 @@
+export { default as IconFileCheck } from "./ic-file-check";
+export { default as IconFileDownload } from "./ic-file-download";
+export { default as IconFileMinus } from "./ic-file-minus";
+export { default as IconFilePlus } from "./ic-file-plus";
+export { default as IconFileSearch } from "./ic-file-search";
+export { default as IconFileText } from "./ic-file-text";
+export { default as IconFileX } from "./ic-file-x";
+export { default as IconFile } from "./ic-file";
+export { default as IconFolderCheck } from "./ic-folder-check";
+export { default as IconFolderDownload } from "./ic-folder-download";
+export { default as IconFolder } from "./ic-folder";

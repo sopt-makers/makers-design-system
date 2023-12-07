@@ -1,0 +1,9 @@
+export { default as IconAlertCircle } from "./ic-alert-circle";
+export { default as IconAlertTriangle } from "./ic-alert-triangle";
+export { default as IconBellActive } from "./ic-bell-active";
+export { default as IconBellOff } from "./ic-bell-off";
+export { default as IconBell } from "./ic-bell";
+export { default as IconHelpCricle } from "./ic-help-circle";
+export { default as IconInfoCricle } from "./ic-info-circle";
+export { default as IconThumbsDown } from "./ic-thumbs-down";
+export { default as IconThumbsUp } from "./ic-thumbs-up";
