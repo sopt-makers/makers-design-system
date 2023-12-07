@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.0.0",
+    "@radix-ui/react-dialog": "^1.0.5",
     "@sopt-makers/colors": "file:../colors",
     "@sopt-makers/fonts": "file:../fonts"
   }
