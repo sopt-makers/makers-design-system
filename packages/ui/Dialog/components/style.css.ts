@@ -41,6 +41,18 @@ export const description = style({
   maxHeight: '264px',
   overflowY: 'scroll',
 
+  "::-webkit-scrollbar": {
+    width: '4px'
+  },
+  "::-webkit-scrollbar-thumb": {
+    background: `${theme.colors.gray500}`,
+    borderRadius: '4px',
+  },
+  "::-webkit-scrollbar-track": {
+    background: 'none'
+  },
+
+
   '@media': {
     'screen and (min-width: 768px)': {
       // TODO: css 객체로 폰트 나오면 수정 예정입니다

@@ -16,6 +16,7 @@ export const root = style({
   gap: '4px',
   border: 'none',
   cursor: 'pointer',
+  fontWeight: 600,
 });
 
 const sprinkleProperties = defineProperties({
