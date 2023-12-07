@@ -1,5 +1,5 @@
-import { Test } from "ui";
-import styles from "./page.module.css";
+import { Test } from 'ui';
+import styles from './page.module.css';
 
 export default function Page(): JSX.Element {
   return (
