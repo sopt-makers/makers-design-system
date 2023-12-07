@@ -33,6 +33,7 @@ export const icon = style({
 
 export const content = style({
   flex: 1,
+  margin: 0,
   color: theme.colors.gray900,
 
   // LABEL_14_SB
