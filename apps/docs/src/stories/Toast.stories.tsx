@@ -18,7 +18,9 @@ type Story = StoryObj;
 
 const ToastSample = ({ option }: ToastOptionType) => {
   const { open } = useToast();
-  return <Button label="Open Toast" onClick={() => open(option)} />;
+  return (
+    <Button primary={true} label="Open Toast" onClick={() => open(option)} />
+  );
 };
 
 export const Default: Story = {
