@@ -31,7 +31,7 @@ export const DialogComponent = ({
         <div className={checkBoxWapper}>
           <CheckBox
             label={checkBoxOptions.label}
-            size={checkBoxOptions.size}
+            size={checkBoxOptions.size ?? 'small'}
             checked={checkBoxOptions.checked}
             color={checkBoxOptions.color}
             onChange={checkBoxOptions.onChange}

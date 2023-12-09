@@ -1,5 +1,7 @@
 import React, { InputHTMLAttributes, forwardRef } from 'react';
+import { IconCheck } from '../../icons/src';
 import {
+  check,
   checkBox,
   checkBoxChecked,
   checkBoxInput,
@@ -21,8 +23,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
       <label className={checkBoxWrapper}>
         <input ref={ref} type="checkbox" onChange={onChange} className={checkBoxInput} {...props} />
         <div className={`${checkBox[size]} ${checkBoxChecked[`${checked}`]}`}>
-          {/* TODO: 우영이의 체크 아이콘으로 갈아끼우기 */}
-          {/* {checked && <IconCheck className={check[size]} />} */}
+          {checked && <IconCheck className={check[size]} />}
         </div>
         <p className={`${checkBoxLabel[size]} ${labelColor[color]}`}>{label && label}</p>
       </label>
