@@ -66,6 +66,6 @@ export const labelColor = styleVariants({
 });
 
 export const check = styleVariants({
-  small: { width: 12, color: `${colors.white}` },
-  large: { width: 16, color: `${colors.white}` },
+  small: { width: 18, color: `${colors.white}` },
+  large: { width: 24, color: `${colors.white}` },
 });
