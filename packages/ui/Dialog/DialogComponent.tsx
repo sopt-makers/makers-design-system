@@ -2,77 +2,96 @@ import React from 'react';
 import Dialog from '.';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
-import { defaultButtonSize } from './style.css';
-import { DialogOptionType } from './types';
+import { buttonMinSize, buttonSize, checkBoxWapper } from './style.css';
+import { DialogValueProps } from './types';
 
-export const DialogComponent = ({ onClose, ...dialogOption }: DialogOptionType) => {
+export const DialogComponent = ({
+  isOpen,
+  onClose,
+  device = 'mobile',
+  title,
+  description,
+  checkBoxOptions,
+  type,
+  typeOptions,
+}: DialogValueProps) => {
+  const onApprove = () => {
+    typeOptions && typeOptions.buttonFunction;
+    onClose();
+  };
+
   return (
-    <Dialog isOpen={dialogOption !== null} onClose={onClose} device={'desktop'}>
-      <Dialog.Title>{dialogOption.title}</Dialog.Title>
-      <Dialog.Description>{dialogOption.description}</Dialog.Description>
+    <Dialog isOpen={isOpen} onClose={onClose} device={device}>
+      <Dialog.Title device={device}>{title}</Dialog.Title>
+      <Dialog.Description device={device} isCheck={checkBoxOptions !== undefined}>
+        {description}
+      </Dialog.Description>
 
-      {dialogOption.checkBoxOptions && (
-        <CheckBox
-          label={dialogOption.checkBoxOptions.label}
-          size={dialogOption.checkBoxOptions.size}
-          checked={dialogOption.checkBoxOptions.checked}
-          onChange={dialogOption.checkBoxOptions.onChange}
-        />
+      {checkBoxOptions && (
+        <div className={checkBoxWapper}>
+          <CheckBox
+            label={checkBoxOptions.label}
+            size={checkBoxOptions.size}
+            checked={checkBoxOptions.checked}
+            color={checkBoxOptions.color}
+            onChange={checkBoxOptions.onChange}
+          />
+        </div>
       )}
-      <Dialog.Footer align={dialogOption.device === 'mobile' ? 'center' : 'right'}>
-        {dialogOption.type === 'default' && (
+      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'} device={device}>
+        {type === 'default' && (
           <>
             <Button
               size="md"
               rounded="md"
               theme="black"
-              onClick={close}
-              className={defaultButtonSize[dialogOption.device]}
+              onClick={onClose}
+              className={buttonSize[device]}
             >
-              {dialogOption.typeOptions?.cancelButtonText}
+              {typeOptions?.cancelButtonText}
             </Button>
             <Button
               size="md"
               rounded="md"
               theme="white"
-              onClick={() => dialogOption.typeOptions?.buttonFunction}
-              className={defaultButtonSize[dialogOption.device]}
+              onClick={onApprove}
+              className={buttonSize[device]}
             >
-              {dialogOption.typeOptions?.approveButtonText}
+              {typeOptions?.approveButtonText}
             </Button>
           </>
         )}
-        {dialogOption.type === 'danger' && (
+        {type === 'danger' && (
           <>
             <Button
               size="md"
               rounded="md"
               theme="black"
-              onClick={close}
-              className={defaultButtonSize[dialogOption.device]}
+              onClick={onClose}
+              className={buttonSize[device]}
             >
-              {dialogOption.typeOptions?.cancelButtonText}
+              {typeOptions?.cancelButtonText}
             </Button>
             <Button
               size="md"
               rounded="md"
               theme="red"
-              onClick={() => dialogOption.typeOptions?.buttonFunction}
-              className={defaultButtonSize[dialogOption.device]}
+              onClick={onApprove}
+              className={buttonSize[device]}
             >
-              {dialogOption.typeOptions?.approveButtonText}
+              {typeOptions?.approveButtonText}
             </Button>
           </>
         )}
-        {dialogOption.type === 'single' && (
+        {type === 'single' && (
           <Button
             size="md"
             rounded="md"
             theme="white"
-            onClick={() => dialogOption.typeOptions?.buttonFunction}
-            className={defaultButtonSize[`${dialogOption.device}${dialogOption.type}`]}
+            onClick={onApprove}
+            className={`${buttonSize[device]} ${device === 'mobile' && buttonMinSize['single']}`}
           >
-            {dialogOption.typeOptions?.approveButtonText}
+            {typeOptions?.approveButtonText}
           </Button>
         )}
       </Dialog.Footer>

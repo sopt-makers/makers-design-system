@@ -1,29 +1,42 @@
 'use client';
 
-import React, { createContext, useState } from 'react';
+import React, { ChangeEvent, createContext, useCallback, useState } from 'react';
 import { DialogComponent } from './DialogComponent';
 import { DialogOptionType, ProviderChildren } from './types';
 
 export const DialogContext = createContext({
   openDialog(option: DialogOptionType) {},
   closeDialog() {},
+  checkCheckBox(e: ChangeEvent<HTMLInputElement>) {},
 });
 
 function DialogProvider({ children }: ProviderChildren) {
   const [dialogOption, setDialogOption] = useState<DialogOptionType | null>(null);
 
-  const openDialog = (option: DialogOptionType) => {
-    setDialogOption(option);
-  };
+  const openDialog = useCallback(
+    (option: DialogOptionType) => {
+      setDialogOption(option);
+    },
+    [dialogOption]
+  );
 
   const closeDialog = () => {
     setDialogOption(null);
   };
-  console.log(dialogOption);
+
+  const checkCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
+    setDialogOption((prevOption) => ({
+      ...prevOption,
+      checkBoxOptions: { ...prevOption?.checkBoxOptions, checked: e.target.checked },
+    }));
+  };
+
   return (
-    <DialogContext.Provider value={{ openDialog, closeDialog }}>
+    <DialogContext.Provider value={{ openDialog, closeDialog, checkCheckBox }}>
       {children}
-      {dialogOption && <DialogComponent onClose={closeDialog} {...dialogOption} />}
+      {dialogOption && (
+        <DialogComponent isOpen={dialogOption !== null} onClose={closeDialog} {...dialogOption} />
+      )}
     </DialogContext.Provider>
   );
 }

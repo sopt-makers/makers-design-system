@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { colors } from '../../colors/src';
 import theme from '../theme.css';
 
 export const checkBoxWrapper = style({
@@ -55,5 +56,11 @@ export const checkBoxLabel = styleVariants({
     fontWeight: '400',
     lineHeight: '26px',
     letterSpacing: '-0.24px',
+  },
+});
+
+export const labelColor = styleVariants({
+  white: {
+    color: `${colors.gray10}`,
   },
 });

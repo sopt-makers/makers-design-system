@@ -1,21 +1,22 @@
-import { ChangeEvent, InputHTMLAttributes, forwardRef } from 'react';
+import { InputHTMLAttributes, forwardRef } from 'react';
 import {
   checkBox,
   checkBoxChecked,
   checkBoxInput,
   checkBoxLabel,
   checkBoxWrapper,
+  labelColor,
 } from './style.css';
 
 export interface CheckBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: string;
   size?: 'small' | 'large';
   checked?: boolean;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  color?: 'white';
 }
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
-  ({ checked = false, label, size = 'small', onChange, ...props }, ref) => {
+  ({ checked = false, label, size = 'small', color = 'white', onChange, ...props }, ref) => {
     return (
       <label className={checkBoxWrapper}>
         <input ref={ref} type="checkbox" onChange={onChange} className={checkBoxInput} {...props} />
@@ -25,7 +26,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
             <></>
           )}
         </div>
-        <p className={checkBoxLabel[size]}>{label && label}</p>
+        <p className={`${checkBoxLabel[size]} ${labelColor[color]}`}>{label && label}</p>
       </label>
     );
   }

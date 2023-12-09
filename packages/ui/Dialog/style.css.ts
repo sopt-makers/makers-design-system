@@ -11,7 +11,7 @@ export const base = style({
 
 export const dialogContainer = styleVariants({
   desktop: [base, { width: '400px', padding: '24px' }],
-  mobile: [base, { maxWidth: '324px', padding: '20px', margin: '0px 36px' }],
+  mobile: [base, { maxWidth: '324px', padding: '20px', margin: '0px 36px', minWidth: '303px' }],
 });
 
 export const overlay = style({
@@ -23,9 +23,16 @@ export const overlay = style({
   backgroundColor: `${theme.colors.backgroundDimmed}`,
 });
 
-export const defaultButtonSize = styleVariants({
+export const buttonSize = styleVariants({
   desktop: { width: '83px' },
-  mobile: { width: '127px' },
-  desktopsingle: { width: '83px' },
-  mobilesingle: { width: '100%' },
+  mobile: { width: '100%' },
+});
+
+export const buttonMinSize = styleVariants({
+  double: { minWidth: '127px' },
+  single: { minWidth: '263px' },
+});
+
+export const checkBoxWapper = style({
+  marginBottom: 20,
 });
