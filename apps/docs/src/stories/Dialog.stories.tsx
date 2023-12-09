@@ -26,6 +26,8 @@ const DialogButton = ({ option }: { option: DialogOptionType }) => {
   return <button onClick={() => open(option)}>Open Dialog</button>;
 };
 
+// 데스크탑
+
 export const DesktopDefault: StoryObj = {
   render: function Render() {
     const { closeDialog } = useContext(DialogContext);
@@ -59,19 +61,12 @@ export const DesktopDefault: StoryObj = {
 
 export const DesktopDanger: StoryObj = {
   render: function Render() {
-    const { closeDialog, checkCheckBox } = useContext(DialogContext);
+    const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
       device: 'desktop',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
-      checkBoxOptions: {
-        label: '다시는 보지 않기',
-        checked: false,
-        size: 'small',
-        color: 'white',
-        onChange: checkCheckBox,
-      },
       type: 'danger',
       typeOptions: {
         cancelButtonText: '취소',
@@ -97,6 +92,113 @@ export const DesktopDanger: StoryObj = {
 
 export const DesktopSingle: StoryObj = {
   render: function Render() {
+    const { closeDialog } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'desktop',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      type: 'single',
+      typeOptions: {
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 데스크탑 - single',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+// 라벨 o
+export const DesktopDefaultLabel: StoryObj = {
+  render: function Render() {
+    const { closeDialog, checkCheckBox } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'desktop',
+      title: '타이틀 자리입니다.',
+      description: '안녕하세요! makers입니다.',
+      checkBoxOptions: {
+        label: '다시는 보지 않기',
+        checked: false,
+        size: 'small',
+        color: 'white',
+        onChange: checkCheckBox,
+      },
+      type: 'default',
+      typeOptions: {
+        cancelButtonText: '취소',
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 데스크탑 - default -label',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+export const DesktopDangerLabel: StoryObj = {
+  render: function Render() {
+    const { closeDialog, checkCheckBox } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'desktop',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      checkBoxOptions: {
+        label: '다시는 보지 않기',
+        checked: false,
+        size: 'small',
+        color: 'white',
+        onChange: checkCheckBox,
+      },
+      type: 'danger',
+      typeOptions: {
+        cancelButtonText: '취소',
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 데스크탑 - danger - label',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+export const DesktopSingleLabel: StoryObj = {
+  render: function Render() {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
@@ -119,7 +221,7 @@ export const DesktopSingle: StoryObj = {
 
     return <DialogButton option={option} />;
   },
-  name: '다이얼로그 데스크탑 - single',
+  name: '다이얼로그 데스크탑 - single - label',
   parameters: {
     layout: 'centered',
     backgrounds: {
@@ -222,6 +324,8 @@ export const DesktopLong: StoryObj = {
   },
 };
 
+// 모바일
+
 export const MobileDefault: StoryObj = {
   render: function Render() {
     const { closeDialog } = useContext(DialogContext);
@@ -234,7 +338,6 @@ export const MobileDefault: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        color: 'white',
         buttonFunction: closeDialog,
       },
     };
@@ -242,6 +345,181 @@ export const MobileDefault: StoryObj = {
     return <DialogButton option={option} />;
   },
   name: '다이얼로그 모바일 - default',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+export const MobileDanger: StoryObj = {
+  render: function Render() {
+    const { closeDialog } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'mobile',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      type: 'danger',
+      typeOptions: {
+        cancelButtonText: '취소',
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 모바일 - danger',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+export const MobileSingle: StoryObj = {
+  render: function Render() {
+    const { closeDialog } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'mobile',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      type: 'single',
+      typeOptions: {
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 모바일 - single',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+// 라벨 o
+export const MobileDefaultLabel: StoryObj = {
+  render: function Render() {
+    const { closeDialog, checkCheckBox } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'mobile',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      checkBoxOptions: {
+        label: '다시는 보지 않기',
+        checked: false,
+        size: 'small',
+        color: 'white',
+        onChange: checkCheckBox,
+      },
+      type: 'default',
+      typeOptions: {
+        cancelButtonText: '취소',
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 모바일 - default - label',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+export const MobileDangerLabel: StoryObj = {
+  render: function Render() {
+    const { closeDialog, checkCheckBox } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'mobile',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      checkBoxOptions: {
+        label: '다시는 보지 않기',
+        checked: false,
+        size: 'small',
+        color: 'white',
+        onChange: checkCheckBox,
+      },
+      type: 'danger',
+      typeOptions: {
+        cancelButtonText: '취소',
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 모바일 - danger - label',
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
+};
+
+export const MobileSingleLabel: StoryObj = {
+  render: function Render() {
+    const { closeDialog, checkCheckBox } = useContext(DialogContext);
+
+    const option: DialogOptionType = {
+      device: 'mobile',
+      title: '타이틀 자리입니다.',
+      description: <>안녕하세요! makers입니다.</>,
+      checkBoxOptions: {
+        label: '다시는 보지 않기',
+        checked: false,
+        size: 'small',
+        color: 'white',
+        onChange: checkCheckBox,
+      },
+      type: 'single',
+      typeOptions: {
+        approveButtonText: '확인',
+        buttonFunction: closeDialog,
+      },
+    };
+
+    return <DialogButton option={option} />;
+  },
+  name: '다이얼로그 모바일 - single - label',
   parameters: {
     layout: 'centered',
     backgrounds: {
@@ -318,81 +596,6 @@ export const MobileLong: StoryObj = {
     return <DialogButton option={option} />;
   },
   name: '다이얼로그 모바일 - long',
-  parameters: {
-    layout: 'centered',
-    backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
-      values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' },
-      ],
-    },
-  },
-};
-
-export const MobileDanger: StoryObj = {
-  render: function Render() {
-    const { closeDialog, checkCheckBox } = useContext(DialogContext);
-
-    const option: DialogOptionType = {
-      device: 'mobile',
-      title: '타이틀 자리입니다.',
-      description: <>안녕하세요! makers입니다.</>,
-      checkBoxOptions: {
-        label: '다시는 보지 않기',
-        checked: false,
-        size: 'small',
-        color: 'white',
-        onChange: checkCheckBox,
-      },
-      type: 'danger',
-      typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
-        buttonFunction: closeDialog,
-      },
-    };
-
-    return <DialogButton option={option} />;
-  },
-  name: '다이얼로그 모바일 - danger',
-  parameters: {
-    layout: 'centered',
-    backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
-      values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' },
-      ],
-    },
-  },
-};
-
-export const MobileSingle: StoryObj = {
-  render: function Render() {
-    const { closeDialog, checkCheckBox } = useContext(DialogContext);
-
-    const option: DialogOptionType = {
-      device: 'mobile',
-      title: '타이틀 자리입니다.',
-      description: <>안녕하세요! makers입니다.</>,
-      checkBoxOptions: {
-        label: '다시는 보지 않기',
-        checked: false,
-        size: 'small',
-        color: 'white',
-        onChange: checkCheckBox,
-      },
-      type: 'single',
-      typeOptions: {
-        approveButtonText: '확인',
-        buttonFunction: closeDialog,
-      },
-    };
-
-    return <DialogButton option={option} />;
-  },
-  name: '다이얼로그 모바일 - single',
   parameters: {
     layout: 'centered',
     backgrounds: {
