@@ -64,3 +64,8 @@ export const labelColor = styleVariants({
     color: `${colors.gray10}`,
   },
 });
+
+export const check = styleVariants({
+  small: { width: 10, height: 6 },
+  large: { width: 14, height: 8 },
+});
