@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { createContext, useRef, useState } from "react";
-import ToastComponent from "./Toast";
-import { Children, ToastOptionType } from "./types";
+import { createContext, useRef, useState } from 'react';
+import ToastComponent from './Toast';
+import { Children, ToastOptionType } from './types';
 
 export const ToastContext = createContext({
   openToast(option: ToastOptionType) {},

@@ -41,17 +41,16 @@ export const description = style({
   maxHeight: '264px',
   overflowY: 'scroll',
 
-  "::-webkit-scrollbar": {
-    width: '4px'
+  '::-webkit-scrollbar': {
+    width: '4px',
   },
-  "::-webkit-scrollbar-thumb": {
+  '::-webkit-scrollbar-thumb': {
     background: `${theme.colors.gray500}`,
     borderRadius: '4px',
   },
-  "::-webkit-scrollbar-track": {
-    background: 'none'
+  '::-webkit-scrollbar-track': {
+    background: 'none',
   },
-
 
   '@media': {
     'screen and (min-width: 768px)': {
@@ -76,4 +75,12 @@ export const footer = styleVariants({
   center: [footerBase, { width: '100%', display: 'flex', justifyContent: 'space-between' }],
   right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end', gap: '12px' }],
   left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start', gap: '12px' }],
+});
+
+export const base = style({
+  display: 'flex',
+  flexDirection: 'column',
+  borderRadius: '14px',
+  backgroundColor: `${theme.colors.gray800}`,
+  position: 'relative',
 });

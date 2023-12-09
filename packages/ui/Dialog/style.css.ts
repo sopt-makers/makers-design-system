@@ -22,3 +22,10 @@ export const overlay = style({
   justifyContent: 'center',
   backgroundColor: `${theme.colors.backgroundDimmed}`,
 });
+
+export const defaultButtonSize = styleVariants({
+  desktop: { width: '83px' },
+  mobile: { width: '127px' },
+  desktopsingle: { width: '83px' },
+  mobilesingle: { width: '100%' },
+});

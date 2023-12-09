@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, forwardRef } from 'react';
+import { ChangeEvent, InputHTMLAttributes, forwardRef } from 'react';
 import {
   checkBox,
   checkBoxChecked,
@@ -7,17 +7,18 @@ import {
   checkBoxWrapper,
 } from './style.css';
 
-interface CheckBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface CheckBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: string;
   size?: 'small' | 'large';
   checked?: boolean;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
-  ({ checked = false, label, size = 'small', ...props }, ref) => {
+  ({ checked = false, label, size = 'small', onChange, ...props }, ref) => {
     return (
       <label className={checkBoxWrapper}>
-        <input ref={ref} type="checkbox" {...props} className={checkBoxInput} />
+        <input ref={ref} type="checkbox" onChange={onChange} className={checkBoxInput} {...props} />
         <div className={`${checkBox[size]} ${checkBoxChecked[`${checked}`]}`}>
           {checked && (
             //   TODO: 체크 아이콘 삽입
