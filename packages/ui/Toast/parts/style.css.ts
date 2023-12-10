@@ -16,6 +16,7 @@ export const root = style({
   position: "fixed",
   top: "36px",
   left: "50%",
+  transform: "translateX(-50%)",
   transition: "transform .2s linear",
 
   width: "380px",
