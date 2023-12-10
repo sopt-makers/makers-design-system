@@ -1,6 +1,7 @@
 import { Meta, StoryObj, StoryFn } from "@storybook/react";
 import { Button } from "ui";
 import { useToast, ToastProvider, type ToastOptionType } from "ui";
+import { IconArchive } from "../../../../packages/icons/src";
 
 const meta: Meta = {
   title: "Components/Toast",
@@ -17,7 +18,7 @@ export default meta;
 
 type Story = StoryObj;
 
-const ToastSample = ({ option }: { option: ToastOptionType}) => {
+const ToastSample = ({ option }: { option: ToastOptionType }) => {
   const { open } = useToast();
   return <button onClick={() => open(option)}>Open Toast</button>;
 };
@@ -29,12 +30,12 @@ export const Default: Story = {
     return <ToastSample option={option} />;
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
+      default: "dark", // 기본 배경을 'dark'로 설정
       values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' }
+        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: "white", value: "#ffffff" },
       ],
     },
   },
@@ -51,12 +52,12 @@ export const TextOver: Story = {
     return <ToastSample option={option} />;
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
+      default: "dark", // 기본 배경을 'dark'로 설정
       values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' }
+        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: "white", value: "#ffffff" },
       ],
     },
   },
@@ -73,12 +74,34 @@ export const ActionButton: Story = {
     return <ToastSample option={option} />;
   },
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
+      default: "dark", // 기본 배경을 'dark'로 설정
       values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' }
+        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: "white", value: "#ffffff" },
+      ],
+    },
+  },
+};
+
+export const CustomIcon: Story = {
+  name: "custom icon",
+  render: () => {
+    const option: ToastOptionType = {
+      icon: <IconArchive />,
+      content: "커스텀 아이콘을 사용한 토스트",
+      action: { name: "보러가기", onClick: () => {} },
+    };
+    return <ToastSample option={option} />;
+  },
+  parameters: {
+    layout: "centered",
+    backgrounds: {
+      default: "dark", // 기본 배경을 'dark'로 설정
+      values: [
+        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: "white", value: "#ffffff" },
       ],
     },
   },
