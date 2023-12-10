@@ -1,10 +1,6 @@
-import {
-  CheckCircleTwoTone,
-  CloseCircleTwoTone,
-  InfoCircleTwoTone,
-} from "@ant-design/icons";
 import { ActionType, DefaultIconType, StrictPropsWithChildren } from "../types";
 import * as styles from "./style.css";
+import { ToastIconSuccess, ToastIconAlert, ToastIconError } from "../icons";
 
 // ============================== ToastRoot ===============================
 
@@ -13,9 +9,9 @@ interface RootProps {
 }
 
 const convertToIcon = {
-  success: CheckCircleTwoTone,
-  alert: InfoCircleTwoTone,
-  error: CloseCircleTwoTone,
+  success: ToastIconSuccess,
+  alert: ToastIconAlert,
+  error: ToastIconError,
 };
 
 function Root({ children, icon }: StrictPropsWithChildren<RootProps>) {
@@ -24,7 +20,11 @@ function Root({ children, icon }: StrictPropsWithChildren<RootProps>) {
 
   return (
     <div className={styles.root}>
-      {DefaultIcon ? <DefaultIcon /> : icon}
+      {DefaultIcon ? (
+        <DefaultIcon />
+      ) : (
+        <div className={styles.icon}>{icon}</div>
+      )}
       {children}
     </div>
   );
