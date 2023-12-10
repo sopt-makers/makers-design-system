@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 import CheckBox from 'ui/CheckBox';
 
 const meta = {
@@ -7,6 +6,13 @@ const meta = {
   component: CheckBox,
   parameters: {
     layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: "#0F1012" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
   },
   tags: ['autodocs'],
 } as Meta<typeof CheckBox>;
@@ -14,66 +20,25 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
-  render: function Render() {
-    const [checked, onChange] = useState<boolean>(false);
-
-    return <CheckBox checked={checked} size="small" onChange={(e) => onChange(e.target.checked)} />;
+export const Default: Story = {
+  args: {
+    checked: true,
+    size: 'small',
   },
-
-  name: '체크박스 기본',
 };
 
 export const LargeLabel: StoryObj = {
-  render: function Render() {
-    const [checked, onChange] = useState<boolean>(false);
-
-    return (
-      <CheckBox
-        checked={checked}
-        size="large"
-        label="Label"
-        onChange={(e) => onChange(e.target.checked)}
-      />
-    );
-  },
-
-  name: '체크박스 설명 있는 큰 사이즈',
-  parameters: {
-    layout: 'centered',
-    backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
-      values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' },
-      ],
-    },
+  args: {
+    checked: false,
+    size: 'large',
+    label: 'Label'
   },
 };
 
 export const SmallLabel: StoryObj = {
-  render: function Render() {
-    const [checked, onChange] = useState<boolean>(false);
-
-    return (
-      <CheckBox
-        checked={checked}
-        size="small"
-        label="Label"
-        onChange={(e) => onChange(e.target.checked)}
-      />
-    );
-  },
-
-  name: '체크박스 설명 있는 작은 사이즈',
-  parameters: {
-    layout: 'centered',
-    backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
-      values: [
-        { name: 'dark', value: '#2c2c2c' }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' },
-      ],
-    },
+  args: {
+    checked: false,
+    size: 'small',
+    label: 'Label'
   },
 };

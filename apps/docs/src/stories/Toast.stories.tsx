@@ -6,6 +6,17 @@ import { IconArchive } from "../../../../packages/icons/src";
 const meta: Meta = {
   title: "Components/Toast",
   component: Button,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+    backgrounds: {
+      default: 'dark', // 기본 배경을 'dark'로 설정
+      values: [
+        { name: 'dark', value: "#0F1012" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
+      ],
+    },
+  },
   decorators: [
     (Story: StoryFn) => (
       <ToastProvider>
@@ -23,26 +34,16 @@ const ToastSample = ({ option }: { option: ToastOptionType }) => {
   return <button onClick={() => open(option)}>Open Toast</button>;
 };
 
-export const Default: Story = {
-  name: "default - success",
+export const DefaultSuccess: Story = {
+  name: "Default - Success",
   render: () => {
     const option: ToastOptionType = { icon: "success", content: "기본 토스트" };
     return <ToastSample option={option} />;
   },
-  parameters: {
-    layout: "centered",
-    backgrounds: {
-      default: "dark", // 기본 배경을 'dark'로 설정
-      values: [
-        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: "white", value: "#ffffff" },
-      ],
-    },
-  },
 };
 
-export const TextOver: Story = {
-  name: "text over - alert",
+export const TextOverAlert: Story = {
+  name: "Text Over - Alert",
   render: () => {
     const option: ToastOptionType = {
       icon: "alert",
@@ -51,20 +52,10 @@ export const TextOver: Story = {
     };
     return <ToastSample option={option} />;
   },
-  parameters: {
-    layout: "centered",
-    backgrounds: {
-      default: "dark", // 기본 배경을 'dark'로 설정
-      values: [
-        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: "white", value: "#ffffff" },
-      ],
-    },
-  },
 };
 
-export const ActionButton: Story = {
-  name: "action button - error",
+export const ActionButtonError: Story = {
+  name: "Action Button - Error",
   render: () => {
     const option: ToastOptionType = {
       icon: "error",
@@ -73,20 +64,10 @@ export const ActionButton: Story = {
     };
     return <ToastSample option={option} />;
   },
-  parameters: {
-    layout: "centered",
-    backgrounds: {
-      default: "dark", // 기본 배경을 'dark'로 설정
-      values: [
-        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: "white", value: "#ffffff" },
-      ],
-    },
-  },
 };
 
-export const CustomIcon: Story = {
-  name: "custom icon",
+export const ActionButtonCustomIcon: Story = {
+  name: "Action Button - Custom Icon",
   render: () => {
     const option: ToastOptionType = {
       icon: <IconArchive />,
@@ -94,15 +75,5 @@ export const CustomIcon: Story = {
       action: { name: "보러가기", onClick: () => {} },
     };
     return <ToastSample option={option} />;
-  },
-  parameters: {
-    layout: "centered",
-    backgrounds: {
-      default: "dark", // 기본 배경을 'dark'로 설정
-      values: [
-        { name: "dark", value: "#2c2c2c" }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: "white", value: "#ffffff" },
-      ],
-    },
   },
 };
