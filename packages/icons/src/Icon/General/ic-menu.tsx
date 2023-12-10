@@ -1,5 +1,4 @@
-import React from "react";
-import { HTMLAttributes, forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 
 interface IconMenuProps extends HTMLAttributes<SVGSVGElement> {}
 
@@ -15,9 +14,9 @@ const IconMenu = forwardRef<SVGSVGElement, IconMenuProps>((props, ref) => {
       <path
         d="M3 12H21M3 6H21M3 18H15"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
