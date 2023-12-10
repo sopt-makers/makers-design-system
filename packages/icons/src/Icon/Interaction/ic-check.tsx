@@ -1,19 +1,12 @@
-import React from "react";
-import { HTMLAttributes, forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from 'react';
 
 interface IconCheckProps extends HTMLAttributes<SVGSVGElement> {}
 
 const IconCheck = forwardRef<SVGSVGElement, IconCheckProps>((props, ref) => {
   return (
-    <svg
-      {...props}
-      ref={ref}
-      fill="none"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg {...props} ref={ref} fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M20 6L9 17L4 12"
+        d="M4 10.6L9.33333 16L20 7"
         stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"

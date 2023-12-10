@@ -1,17 +1,18 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
 import * as Dialogs from '@radix-ui/react-dialog';
+import React from 'react';
 import { DialogDescription, DialogFooter, DialogTitle } from './components';
 import { dialogContainer, overlay } from './style.css';
+import { DialogProps } from './types';
 
-interface DialogProps {
-  isOpen: boolean;
-  onClose: () => void;
-  device: 'desktop' | 'mobile';
-  children?: ReactNode;
-}
-
-const DialogComponent: FC<DialogProps> = ({ isOpen, onClose, children, device, ...restProps }) => {
+export const DialogContainer: FC<DialogProps> = ({
+  isOpen,
+  onClose,
+  children,
+  device,
+  ...restProps
+}) => {
   return (
     <Dialogs.Root open={isOpen} onOpenChange={onClose}>
       <Dialogs.Portal>
@@ -27,7 +28,7 @@ const DialogComponent: FC<DialogProps> = ({ isOpen, onClose, children, device, .
   );
 };
 
-const Dialog = Object.assign(DialogComponent, {
+const Dialog = Object.assign(DialogContainer, {
   Title: DialogTitle,
   Description: DialogDescription,
   Footer: DialogFooter,
