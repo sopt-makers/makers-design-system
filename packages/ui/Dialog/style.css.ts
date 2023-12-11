@@ -36,3 +36,19 @@ export const buttonMinSize = styleVariants({
 export const checkBoxWapper = style({
   marginBottom: 20,
 });
+
+export const descriptionMarginBottom = styleVariants({
+  // MEMO: true는 체크박스가 있는 경우, false는 없는 경우
+  mobiletrue: {
+    marginBottom: 24,
+  },
+  mobilefalse: {
+    marginBottom: 24,
+  },
+  desktoptrue: {
+    marginBottom: 24,
+  },
+  desktopfalse: {
+    marginBottom: 36,
+  },
+});

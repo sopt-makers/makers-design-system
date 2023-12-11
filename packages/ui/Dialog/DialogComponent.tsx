@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from '.';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
-import { buttonMinSize, buttonSize, checkBoxWapper } from './style.css';
+import { buttonMinSize, buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
 import { DialogValueProps } from './types';
 
 export const DialogComponent = ({
@@ -23,10 +23,11 @@ export const DialogComponent = ({
   return (
     <Dialog isOpen={isOpen} onClose={onClose} device={device}>
       <Dialog.Title device={device}>{title}</Dialog.Title>
-      <Dialog.Description device={device} isCheck={checkBoxOptions !== undefined}>
-        {description}
-      </Dialog.Description>
-
+      <div className={descriptionMarginBottom[`${device}${checkBoxOptions !== undefined}`]}>
+        <Dialog.Description device={device} isCheck={checkBoxOptions !== undefined}>
+          {description}
+        </Dialog.Description>
+      </div>
       {checkBoxOptions && (
         <div className={checkBoxWapper}>
           <CheckBox

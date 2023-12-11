@@ -38,7 +38,6 @@ export const descriptionBase = style({
   maxHeight: '264px',
   overflowY: 'scroll',
   color: `${theme.colors.gray100}`,
-  marginBottom: 24,
 
   '::-webkit-scrollbar': {
     width: '4px',
@@ -79,15 +78,6 @@ export const description = styleVariants({
   ],
 });
 
-export const margintBottom = styleVariants({
-  true: {
-    marginBottom: 24,
-  },
-  false: {
-    marginBottom: 36,
-  },
-});
-
 export const footerBase = style({
   display: 'grid',
   gridAutoFlow: 'column',
@@ -95,8 +85,8 @@ export const footerBase = style({
 
 export const footer = styleVariants({
   center: [footerBase, { width: '100%', display: 'flex', justifyContent: 'space-between' }],
-  right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end', gap: '12px' }],
-  left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start', gap: '12px' }],
+  right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end' }],
+  left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start' }],
 });
 
 export const base = style({
