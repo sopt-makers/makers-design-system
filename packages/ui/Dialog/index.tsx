@@ -10,7 +10,7 @@ export const DialogContainer: FC<DialogProps> = ({
   isOpen,
   onClose,
   children,
-  device,
+  device = 'mobile',
   ...restProps
 }) => {
   return (
