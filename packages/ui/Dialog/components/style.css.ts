@@ -97,7 +97,6 @@ export const base = style({
   position: 'relative',
 });
 
-export const gap = styleVariants({
-  desktop: { gap: 12 },
-  mobile: { gap: 8 },
+export const gap = style({
+  gap: 'var(--mds-dialog-container-button-gap,12px)',
 });

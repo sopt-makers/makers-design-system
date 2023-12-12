@@ -1,17 +1,17 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import theme from '../theme.css';
 
-export const base = style({
+export const dialogContainer = style({
   display: 'flex',
   flexDirection: 'column',
   borderRadius: '14px',
   backgroundColor: `${theme.colors.gray800}`,
   position: 'relative',
-});
 
-export const dialogContainer = styleVariants({
-  desktop: [base, { width: '400px', padding: '24px' }],
-  mobile: [base, { maxWidth: '324px', padding: '20px', margin: '0px 36px', minWidth: '303px' }],
+  padding: 'var(--mds-dialog-container-padding, 24px)',
+  margin: 'var(--mds-dialog-container-margin, 0px )',
+  maxWidth: 'var(--mds-dialog-container-max-width, 400px)',
+  minWidth: 'var(--mds-dialog-container-min-width, 400px)',
 });
 
 export const overlay = style({
@@ -23,9 +23,8 @@ export const overlay = style({
   backgroundColor: `${theme.colors.backgroundDimmed}`,
 });
 
-export const buttonSize = styleVariants({
-  desktop: { width: '83px' },
-  mobile: { width: '100%' },
+export const buttonSize = style({
+  width: 'var(--mds-dialog-container-button-size, 83px)',
 });
 
 export const buttonMinSize = styleVariants({

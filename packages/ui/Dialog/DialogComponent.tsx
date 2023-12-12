@@ -42,44 +42,20 @@ export const DialogComponent = ({
       <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'} device={device}>
         {type === 'default' && (
           <>
-            <Button
-              size="md"
-              rounded="md"
-              theme="black"
-              onClick={onClose}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
               {typeOptions?.cancelButtonText}
             </Button>
-            <Button
-              size="md"
-              rounded="md"
-              theme="white"
-              onClick={onApprove}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="white" onClick={onApprove} className={buttonSize}>
               {typeOptions?.approveButtonText}
             </Button>
           </>
         )}
         {type === 'danger' && (
           <>
-            <Button
-              size="md"
-              rounded="md"
-              theme="black"
-              onClick={onClose}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
               {typeOptions?.cancelButtonText}
             </Button>
-            <Button
-              size="md"
-              rounded="md"
-              theme="red"
-              onClick={onApprove}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
               {typeOptions?.approveButtonText}
             </Button>
           </>
@@ -90,7 +66,7 @@ export const DialogComponent = ({
             rounded="md"
             theme="white"
             onClick={onApprove}
-            className={`${buttonSize[device]} ${device === 'mobile' && buttonMinSize['single']}`}
+            className={`${buttonSize} ${device === 'mobile' && buttonMinSize['single']}`}
           >
             {typeOptions?.approveButtonText}
           </Button>

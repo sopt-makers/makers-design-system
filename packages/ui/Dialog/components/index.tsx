@@ -11,5 +11,5 @@ export function DialogDescription({ children, device = 'mobile' }: DialogDescrip
 }
 
 export function DialogFooter({ children, align, device = 'mobile' }: DialogFooterProp) {
-  return <div className={`${footer[align]} ${gap[device]}`}>{children}</div>;
+  return <div className={`${footer[align]} ${gap}`}>{children}</div>;
 }

@@ -6,19 +6,13 @@ import { DialogDescription, DialogFooter, DialogTitle } from './components';
 import { dialogContainer, overlay } from './style.css';
 import { DialogProps } from './types';
 
-export const DialogContainer: FC<DialogProps> = ({
-  isOpen,
-  onClose,
-  children,
-  device = 'mobile',
-  ...restProps
-}) => {
+export const DialogContainer: FC<DialogProps> = ({ isOpen, onClose, children, ...restProps }) => {
   return (
     <Dialogs.Root open={isOpen} onOpenChange={onClose}>
       <Dialogs.Portal>
         <Dialogs.Overlay className={overlay}>
           <div>
-            <Dialogs.Content className={dialogContainer[device]} asChild {...restProps}>
+            <Dialogs.Content className={dialogContainer} asChild {...restProps}>
               <div>{children}</div>
             </Dialogs.Content>
           </div>
