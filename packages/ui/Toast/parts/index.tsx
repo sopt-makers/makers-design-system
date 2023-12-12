@@ -4,22 +4,24 @@ import { ToastIconSuccess, ToastIconAlert, ToastIconError } from "../icons";
 
 // ============================== ToastRoot ===============================
 
-interface RootProps {
-  icon: DefaultIconType | React.ReactElement;
-}
-
 const convertToIcon = {
   success: ToastIconSuccess,
   alert: ToastIconAlert,
   error: ToastIconError,
 };
 
-function Root({ children, icon }: StrictPropsWithChildren<RootProps>) {
+interface RootProps {
+  icon: DefaultIconType | React.ReactElement;
+  style?: React.CSSProperties;
+}
+
+function Root(props: StrictPropsWithChildren<RootProps>) {
+  const { children, icon, style } = props;
   const isDefaultIcon = typeof icon === "string";
   const DefaultIcon = isDefaultIcon ? convertToIcon[icon] : undefined;
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} style={style}>
       {DefaultIcon ? (
         <DefaultIcon />
       ) : (
@@ -32,19 +34,28 @@ function Root({ children, icon }: StrictPropsWithChildren<RootProps>) {
 
 // ============================== ToastContent ===============================
 
-function Content(props: { content: string }) {
-  const { content } = props;
+interface ContentProps {
+  content: string;
+  style?: React.CSSProperties;
+}
 
-  return <p className={styles.content}>{content}</p>;
+function Content(props : ContentProps) {
+  const { content, style } = props;
+
+  return <p className={styles.content} style={style}>{content}</p>;
 }
 
 // ============================== ToastAction ===============================
 
-function Action(props: ActionType) {
-  const { name, ...actionProps } = props;
+interface ActionProps extends ActionType {
+  style?: React.CSSProperties;
+}
+
+function Action(props: ActionProps) {
+  const { name, style, ...actionProps } = props;
 
   return (
-    <button className={styles.action} {...actionProps}>
+    <button className={styles.action} style={style} {...actionProps}>
       {name}
     </button>
   );

@@ -8,8 +8,15 @@ export type ActionType = {
   name: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
+export type Styles = "root" | "content" | "action";
+
+export type StyleType = {
+  [key in Styles]?: React.CSSProperties;
+};
+
 export type ToastOptionType = {
-  icon: DefaultIconType | React.ReactElement;
+  icon?: DefaultIconType | React.ReactElement;
   content: string;
   action?: ActionType;
+  style?: StyleType,
 };
