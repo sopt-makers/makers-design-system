@@ -8,6 +8,7 @@ const toastAnimation = keyframes({
 
 export const root = style({
   animation: `${toastAnimation} 4s`,
+  animationFillMode: "forwards",
 
   display: "flex",
   alignItems: "center",
