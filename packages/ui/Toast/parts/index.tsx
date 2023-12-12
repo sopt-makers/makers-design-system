@@ -1,6 +1,7 @@
 import { ActionType, DefaultIconType, StrictPropsWithChildren } from "../types";
 import * as styles from "./style.css";
 import { ToastIconSuccess, ToastIconAlert, ToastIconError } from "../icons";
+import { forwardRef } from "react";
 
 // ============================== ToastRoot ===============================
 
@@ -15,13 +16,13 @@ interface RootProps {
   style?: React.CSSProperties;
 }
 
-function Root(props: StrictPropsWithChildren<RootProps>) {
+function Root(props: StrictPropsWithChildren<RootProps>, ref: React.Ref<HTMLDivElement>) {
   const { children, icon, style } = props;
   const isDefaultIcon = typeof icon === "string";
   const DefaultIcon = isDefaultIcon ? convertToIcon[icon] : undefined;
 
   return (
-    <div className={styles.root} style={style}>
+    <div ref={ref} className={styles.root} style={style} >
       {DefaultIcon ? (
         <DefaultIcon />
       ) : (
@@ -31,6 +32,8 @@ function Root(props: StrictPropsWithChildren<RootProps>) {
     </div>
   );
 }
+
+const WrappedRoot = forwardRef(Root);
 
 // ============================== ToastContent ===============================
 
@@ -61,4 +64,4 @@ function Action(props: ActionProps) {
   );
 }
 
-export { Root, Content, Action };
+export { WrappedRoot as Root, Content, Action };

@@ -58,7 +58,10 @@ export const DefaultSuccess: StoryObj = {
   name: "Default - Success",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
-    const option: ToastOptionType = { icon: "success", content: "기본 토스트" };
+    const option: ToastOptionType = {
+      icon: "success",
+      content: "기본 토스트입니다.",
+    };
     return <ToastSample option={option} />;
   },
 };
@@ -70,7 +73,7 @@ export const TextOverAlert: StoryObj = {
     const option: ToastOptionType = {
       icon: "alert",
       content:
-        "두 줄을 넘었습니다. 두 줄을 넘었습니다. 두 줄을 넘었습니다. 두 줄을 넘었습니다. 두 줄을 넘었습니다. 두 줄을 넘었습니다. 두 줄을 넘었습니다. ",
+        "토스트 내용은 두 줄을 초과할 수 없습니다. 토스트 내용은 두 줄을 초과할 수 없습니다. 토스트 내용은 두 줄을 초과할 수 없습니다. ",
     };
     return <ToastSample option={option} />;
   },
@@ -82,7 +85,7 @@ export const ActionButtonError: StoryObj = {
   render: () => {
     const option: ToastOptionType = {
       icon: "error",
-      content: "액션 버튼이 있는 토스트",
+      content: "액션 버튼이 있는 토스트입니다.",
       action: { name: "보러가기", onClick: () => {} },
     };
     return <ToastSample option={option} />;
@@ -95,9 +98,27 @@ export const ActionButtonCustomIcon: StoryObj = {
   render: () => {
     const option: ToastOptionType = {
       icon: <IconArchive />,
-      content: "커스텀 아이콘을 사용한 토스트",
+      content: "커스텀 아이콘을 사용한 토스트입니다.",
       action: { name: "보러가기", onClick: () => {} },
     };
     return <ToastSample option={option} />;
+  },
+};
+
+export const CloseToast: StoryObj = {
+  name: "CloseToast",
+  argTypes: { icon: { control: { disable: true } } },
+  render: () => {
+    const { open, close } = useToast();
+    const option: ToastOptionType = {
+      icon: "alert",
+      content: "토스트를 원하는 타이밍에 닫을 수 있습니다.",
+    };
+    return (
+      <>
+        <button onClick={() => open(option)}>Open Toast</button>
+        <button onClick={close}>Close Toast</button>
+      </>
+    );
   },
 };
