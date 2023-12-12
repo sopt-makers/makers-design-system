@@ -8,7 +8,6 @@ export const desktopVariables = `:root {
     --mds-dialog-container-min-width:400px;
     --mds-dialog-container-button-size:83px;
     --mds-dialog-container-button-gap:12px;
-
   }`;
 
 export const mobileVariables = `:root {
@@ -21,14 +20,4 @@ export const mobileVariables = `:root {
     --mds-dialog-container-min-width:303px;
     --mds-dialog-container-button-size:100%;
     --mds-dialog-container-button-gap:8px;
-
-    --mds-dialog-title:{
-        fontFamily: 'SUIT',
-        fontSize: '18px',
-        fontStyle: 'normal',
-        fontWeight: '600',
-        lineHeight: '28px',
-        letterSpacing: '-0.36px',
-        marginBottom: 8,
-      },
   }`;
