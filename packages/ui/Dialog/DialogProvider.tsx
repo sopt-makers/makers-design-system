@@ -36,12 +36,20 @@ function DialogProvider({ children }: ProviderChildren) {
   };
 
   return (
-    <DialogContext.Provider value={{ openDialog, closeDialog, checkCheckBox }}>
-      {children}
-      {dialogOption && isMounted && (
-        <DialogComponent isOpen={dialogOption !== null} onClose={closeDialog} {...dialogOption} />
+    <>
+      {isMounted && (
+        <DialogContext.Provider value={{ openDialog, closeDialog, checkCheckBox }}>
+          {children}
+          {dialogOption && (
+            <DialogComponent
+              isOpen={dialogOption !== null}
+              onClose={closeDialog}
+              {...dialogOption}
+            />
+          )}
+        </DialogContext.Provider>
       )}
-    </DialogContext.Provider>
+    </>
   );
 }
 
