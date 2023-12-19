@@ -1,10 +1,10 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 import { colors } from '../colors/src';
-import { fonts } from '../fonts/src';
+import { fontsObject } from '../fonts/src/fonts';
 
-export const theme = createGlobalTheme("body", {
+export const theme = createGlobalTheme('body', {
   colors,
-  fonts
+  fontsObject,
 });
 
 export default theme;

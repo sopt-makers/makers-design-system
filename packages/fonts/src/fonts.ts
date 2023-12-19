@@ -58,35 +58,8 @@ export const fontsObject = {
   LABEL_14_SB: fontObj({ fontWeight: 600, fontSize: 14, lineHeight: 18, letterSpacing: -2 }),
   LABEL_12_SB: fontObj({ fontWeight: 600, fontSize: 12, lineHeight: 16, letterSpacing: -2 }),
   LABEL_11_SB: fontObj({ fontWeight: 600, fontSize: 11, lineHeight: 14, letterSpacing: -2 }),
-};
+} satisfies Record<string, Font>;
 
-export const fonts = {
-  HEADING_48_B: fontStr(fontsObject.HEADING_48_B),
-  HEADING_32_B: fontStr(fontsObject.HEADING_32_B),
-  HEADING_28_B: fontStr(fontsObject.HEADING_28_B),
-  HEADING_24_B: fontStr(fontsObject.HEADING_24_B),
-  HEADING_20_B: fontStr(fontsObject.HEADING_20_B),
-  HEADING_18_B: fontStr(fontsObject.HEADING_18_B),
-  HEADING_16_B: fontStr(fontsObject.HEADING_16_B),
-  TITLE_32_SB: fontStr(fontsObject.TITLE_32_SB),
-  TITLE_28_SB: fontStr(fontsObject.TITLE_28_SB),
-  TITLE_24_SB: fontStr(fontsObject.TITLE_24_SB),
-  TITLE_20_SB: fontStr(fontsObject.TITLE_20_SB),
-  TITLE_18_SB: fontStr(fontsObject.TITLE_18_SB),
-  TITLE_16_SB: fontStr(fontsObject.TITLE_16_SB),
-  TITLE_14_SB: fontStr(fontsObject.TITLE_14_SB),
-  BODY_18_M: fontStr(fontsObject.BODY_18_M),
-  BODY_16_M: fontStr(fontsObject.BODY_16_M),
-  BODY_16_R: fontStr(fontsObject.BODY_16_R),
-  BODY_14_M: fontStr(fontsObject.BODY_14_M),
-  BODY_14_R: fontStr(fontsObject.BODY_14_R),
-  BODY_14_L: fontStr(fontsObject.BODY_14_L),
-  BODY_13_M: fontStr(fontsObject.BODY_13_M),
-  BODY_13_R: fontStr(fontsObject.BODY_13_R),
-  BODY_13_L: fontStr(fontsObject.BODY_13_L),
-  LABEL_18_SB: fontStr(fontsObject.LABEL_18_SB),
-  LABEL_16_SB: fontStr(fontsObject.LABEL_16_SB),
-  LABEL_14_SB: fontStr(fontsObject.LABEL_14_SB),
-  LABEL_12_SB: fontStr(fontsObject.LABEL_12_SB),
-  LABEL_11_SB: fontStr(fontsObject.LABEL_11_SB),
-};
+export const fontsString = Object.fromEntries(
+  Object.entries(fontsObject).map(([key, value]) => [key, fontStr(value)])
+);
