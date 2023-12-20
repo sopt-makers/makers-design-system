@@ -1,4 +1,4 @@
-import { colorThemeToTextColor } from './constants';
+import { colorThemeToTextColor, iconSizes, textColors } from './constants';
 import { sprinkles } from './style.css';
 import { ButtonColorTheme, ButtonRadiusTheme, ButtonSizeTheme } from './types';
 
@@ -22,4 +22,17 @@ export function createButtonVariant(
     padding: sizeTheme,
     fontSize: sizeTheme,
   });
+}
+
+export function getIconStyles(
+  colorTheme: ButtonColorTheme,
+  sizeTheme: ButtonSizeTheme
+): React.CSSProperties {
+  const iconSize = iconSizes[sizeTheme];
+  const iconColor = textColors[colorThemeToTextColor[colorTheme]];
+  return {
+    color: iconColor,
+    width: iconSize,
+    height: iconSize,
+  };
 }

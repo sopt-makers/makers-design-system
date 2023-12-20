@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from 'ui';
+import { IconCheck } from '../../../../packages/icons/src';
 
 interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';
@@ -21,8 +22,8 @@ export default {
     backgrounds: {
       default: 'dark', // 기본 배경을 'dark'로 설정
       values: [
-        { name: 'dark', value: "#0F1012" }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' }
+        { name: 'dark', value: '#0F1012' }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'white', value: '#ffffff' },
       ],
     },
   },
@@ -47,6 +48,7 @@ export const Another: StoryObj<ButtonStoryProps> = {
     theme: 'red',
     rounded: 'lg',
     disabled: false,
+    LeftIcon: IconCheck,
   },
 };
 

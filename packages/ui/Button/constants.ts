@@ -50,3 +50,9 @@ export const fontSizes: Record<ButtonSizeTheme, string> = {
   md: '14px',
   lg: '18px',
 };
+
+export const iconSizes: Record<ButtonSizeTheme, string> = {
+  sm: '16px',
+  md: '20px',
+  lg: '24px',
+};

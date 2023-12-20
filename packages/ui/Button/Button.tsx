@@ -1,8 +1,6 @@
 import React from 'react';
 import * as S from './style.css';
-import { createButtonVariant } from './utils';
-
-type IconProps = { color?: string };
+import { createButtonVariant, getIconStyles } from './utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
@@ -10,8 +8,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
   theme?: 'white' | 'black' | 'blue' | 'red';
   rounded?: 'md' | 'lg';
-  LeftIcon?: React.ComponentType<IconProps>;
-  RightIcon?: React.ComponentType<IconProps>;
+  LeftIcon?: React.ComponentType<any>;
+  RightIcon?: React.ComponentType<any>;
 }
 
 function Button({
@@ -25,14 +23,16 @@ function Button({
   ...buttonElementProps
 }: ButtonProps) {
   const variant = createButtonVariant(theme, rounded, size);
+  const iconStyles = getIconStyles(theme, size);
+
   return (
     <button
       className={`${S.root} ${variant} ${className}`}
       {...buttonElementProps}
     >
-      {LeftIcon && <LeftIcon />}
+      {LeftIcon && <LeftIcon style={iconStyles} />}
       <span>{children}</span>
-      {RightIcon && <RightIcon />}
+      {RightIcon && <RightIcon style={iconStyles} />}
     </button>
   );
 }
