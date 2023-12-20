@@ -8,10 +8,10 @@ export const dialogContainer = style({
   backgroundColor: `${theme.colors.gray800}`,
   position: 'relative',
 
-  padding: 'var(--mds-dialog-container-padding, 24px)',
-  margin: 'var(--mds-dialog-container-margin, 0px )',
-  maxWidth: 'var(--mds-dialog-container-max-width, 400px)',
-  minWidth: 'var(--mds-dialog-container-min-width, 400px)',
+  padding: 'var(--mds-dialog-container-padding, 20px)',
+  margin: 'var(--mds-dialog-container-margin, 0px 36px )',
+  maxWidth: 'var(--mds-dialog-container-max-width, 324px)',
+  minWidth: 'var(--mds-dialog-container-min-width, 303px)',
 });
 
 export const overlay = style({
@@ -24,7 +24,7 @@ export const overlay = style({
 });
 
 export const buttonSize = style({
-  width: 'var(--mds-dialog-container-button-size, 83px)',
+  width: 'var(--mds-dialog-container-button-size, 100%)',
 });
 
 export const buttonMinSize = styleVariants({

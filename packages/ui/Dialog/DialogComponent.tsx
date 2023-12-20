@@ -22,9 +22,9 @@ export const DialogComponent = ({
 
   return (
     <Dialog isOpen={isOpen} onClose={onClose} device={device}>
-      <Dialog.Title device={device}>{title}</Dialog.Title>
+      <Dialog.Title>{title}</Dialog.Title>
       <div className={descriptionMarginBottom[`${device}${checkBoxOptions !== undefined}`]}>
-        <Dialog.Description device={device} isCheck={checkBoxOptions !== undefined}>
+        <Dialog.Description isCheck={checkBoxOptions !== undefined}>
           {description}
         </Dialog.Description>
       </div>
@@ -39,7 +39,7 @@ export const DialogComponent = ({
           />
         </div>
       )}
-      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'} device={device}>
+      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'}>
         {type === 'default' && (
           <>
             <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
