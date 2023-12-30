@@ -62,4 +62,4 @@ export const fontsObject = {
 
 export const fontsString = Object.fromEntries(
   Object.entries(fontsObject).map(([key, value]) => [key, fontStr(value)])
-);
+) as Record<keyof typeof fontsObject, string>;
