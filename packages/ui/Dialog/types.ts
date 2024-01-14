@@ -3,7 +3,6 @@ import { CheckBoxProps } from '../CheckBox';
 
 export interface ChildrenProp {
   children: ReactNode;
-  device: 'desktop' | 'mobile';
 }
 
 export interface DialogDescriptionProps extends ChildrenProp {
@@ -12,7 +11,6 @@ export interface DialogDescriptionProps extends ChildrenProp {
 
 export interface DialogFooterProp extends ChildrenProp {
   align: 'center' | 'left' | 'right';
-  device: 'desktop' | 'mobile';
 }
 
 interface TypeOptionsProp {

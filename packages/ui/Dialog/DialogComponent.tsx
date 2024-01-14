@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from '.';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
-import { buttonMinSize, buttonSize, checkBoxWapper } from './style.css';
+import { buttonMinSize, buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
 import { DialogValueProps } from './types';
 
 export const DialogComponent = ({
@@ -22,11 +22,12 @@ export const DialogComponent = ({
 
   return (
     <Dialog isOpen={isOpen} onClose={onClose} device={device}>
-      <Dialog.Title device={device}>{title}</Dialog.Title>
-      <Dialog.Description device={device} isCheck={checkBoxOptions !== undefined}>
-        {description}
-      </Dialog.Description>
-
+      <Dialog.Title>{title}</Dialog.Title>
+      <div className={descriptionMarginBottom[`${device}${checkBoxOptions !== undefined}`]}>
+        <Dialog.Description isCheck={checkBoxOptions !== undefined}>
+          {description}
+        </Dialog.Description>
+      </div>
       {checkBoxOptions && (
         <div className={checkBoxWapper}>
           <CheckBox
@@ -38,47 +39,23 @@ export const DialogComponent = ({
           />
         </div>
       )}
-      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'} device={device}>
+      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'}>
         {type === 'default' && (
           <>
-            <Button
-              size="md"
-              rounded="md"
-              theme="black"
-              onClick={onClose}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
               {typeOptions?.cancelButtonText}
             </Button>
-            <Button
-              size="md"
-              rounded="md"
-              theme="white"
-              onClick={onApprove}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="white" onClick={onApprove} className={buttonSize}>
               {typeOptions?.approveButtonText}
             </Button>
           </>
         )}
         {type === 'danger' && (
           <>
-            <Button
-              size="md"
-              rounded="md"
-              theme="black"
-              onClick={onClose}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
               {typeOptions?.cancelButtonText}
             </Button>
-            <Button
-              size="md"
-              rounded="md"
-              theme="red"
-              onClick={onApprove}
-              className={buttonSize[device]}
-            >
+            <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
               {typeOptions?.approveButtonText}
             </Button>
           </>
@@ -89,7 +66,7 @@ export const DialogComponent = ({
             rounded="md"
             theme="white"
             onClick={onApprove}
-            className={`${buttonSize[device]} ${device === 'mobile' && buttonMinSize['single']}`}
+            className={`${buttonSize} ${device === 'mobile' && buttonMinSize['single']}`}
           >
             {typeOptions?.approveButtonText}
           </Button>
