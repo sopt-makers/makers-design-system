@@ -1,5 +1,4 @@
-import React from "react";
-import { HTMLAttributes, forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 
 interface IconArrowDownLeftProps extends HTMLAttributes<SVGSVGElement> {}
 
@@ -16,9 +15,9 @@ const IconArrowDownLeft = forwardRef<SVGSVGElement, IconArrowDownLeftProps>(
         <path
           d="M17 7L7 17M7 17H17M7 17V7"
           stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     );

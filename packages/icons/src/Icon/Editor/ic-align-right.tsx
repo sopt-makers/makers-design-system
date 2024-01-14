@@ -1,5 +1,4 @@
-import React from "react";
-import { HTMLAttributes, forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 
 interface IconAlignRightProps extends HTMLAttributes<SVGSVGElement> {}
 
@@ -16,9 +15,9 @@ const IconAlignRight = forwardRef<SVGSVGElement, IconAlignRightProps>(
         <path
           d="M21 10H8M21 6H4M21 14H4M21 18H8"
           stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     );
