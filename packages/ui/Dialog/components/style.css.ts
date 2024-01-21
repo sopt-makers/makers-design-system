@@ -3,13 +3,13 @@ import theme from '../../theme.css';
 
 export const title = style({
   color: `${theme.colors.gray10}`,
-  marginBottom: 'var(-mds-dialog-title-margin-bottom,8px)',
-  fontFamily: 'var(-mds-dialog-title-font-family, SUIT)',
-  fontSize: 'var(-mds-dialog-title-font-size, 18px)',
-  fontStyle: 'var(-mds-dialog-title-font-stlye, normal)',
-  fontWeight: 'var(-mds-dialog-title-font-weight, 600)',
-  lineHeight: 'var(-mds-dialog-title-font-line-height, 28px)',
-  letterSpacing: 'var(-mds-dialog-title-font-letter-spacing, -2%)',
+  marginBottom: 'var(--mds-dialog-title-margin-bottom,8px)',
+  fontFamily: 'var(--mds-dialog-title-font-family,SUIT)',
+  fontSize: 'var(--mds-dialog-title-font-size,18px)',
+  fontStyle: 'var(--mds-dialog-title-font-style,normal)',
+  fontWeight: 'var(--mds-dialog-title-font-weight,600)',
+  lineHeight: 'var(--mds-dialog-title-font-line-height,28px)',
+  letterSpacing: 'var(--mds-dialog-title-font-letter-spacing,-2%)',
 });
 
 export const description = style({
@@ -17,12 +17,12 @@ export const description = style({
   overflowY: 'scroll',
   color: `${theme.colors.gray100}`,
 
-  fontFamily: 'var(-mds-dialog-description-font-family, SUIT)',
-  fontSize: 'var(-mds-dialog-description-font-size, 14px)',
-  fontStyle: 'var(-mds-dialog-description-font-stlye, normal)',
-  fontWeight: 'var(-mds-dialog-description-font-weight, 400)',
-  lineHeight: 'var(-mds-dialog-description-font-line-height, 22px)',
-  letterSpacing: 'var(-mds-dialog-v-font-letter-spacing, -1.5%)',
+  fontFamily: 'var(--mds-dialog-description-font-family, SUIT)',
+  fontSize: 'var(--mds-dialog-description-font-size, 14px)',
+  fontStyle: 'var(--mds-dialog-description-font-style, normal)',
+  fontWeight: 'var(--mds-dialog-description-font-weight, 400)',
+  lineHeight: 'var(--mds-dialog-description-font-line-height, 22px)',
+  letterSpacing: 'var(--mds-dialog-v-font-letter-spacing, -1.5%)',
 
   '::-webkit-scrollbar': {
     width: '4px',
