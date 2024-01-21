@@ -10,7 +10,7 @@ export interface DialogDescriptionProps extends ChildrenProp {
 }
 
 export interface DialogFooterProp extends ChildrenProp {
-  align: 'center' | 'left' | 'right';
+  align: 'center' | 'left' | 'right' | 'default';
 }
 
 interface TypeOptionsProp {
@@ -20,7 +20,6 @@ interface TypeOptionsProp {
 }
 
 export interface DialogOptionType {
-  device: 'desktop' | 'mobile';
   title: ReactNode;
   description: ReactNode;
   checkBoxOptions?: CheckBoxProps;

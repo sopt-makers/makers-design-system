@@ -27,6 +27,12 @@ export const desktopVariables = `:root {
   --mds-dialog-description-font-letter-spacing:-1.5%;
 
   --mds-dialog-description-margin-bottom:36px;
+
+  --mds-dialog-button-minsize:127px;
+
+  --mds-dialog-footer-width:100%;  
+  --mds-dialog-footer-display:flex;  
+  --mds-dialog-footer-justifycontent:flex-end;  
 }`;
 
 export const mobileVariables = `:root {
@@ -57,4 +63,10 @@ export const mobileVariables = `:root {
   --mds-dialog-description-font-letter-spacing:-1.5%;
 
   --mds-dialog-description-margin-bottom:24px;
+
+  --mds-dialog-button-minsize:263px;
+
+  --mds-dialog-footer-width:100%;  
+  --mds-dialog-footer-display:flex;  
+  --mds-dialog-footer-justifycontent:space-between;
 }`;

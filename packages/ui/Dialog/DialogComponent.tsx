@@ -8,7 +8,6 @@ import { DialogValueProps } from './types';
 export const DialogComponent = ({
   isOpen,
   onClose,
-  device = 'mobile',
   title,
   description,
   checkBoxOptions,
@@ -39,7 +38,7 @@ export const DialogComponent = ({
           />
         </div>
       )}
-      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'}>
+      <Dialog.Footer align={'default'}>
         {type === 'default' && (
           <>
             <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
@@ -66,7 +65,7 @@ export const DialogComponent = ({
             rounded="md"
             theme="white"
             onClick={onApprove}
-            className={`${buttonSize} ${device === 'mobile' && buttonMinSize['single']}`}
+            className={`${buttonSize} ${buttonMinSize['single']}`}
           >
             {typeOptions?.approveButtonText}
           </Button>

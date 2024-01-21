@@ -16,7 +16,7 @@ export default {
     backgrounds: {
       default: 'dark', // 기본 배경을 'dark'로 설정
       values: [
-        { name: 'dark', value: "#0F1012" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: 'dark', value: '#0F1012' }, // 'dark' 배경의 색상을 검정색으로 지정
         { name: 'white', value: '#ffffff' },
       ],
     },
@@ -43,7 +43,6 @@ export const DesktopDefault: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'desktop',
       title: '타이틀 자리입니다.',
       description: '안녕하세요! makers입니다.',
       type: 'default',
@@ -63,7 +62,6 @@ export const DesktopDanger: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'desktop',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       type: 'danger',
@@ -83,7 +81,6 @@ export const DesktopSingle: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'desktop',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       type: 'single',
@@ -102,7 +99,6 @@ export const DesktopSingleLabel: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'desktop',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       checkBoxOptions: {
@@ -129,7 +125,6 @@ export const DesktopSingleLong: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'desktop',
       title: '타이틀 자리입니다.',
       description: (
         <>
@@ -211,7 +206,6 @@ export const MobileDefault: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'mobile',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       type: 'default',
@@ -231,7 +225,6 @@ export const MobileDanger: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'mobile',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       type: 'danger',
@@ -251,7 +244,6 @@ export const MobileSingle: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'mobile',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       type: 'single',
@@ -270,7 +262,6 @@ export const MobileSingleLabel: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'mobile',
       title: '타이틀 자리입니다.',
       description: <>안녕하세요! makers입니다.</>,
       checkBoxOptions: {
@@ -297,7 +288,6 @@ export const MobileSingleLong: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      device: 'mobile',
       title: '타이틀 자리입니다.',
       description: (
         <>

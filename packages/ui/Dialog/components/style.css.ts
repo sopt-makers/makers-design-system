@@ -45,6 +45,14 @@ export const footer = styleVariants({
   center: [footerBase, { width: '100%', display: 'flex', justifyContent: 'space-between' }],
   right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end' }],
   left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start' }],
+  default: [
+    footerBase,
+    {
+      width: 'var(--mds-dialog-footer-width,100%)',
+      display: 'var(--mds-dialog-footer-display,flex)',
+      justifyContent: 'var(--mds-dialog-footer-justifycontent,space-between)',
+    },
+  ],
 });
 
 export const base = style({

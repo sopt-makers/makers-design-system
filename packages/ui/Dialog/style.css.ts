@@ -29,7 +29,7 @@ export const buttonSize = style({
 
 export const buttonMinSize = styleVariants({
   double: { minWidth: '127px' },
-  single: { minWidth: '263px' },
+  single: { minWidth: 'var(--mds-dialog-button-minsize, 263px)' },
 });
 
 export const checkBoxWapper = style({
