@@ -21,9 +21,9 @@ export const DialogComponent = ({
   };
 
   return (
-    <Dialog isOpen={isOpen} onClose={onClose} device={device}>
+    <Dialog isOpen={isOpen} onClose={onClose}>
       <Dialog.Title>{title}</Dialog.Title>
-      <div className={descriptionMarginBottom[`${device}${checkBoxOptions !== undefined}`]}>
+      <div className={descriptionMarginBottom[`${checkBoxOptions !== undefined}`]}>
         <Dialog.Description isCheck={checkBoxOptions !== undefined}>
           {description}
         </Dialog.Description>

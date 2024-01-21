@@ -25,6 +25,8 @@ export const desktopVariables = `:root {
   --mds-dialog-description-font-weight:400;
   --mds-dialog-description-font-line-height:26px;
   --mds-dialog-description-font-letter-spacing:-1.5%;
+
+  --mds-dialog-description-margin-bottom:36px;
 }`;
 
 export const mobileVariables = `:root {
@@ -53,4 +55,6 @@ export const mobileVariables = `:root {
   --mds-dialog-description-font-weight:400;
   --mds-dialog-description-font-line-height:22px;
   --mds-dialog-description-font-letter-spacing:-1.5%;
+
+  --mds-dialog-description-margin-bottom:24px;
 }`;

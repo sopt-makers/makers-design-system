@@ -9,7 +9,7 @@ export const dialogContainer = style({
   position: 'relative',
 
   padding: 'var(--mds-dialog-container-padding, 20px)',
-  margin: 'var(--mds-dialog-container-margin, 0px 36px )',
+  margin: 'var(--mds-dialog-container-margin, 0px 36px)',
   maxWidth: 'var(--mds-dialog-container-max-width, 324px)',
   minWidth: 'var(--mds-dialog-container-min-width, 303px)',
 });
@@ -38,16 +38,10 @@ export const checkBoxWapper = style({
 
 export const descriptionMarginBottom = styleVariants({
   // MEMO: true는 체크박스가 있는 경우, false는 없는 경우
-  mobiletrue: {
+  true: {
     marginBottom: 24,
   },
-  mobilefalse: {
-    marginBottom: 24,
-  },
-  desktoptrue: {
-    marginBottom: 24,
-  },
-  desktopfalse: {
-    marginBottom: 36,
+  false: {
+    marginBottom: 'var(--mds-dialog-description-margin-bottom,24px)',
   },
 });

@@ -36,7 +36,6 @@ export interface DialogValueProps extends DialogOptionType {
 export interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
-  device: 'desktop' | 'mobile';
   children?: ReactNode;
 }
 
