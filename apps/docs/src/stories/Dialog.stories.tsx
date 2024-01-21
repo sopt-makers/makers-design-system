@@ -1,8 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
-import Dialog from 'ui/Dialog';
-
 import { useContext } from 'react';
+import { Dialog } from 'ui';
 import DialogProvider, { DialogContext } from 'ui/Dialog/DialogProvider';
 import { DialogOptionType } from 'ui/Dialog/types';
 import useDialog from '../../../../packages/ui/Dialog/useDialog';
@@ -106,7 +105,7 @@ export const DesktopSingleLabel: StoryObj = {
         checked: false,
         size: 'small',
         color: 'white',
-        onChange: checkCheckBox,
+        onChange: (e) => checkCheckBox(e.target.checked),
       },
       type: 'single',
       typeOptions: {
@@ -178,7 +177,7 @@ export const DesktopSingleLong: StoryObj = {
         checked: false,
         size: 'small',
         color: 'white',
-        onChange: checkCheckBox,
+        onChange: (e) => checkCheckBox(e.target.checked),
       },
       type: 'default',
       typeOptions: {
@@ -269,7 +268,7 @@ export const MobileSingleLabel: StoryObj = {
         checked: false,
         size: 'small',
         color: 'white',
-        onChange: checkCheckBox,
+        onChange: (e) => checkCheckBox(e.target.checked),
       },
       type: 'single',
       typeOptions: {
@@ -333,7 +332,7 @@ export const MobileSingleLong: StoryObj = {
         checked: false,
         size: 'small',
         color: 'white',
-        onChange: checkCheckBox,
+        onChange: (e) => checkCheckBox(e.target.checked),
       },
       type: 'default',
       typeOptions: {

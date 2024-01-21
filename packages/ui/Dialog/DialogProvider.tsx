@@ -25,7 +25,7 @@ function DialogProvider({ children }: ProviderChildren) {
   const checkCheckBox = (isCheckValue:boolean) => {
     setIsCheck(isCheckValue);
   };
-
+  
   useEffect(() => {
     if (dialogOption?.checkBoxOptions) {
       const newCheckBoxOption = { ...dialogOption.checkBoxOptions, checked: isCheck };
