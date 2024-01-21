@@ -8,7 +8,6 @@ import { DialogValueProps } from './types';
 export const DialogComponent = ({
   isOpen,
   onClose,
-  device = 'mobile',
   title,
   description,
   checkBoxOptions,
@@ -21,9 +20,9 @@ export const DialogComponent = ({
   };
 
   return (
-    <Dialog isOpen={isOpen} onClose={onClose} device={device}>
+    <Dialog isOpen={isOpen} onClose={onClose}>
       <Dialog.Title>{title}</Dialog.Title>
-      <div className={descriptionMarginBottom[`${device}${checkBoxOptions !== undefined}`]}>
+      <div className={descriptionMarginBottom[`${checkBoxOptions !== undefined}`]}>
         <Dialog.Description isCheck={checkBoxOptions !== undefined}>
           {description}
         </Dialog.Description>
@@ -39,39 +38,47 @@ export const DialogComponent = ({
           />
         </div>
       )}
-      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'}>
-        {type === 'default' && (
-          <>
-            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
-              {typeOptions?.cancelButtonText}
-            </Button>
-            <Button size="md" rounded="md" theme="white" onClick={onApprove} className={buttonSize}>
+      {type && typeOptions && (
+        <Dialog.Footer align={'default'}>
+          {type === 'default' && (
+            <>
+              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
+                {typeOptions?.cancelButtonText}
+              </Button>
+              <Button
+                size="md"
+                rounded="md"
+                theme="white"
+                onClick={onApprove}
+                className={buttonSize}
+              >
+                {typeOptions?.approveButtonText}
+              </Button>
+            </>
+          )}
+          {type === 'danger' && (
+            <>
+              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
+                {typeOptions?.cancelButtonText}
+              </Button>
+              <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
+                {typeOptions?.approveButtonText}
+              </Button>
+            </>
+          )}
+          {type === 'single' && (
+            <Button
+              size="md"
+              rounded="md"
+              theme="white"
+              onClick={onApprove}
+              className={`${buttonSize} ${buttonMinSize['single']}`}
+            >
               {typeOptions?.approveButtonText}
             </Button>
-          </>
-        )}
-        {type === 'danger' && (
-          <>
-            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
-              {typeOptions?.cancelButtonText}
-            </Button>
-            <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
-              {typeOptions?.approveButtonText}
-            </Button>
-          </>
-        )}
-        {type === 'single' && (
-          <Button
-            size="md"
-            rounded="md"
-            theme="white"
-            onClick={onApprove}
-            className={`${buttonSize} ${device === 'mobile' && buttonMinSize['single']}`}
-          >
-            {typeOptions?.approveButtonText}
-          </Button>
-        )}
-      </Dialog.Footer>
+          )}
+        </Dialog.Footer>
+      )}
     </Dialog>
   );
 };

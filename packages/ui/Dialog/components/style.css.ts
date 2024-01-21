@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { keyframes, style, styleVariants } from '@vanilla-extract/css';
 import theme from '../../theme.css';
 
 export const title = style({
@@ -45,6 +45,14 @@ export const footer = styleVariants({
   center: [footerBase, { width: '100%', display: 'flex', justifyContent: 'space-between' }],
   right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end' }],
   left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start' }],
+  default: [
+    footerBase,
+    {
+      width: 'var(--mds-dialog-footer-width,100%)',
+      display: 'var(--mds-dialog-footer-display,flex)',
+      justifyContent: 'var(--mds-dialog-footer-justifycontent,space-between)',
+    },
+  ],
 });
 
 export const base = style({
@@ -57,4 +65,17 @@ export const base = style({
 
 export const gap = style({
   gap: 'var(--mds-dialog-container-button-gap,8px)',
+});
+
+const dialogAnimation = keyframes({
+  '0%': {
+    transform: 'scale(0)',
+  },
+  '100%': {
+    transform: 'scale(1)',
+  },
+});
+
+export const animation = style({
+  animation: `${dialogAnimation} 0.3s`,
 });
