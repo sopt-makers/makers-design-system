@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-      "jsx": "react"
+    "jsx": "react-jsx",
+    "outDir": ".",
+    "allowSyntheticDefaultImports": true
   },
   "extends": "tsconfig/react-library.json",
-  "include": ["."],
+  "include": ["index.ts", "cssVariables.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }

@@ -56,3 +56,6 @@ a {
   font-weight: 700;
   font-style: normal;
 }
+
+@import url('ui/desktop-variables.css') screen;
+@import url('ui/mobile-variables.css') screen and (max-width: 768px); 
