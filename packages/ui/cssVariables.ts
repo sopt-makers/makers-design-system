@@ -15,10 +15,9 @@ export const desktopVariables = `:root {
   --mds-dialog-title-font-weight:600;
   --mds-dialog-title-font-line-height:30px;
   --mds-dialog-title-font-letter-spacing:-2%;
-
+  
   --mds-dialog-title-margin-bottom:12;
 
-  
   --mds-dialog-description-font-family: SUIT;
   --mds-dialog-description-font-size:16px;
   --mds-dialog-description-font-style:normal;
