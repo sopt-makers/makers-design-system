@@ -1,6 +1,5 @@
-import type { Metadata } from "next";
-import DialogProvider from "ui/Dialog/DialogProvider";
 import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -14,9 +13,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>
-      <DialogProvider>
-        {children}</DialogProvider></body>
+      <body>{children}</body>
     </html>
   );
 }
