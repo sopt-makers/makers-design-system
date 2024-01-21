@@ -1,4 +1,4 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { keyframes, style, styleVariants } from '@vanilla-extract/css';
 import theme from '../../theme.css';
 
 export const title = style({
@@ -57,4 +57,17 @@ export const base = style({
 
 export const gap = style({
   gap: 'var(--mds-dialog-container-button-gap,8px)',
+});
+
+const dialogAnimation = keyframes({
+  '0%': {
+    transform: 'scale(0)',
+  },
+  '100%': {
+    transform: 'scale(1)',
+  },
+});
+
+export const animation = style({
+  animation: `${dialogAnimation} 0.3s`,
 });
