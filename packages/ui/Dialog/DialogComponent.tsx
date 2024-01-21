@@ -38,39 +38,47 @@ export const DialogComponent = ({
           />
         </div>
       )}
-      <Dialog.Footer align={'default'}>
-        {type === 'default' && (
-          <>
-            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
-              {typeOptions?.cancelButtonText}
-            </Button>
-            <Button size="md" rounded="md" theme="white" onClick={onApprove} className={buttonSize}>
+      {type && typeOptions && (
+        <Dialog.Footer align={'default'}>
+          {type === 'default' && (
+            <>
+              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
+                {typeOptions?.cancelButtonText}
+              </Button>
+              <Button
+                size="md"
+                rounded="md"
+                theme="white"
+                onClick={onApprove}
+                className={buttonSize}
+              >
+                {typeOptions?.approveButtonText}
+              </Button>
+            </>
+          )}
+          {type === 'danger' && (
+            <>
+              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
+                {typeOptions?.cancelButtonText}
+              </Button>
+              <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
+                {typeOptions?.approveButtonText}
+              </Button>
+            </>
+          )}
+          {type === 'single' && (
+            <Button
+              size="md"
+              rounded="md"
+              theme="white"
+              onClick={onApprove}
+              className={`${buttonSize} ${buttonMinSize['single']}`}
+            >
               {typeOptions?.approveButtonText}
             </Button>
-          </>
-        )}
-        {type === 'danger' && (
-          <>
-            <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
-              {typeOptions?.cancelButtonText}
-            </Button>
-            <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
-              {typeOptions?.approveButtonText}
-            </Button>
-          </>
-        )}
-        {type === 'single' && (
-          <Button
-            size="md"
-            rounded="md"
-            theme="white"
-            onClick={onApprove}
-            className={`${buttonSize} ${buttonMinSize['single']}`}
-          >
-            {typeOptions?.approveButtonText}
-          </Button>
-        )}
-      </Dialog.Footer>
+          )}
+        </Dialog.Footer>
+      )}
     </Dialog>
   );
 };
