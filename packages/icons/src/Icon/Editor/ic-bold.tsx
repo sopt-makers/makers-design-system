@@ -1,5 +1,4 @@
-import React from "react";
-import { HTMLAttributes, forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 
 interface IconBoldProps extends HTMLAttributes<SVGSVGElement> {}
 
@@ -15,9 +14,9 @@ const IconBold = forwardRef<SVGSVGElement, IconBoldProps>((props, ref) => {
       <path
         d="M6 12H14C16.2091 12 18 10.2091 18 8C18 5.79086 16.2091 4 14 4H6V12ZM6 12H15C17.2091 12 19 13.7909 19 16C19 18.2091 17.2091 20 15 20H6V12Z"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

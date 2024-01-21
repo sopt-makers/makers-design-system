@@ -1,44 +1,28 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import theme from '../../theme.css';
 
-export const titleBase = style({
+export const title = style({
   color: `${theme.colors.gray10}`,
-  marginBottom: 12,
+  marginBottom: 'var(-mds-dialog-title-margin-bottom,8px)',
+  fontFamily: 'var(-mds-dialog-title-font-family, SUIT)',
+  fontSize: 'var(-mds-dialog-title-font-size, 18px)',
+  fontStyle: 'var(-mds-dialog-title-font-stlye, normal)',
+  fontWeight: 'var(-mds-dialog-title-font-weight, 600)',
+  lineHeight: 'var(-mds-dialog-title-font-line-height, 28px)',
+  letterSpacing: 'var(-mds-dialog-title-font-letter-spacing, -2%)',
 });
 
-export const title = styleVariants({
-  desktop: [
-    titleBase,
-    {
-      // TODO: css 객체로 폰트 나오면 수정 예정입니다
-      fontFamily: 'SUIT',
-      fontSize: '20px',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '30px',
-      letterSpacing: '-0.4px',
-    },
-  ],
-  mobile: [
-    titleBase,
-    {
-      // TODO: css 객체로 폰트 나오면 수정 예정입니다
-      fontFamily: 'SUIT',
-      fontSize: '18px',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      lineHeight: '28px',
-      letterSpacing: '-0.36px',
-      marginBottom: 8,
-    },
-  ],
-});
-
-export const descriptionBase = style({
+export const description = style({
   maxHeight: '264px',
   overflowY: 'scroll',
   color: `${theme.colors.gray100}`,
-  marginBottom: 24,
+
+  fontFamily: 'var(-mds-dialog-description-font-family, SUIT)',
+  fontSize: 'var(-mds-dialog-description-font-size, 14px)',
+  fontStyle: 'var(-mds-dialog-description-font-stlye, normal)',
+  fontWeight: 'var(-mds-dialog-description-font-weight, 400)',
+  lineHeight: 'var(-mds-dialog-description-font-line-height, 22px)',
+  letterSpacing: 'var(-mds-dialog-v-font-letter-spacing, -1.5%)',
 
   '::-webkit-scrollbar': {
     width: '4px',
@@ -52,42 +36,6 @@ export const descriptionBase = style({
   },
 });
 
-export const description = styleVariants({
-  desktop: [
-    descriptionBase,
-    {
-      // TODO: css 객체로 폰트 나오면 수정 예정입니다
-      fontFamily: 'SUIT',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      lineHeight: '26px',
-      letterSpacing: '-0.24px',
-    },
-  ],
-  mobile: [
-    descriptionBase,
-    {
-      // TODO: css 객체로 폰트 나오면 수정 예정입니다
-      fontFamily: 'SUIT',
-      fontSize: '14px',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      lineHeight: '22px',
-      letterSpacing: '-0.21px',
-    },
-  ],
-});
-
-export const margintBottom = styleVariants({
-  true: {
-    marginBottom: 24,
-  },
-  false: {
-    marginBottom: 36,
-  },
-});
-
 export const footerBase = style({
   display: 'grid',
   gridAutoFlow: 'column',
@@ -95,8 +43,8 @@ export const footerBase = style({
 
 export const footer = styleVariants({
   center: [footerBase, { width: '100%', display: 'flex', justifyContent: 'space-between' }],
-  right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end', gap: '12px' }],
-  left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start', gap: '12px' }],
+  right: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-end' }],
+  left: [footerBase, { width: '100%', display: 'flex', justifyContent: 'flex-start' }],
 });
 
 export const base = style({
@@ -107,7 +55,6 @@ export const base = style({
   position: 'relative',
 });
 
-export const gap = styleVariants({
-  desktop: { gap: 12 },
-  mobile: { gap: 8 },
+export const gap = style({
+  gap: 'var(--mds-dialog-container-button-gap,8px)',
 });

@@ -1,5 +1,4 @@
-import React from "react";
-import { HTMLAttributes, forwardRef } from "react";
+import React, { HTMLAttributes, forwardRef } from "react";
 
 interface IconCodeProps extends HTMLAttributes<SVGSVGElement> {}
 
@@ -15,9 +14,9 @@ const IconCode = forwardRef<SVGSVGElement, IconCodeProps>((props, ref) => {
       <path
         d="M17 17L22 12L17 7M7 7L2 12L7 17M14 3L10 21"
         stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

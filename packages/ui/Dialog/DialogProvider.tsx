@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent, createContext, useCallback, useState } from 'react';
+import React, { ChangeEvent, createContext, useCallback, useEffect, useState } from 'react';
 import { DialogComponent } from './DialogComponent';
 import { DialogOptionType, ProviderChildren } from './types';
 
@@ -12,6 +12,10 @@ export const DialogContext = createContext({
 
 function DialogProvider({ children }: ProviderChildren) {
   const [dialogOption, setDialogOption] = useState<DialogOptionType | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  });
 
   const openDialog = useCallback(
     (option: DialogOptionType) => {
@@ -32,12 +36,20 @@ function DialogProvider({ children }: ProviderChildren) {
   };
 
   return (
-    <DialogContext.Provider value={{ openDialog, closeDialog, checkCheckBox }}>
-      {children}
-      {dialogOption && (
-        <DialogComponent isOpen={dialogOption !== null} onClose={closeDialog} {...dialogOption} />
+    <>
+      {isMounted && (
+        <DialogContext.Provider value={{ openDialog, closeDialog, checkCheckBox }}>
+          {children}
+          {dialogOption && (
+            <DialogComponent
+              isOpen={dialogOption !== null}
+              onClose={closeDialog}
+              {...dialogOption}
+            />
+          )}
+        </DialogContext.Provider>
       )}
-    </DialogContext.Provider>
+    </>
   );
 }
 

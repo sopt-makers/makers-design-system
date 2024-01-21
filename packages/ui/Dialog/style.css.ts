@@ -1,17 +1,17 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import theme from '../theme.css';
 
-export const base = style({
+export const dialogContainer = style({
   display: 'flex',
   flexDirection: 'column',
   borderRadius: '14px',
   backgroundColor: `${theme.colors.gray800}`,
   position: 'relative',
-});
 
-export const dialogContainer = styleVariants({
-  desktop: [base, { width: '400px', padding: '24px' }],
-  mobile: [base, { maxWidth: '324px', padding: '20px', margin: '0px 36px', minWidth: '303px' }],
+  padding: 'var(--mds-dialog-container-padding, 20px)',
+  margin: 'var(--mds-dialog-container-margin, 0px 36px )',
+  maxWidth: 'var(--mds-dialog-container-max-width, 324px)',
+  minWidth: 'var(--mds-dialog-container-min-width, 303px)',
 });
 
 export const overlay = style({
@@ -23,9 +23,8 @@ export const overlay = style({
   backgroundColor: `${theme.colors.backgroundDimmed}`,
 });
 
-export const buttonSize = styleVariants({
-  desktop: { width: '83px' },
-  mobile: { width: '100%' },
+export const buttonSize = style({
+  width: 'var(--mds-dialog-container-button-size, 100%)',
 });
 
 export const buttonMinSize = styleVariants({
@@ -35,4 +34,20 @@ export const buttonMinSize = styleVariants({
 
 export const checkBoxWapper = style({
   marginBottom: 20,
+});
+
+export const descriptionMarginBottom = styleVariants({
+  // MEMO: true는 체크박스가 있는 경우, false는 없는 경우
+  mobiletrue: {
+    marginBottom: 24,
+  },
+  mobilefalse: {
+    marginBottom: 24,
+  },
+  desktoptrue: {
+    marginBottom: 24,
+  },
+  desktopfalse: {
+    marginBottom: 36,
+  },
 });
