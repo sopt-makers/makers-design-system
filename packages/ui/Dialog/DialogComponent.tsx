@@ -1,8 +1,7 @@
-import React from 'react';
-import Dialog from '.';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
-import { buttonMinSize, buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
+import Dialog from './Dialog';
+import { buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
 import { DialogValueProps } from './types';
 
 export const DialogComponent = ({
@@ -72,7 +71,7 @@ export const DialogComponent = ({
               rounded="md"
               theme="white"
               onClick={onApprove}
-              className={`${buttonSize} ${buttonMinSize['single']}`}
+              className={`${buttonSize}`}
             >
               {typeOptions?.approveButtonText}
             </Button>
