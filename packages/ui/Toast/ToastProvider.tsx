@@ -6,28 +6,39 @@ import { Children, ToastOptionType } from "./types";
 
 export const ToastContext = createContext({
   openToast(option: ToastOptionType) {},
+  closeToast() {},
 });
 
 function ToastProvider({ children }: Children) {
   const [toastOption, setToastOption] = useState<ToastOptionType | null>(null);
-  const toastTimer = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<NodeJS.Timeout>();
+  const toastRef = useRef<HTMLDivElement>();
 
   const openToast = (option: ToastOptionType) => {
-    setToastOption(option);
+    if (toastOption) return;
 
-    if (toastTimer.current) {
-      clearTimeout(toastTimer.current);
-    }
+    setToastOption(option);
     const timer = setTimeout(() => {
       setToastOption(null);
     }, 4000);
-    toastTimer.current = timer;
+    timerRef.current = timer;
+  };
+
+  const closeToast = () => {
+    if (!toastOption) return;
+
+    clearTimeout(timerRef.current);
+    setTimeout(() => setToastOption(null), 200);
+    if (toastRef.current) {
+      toastRef.current.style.opacity = "0";
+      toastRef.current.style.transition = "opacity .2s linear";
+    }
   };
 
   return (
-    <ToastContext.Provider value={{ openToast }}>
+    <ToastContext.Provider value={{ openToast, closeToast }}>
       {children}
-      {toastOption && <ToastComponent {...toastOption} />}
+      {toastOption && <ToastComponent ref={toastRef} {...toastOption} />}
     </ToastContext.Provider>
   );
 }
