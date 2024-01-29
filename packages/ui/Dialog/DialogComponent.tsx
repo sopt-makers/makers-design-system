@@ -2,13 +2,12 @@ import React from 'react';
 import Dialog from '.';
 import Button from '../Button';
 import CheckBox from '../CheckBox';
-import { buttonMinSize, buttonSize, checkBoxWapper } from './style.css';
+import { buttonMinSize, buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
 import { DialogValueProps } from './types';
 
 export const DialogComponent = ({
   isOpen,
   onClose,
-  device = 'mobile',
   title,
   description,
   checkBoxOptions,
@@ -21,12 +20,13 @@ export const DialogComponent = ({
   };
 
   return (
-    <Dialog isOpen={isOpen} onClose={onClose} device={device}>
-      <Dialog.Title device={device}>{title}</Dialog.Title>
-      <Dialog.Description device={device} isCheck={checkBoxOptions !== undefined}>
-        {description}
-      </Dialog.Description>
-
+    <Dialog isOpen={isOpen} onClose={onClose}>
+      <Dialog.Title>{title}</Dialog.Title>
+      <div className={descriptionMarginBottom[`${checkBoxOptions !== undefined}`]}>
+        <Dialog.Description isCheck={checkBoxOptions !== undefined}>
+          {description}
+        </Dialog.Description>
+      </div>
       {checkBoxOptions && (
         <div className={checkBoxWapper}>
           <CheckBox
@@ -38,63 +38,47 @@ export const DialogComponent = ({
           />
         </div>
       )}
-      <Dialog.Footer align={device === 'mobile' ? 'center' : 'right'} device={device}>
-        {type === 'default' && (
-          <>
-            <Button
-              size="md"
-              rounded="md"
-              theme="black"
-              onClick={onClose}
-              className={buttonSize[device]}
-            >
-              {typeOptions?.cancelButtonText}
-            </Button>
+      {type && typeOptions && (
+        <Dialog.Footer align={'default'}>
+          {type === 'default' && (
+            <>
+              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
+                {typeOptions?.cancelButtonText}
+              </Button>
+              <Button
+                size="md"
+                rounded="md"
+                theme="white"
+                onClick={onApprove}
+                className={buttonSize}
+              >
+                {typeOptions?.approveButtonText}
+              </Button>
+            </>
+          )}
+          {type === 'danger' && (
+            <>
+              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
+                {typeOptions?.cancelButtonText}
+              </Button>
+              <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
+                {typeOptions?.approveButtonText}
+              </Button>
+            </>
+          )}
+          {type === 'single' && (
             <Button
               size="md"
               rounded="md"
               theme="white"
               onClick={onApprove}
-              className={buttonSize[device]}
+              className={`${buttonSize} ${buttonMinSize['single']}`}
             >
               {typeOptions?.approveButtonText}
             </Button>
-          </>
-        )}
-        {type === 'danger' && (
-          <>
-            <Button
-              size="md"
-              rounded="md"
-              theme="black"
-              onClick={onClose}
-              className={buttonSize[device]}
-            >
-              {typeOptions?.cancelButtonText}
-            </Button>
-            <Button
-              size="md"
-              rounded="md"
-              theme="red"
-              onClick={onApprove}
-              className={buttonSize[device]}
-            >
-              {typeOptions?.approveButtonText}
-            </Button>
-          </>
-        )}
-        {type === 'single' && (
-          <Button
-            size="md"
-            rounded="md"
-            theme="white"
-            onClick={onApprove}
-            className={`${buttonSize[device]} ${device === 'mobile' && buttonMinSize['single']}`}
-          >
-            {typeOptions?.approveButtonText}
-          </Button>
-        )}
-      </Dialog.Footer>
+          )}
+        </Dialog.Footer>
+      )}
     </Dialog>
   );
 };

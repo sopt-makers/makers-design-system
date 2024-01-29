@@ -3,7 +3,6 @@ import { CheckBoxProps } from '../CheckBox';
 
 export interface ChildrenProp {
   children: ReactNode;
-  device: 'desktop' | 'mobile';
 }
 
 export interface DialogDescriptionProps extends ChildrenProp {
@@ -11,8 +10,7 @@ export interface DialogDescriptionProps extends ChildrenProp {
 }
 
 export interface DialogFooterProp extends ChildrenProp {
-  align: 'center' | 'left' | 'right';
-  device: 'desktop' | 'mobile';
+  align: 'center' | 'left' | 'right' | 'default';
 }
 
 interface TypeOptionsProp {
@@ -22,7 +20,6 @@ interface TypeOptionsProp {
 }
 
 export interface DialogOptionType {
-  device: 'desktop' | 'mobile';
   title: ReactNode;
   description: ReactNode;
   checkBoxOptions?: CheckBoxProps;
@@ -38,7 +35,6 @@ export interface DialogValueProps extends DialogOptionType {
 export interface DialogProps {
   isOpen: boolean;
   onClose: () => void;
-  device: 'desktop' | 'mobile';
   children?: ReactNode;
 }
 

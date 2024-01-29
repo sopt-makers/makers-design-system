@@ -2,7 +2,7 @@ import { keyframes, style } from "@vanilla-extract/css";
 import theme from "../../theme.css";
 
 const toastAnimation = keyframes({
-  "0%, 100%": { transform: "translate(-50%, calc(-100% - 36px))" },
+  "0%, 100%": { transform: "translate(-50%, calc(-100% - var(--mds-toast-top, 36px)))" },
   "10%, 90%": { transform: "translate(-50%, 0)" },
 });
 
@@ -15,12 +15,12 @@ export const root = style({
   gap: "8px",
 
   position: "fixed",
-  top: "36px",
+  top: "var(--mds-toast-top, 36px)",
   left: "50%",
   transform: "translateX(-50%)",
   transition: "transform .2s linear",
 
-  width: "380px",
+  width: "var(--mds-toast-width, 380px)",
   padding: "14px 16px",
   borderRadius: "18px",
   backgroundColor: theme.colors.gray10,

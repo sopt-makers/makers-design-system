@@ -37,26 +37,18 @@ export const checkBoxChecked = styleVariants({
 });
 
 export const checkBoxLabel = styleVariants({
-  small: {
-    marginLeft: '8px',
-    // MEMO: 객체 형태로 css 받도록 수정되면 수정하기
-    fontFamily: 'SUIT',
-    fontSize: '14px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '22px',
-    letterSpacing: '-0.21px',
-  },
-  large: {
-    marginLeft: '10px',
-    // MEMO: 객체 형태로 css 받도록 수정되면 수정하기
-    fontFamily: 'SUIT',
-    fontSize: '16px',
-    fontStyle: 'normal',
-    fontWeight: '400',
-    lineHeight: '26px',
-    letterSpacing: '-0.24px',
-  },
+  small: [
+    theme.fontsObject.BODY_14_R,
+    {
+      marginLeft: '8px',
+    },
+  ],
+  large: [
+    theme.fontsObject.BODY_16_R,
+    {
+      marginLeft: '10px',
+    },
+  ],
 });
 
 export const labelColor = styleVariants({
