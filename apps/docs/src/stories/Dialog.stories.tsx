@@ -1,15 +1,18 @@
-import { Meta, StoryFn, StoryObj } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from "@storybook/react";
 
-import { useContext } from 'react';
-import { Dialog } from 'ui';
-import DialogProvider, { DialogContext } from 'ui/Dialog/DialogProvider';
-import { DialogOptionType } from 'ui/Dialog/types';
-import useDialog from '../../../../packages/ui/Dialog/useDialog';
+import { useContext } from "react";
+import {
+  Dialog,
+  DialogProvider,
+  DialogContext,
+  type DialogOptionType,
+  useDialog,
+} from "ui";
 
 export default {
-  title: 'Components/Dialog',
+  title: "Components/Dialog",
   component: Dialog,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story: StoryFn) => (
       <DialogProvider>
@@ -32,12 +35,12 @@ export const DesktopDefault: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
-      description: '안녕하세요! makers입니다.',
-      type: 'default',
+      title: "타이틀 자리입니다.",
+      description: "안녕하세요! makers입니다.",
+      type: "default",
       typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
+        cancelButtonText: "취소",
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -51,12 +54,12 @@ export const DesktopDanger: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
-      type: 'danger',
+      type: "danger",
       typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
+        cancelButtonText: "취소",
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -70,11 +73,11 @@ export const DesktopSingle: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
-      type: 'single',
+      type: "single",
       typeOptions: {
-        approveButtonText: '확인',
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -88,25 +91,25 @@ export const DesktopSingleLabel: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
       checkBoxOptions: {
-        label: '다시는 보지 않기',
+        label: "다시는 보지 않기",
         checked: false,
-        size: 'small',
-        color: 'white',
+        size: "small",
+        color: "white",
         onChange: (e) => checkCheckBox(e.target.checked),
       },
-      type: 'single',
+      type: "single",
       typeOptions: {
-        approveButtonText: '확인',
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
 
     return <DialogButton option={option} />;
   },
-  name: 'Desktop Single - Label',
+  name: "Desktop Single - Label",
 };
 
 export const DesktopSingleLong: StoryObj = {
@@ -114,7 +117,7 @@ export const DesktopSingleLong: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: (
         <>
           안녕하세요! makers입니다. <br />
@@ -163,16 +166,16 @@ export const DesktopSingleLong: StoryObj = {
         </>
       ),
       checkBoxOptions: {
-        label: '다시는 보지 않기',
+        label: "다시는 보지 않기",
         checked: false,
-        size: 'small',
-        color: 'white',
+        size: "small",
+        color: "white",
         onChange: (e) => checkCheckBox(e.target.checked),
       },
-      type: 'default',
+      type: "default",
       typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
+        cancelButtonText: "취소",
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -180,12 +183,12 @@ export const DesktopSingleLong: StoryObj = {
     return <DialogButton option={option} />;
   },
   args: {
-    children: 'Default Button',
-    size: 'md',
-    theme: 'white',
-    rounded: 'md',
+    children: "Default Button",
+    size: "md",
+    theme: "white",
+    rounded: "md",
   },
-  name: 'Desktop Single - Long',
+  name: "Desktop Single - Long",
 };
 
 // 모바일
@@ -195,12 +198,12 @@ export const MobileDefault: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
-      type: 'default',
+      type: "default",
       typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
+        cancelButtonText: "취소",
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -214,12 +217,12 @@ export const MobileDanger: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
-      type: 'danger',
+      type: "danger",
       typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
+        cancelButtonText: "취소",
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -233,11 +236,11 @@ export const MobileSingle: StoryObj = {
     const { closeDialog } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
-      type: 'single',
+      type: "single",
       typeOptions: {
-        approveButtonText: '확인',
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
@@ -251,25 +254,25 @@ export const MobileSingleLabel: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: <>안녕하세요! makers입니다.</>,
       checkBoxOptions: {
-        label: '다시는 보지 않기',
+        label: "다시는 보지 않기",
         checked: false,
-        size: 'small',
-        color: 'white',
+        size: "small",
+        color: "white",
         onChange: (e) => checkCheckBox(e.target.checked),
       },
-      type: 'single',
+      type: "single",
       typeOptions: {
-        approveButtonText: '확인',
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
 
     return <DialogButton option={option} />;
   },
-  name: 'Mobile Single - Label',
+  name: "Mobile Single - Label",
 };
 
 export const MobileSingleLong: StoryObj = {
@@ -277,7 +280,7 @@ export const MobileSingleLong: StoryObj = {
     const { closeDialog, checkCheckBox } = useContext(DialogContext);
 
     const option: DialogOptionType = {
-      title: '타이틀 자리입니다.',
+      title: "타이틀 자리입니다.",
       description: (
         <>
           안녕하세요! makers입니다. <br />
@@ -318,21 +321,21 @@ export const MobileSingleLong: StoryObj = {
         </>
       ),
       checkBoxOptions: {
-        label: '다시는 보지 않기',
+        label: "다시는 보지 않기",
         checked: false,
-        size: 'small',
-        color: 'white',
+        size: "small",
+        color: "white",
         onChange: (e) => checkCheckBox(e.target.checked),
       },
-      type: 'default',
+      type: "default",
       typeOptions: {
-        cancelButtonText: '취소',
-        approveButtonText: '확인',
+        cancelButtonText: "취소",
+        approveButtonText: "확인",
         buttonFunction: closeDialog,
       },
     };
 
     return <DialogButton option={option} />;
   },
-  name: 'Mobile Single - Long',
+  name: "Mobile Single - Long",
 };

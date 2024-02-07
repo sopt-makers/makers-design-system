@@ -1,5 +1,3 @@
-'use client';
-
 import { createContext, useEffect, useState } from 'react';
 import { DialogComponent } from './DialogComponent';
 import { DialogOptionType, ProviderChildren } from './types';
