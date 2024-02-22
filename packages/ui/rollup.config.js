@@ -1,7 +1,7 @@
 import json from "@rollup/plugin-json";
 import { vanillaExtractPlugin } from "@vanilla-extract/rollup-plugin";
 import path from "path";
-import { dts } from "rollup-plugin-dts";
+import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 import nodeExternals from "rollup-plugin-node-externals";
 import ts from "typescript";
