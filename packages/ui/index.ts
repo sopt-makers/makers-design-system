@@ -7,3 +7,5 @@ export type { DialogOptionType } from "./Dialog";
 export { ToastProvider, useToast } from "./Toast";
 export type { ToastOptionType } from "./Toast";
 
+// test component
+export { default as Test } from "./Test";
