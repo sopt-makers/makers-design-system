@@ -5,6 +5,7 @@ import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 import nodeExternals from "rollup-plugin-node-externals";
 import ts from "typescript";
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 const loadCompilerOptions = (tsconfig) => {
   if (!tsconfig) return {};
@@ -19,7 +20,13 @@ const loadCompilerOptions = (tsconfig) => {
 
 const compilerOptions = loadCompilerOptions("tsconfig.json");
 
-const plugins = [vanillaExtractPlugin(), nodeExternals(), esbuild(), json()];
+const plugins = [
+  vanillaExtractPlugin(),
+  nodeExternals(),
+  esbuild(),
+  json(),
+  preserveDirectives(),
+];
 
 const dirSrc = [
   ["dist", "cjs"],
@@ -43,6 +50,12 @@ export default [
           return name;
         },
         exports: "named",
+      },
+      onwarn(warning, warn) {
+        const errorCode = ["MODULE_LEVEL_DIRECTIVE", "SOURCEMAP_ERROR"];
+        if (!errorCode.includes(warning.code)) {
+          warn(warning);
+        }
       },
     };
   }),
@@ -73,3 +86,4 @@ export default [
     ],
   },
 ];
+

@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from 'react';
 
 import * as Dialogs from '@radix-ui/react-dialog';

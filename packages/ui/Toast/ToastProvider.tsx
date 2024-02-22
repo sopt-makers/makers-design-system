@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useRef, useState } from "react";
 import ToastComponent from "./Toast";
 import { Children, ToastOptionType } from "./types";
