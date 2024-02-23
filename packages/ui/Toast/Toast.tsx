@@ -3,7 +3,7 @@ import * as Toast from "./parts";
 import { ToastOptionType } from "./types";
 
 function ToastComponent(props: ToastOptionType, ref: React.Ref<HTMLDivElement>) {
-  const { icon = "success", content, action, style } = props;
+  const { icon, content, action, style } = props;
   
   return (
     <Toast.Root ref={ref} style={style?.root} icon={icon}>

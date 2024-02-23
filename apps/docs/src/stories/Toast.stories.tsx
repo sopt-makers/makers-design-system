@@ -1,6 +1,6 @@
 import { Meta, StoryObj, StoryFn } from "@storybook/react";
 import { useToast, ToastProvider, type ToastOptionType } from "ui";
-import { IconArchive } from "../../../../packages/icons/src";
+import { IconCopy } from "../../../../packages/icons/src";
 import ToastComponent from "ui/Toast/Toast";
 
 const meta: Meta = {
@@ -12,10 +12,11 @@ const meta: Meta = {
       control: "radio",
       options: ["success", "alert", "error", "custom"],
       description: "토스트의 아이콘을 지정합니다.",
-      mapping: { custom: <IconArchive /> },
+      mapping: { custom: <IconCopy /> },
       table: {
-        defaultValue: { summary: "success" },
-        type: { summary: "success | alert | error | ReactElement" },
+        type: {
+          summary: "success | alert | error | ReactElement",
+        },
       },
     },
     content: { description: "토스트의 내용을 작성합니다." },
@@ -41,7 +42,7 @@ export default meta;
 export const Component: StoryObj = {
   args: {
     icon: "success",
-    content: "Default Toast",
+    content: "프로젝트가 등록되었어요.",
     action: { name: "보러가기", onClick: () => {} },
     style: {
       root: { position: "static", animation: "none", transform: "none" },
@@ -54,20 +55,80 @@ const ToastSample = ({ option }: { option: ToastOptionType }) => {
   return <button onClick={() => open(option)}>Open Toast</button>;
 };
 
-export const DefaultSuccess: StoryObj = {
-  name: "Default - Success",
+export const Default: StoryObj = {
+  name: "Default",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     const option: ToastOptionType = {
-      icon: "success",
-      content: "기본 토스트입니다.",
+      content: "저는 토스트예요.",
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const TextOverAlert: StoryObj = {
-  name: "Text Over - Alert",
+export const SuccessIcon: StoryObj = {
+  name: "Icon - Success ",
+  argTypes: { icon: { control: { disable: true } } },
+  render: () => {
+    const option: ToastOptionType = {
+      icon: "success",
+      content: "프로젝트가 등록되었어요.",
+    };
+    return <ToastSample option={option} />;
+  },
+};
+
+export const AlertIcon: StoryObj = {
+  name: "Icon - Alert",
+  argTypes: { icon: { control: { disable: true } } },
+  render: () => {
+    const option: ToastOptionType = {
+      icon: "alert",
+      content: "이메일을 입력해주세요.",
+    };
+    return <ToastSample option={option} />;
+  },
+};
+
+export const ErrorIcon: StoryObj = {
+  name: "Icon - Error",
+  argTypes: { icon: { control: { disable: true } } },
+  render: () => {
+    const option: ToastOptionType = {
+      icon: "error",
+      content: "프로젝트 수정에 실패했어요.",
+    };
+    return <ToastSample option={option} />;
+  },
+};
+
+export const CustomIcon: StoryObj = {
+  name: "Icon - Custom",
+  argTypes: { icon: { control: { disable: true } } },
+  render: () => {
+    const option: ToastOptionType = {
+      icon: <IconCopy />,
+      content: "링크를 복사했어요.",
+    };
+    return <ToastSample option={option} />;
+  },
+};
+
+export const ActionButton: StoryObj = {
+  name: "Action Button",
+  argTypes: { icon: { control: { disable: true } } },
+  render: () => {
+    const option: ToastOptionType = {
+      icon: "success",
+      content: "프로젝트가 등록되었어요.",
+      action: { name: "보러가기", onClick: () => {} },
+    };
+    return <ToastSample option={option} />;
+  },
+};
+
+export const TextOver: StoryObj = {
+  name: "Text Over",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     const option: ToastOptionType = {
@@ -79,39 +140,13 @@ export const TextOverAlert: StoryObj = {
   },
 };
 
-export const ActionButtonError: StoryObj = {
-  name: "Action Button - Error",
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
-    const option: ToastOptionType = {
-      icon: "error",
-      content: "액션 버튼이 있는 토스트입니다.",
-      action: { name: "보러가기", onClick: () => {} },
-    };
-    return <ToastSample option={option} />;
-  },
-};
-
-export const ActionButtonCustomIcon: StoryObj = {
-  name: "Action Button - Custom Icon",
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
-    const option: ToastOptionType = {
-      icon: <IconArchive />,
-      content: "커스텀 아이콘을 사용한 토스트입니다.",
-      action: { name: "보러가기", onClick: () => {} },
-    };
-    return <ToastSample option={option} />;
-  },
-};
-
 export const CloseToast: StoryObj = {
   name: "CloseToast",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     const { open, close } = useToast();
     const option: ToastOptionType = {
-      icon: "alert",
+      icon: "success",
       content: "토스트를 원하는 타이밍에 닫을 수 있습니다.",
     };
     return (
