@@ -16,11 +16,12 @@ export const root = style({
 
   position: "fixed",
   top: "var(--mds-toast-top, 36px)",
-  left: "50%",
+  left: "calc(50% - 16px)",
   transform: "translateX(-50%)",
   transition: "transform .2s linear",
-
+  
   width: "var(--mds-toast-width, 380px)",
+  margin: "0 16px",
   padding: "14px 16px",
   borderRadius: "18px",
   backgroundColor: theme.colors.gray10,
