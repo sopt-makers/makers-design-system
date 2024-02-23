@@ -12,7 +12,7 @@ const convertToIcon = {
 };
 
 interface RootProps {
-  icon: DefaultIconType | React.ReactElement;
+  icon?: DefaultIconType | React.ReactElement;
   style?: React.CSSProperties;
 }
 
@@ -26,7 +26,7 @@ function Root(props: StrictPropsWithChildren<RootProps>, ref: React.Ref<HTMLDivE
       {DefaultIcon ? (
         <DefaultIcon />
       ) : (
-        <div className={styles.icon}>{icon}</div>
+        icon && <div className={styles.icon}>{icon}</div>
       )}
       {children}
     </div>

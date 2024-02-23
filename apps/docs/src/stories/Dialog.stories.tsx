@@ -1,10 +1,13 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { useContext } from 'react';
-import { Dialog } from 'ui';
-import DialogProvider, { DialogContext } from 'ui/Dialog/DialogProvider';
-import { DialogOptionType } from 'ui/Dialog/types';
-import useDialog from '../../../../packages/ui/Dialog/useDialog';
+import {
+  Dialog,
+  DialogProvider,
+  DialogContext,
+  type DialogOptionType,
+  useDialog,
+} from 'ui/Dialog';
 
 export default {
   title: 'Components/Dialog',

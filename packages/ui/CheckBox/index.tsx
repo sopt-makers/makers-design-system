@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, forwardRef } from 'react';
-import { IconCheck } from '../../icons/src';
+import IconCheck from '../../icons/src/Icon/Interaction/ic-check';
 import {
   check,
   checkBox,

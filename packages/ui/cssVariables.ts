@@ -35,7 +35,7 @@ export const desktopVariables = `:root {
 }`;
 
 export const mobileVariables = `:root {
-  --mds-toast-width: 343px;
+  --mds-toast-width: min(calc(100% - 32px), 343px);
   --mds-toast-top: 16px;
 
   --mds-dialog-container-padding:20px;

@@ -12,7 +12,7 @@ export const ToastContext = createContext({
 function ToastProvider({ children }: Children) {
   const [toastOption, setToastOption] = useState<ToastOptionType | null>(null);
   const timerRef = useRef<NodeJS.Timeout>();
-  const toastRef = useRef<HTMLDivElement>();
+  const toastRef = useRef<HTMLDivElement>(null);
 
   const openToast = (option: ToastOptionType) => {
     if (toastOption) return;
