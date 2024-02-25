@@ -7,22 +7,27 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn clean && rollup -c && yarn build-css-modules",
+    "watch": "rollup -cw",
     "clean": "rm -rf dist desktop-variables.css mobile-variables.css",
     "build-css-modules": "node ./scripts/build-css-modules.js",
     "lint": "eslint .",
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^4.1.0",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@sopt-makers/colors": "^3.0.0",
+    "@sopt-makers/fonts": "^1.0.0",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/rollup-plugin": "^1.0.1",
+    "@vanilla-extract/sprinkles": "1.6.1",
     "eslint-config-custom": "*",
     "react": "^18.2.0",
     "rollup": "^2.70.1",
+    "rollup-plugin-analyzer": "^4.0.0",
     "rollup-plugin-dts": "^4.2.0",
     "rollup-plugin-esbuild": "^4.8.2",
     "rollup-plugin-node-externals": "^4.0.0",
@@ -30,10 +35,7 @@
     "tsconfig": "*",
     "typescript": "^4.5.2"
   },
-  "dependencies": {
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@sopt-makers/colors": "file:../colors",
-    "@sopt-makers/fonts": "file:../fonts",
-    "@vanilla-extract/sprinkles": "1.6.1"
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }

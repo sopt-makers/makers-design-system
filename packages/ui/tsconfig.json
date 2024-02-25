@@ -2,9 +2,17 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "outDir": ".",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "baseUrl": ".",
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "noEmitOnError": true,
+    "target": "esnext"
   },
   "extends": "tsconfig/react-library.json",
-  "include": ["index.ts", "cssVariables.ts"],
+  "include": ["index.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }
