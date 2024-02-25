@@ -1,36 +1,21 @@
-import json from "@rollup/plugin-json";
 import { vanillaExtractPlugin } from "@vanilla-extract/rollup-plugin";
-import path from "path";
 import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 import nodeExternals from "rollup-plugin-node-externals";
-import ts from "typescript";
 import preserveDirectives from "rollup-plugin-preserve-directives";
-
-const loadCompilerOptions = (tsconfig) => {
-  if (!tsconfig) return {};
-  const configFile = ts.readConfigFile(tsconfig, ts.sys.readFile);
-  const { options } = ts.parseJsonConfigFileContent(
-    configFile.config,
-    ts.sys,
-    "./"
-  );
-  return options;
-};
-
-const compilerOptions = loadCompilerOptions("tsconfig.json");
+import analyze from "rollup-plugin-analyzer";
 
 const plugins = [
   vanillaExtractPlugin(),
   nodeExternals(),
   esbuild(),
-  json(),
   preserveDirectives(),
+  analyze({ summaryOnly: true }),
 ];
 
 const dirSrc = [
   ["dist", "cjs"],
-  ["dist/esm", "esm"],
+  ["dist/esm", "es"],
 ];
 
 export default [
@@ -43,13 +28,10 @@ export default [
         format,
         preserveModules: true,
         preserveModulesRoot: ".",
-        entryFileNames({ name }) {
-          return `${name.replace(/\.css$/, ".css.vanilla")}.js`;
-        },
-        assetFileNames({ name }) {
-          return name;
-        },
         exports: "named",
+        entryFileNames: ({ name }) =>
+          `${name.replace(/\.css$/, ".css.vanilla")}.js`,
+        assetFileNames: ({ name }) => name,
       },
       onwarn(warning, warn) {
         const errorCode = ["MODULE_LEVEL_DIRECTIVE", "SOURCEMAP_ERROR"];
@@ -59,31 +41,16 @@ export default [
       },
     };
   }),
-  // Declaration files
   {
-    input: ["index.ts", "cssVariables.ts"],
-    plugins: [
-      ...plugins,
-      dts({
-        compilerOptions: {
-          ...compilerOptions,
-          baseUrl: path.resolve(compilerOptions.baseUrl || "."),
-          declaration: true,
-          noEmit: false,
-          emitDeclarationOnly: true,
-          noEmitOnError: true,
-          target: ts.ScriptTarget.ESNext,
-        },
-      }),
-    ],
+    input: ["index.ts"],
+    plugins: [...plugins, dts()],
     output: [
       {
         dir: "dist",
-        format: "esm",
+        format: "es",
         preserveModules: true,
         preserveModulesRoot: ".",
       },
     ],
   },
 ];
-
