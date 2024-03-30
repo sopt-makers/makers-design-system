@@ -6,12 +6,8 @@ const useToast = () => {
   const { openToast, closeToast } = useContext(ToastContext);
 
   return {
-    open(option: ToastOptionType) {
-      openToast(option);
-    },
-    close() {
-      closeToast();
-    }
+    open: (option: ToastOptionType) => openToast(option),
+    close: () => closeToast() 
   };
 };
 

@@ -38,13 +38,13 @@ export const checkBoxChecked = styleVariants({
 
 export const checkBoxLabel = styleVariants({
   small: [
-    theme.fontsObject.BODY_14_R,
+    theme.fontsObject.BODY_3_14_R,
     {
       marginLeft: '8px',
     },
   ],
   large: [
-    theme.fontsObject.BODY_16_R,
+    theme.fontsObject.BODY_2_16_R,
     {
       marginLeft: '10px',
     },

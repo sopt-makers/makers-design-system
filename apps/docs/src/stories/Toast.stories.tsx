@@ -144,6 +144,7 @@ export const CloseToast: StoryObj = {
   name: "CloseToast",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const { open, close } = useToast();
     const option: ToastOptionType = {
       icon: "success",

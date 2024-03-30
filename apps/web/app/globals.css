@@ -1,5 +1,5 @@
-@import url('ui/desktop-variables.css') screen;
-@import url('ui/mobile-variables.css') screen and (max-width: 768px); 
+/* @import url('ui/desktop-variables.css') screen;
+@import url('ui/mobile-variables.css') screen and (max-width: 768px);  */
 
 * {
   box-sizing: border-box;
