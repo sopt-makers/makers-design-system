@@ -1,6 +1,6 @@
 {
   "name": "@sopt-makers/fonts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "sopt-makers의 frontend repository에 사용되는 fonts를 제공해요.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
