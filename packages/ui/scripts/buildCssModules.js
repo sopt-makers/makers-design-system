@@ -1,10 +1,8 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import allVariables from '../cssVariables';
-
-const tsconfigPath = path.resolve("../tsconfig.json");
-const tsconfig = JSON.parse(fs.readFileSync(tsconfigPath, "utf8"));
-const outputDir = tsconfig.compilerOptions.outDir;
+/* eslint-disable no-undef -- require import 오류 */
+const fs = require("node:fs");
+const path = require("node:path");
+const allVariables = require("../dist/cssVariables");
+const outputDir = require("../tsconfig.json").compilerOptions.outDir;
 
 Object.keys(allVariables).forEach((key) => {
   const variableValues = Object.entries(allVariables).find(
