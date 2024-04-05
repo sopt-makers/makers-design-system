@@ -1,5 +1,11 @@
 # @sopt-makers/fonts
 
+## 2.0.1
+
+### Patch Changes
+
+- b584bc1: update font library
+
 ## 2.0.0
 
 ### Major Changes
