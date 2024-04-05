@@ -6,7 +6,7 @@
   xmlns="http://www.w3.org/2000/svg"
 ></svg>;
 
-import React, { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes, forwardRef } from "react";
 
 interface IconSendProps extends HTMLAttributes<SVGSVGElement> {}
 

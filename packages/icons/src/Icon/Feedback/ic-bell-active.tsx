@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes, forwardRef } from "react";
 
 interface IconBellActiveProps extends HTMLAttributes<SVGSVGElement> {}
 

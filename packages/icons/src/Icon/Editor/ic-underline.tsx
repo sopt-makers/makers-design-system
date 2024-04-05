@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes, forwardRef } from "react";
 
 interface IconUnderlineProps extends HTMLAttributes<SVGSVGElement> {}
 
