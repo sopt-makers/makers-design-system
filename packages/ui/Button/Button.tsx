@@ -1,10 +1,11 @@
+import type {ButtonHTMLAttributes} from 'react';
 import React from 'react';
 import * as S from './style.css';
-import { createButtonVariant } from './utils';
+import createButtonVariant from './utils';
 
-type IconProps = { color?: string };
+interface IconProps { color?: string }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
@@ -26,13 +27,13 @@ function Button({
 }: ButtonProps) {
   const variant = createButtonVariant(theme, rounded, size);
   return (
-    <button
-      className={`${S.root} ${variant} ${className}`}
+    <button className={`${S.root} ${variant} ${className}`}
+      type="button"
       {...buttonElementProps}
     >
-      {LeftIcon && <LeftIcon />}
+      {LeftIcon ? <LeftIcon /> : null}
       <span>{children}</span>
-      {RightIcon && <RightIcon />}
+      {RightIcon ? <RightIcon /> : null}
     </button>
   );
 }

@@ -2,9 +2,9 @@ import Button from '../Button';
 import CheckBox from '../CheckBox';
 import Dialog from './Dialog';
 import { buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
-import { DialogValueProps } from './types';
+import type { DialogValueProps } from './types';
 
-export const DialogComponent = ({
+export default function DialogComponent({
   isOpen,
   onClose,
   title,
@@ -12,9 +12,9 @@ export const DialogComponent = ({
   checkBoxOptions,
   type,
   typeOptions,
-}: DialogValueProps) => {
+}: DialogValueProps) {
   const onApprove = () => {
-    typeOptions && typeOptions.buttonFunction;
+    typeOptions?.buttonFunction;
     onClose();
   };
 
@@ -26,58 +26,54 @@ export const DialogComponent = ({
           {description}
         </Dialog.Description>
       </div>
-      {checkBoxOptions && (
-        <div className={checkBoxWapper}>
+      {checkBoxOptions ? <div className={checkBoxWapper}>
           <CheckBox
-            label={checkBoxOptions.label}
-            size={checkBoxOptions.size ?? 'small'}
             checked={checkBoxOptions.checked}
             color={checkBoxOptions.color}
+            label={checkBoxOptions.label}
             onChange={checkBoxOptions.onChange}
+            size={checkBoxOptions.size ?? 'small'}
           />
-        </div>
-      )}
-      {type && typeOptions && (
-        <Dialog.Footer align={'default'}>
+        </div> : null}
+      {type && typeOptions ? <Dialog.Footer align="default">
           {type === 'default' && (
             <>
-              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
-                {typeOptions?.cancelButtonText}
+              <Button className={buttonSize} onClick={onClose} rounded="md" size="md" theme="black">
+                {typeOptions.cancelButtonText}
               </Button>
               <Button
-                size="md"
-                rounded="md"
-                theme="white"
-                onClick={onApprove}
                 className={buttonSize}
+                onClick={onApprove}
+                rounded="md"
+                size="md"
+                theme="white"
               >
-                {typeOptions?.approveButtonText}
+                {typeOptions.approveButtonText}
               </Button>
             </>
           )}
           {type === 'danger' && (
             <>
-              <Button size="md" rounded="md" theme="black" onClick={onClose} className={buttonSize}>
-                {typeOptions?.cancelButtonText}
+              <Button className={buttonSize} onClick={onClose} rounded="md" size="md" theme="black">
+                {typeOptions.cancelButtonText}
               </Button>
-              <Button size="md" rounded="md" theme="red" onClick={onApprove} className={buttonSize}>
-                {typeOptions?.approveButtonText}
+              <Button className={buttonSize} onClick={onApprove} rounded="md" size="md" theme="red">
+                {typeOptions.approveButtonText}
               </Button>
             </>
           )}
           {type === 'single' && (
             <Button
-              size="md"
-              rounded="md"
-              theme="white"
-              onClick={onApprove}
               className={`${buttonSize}`}
+              onClick={onApprove}
+              rounded="md"
+              size="md"
+              theme="white"
             >
-              {typeOptions?.approveButtonText}
+              {typeOptions.approveButtonText}
             </Button>
           )}
-        </Dialog.Footer>
-      )}
+        </Dialog.Footer> : null}
     </Dialog>
   );
-};
+}

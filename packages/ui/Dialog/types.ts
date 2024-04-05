@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
-import { CheckBoxProps } from '../CheckBox';
+import type { ReactNode } from 'react';
+import type React from 'react';
+import type { CheckBoxProps } from '../CheckBox';
 
 export interface ChildrenProp {
   children: ReactNode;
@@ -38,4 +39,4 @@ export interface DialogProps {
   children?: ReactNode;
 }
 
-export type ProviderChildren = { children: React.ReactNode };
+export interface ProviderChildren { children: React.ReactNode }

@@ -1,7 +1,7 @@
-import { ActionType, DefaultIconType, StrictPropsWithChildren } from "../types";
-import * as styles from "./style.css";
-import { ToastIconSuccess, ToastIconAlert, ToastIconError } from "../icons";
 import { forwardRef } from "react";
+import type { ActionType, DefaultIconType, StrictPropsWithChildren } from "../types";
+import { ToastIconSuccess, ToastIconAlert, ToastIconError } from "../icons";
+import * as styles from "./style.css";
 
 // ============================== ToastRoot ===============================
 
@@ -22,7 +22,7 @@ function Root(props: StrictPropsWithChildren<RootProps>, ref: React.Ref<HTMLDivE
   const DefaultIcon = isDefaultIcon ? convertToIcon[icon] : undefined;
 
   return (
-    <div ref={ref} className={styles.root} style={style} >
+    <div className={styles.root} ref={ref} style={style} >
       {DefaultIcon ? (
         <DefaultIcon />
       ) : (
@@ -58,7 +58,7 @@ function Action(props: ActionProps) {
   const { name, style, ...actionProps } = props;
 
   return (
-    <button className={styles.action} style={style} {...actionProps}>
+    <button className={styles.action} style={style} type="button" {...actionProps}>
       {name}
     </button>
   );

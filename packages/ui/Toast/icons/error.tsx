@@ -1,14 +1,14 @@
-const ToastIconError = () => {
+function ToastIconError() {
   return (
     <svg
-      width="20"
+      fill="none"
       height="20"
       viewBox="0 0 20 20"
-      fill="none"
+      width="20"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g clipPath="url(#clip0_1309_17540)">
-        <circle cx="10" cy="10" r="10" fill="#FFA8AD" />
+        <circle cx="10" cy="10" fill="#FFA8AD" r="10" />
         <path
           d="M10.9671 5.52686C10.9671 5.01502 10.5333 4.6001 9.99819 4.6001C9.46308 4.6001 9.0293 5.01502 9.0293 5.52686V10.4696C9.0293 10.9814 9.46308 11.3964 9.99819 11.3964C10.5333 11.3964 10.9671 10.9814 10.9671 10.4696V5.52686Z"
           fill="#9E2733"
@@ -20,11 +20,11 @@ const ToastIconError = () => {
       </g>
       <defs>
         <clipPath id="clip0_1309_17540">
-          <rect width="20" height="20" fill="white" />
+          <rect fill="white" height="20" width="20" />
         </clipPath>
       </defs>
     </svg>
   );
-};
+}
 
 export default ToastIconError;

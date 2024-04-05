@@ -1,4 +1,6 @@
-import React, { InputHTMLAttributes, forwardRef } from 'react';
+import type { InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+// TODO: import 경로 수정
 import IconCheck from '../../icons/src/Icon/Interaction/ic-check';
 import {
   check,
@@ -21,14 +23,15 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
   ({ checked = false, label, size = 'small', color = 'white', onChange, ...props }, ref) => {
     return (
       <label className={checkBoxWrapper}>
-        <input ref={ref} type="checkbox" onChange={onChange} className={checkBoxInput} {...props} />
+        <input className={checkBoxInput} onChange={onChange} ref={ref} type="checkbox" {...props} />
         <div className={`${checkBox[size]} ${checkBoxChecked[`${checked}`]}`}>
-          {checked && <IconCheck className={check[size]} />}
+          {checked ? <IconCheck className={check[size]} /> : null}
         </div>
-        <p className={`${checkBoxLabel[size]} ${labelColor[color]}`}>{label && label}</p>
+        <p className={`${checkBoxLabel[size]} ${labelColor[color]}`}>{label ? label : null}</p>
       </label>
     );
   }
 );
+CheckBox.displayName = 'CheckBox';
 
 export default CheckBox;

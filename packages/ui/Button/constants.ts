@@ -1,5 +1,5 @@
 import theme from '../theme.css';
-import {
+import type {
   ButtonColorTheme,
   ButtonColorThemeWithStatus,
   ButtonSizeTheme,

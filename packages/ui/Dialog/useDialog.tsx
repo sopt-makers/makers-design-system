@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react';
 import { DialogContext } from './DialogProvider';
-import { DialogOptionType } from './types';
+import type { DialogOptionType } from './types';
 
 const useDialog = () => {
   const { openDialog, closeDialog } = useContext(DialogContext);

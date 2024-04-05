@@ -2,11 +2,11 @@
 
 import { createContext, useRef, useState } from "react";
 import ToastComponent from "./Toast";
-import { Children, ToastOptionType } from "./types";
+import type { Children, ToastOptionType } from "./types";
 
 export const ToastContext = createContext({
-  openToast(option: ToastOptionType) {},
-  closeToast() {},
+  openToast: (_option: ToastOptionType) => {},
+  closeToast: () => {},
 });
 
 function ToastProvider({ children }: Children) {
@@ -28,7 +28,7 @@ function ToastProvider({ children }: Children) {
     if (!toastOption) return;
 
     clearTimeout(timerRef.current);
-    setTimeout(() => setToastOption(null), 200);
+    setTimeout(() => { setToastOption(null); }, 200);
     if (toastRef.current) {
       toastRef.current.style.opacity = "0";
       toastRef.current.style.transition = "opacity .2s linear";
@@ -38,7 +38,7 @@ function ToastProvider({ children }: Children) {
   return (
     <ToastContext.Provider value={{ openToast, closeToast }}>
       {children}
-      {toastOption && <ToastComponent ref={toastRef} {...toastOption} />}
+      {toastOption ? <ToastComponent ref={toastRef} {...toastOption} /> : null}
     </ToastContext.Provider>
   );
 }

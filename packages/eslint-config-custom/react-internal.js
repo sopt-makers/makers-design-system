@@ -35,7 +35,9 @@ module.exports = {
 
   rules: {
     "import/no-default-export": "off",
-    "import/prefer-default-export": "on",
+    "import/prefer-default-export": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-empty-function": "off",
     "unicorn/filename-case": [
       "error",
       {

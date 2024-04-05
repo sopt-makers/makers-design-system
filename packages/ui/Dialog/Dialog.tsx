@@ -1,19 +1,17 @@
 "use client";
 
-import { FC } from 'react';
-
 import * as Dialogs from '@radix-ui/react-dialog';
 import { DialogAnimation, DialogDescription, DialogFooter, DialogTitle } from './components';
 import { dialogContainer, overlay } from './style.css';
-import { DialogProps } from './types';
+import type { DialogProps } from './types';
 
-export const DialogContainer: FC<DialogProps> = ({ isOpen, onClose, children, ...restProps }) => {
+export function DialogContainer ({ isOpen, onClose, children, ...restProps }: DialogProps) {
   return (
-    <Dialogs.Root open={isOpen} onOpenChange={onClose}>
+    <Dialogs.Root onOpenChange={onClose} open={isOpen}>
       <Dialogs.Portal>
         <Dialogs.Overlay className={overlay}>
           <DialogAnimation>
-            <Dialogs.Content className={dialogContainer} asChild {...restProps}>
+            <Dialogs.Content asChild className={dialogContainer} {...restProps}>
               <div>{children}</div>
             </Dialogs.Content>
           </DialogAnimation>

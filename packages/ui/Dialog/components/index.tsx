@@ -1,5 +1,4 @@
-import React from 'react';
-import { ChildrenProp, DialogDescriptionProps, DialogFooterProp } from '../types';
+import type { ChildrenProp, DialogDescriptionProps, DialogFooterProp } from '../types';
 import { animation, description, footer, gap, title } from './style.css';
 
 export function DialogTitle({ children }: ChildrenProp) {

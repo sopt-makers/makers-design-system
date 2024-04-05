@@ -1,8 +1,8 @@
 import { colorThemeToTextColor } from './constants';
 import { sprinkles } from './style.css';
-import { ButtonColorTheme, ButtonRadiusTheme, ButtonSizeTheme } from './types';
+import type { ButtonColorTheme, ButtonRadiusTheme, ButtonSizeTheme } from './types';
 
-export function createButtonVariant(
+function createButtonVariant(
   colorTheme: ButtonColorTheme,
   radiusTheme: ButtonRadiusTheme,
   sizeTheme: ButtonSizeTheme
@@ -23,3 +23,5 @@ export function createButtonVariant(
     fontSize: sizeTheme,
   });
 }
+
+export default createButtonVariant;
