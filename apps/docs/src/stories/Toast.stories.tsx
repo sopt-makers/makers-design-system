@@ -56,7 +56,6 @@ const ToastSample = ({ option }: { option: ToastOptionType }) => {
 };
 
 export const Default: StoryObj = {
-  name: "Default",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     const option: ToastOptionType = {
@@ -115,7 +114,6 @@ export const CustomIcon: StoryObj = {
 };
 
 export const ActionButton: StoryObj = {
-  name: "Action Button",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     const option: ToastOptionType = {
@@ -128,7 +126,6 @@ export const ActionButton: StoryObj = {
 };
 
 export const TextOver: StoryObj = {
-  name: "Text Over",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     const option: ToastOptionType = {
@@ -141,7 +138,6 @@ export const TextOver: StoryObj = {
 };
 
 export const CloseToast: StoryObj = {
-  name: "CloseToast",
   argTypes: { icon: { control: { disable: true } } },
   render: () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

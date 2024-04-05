@@ -1,13 +1,13 @@
 import * as styles from './style.css';
 
-interface Props {
+interface TestProps {
   children?: React.ReactNode;
   text: string;
   color?: 'black' | 'red' | 'blue';
   size?: 'normal' | 'big'
 }
 
-function Test(props: Props) {
+function Test(props: TestProps) {
   const { children, text, color = 'black', size = 'normal' } = props;
 
   return (

@@ -1,6 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-// TODO: import 경로 수정
+// eslint-disable-next-line import/no-relative-packages -- 추후 경로 수정 필요
 import IconCheck from '../../icons/src/Icon/Interaction/ic-check';
 import {
   check,
