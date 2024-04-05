@@ -1,6 +1,6 @@
 {
   "name": "@sopt-makers/ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
@@ -16,7 +16,7 @@
   "devDependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
     "@sopt-makers/colors": "^3.0.0",
-    "@sopt-makers/fonts": "^1.0.0",
+    "@sopt-makers/fonts": "^1.1.0",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
