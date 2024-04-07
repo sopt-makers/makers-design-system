@@ -1,5 +1,11 @@
 # @sopt-makers/fonts
 
+## 2.0.0
+
+### Major Changes
+
+- 4272c61: Change font name, add fontObj
+
 ## 1.1.0
 
 ### Minor Changes
