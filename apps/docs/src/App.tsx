@@ -1,4 +1,4 @@
-import { Test } from 'ui';
+import { Test } from '../../../packages/ui';
 import './App.css';
 
 function App() {

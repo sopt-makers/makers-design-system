@@ -2,4 +2,4 @@
 "@sopt-makers/icons": major
 ---
 
-release icons library
+Release Icons library

@@ -1,4 +1,4 @@
-import { Button } from 'ui';
+import { Button } from '../../../../packages/ui';
 import './header.css';
 
 type User = {

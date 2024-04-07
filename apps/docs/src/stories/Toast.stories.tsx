@@ -1,11 +1,9 @@
 import { Meta, StoryObj, StoryFn } from "@storybook/react";
-import { useToast, ToastProvider, type ToastOptionType } from "ui";
+import { useToast, ToastProvider, type ToastOptionType } from "../../../../packages/ui";
 import { IconCopy } from "../../../../packages/icons/src";
-import ToastComponent from "ui/Toast/Toast";
 
 const meta: Meta = {
   title: "Components/Toast",
-  component: ToastComponent,
   tags: ["autodocs"],
   argTypes: {
     icon: {
