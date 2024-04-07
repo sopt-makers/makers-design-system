@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Test } from "ui";
+import { Test } from "@ui";
 
 const meta = {
   title: 'Example/Test',

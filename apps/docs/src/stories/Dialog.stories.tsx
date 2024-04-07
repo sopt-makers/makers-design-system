@@ -7,7 +7,7 @@ import {
   DialogContext,
   type DialogOptionType,
   useDialog,
-} from 'ui/Dialog';
+} from '@ui';
 
 export default {
   title: 'Components/Dialog',
