@@ -64,7 +64,7 @@ export default function DialogComponent({
           )}
           {type === 'single' && (
             <Button
-              className={`${buttonSize}`}
+              className={buttonSize}
               onClick={onApprove}
               rounded="md"
               size="md"

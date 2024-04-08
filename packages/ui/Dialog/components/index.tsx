@@ -6,7 +6,7 @@ export function DialogTitle({ children }: ChildrenProp) {
 }
 
 export function DialogDescription({ children }: DialogDescriptionProps) {
-  return <div className={`${description}`}>{children}</div>;
+  return <div className={description}>{children}</div>;
 }
 
 export function DialogFooter({ children, align }: DialogFooterProp) {

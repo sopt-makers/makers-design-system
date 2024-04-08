@@ -32,8 +32,8 @@ export const checkBox = styleVariants({
 });
 
 export const checkBoxChecked = styleVariants({
-  true: [checkBoxBase, { backgroundColor: `${theme.colors.blue400}` }],
-  false: [checkBoxBase, { backgroundColor: `${theme.colors.gray500}` }],
+  true: [checkBoxBase, { backgroundColor: theme.colors.blue400 }],
+  false: [checkBoxBase, { backgroundColor: theme.colors.gray500 }],
 });
 
 export const checkBoxLabel = styleVariants({
@@ -53,11 +53,11 @@ export const checkBoxLabel = styleVariants({
 
 export const labelColor = styleVariants({
   white: {
-    color: `${colors.gray10}`,
+    color: colors.gray10,
   },
 });
 
 export const check = styleVariants({
-  small: { width: 18, color: `${colors.white}` },
-  large: { width: 24, color: `${colors.white}` },
+  small: { width: 18, color: colors.white },
+  large: { width: 24, color: colors.white },
 });

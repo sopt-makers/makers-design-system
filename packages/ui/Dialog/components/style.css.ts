@@ -2,7 +2,7 @@ import { keyframes, style, styleVariants } from '@vanilla-extract/css';
 import theme from '../../theme.css';
 
 export const title = style({
-  color: `${theme.colors.gray10}`,
+  color: theme.colors.gray10,
   marginBottom: 'var(--mds-dialog-title-margin-bottom,8px)',
   fontFamily: 'var(--mds-dialog-title-font-family,SUIT)',
   fontSize: 'var(--mds-dialog-title-font-size,18px)',
@@ -15,7 +15,7 @@ export const title = style({
 export const description = style({
   maxHeight: '264px',
   overflowY: 'scroll',
-  color: `${theme.colors.gray100}`,
+  color: theme.colors.gray100,
 
   fontFamily: 'var(--mds-dialog-description-font-family, SUIT)',
   fontSize: 'var(--mds-dialog-description-font-size, 14px)',
@@ -28,7 +28,7 @@ export const description = style({
     width: '4px',
   },
   '::-webkit-scrollbar-thumb': {
-    background: `${theme.colors.gray500}`,
+    background: theme.colors.gray500,
     borderRadius: '4px',
   },
   '::-webkit-scrollbar-track': {
@@ -59,7 +59,7 @@ export const base = style({
   display: 'flex',
   flexDirection: 'column',
   borderRadius: '14px',
-  backgroundColor: `${theme.colors.gray800}`,
+  backgroundColor: theme.colors.gray800,
   position: 'relative',
 });
 

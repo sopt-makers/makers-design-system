@@ -5,7 +5,7 @@ export const dialogContainer = style({
   display: 'flex',
   flexDirection: 'column',
   borderRadius: '14px',
-  backgroundColor: `${theme.colors.gray800}`,
+  backgroundColor: theme.colors.gray800,
   position: 'relative',
 
   padding: 'var(--mds-dialog-container-padding, 20px)',
@@ -20,7 +20,7 @@ export const overlay = style({
   inset: '0',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: `${theme.colors.backgroundDimmed}`,
+  backgroundColor: theme.colors.backgroundDimmed,
 });
 
 export const buttonSize = style({
