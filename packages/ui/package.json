@@ -1,6 +1,6 @@
 {
   "name": "@sopt-makers/ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "sopt-makers의 frontend repository에 사용되는 ui를 제공해요.",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
