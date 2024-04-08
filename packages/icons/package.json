@@ -1,7 +1,7 @@
 {
   "name": "@sopt-makers/icons",
   "version": "0.0.0",
-  "description": "sopt-makers의 frontend repository에 사용되는 icon을 제공해요.",
+  "description": "sopt-makers의 frontend repository에 사용되는 icons를 제공해요.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
