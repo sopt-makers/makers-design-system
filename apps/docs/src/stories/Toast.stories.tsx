@@ -37,7 +37,7 @@ const meta: Meta = {
 };
 export default meta;
 
-// export const Component: StoryObj = {
+// export const Component = {
 //   component: Toast,
 //   args: {
 //     icon: "success",
