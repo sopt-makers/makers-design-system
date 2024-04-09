@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { colors } from "@sopt-makers/colors/src";
+import { colors } from "@sopt-makers/colors";
 import theme from "../theme.css";
 
 export const checkBoxWrapper = style({
