@@ -1,4 +1,4 @@
-import { Test } from '../../../packages/ui';
+import { Test } from '@sopt-makers/ui';
 import './App.css';
 
 function App() {

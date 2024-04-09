@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../../../../packages/ui';
+import { Button } from '@sopt-makers/ui';
 
 interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';

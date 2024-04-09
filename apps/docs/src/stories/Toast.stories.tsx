@@ -1,5 +1,5 @@
 import { Meta, StoryObj, StoryFn } from "@storybook/react";
-import { useToast, ToastProvider, type ToastOptionType } from "../../../../packages/ui";
+import { useToast, ToastProvider, type ToastOptionType } from "@sopt-makers/ui";
 import { IconCopy } from "../../../../packages/icons/src";
 
 const meta: Meta = {
@@ -37,16 +37,17 @@ const meta: Meta = {
 };
 export default meta;
 
-export const Component: StoryObj = {
-  args: {
-    icon: "success",
-    content: "프로젝트가 등록되었어요.",
-    action: { name: "보러가기", onClick: () => {} },
-    style: {
-      root: { position: "static", animation: "none", transform: "none" },
-    },
-  },
-};
+// export const Component: StoryObj = {
+//   component: Toast,
+//   args: {
+//     icon: "success",
+//     content: "프로젝트가 등록되었어요.",
+//     action: { name: "보러가기", onClick: () => {} },
+//     style: {
+//       root: { position: "static", animation: "none", transform: "none" },
+//     },
+//   },
+// };
 
 const ToastSample = ({ option }: { option: ToastOptionType }) => {
   const { open } = useToast();

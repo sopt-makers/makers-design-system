@@ -7,7 +7,7 @@ import {
   DialogContext,
   type DialogOptionType,
   useDialog,
-} from '../../../../packages/ui';
+} from '@sopt-makers/ui';
 
 export default {
   title: 'Components/Dialog',

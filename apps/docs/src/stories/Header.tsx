@@ -1,4 +1,4 @@
-import { Button } from '../../../../packages/ui';
+import { Button } from '@sopt-makers/ui';
 import './header.css';
 
 type User = {
