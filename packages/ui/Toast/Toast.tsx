@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import * as Toast from "./parts";
 import type { ToastOptionType } from "./types";
 
-function ToastComponent(props: ToastOptionType, ref: React.Ref<HTMLDivElement>) {
+export function ToastComponent(props: ToastOptionType, ref: React.Ref<HTMLDivElement>) {
   const { icon, content, action, style } = props;
   
   return (
