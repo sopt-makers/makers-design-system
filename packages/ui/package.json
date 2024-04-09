@@ -14,15 +14,17 @@
     "lint": "eslint .",
     "generate:component": "turbo gen react-component"
   },
-  "devDependencies": {
-    "@radix-ui/react-dialog": "^1.0.5",
+  "dependencies": {
     "@sopt-makers/colors": "^3.0.0",
     "@sopt-makers/fonts": "^2.0.0",
+    "@vanilla-extract/css": "^1.14.0"
+  },
+  "devDependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/rollup-plugin": "^1.0.1",
     "@vanilla-extract/sprinkles": "1.6.1",
     "eslint-config-custom": "*",
