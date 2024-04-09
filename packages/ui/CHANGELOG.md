@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.0.2
+
+### Patch Changes
+
+- a1703ec: update exported component
+
 ## 1.0.1
 
 ### Patch Changes
