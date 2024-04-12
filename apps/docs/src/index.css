@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+body {
+  background-color: rgb(0,0,0)
+}
+
 @font-face {
   font-family: 'SUIT';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2')

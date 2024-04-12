@@ -28,7 +28,6 @@
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
-    "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/vite-plugin": "^3.9.2",
     "@vitejs/plugin-react": "^4.2.0",
     "chromatic": "^10.0.0",
