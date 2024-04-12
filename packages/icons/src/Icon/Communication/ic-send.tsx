@@ -1,14 +1,6 @@
-<svg
-  width="24"
-  height="24"
-  fill="none"
-  viewBox="0 0 24 24"
-  xmlns="http://www.w3.org/2000/svg"
-></svg>;
-
 import { HTMLAttributes, forwardRef } from "react";
 
-interface IconSendProps extends HTMLAttributes<SVGSVGElement> {}
+interface IconSendProps extends HTMLAttributes<SVGSVGElement> { }
 
 const IconSend = forwardRef<SVGSVGElement, IconSendProps>((props, ref) => {
   return (
