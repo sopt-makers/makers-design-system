@@ -1,5 +1,4 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { colors } from "@sopt-makers/colors";
 import theme from "../theme.css";
 
 export const checkBoxWrapper = style({
@@ -53,11 +52,11 @@ export const checkBoxLabel = styleVariants({
 
 export const labelColor = styleVariants({
   white: {
-    color: colors.gray10,
+    color: theme.colors.gray10,
   },
 });
 
 export const check = styleVariants({
-  small: { width: 18, color: colors.white },
-  large: { width: 24, color: colors.white },
+  small: { width: 18, color: theme.colors.white },
+  large: { width: 24, color: theme.colors.white },
 });
