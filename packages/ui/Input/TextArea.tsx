@@ -3,22 +3,22 @@ import * as S from './style.css';
 import AlertCircleIcon from './icons/AlertCircleIcon';
 import SendIcon from './icons/SendIcon';
 
-interface TextAreaProps<T> extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value'> {
+interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value'> {
   className?: string;
   labelText?: string;
   descriptionText?: string;
   errorMessage?: string;
-  value: T;
+  value: string;
   maxLength: number;
   height?: string;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
-  validationFn?: (input: T) => boolean;
-  submitText: () => void;
+  validationFn?: (input: string) => boolean;
+  onSubmit: () => void;
 }
 
-function TextArea<T extends string>(props: TextAreaProps<T>) {
-  const { className, labelText, descriptionText, errorMessage, value, maxLength, height, isError, validationFn, submitText, ...inputProps } = props;
+function TextArea(props: TextAreaProps) {
+  const { className, labelText, descriptionText, errorMessage, value, maxLength, height, isError, validationFn, onSubmit, ...inputProps } = props;
   const { onChange, ...restInputProps } = inputProps;
 
   const hasError = () => {
@@ -42,7 +42,7 @@ function TextArea<T extends string>(props: TextAreaProps<T>) {
   return <div className={className} style={{ position: 'relative' }}>
     {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <>{description}{input}</>}
 
-    <button className={S.submitButton} type="submit" disabled={disabled} style={{ transform: `translateY(-48px)` }} onClick={submitText}><SendIcon disabled={disabled} /></button>
+    <button className={S.submitButton} type="submit" disabled={disabled} style={{ transform: `translateY(-48px)` }} onClick={onSubmit}><SendIcon disabled={disabled} /></button>
 
     <div className={S.inputBottom}>
       {hasError() ? <div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div> : <div> </div>}

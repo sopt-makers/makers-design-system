@@ -15,6 +15,7 @@ export const input = style({
   background: theme.colors.gray800,
   border: "1px solid transparent",
   borderRadius: "10px",
+  width: "100%",
   height: "48px",
   padding: "11px 16px",
   color: theme.colors.white,
@@ -38,7 +39,7 @@ export const input = style({
 export const textarea = style({
   overflow: "hidden",
   resize: "none",
-  paddingRight: "64px",
+  paddingRight: "48px",
 
   // "::-webkit-scrollbar": {
   //   width: "16px",
@@ -52,6 +53,11 @@ export const textarea = style({
   // "::-webkit-scrollbar-track": {
   //   backgroundColor: "transparent",
   // },
+});
+
+export const searchField = style({
+  marginTop: "0",
+  paddingRight: "48px",
 });
 
 export const inputError = style({
@@ -102,5 +108,8 @@ export const submitButton = style({
   right: 0,
   ":hover": {
     cursor: "pointer",
+  },
+  ":disabled": {
+    cursor: "not-allowed",
   },
 });
