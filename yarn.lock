@@ -2401,16 +2401,6 @@
   resolved "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.27.8.tgz"
   integrity sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==
 
-"@sopt-makers/ui@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@sopt-makers/ui/-/ui-1.1.1.tgz#bfa0d06d46d608b98cbb03534a21bd48e9f1eabc"
-  integrity sha512-NvsFdwxCT8Q5DNWdu6swaEFazySyi8SFEyrlfoZ4Ju0+7NYxmv1+hBLNWW4sI8yf+G1QtFrKleqgHZ3XhH0dxQ==
-  dependencies:
-    "@sopt-makers/colors" "^3.0.0"
-    "@sopt-makers/fonts" "^2.0.0"
-    "@vanilla-extract/css" "^1.14.0"
-    "@vanilla-extract/sprinkles" "1.6.1"
-
 "@storybook/addon-actions@7.6.17":
   version "7.6.17"
   resolved "https://registry.npmjs.org/@storybook/addon-actions/-/addon-actions-7.6.17.tgz"
