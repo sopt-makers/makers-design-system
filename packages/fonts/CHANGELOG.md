@@ -1,11 +1,5 @@
 # @sopt-makers/fonts
 
-## 2.0.1
-
-### Patch Changes
-
-- f34b4f2: change index path
-
 ## 2.0.0
 
 ### Major Changes
