@@ -1,5 +1,11 @@
 # @sopt-makers/fonts
 
+## 2.0.1
+
+### Patch Changes
+
+- c41718f: change index path
+
 ## 2.0.0
 
 ### Major Changes

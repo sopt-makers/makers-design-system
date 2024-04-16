@@ -1,5 +1,11 @@
 # @sopt-makers/colors
 
+## 3.0.1
+
+### Patch Changes
+
+- c41718f: change index path
+
 ## 3.0.0
 
 ### Major Changes
