@@ -1,1 +1,1 @@
-export * from "./colors";
+export * from "./src/colors";
