@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.1
+
+### Patch Changes
+
+- 6229805: fix component exports
+
 ## 1.1.0
 
 ### Minor Changes
