@@ -37,12 +37,12 @@ function TextArea(props: TextAreaProps) {
   const disabled = inputProps.disabled || inputProps.readOnly || value.length === 0 || hasError();
   const required = inputProps.required ? <span className={S.required}>*</span> : null;
   const description = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
-  const input = <textarea className={`${S.input} ${S.textarea} ${hasError() ? S.inputError : ''}`} style={{ height }} value={value} onChange={handleInputChange} {...restInputProps} />;
+  const input = <textarea className={`${S.input} ${S.textarea} ${hasError() ? S.inputError : ''}`} onChange={handleInputChange} style={{ height }} value={value} {...restInputProps} />;
 
   return <div className={className} style={{ position: 'relative' }}>
     {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <>{description}{input}</>}
 
-    <button className={S.submitButton} type="submit" disabled={disabled} style={{ transform: `translateY(-48px)` }} onClick={onSubmit}><SendIcon disabled={disabled} /></button>
+    <button className={S.submitButton} disabled={disabled} onClick={onSubmit} style={{ transform: `translateY(-48px)` }} type="submit"><SendIcon disabled={disabled} /></button>
 
     <div className={S.inputBottom}>
       {hasError() ? <div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div> : <div> </div>}
