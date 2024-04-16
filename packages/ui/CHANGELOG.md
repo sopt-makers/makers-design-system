@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.0
+
+### Minor Changes
+
+- 61d0f11: add Input components
+
 ## 1.0.2
 
 ### Patch Changes
