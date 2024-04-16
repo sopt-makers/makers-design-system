@@ -10,6 +10,6 @@
     "noEmit": true,
     "strict": true
   },
-  "include": ["src", "src/custom.d.ts"],
+  "include": ["src", "src/custom.d.ts", "index.ts"],
   "exclude": ["node_modules"]
 }

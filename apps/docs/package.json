@@ -13,7 +13,7 @@
     "chromatic": "npx chromatic --project-token=chpt_98c750b6bad066a"
   },
   "dependencies": {
-    "@sopt-makers/ui": "1.1.1"
+    "@sopt-makers/ui": "^1.1.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.3",

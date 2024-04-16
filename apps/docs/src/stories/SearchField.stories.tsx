@@ -44,6 +44,5 @@ export const SearchFieldStory: StoryObj<SearchFieldProps> = {
     placeholder: 'Placeholder...',
     readOnly: false,
     disabled: false,
-    style: { width: '335px' },
   },
 };
