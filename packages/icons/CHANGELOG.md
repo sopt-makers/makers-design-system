@@ -1,5 +1,11 @@
 # @sopt-makers/icons
 
+## 1.0.2
+
+### Patch Changes
+
+- 056c249: add IconWirte SVG asset.
+
 ## 1.0.1
 
 ### Patch Changes
