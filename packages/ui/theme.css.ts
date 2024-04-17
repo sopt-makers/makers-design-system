@@ -1,6 +1,6 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
-import { colors } from "@sopt-makers/colors/src";
-import { fontsObject } from "@sopt-makers/fonts/src";
+import { colors } from "@sopt-makers/colors";
+import { fontsObject } from "@sopt-makers/fonts";
 
 const theme = createGlobalTheme("body", {
   colors,

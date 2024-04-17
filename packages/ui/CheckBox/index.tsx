@@ -1,7 +1,6 @@
 import type { InputHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-// eslint-disable-next-line import/no-relative-packages -- 추후 경로 수정 필요
-import IconCheck from '../../icons/src/Icon/Interaction/ic-check';
+import { IconCheck } from '@sopt-makers/icons';
 import {
   check,
   checkBox,

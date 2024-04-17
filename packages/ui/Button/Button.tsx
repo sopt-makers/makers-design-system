@@ -1,5 +1,4 @@
-import type {ButtonHTMLAttributes} from 'react';
-import React from 'react';
+import React, { type ButtonHTMLAttributes } from 'react';
 import * as S from './style.css';
 import createButtonVariant from './utils';
 

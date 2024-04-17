@@ -1,6 +1,6 @@
 import { Meta, StoryObj, StoryFn } from "@storybook/react";
 import { useToast, ToastProvider, type ToastOptionType } from "@sopt-makers/ui";
-import { IconCopy } from "../../../../packages/icons/src";
+import { IconCopy } from "@sopt-makers/icons";
 
 const meta: Meta = {
   title: "Components/Toast",
@@ -118,7 +118,7 @@ export const ActionButton: StoryObj = {
     const option: ToastOptionType = {
       icon: "success",
       content: "프로젝트가 등록되었어요.",
-      action: { name: "보러가기", onClick: () => {} },
+      action: { name: "보러가기", onClick: () => { } },
     };
     return <ToastSample option={option} />;
   },

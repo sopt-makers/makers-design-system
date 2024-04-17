@@ -1,8 +1,5 @@
-import { Test } from '@sopt-makers/ui';
+import { Test, TextField, TextArea, SearchField } from '@sopt-makers/ui';
 import './App.css';
-import TextField from '../../../packages/ui/Input/TextField';
-import TextArea from '../../../packages/ui/Input/TextArea';
-import SearchField from '../../../packages/ui/Input/SearchField';
 import { useState, ChangeEvent } from 'react';
 
 function App() {
