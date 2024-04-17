@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.3
+
+### Patch Changes
+
+- bb61371: Textarea custom scroll, add keypress, fix padding
+
 ## 1.1.2
 
 ### Patch Changes
