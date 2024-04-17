@@ -1,5 +1,15 @@
 # @sopt-makers/ui
 
+## 1.1.2
+
+### Patch Changes
+
+- dd16738: change import path
+- Updated dependencies [dd16738]
+  - @sopt-makers/colors@3.0.1
+  - @sopt-makers/fonts@2.0.1
+  - @sopt-makers/icons@1.0.3
+
 ## 1.1.1
 
 ### Patch Changes

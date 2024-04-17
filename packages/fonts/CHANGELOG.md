@@ -1,5 +1,11 @@
 # @sopt-makers/fonts
 
+## 2.0.1
+
+### Patch Changes
+
+- dd16738: change import path
+
 ## 2.0.0
 
 ### Major Changes
