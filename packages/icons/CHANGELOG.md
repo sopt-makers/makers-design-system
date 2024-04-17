@@ -1,5 +1,11 @@
 # @sopt-makers/icons
 
+## 1.0.3
+
+### Patch Changes
+
+- dd16738: change import path
+
 ## 1.0.2
 
 ### Patch Changes
