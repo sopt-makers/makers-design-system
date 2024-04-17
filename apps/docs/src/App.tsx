@@ -1,6 +1,9 @@
-import { Test, TextField, TextArea, SearchField } from '@sopt-makers/ui';
+import { Test } from '@sopt-makers/ui';
 import './App.css';
 import { useState, ChangeEvent } from 'react';
+import TextField from '../../../packages/ui/Input/TextField';
+import TextArea from '../../../packages/ui/Input/TextArea';
+import SearchField from '../../../packages/ui/Input/SearchField';
 
 function App() {
   const [input, setInput] = useState('');
@@ -38,8 +41,8 @@ function App() {
   return (
     <>
       <Test text="Test Component" size="big" color="blue" />
-      <TextField<string> labelText="Label" placeholder="Placeholder..." required descriptionText="description" validationFn={inputValidation} value={input} onChange={handleInputChange} />
-      <TextArea labelText="Label" placeholder="Placeholder..." required descriptionText="description" validationFn={textareaValidation} value={textarea} onChange={handleTextareaChange} onSubmit={handleTextareaSubmit} maxLength={300} />
+      <TextField<string> placeholder="Placeholder..." required labelText="Label" descriptionText="description" validationFn={inputValidation} value={input} onChange={handleInputChange} />
+      <TextArea placeholder="Placeholder..." required labelText="Label" descriptionText="description" validationFn={textareaValidation} value={textarea} onChange={handleTextareaChange} onSubmit={handleTextareaSubmit} maxLength={300} />
       <SearchField placeholder="Placeholder..." value={search} onChange={handleSearchChange} onSubmit={handleSearchSubmit} onReset={handleSearchReset} />
     </>
   );

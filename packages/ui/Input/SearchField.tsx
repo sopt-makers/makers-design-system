@@ -8,12 +8,15 @@ interface SearchFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
   value: string;
   onSubmit: () => void;
   onReset: () => void;
+  disableEnterSubmit?: boolean;
 }
 
 function SearchField(props: SearchFieldProps) {
-  const { className, value, onSubmit, onReset, ...inputProps } = props;
+  const { className, value, onSubmit, onReset, disableEnterSubmit = false, ...inputProps } = props;
 
   const [isFocused, setIsFocused] = useState(false);
+
+  const disabled = inputProps.disabled || inputProps.readOnly || value.length === 0;
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -26,10 +29,14 @@ function SearchField(props: SearchFieldProps) {
     setIsFocused(false);
   }
 
-  const disabled = inputProps.disabled || inputProps.readOnly || value.length === 0;
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!disableEnterSubmit && !disabled && event.key === 'Enter') {
+      onSubmit();
+    }
+  };
 
   return <div className={className} style={{ position: 'relative' }}>
-    <input className={`${S.input} ${S.searchField}`} onBlur={handleBlur} onFocus={handleFocus} type="text" value={value} {...inputProps} />
+    <input {...inputProps} className={`${S.input} ${S.searchField}`} onBlur={handleBlur} onFocus={handleFocus} onKeyDown={handleKeyPress} type="text" value={value} />
     {!disabled && isFocused ?
       <button className={S.submitButton} type="reset">
         <XCircleIcon />

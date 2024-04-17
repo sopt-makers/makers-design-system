@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import theme from "../theme.css";
 
 export const label = style({
@@ -11,13 +11,12 @@ export const label = style({
 
 export const input = style({
   ...theme.fontsObject.BODY_2_16_M,
-  marginTop: "8px",
   background: theme.colors.gray800,
   border: "1px solid transparent",
   borderRadius: "10px",
   width: "100%",
   height: "48px",
-  padding: "11px 16px",
+  padding: "10px 16px",
   color: theme.colors.white,
   boxSizing: "border-box",
 
@@ -37,27 +36,31 @@ export const input = style({
 });
 
 export const textarea = style({
-  overflow: "hidden",
   resize: "none",
-  paddingRight: "48px",
+  paddingRight: 0,
+  display: 'block',
 
-  // "::-webkit-scrollbar": {
-  //   width: "16px",
-  // },
-  // "::-webkit-scrollbar-thumb": {
-  //   backgroundColor: theme.colors.gray500,
-  //   backgroundClip: "padding-box",
-  //   border: "4px solid transparent",
-  //   borderRadius: "16px",
-  // },
-  // "::-webkit-scrollbar-track": {
-  //   backgroundColor: "transparent",
-  // },
+  "::-webkit-scrollbar": {
+    width: "48px",
+  },
+  "::-webkit-scrollbar-thumb": {
+    backgroundColor: theme.colors.gray500,
+    backgroundClip: "padding-box",
+    border: "4px solid transparent",
+    boxShadow: `inset -36px 0 0 ${theme.colors.gray800}`,
+    borderRadius: "6px",
+  },
+  "::-webkit-scrollbar-track": {
+    backgroundColor: "transparent",
+  },
 });
 
 export const searchField = style({
-  marginTop: "0",
   paddingRight: "48px",
+});
+
+export const inputWrap = style({
+  textAlign: 'left',
 });
 
 export const inputError = style({
@@ -79,7 +82,7 @@ export const required = style({
 export const description = style({
   ...theme.fontsObject.LABEL_4_12_SB,
   color: theme.colors.gray300,
-  marginTop: "8px",
+  marginBottom: '8px',
 });
 
 export const errorMessage = style({
@@ -112,4 +115,12 @@ export const submitButton = style({
   ":disabled": {
     cursor: "not-allowed",
   },
+});
+
+globalStyle(`${inputWrap} > ${description}`, {
+  marginTop: 0
+});
+
+globalStyle(`${label} > span`, {
+  marginBottom: "8px"
 });

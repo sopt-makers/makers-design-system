@@ -25,10 +25,10 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
 
   const required = inputProps.required ? <span className={S.required}>*</span> : null;
   const description = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
-  const input = <input className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} {...inputProps} />;
+  const input = <input {...inputProps} className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} />;
 
   return <div className={className}>
-    {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <>{description}{input}</>}
+    {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <div className={S.inputWrap}>{description}{input}</div>}
     {hasError() ? <div className={S.inputBottom}><div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div></div> : null}
   </div>
 }
