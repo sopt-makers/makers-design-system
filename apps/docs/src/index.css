@@ -45,3 +45,60 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+
+.icons-wrap {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  width: max-content;
+}
+
+.icons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: white;
+  font-family: 'SUIT', sans-serif;
+
+  h4 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  div {
+    display: flex;
+    gap: 16px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.colors-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  color: white;
+
+  h4 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+  }
+}
+
+.colors-group {
+  p {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .color-chips {
+    display: flex;
+
+    a {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
