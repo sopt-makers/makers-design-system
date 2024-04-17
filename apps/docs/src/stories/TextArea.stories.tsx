@@ -60,7 +60,7 @@ export const FixedHeight: StoryObj<TextAreaProps> = {
     labelText: 'Label',
     descriptionText: 'Description',
     placeholder: 'Placeholder...',
-    value: 'text\ntext\ntest',
+    value: 'text\ntext\ntext',
     maxLength: 300,
     isError: false,
     errorMessage: 'error message',
@@ -154,5 +154,19 @@ export const Disabled: StoryObj<TextAreaProps> = {
     required: true,
     readOnly: false,
     disabled: true,
+  }
+};
+
+export const Error: StoryObj<TextAreaProps> = {
+  args: {
+    labelText: 'Label',
+    descriptionText: 'Description',
+    placeholder: 'Placeholder...',
+    maxLength: 300,
+    isError: true,
+    errorMessage: 'error message',
+    required: true,
+    readOnly: false,
+    disabled: false,
   }
 };

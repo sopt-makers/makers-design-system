@@ -124,3 +124,16 @@ export const Disabled: StoryObj<TextFieldProps> = {
     disabled: true,
   },
 };
+
+export const Error: StoryObj<TextFieldProps> = {
+  args: {
+    labelText: 'Label',
+    descriptionText: 'Description',
+    placeholder: 'Placeholder...',
+    isError: true,
+    errorMessage: 'error message',
+    required: true,
+    readOnly: false,
+    disabled: false,
+  },
+};
