@@ -16,7 +16,7 @@
     "@sopt-makers/colors": "^3.0.0",
     "@sopt-makers/fonts": "^2.0.0",
     "@sopt-makers/icons": "^1.0.0",
-    "@sopt-makers/ui": "^1.1.3"
+    "@sopt-makers/ui": "^1.1.5"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.3",

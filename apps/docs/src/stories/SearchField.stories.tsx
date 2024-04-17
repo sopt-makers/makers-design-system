@@ -39,7 +39,7 @@ export default {
   }
 }
 
-export const SearchFieldStory: StoryObj<SearchFieldProps> = {
+export const Default: StoryObj<SearchFieldProps> = {
   args: {
     placeholder: 'Placeholder...',
     readOnly: false,
