@@ -1,8 +1,7 @@
 import * as Icons from '@sopt-makers/icons';
 
 export default {
-  title: 'icons/Icons',
-  component: Icons,
+  title: 'icons/Icons'
 }
 
 export const Default = {
