@@ -1,8 +1,8 @@
 import { HTMLAttributes, forwardRef } from "react";
 
-interface IconHelpCricleProps extends HTMLAttributes<SVGSVGElement> {}
+interface IconHelpCircleProps extends HTMLAttributes<SVGSVGElement> { }
 
-const IconHelpCricle = forwardRef<SVGSVGElement, IconHelpCricleProps>(
+const IconHelpCircle = forwardRef<SVGSVGElement, IconHelpCircleProps>(
   (props, ref) => {
     return (
       <svg
@@ -24,4 +24,4 @@ const IconHelpCricle = forwardRef<SVGSVGElement, IconHelpCricleProps>(
   }
 );
 
-export default IconHelpCricle;
+export default IconHelpCircle;
