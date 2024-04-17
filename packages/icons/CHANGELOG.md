@@ -1,5 +1,11 @@
 # @sopt-makers/icons
 
+## 1.0.4
+
+### Patch Changes
+
+- df3ab34: fix name, fix stroke
+
 ## 1.0.3
 
 ### Patch Changes
