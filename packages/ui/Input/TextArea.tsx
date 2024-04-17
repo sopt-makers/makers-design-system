@@ -62,7 +62,7 @@ function TextArea(props: TextAreaProps) {
   return <div className={className} style={{ position: 'relative' }}>
     {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <div className={S.inputWrap}>{description}{input}</div>}
 
-    <button className={S.submitButton} disabled={disabled} onClick={onSubmit} style={{ transform: `translateY(-${buttonPosition}px)` }} type="submit"><SendIcon disabled={disabled} /></button>
+    <button className={S.submitButton} disabled={disabled} onClick={onSubmit} style={{ ...inputProps.style, transform: `translateY(-${buttonPosition}px)` }} type="submit"><SendIcon disabled={disabled} /></button>
 
     <div className={S.inputBottom}>
       {hasError() ? <div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div> : <div> </div>}
