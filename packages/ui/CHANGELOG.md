@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.5
+
+### Patch Changes
+
+- 3172aa1: fix inputProps style
+
 ## 1.1.4
 
 ### Patch Changes
