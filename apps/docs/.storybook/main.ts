@@ -24,5 +24,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  async viteFinal(config) {
+    const { mergeConfig } = await import('vite');
+
+    return mergeConfig(config, {
+      optimizeDeps: ['@sopt-makers/icons']
+    });
+  },
 };
 export default config;

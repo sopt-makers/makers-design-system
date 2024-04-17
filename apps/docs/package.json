@@ -13,9 +13,9 @@
     "chromatic": "npx chromatic --project-token=chpt_98c750b6bad066a"
   },
   "dependencies": {
-    "@sopt-makers/colors": "^3.0.0",
-    "@sopt-makers/fonts": "^2.0.0",
-    "@sopt-makers/icons": "^1.0.0",
+    "@sopt-makers/colors": "^3.0.1",
+    "@sopt-makers/fonts": "^2.0.1",
+    "@sopt-makers/icons": "^1.0.4",
     "@sopt-makers/ui": "^1.1.5"
   },
   "devDependencies": {
