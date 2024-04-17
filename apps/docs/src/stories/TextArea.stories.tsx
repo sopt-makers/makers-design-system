@@ -12,6 +12,7 @@ interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>
   height?: string;
   isError?: boolean;
   onSubmit: () => void;
+  fixedHeight?: number;
 }
 
 const useTextArea = (props: TextAreaProps) => {
@@ -30,7 +31,7 @@ export default {
   tags: ['autodocs'],
   args: {
     value: '',
-    style: { width: '335px', height: '48px' },
+    style: { width: '335px' },
     onSubmit: fn(),
   },
   argTypes: {
@@ -54,19 +55,19 @@ export const Default: StoryObj<TextAreaProps> = {
   }
 };
 
-export const DoubleLine: StoryObj<TextAreaProps> = {
+export const FixedHeight: StoryObj<TextAreaProps> = {
   args: {
     labelText: 'Label',
     descriptionText: 'Description',
     placeholder: 'Placeholder...',
-    value: 'text\ntext',
+    value: 'text\ntext\ntest',
     maxLength: 300,
     isError: false,
     errorMessage: 'error message',
     required: true,
     readOnly: false,
     disabled: false,
-    style: { width: '335px', height: '76px' },
+    fixedHeight: 100,
   }
 };
 
