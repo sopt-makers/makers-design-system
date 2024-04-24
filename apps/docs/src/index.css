@@ -2,46 +2,41 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'SUIT', sans-serif;
+  font-family: "SUIT", sans-serif;
   font-style: normal;
 }
 
 body {
-  background-color: rgb(0,0,0)
+  background-color: rgb(0, 0, 0);
 }
 
 @font-face {
-  font-family: 'SUIT';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2')
-    format('woff2');
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SUIT';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
-    format('woff2');
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SUIT';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2')
-    format('woff2');
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SUIT';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2')
-    format('woff2');
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: 'SUIT';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2')
-    format('woff2');
+  font-family: "SUIT";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -58,7 +53,7 @@ body {
   flex-direction: column;
   gap: 16px;
   color: white;
-  font-family: 'SUIT', sans-serif;
+  font-family: "SUIT", sans-serif;
 
   h4 {
     font-size: 28px;
@@ -99,6 +94,38 @@ body {
     a {
       width: 80px;
       height: 80px;
+    }
+  }
+}
+
+.fonts-wrap {
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 1000px;
+}
+
+.fonts-group {
+  border: 1px solid #3f3f47;
+  padding: 15px 20px;
+  border-radius: 10px;
+
+  & > p:first-of-type {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  & > div {
+    margin-bottom: 16px;
+
+    p {
+      color: #c3c3c6;
+      font-size: 16px;
+    }
+    span {
+      color: #808087;
     }
   }
 }
