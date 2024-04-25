@@ -17,7 +17,7 @@ export const Default = {
       });
 
     return <div className="colors-wrap">
-      <p>* 마우스 오버시 이름과 코드가 뜹니다 *</p>
+      <p style={{ fontSize: '20px' }}>* 마우스 오버시 이름과 코드가 뜹니다 *</p>
 
       <h4>Main Color</h4>
       <div className="colors-group">
