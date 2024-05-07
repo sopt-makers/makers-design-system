@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.6
+
+### Patch Changes
+
+- bb6f66b: [CHORE] update package dependency 'radix-dialog'
+
 ## 1.1.5
 
 ### Patch Changes
