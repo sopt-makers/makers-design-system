@@ -15,6 +15,7 @@
     "generate:component": "turbo gen react-component"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
     "@sopt-makers/colors": "^3.0.1",
     "@sopt-makers/fonts": "^2.0.1",
     "@sopt-makers/icons": "^1.0.3",
@@ -22,7 +23,6 @@
     "@vanilla-extract/sprinkles": "1.6.1"
   },
   "devDependencies": {
-    "@radix-ui/react-dialog": "^1.0.5",
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
