@@ -13,6 +13,6 @@
     "target": "esnext"
   },
   "extends": "tsconfig/react-library.json",
-  "include": ["**/*.ts", "**/*.tsx", "index.ts", "turbo/generators/config.ts"],
+  "include": ["**/*.ts", "**/*.tsx", "index.ts", "turbo/generators/config.ts", "tsup.config.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }

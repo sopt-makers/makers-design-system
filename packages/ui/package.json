@@ -7,8 +7,8 @@
   "types": "./dist/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && rollup -c && yarn buildCssModules",
-    "watch": "rollup -cw",
+    "build": "yarn clean && tsup --format cjs,esm --dts --sourcemap && yarn buildCssModules",
+    "watch": "tsup --watch",
     "clean": "rm -rf dist desktop-variables.css mobile-variables.css",
     "buildCssModules": "node ./scripts/buildCssModules.js",
     "lint": "eslint .",
@@ -20,23 +20,19 @@
     "@sopt-makers/fonts": "^2.0.1",
     "@sopt-makers/icons": "^1.0.3",
     "@vanilla-extract/css": "^1.14.0",
-    "@vanilla-extract/sprinkles": "1.6.1"
+    "@vanilla-extract/sprinkles": "1.6.1",
+    "tsup": "^8.0.2"
   },
   "devDependencies": {
     "@turbo/gen": "^1.10.12",
     "@types/node": "^20.5.2",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "@vanilla-extract/rollup-plugin": "^1.0.1",
+    "@vanilla-extract/esbuild-plugin": "^2.3.5",
     "eslint-config-custom": "*",
     "react": "^18.2.0",
-    "rollup": "^2.70.1",
-    "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-dts": "^4.2.0",
-    "rollup-plugin-esbuild": "^4.8.2",
-    "rollup-plugin-node-externals": "^4.0.0",
-    "rollup-plugin-preserve-directives": "^0.4.0",
     "tsconfig": "*",
+    "tsup": "^8.0.2",
     "typescript": "^4.5.2"
   },
   "peerDependencies": {
