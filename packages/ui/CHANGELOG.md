@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.8
+
+### Patch Changes
+
+- 6e14a23: fix esModule setup
+
 ## 1.1.7
 
 ### Patch Changes
