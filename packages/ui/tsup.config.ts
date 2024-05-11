@@ -4,6 +4,7 @@ import { defineConfig } from 'tsup';
 export default defineConfig({
   entry: ['index.ts', "cssVariables.ts"],
   format: ['cjs', 'esm'], // CommonJS와 ES Module 형식으로 출력
+  outDir: 'dist',
   dts: true, 
   sourcemap: true, 
   esbuildPlugins: [vanillaExtractPlugin()],

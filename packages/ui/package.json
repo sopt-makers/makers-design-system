@@ -3,7 +3,7 @@
   "version": "1.1.7",
   "description": "sopt-makers의 frontend repository에 사용되는 ui를 제공해요.",
   "main": "./dist/index.js",
-  "module": "./dist/esm/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "license": "MIT",
   "scripts": {
