@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 1.1.7
+
+### Patch Changes
+
+- fba9a08: migrate bundler(rollup -> tsup)
+
 ## 1.1.6
 
 ### Patch Changes
