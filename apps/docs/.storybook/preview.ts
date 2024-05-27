@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 
-import '../src/index.css';
+import "../src/index.css";
+import "@sopt-makers/ui/dist/index.css";
 
 const preview: Preview = {
   parameters: {
@@ -11,12 +12,12 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    layout: 'centered',
+    layout: "centered",
     backgrounds: {
-      default: 'dark', // 기본 배경을 'dark'로 설정
+      default: "dark", // 기본 배경을 'dark'로 설정
       values: [
-        { name: 'dark', value: "#0F1012" }, // 'dark' 배경의 색상을 검정색으로 지정
-        { name: 'white', value: '#ffffff' }
+        { name: "dark", value: "#0F1012" }, // 'dark' 배경의 색상을 검정색으로 지정
+        { name: "white", value: "#ffffff" },
       ],
     },
   },
