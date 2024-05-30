@@ -13,7 +13,7 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 function Chip({
   children,
   className,
-  size = 'md',
+  size = 'sm',
   iconLocation = 'none',
   isChecked = false,
   ...buttonElementProps
