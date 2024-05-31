@@ -19,15 +19,17 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconLocation?: 'none' | 'left' | 'right';
   isChecked?: boolean;
   Icon?: ComponentType<IconProps>;
+  iconColor?: string;
 }
 
 function Chip({
   children,
   className,
   size = 'sm',
-  iconLocation = 'none',
+  iconLocation = 'left',
   isChecked = false,
   Icon = IconCheck,
+  iconColor,
   ...buttonElementProps
 }: ChipProps) {
   return (
@@ -41,11 +43,11 @@ function Chip({
       {...buttonElementProps}
     >
       {isChecked && iconLocation === 'left' ? (
-        <Icon style={{ width: '16px', height: '16px' }} />
+        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
       ) : null}
       <span>{children}</span>
       {isChecked && iconLocation === 'right' ? (
-        <Icon style={{ width: '16px', height: '16px' }} />
+        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
       ) : null}
     </button>
   );
