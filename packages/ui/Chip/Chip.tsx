@@ -26,7 +26,7 @@ function Chip({
   children,
   className,
   size = 'sm',
-  iconLocation = 'left',
+  iconLocation = 'none',
   isChecked = false,
   Icon = IconCheck,
   iconColor,
