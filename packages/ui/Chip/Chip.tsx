@@ -25,8 +25,8 @@ function Chip({
   children,
   className,
   size = 'sm',
-  iconLocation = 'left',
-  isChecked = true,
+  iconLocation = 'none',
+  isChecked = false,
   Icon = IconCheck,
   ...buttonElementProps
 }: ChipProps) {
@@ -41,7 +41,7 @@ function Chip({
       {...buttonElementProps}
     >
       {isChecked && iconLocation === 'left' ? (
-        <Icon color='red' style={{ width: '16px', height: '16px' }} />
+        <Icon style={{ width: '16px', height: '16px' }} />
       ) : null}
       <span>{children}</span>
       {isChecked && iconLocation === 'right' ? (
