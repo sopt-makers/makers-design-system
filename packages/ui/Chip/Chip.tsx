@@ -1,5 +1,4 @@
 import {
-  useState,
   type ButtonHTMLAttributes,
   type CSSProperties,
   type ComponentType,
