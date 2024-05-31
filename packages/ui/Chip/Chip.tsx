@@ -1,8 +1,9 @@
-import type {
-  ButtonHTMLAttributes,
-  CSSProperties,
-  ComponentType,
-  ReactNode,
+import {
+  useState,
+  type ButtonHTMLAttributes,
+  type CSSProperties,
+  type ComponentType,
+  type ReactNode,
 } from 'react';
 import { IconCheck } from '@sopt-makers/icons';
 import { checkedStyle, root, sprinkles } from './style.css';
@@ -15,23 +16,42 @@ interface IconProps {
 interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   className?: string;
+  Icon?: ComponentType<IconProps>;
+  iconColor?: string;
   size?: 'sm' | 'md';
   iconLocation?: 'none' | 'left' | 'right';
   isChecked?: boolean;
-  Icon?: ComponentType<IconProps>;
-  iconColor?: string;
 }
 
 function Chip({
   children,
   className,
+  Icon,
+  iconColor,
   size = 'sm',
   iconLocation = 'none',
   isChecked = false,
-  Icon = IconCheck,
-  iconColor,
   ...buttonElementProps
 }: ChipProps) {
+  const renderIcon = () => {
+    if (Icon) {
+      return (
+        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
+      );
+    }
+
+    if (isChecked) {
+      return (
+        <IconCheck
+          color={iconColor}
+          style={{ width: '16px', height: '16px' }}
+        />
+      );
+    }
+
+    return null;
+  };
+
   return (
     <button
       className={`${root} ${className} ${sprinkles({
@@ -42,13 +62,9 @@ function Chip({
       type='button'
       {...buttonElementProps}
     >
-      {isChecked && iconLocation === 'left' ? (
-        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
-      ) : null}
+      {iconLocation === 'left' && renderIcon()}
       <span>{children}</span>
-      {isChecked && iconLocation === 'right' ? (
-        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
-      ) : null}
+      {iconLocation === 'right' && renderIcon()}
     </button>
   );
 }
