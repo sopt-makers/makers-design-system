@@ -1,6 +1,16 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type {
+  ButtonHTMLAttributes,
+  CSSProperties,
+  ComponentType,
+  ReactNode,
+} from 'react';
 import { IconCheck } from '@sopt-makers/icons';
 import { checkedStyle, root, sprinkles } from './style.css';
+
+interface IconProps {
+  color?: string;
+  style?: CSSProperties;
+}
 
 interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
@@ -8,14 +18,16 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md';
   iconLocation?: 'none' | 'left' | 'right';
   isChecked?: boolean;
+  Icon?: ComponentType<IconProps>;
 }
 
 function Chip({
   children,
   className,
   size = 'sm',
-  iconLocation = 'none',
-  isChecked = false,
+  iconLocation = 'left',
+  isChecked = true,
+  Icon = IconCheck,
   ...buttonElementProps
 }: ChipProps) {
   return (
@@ -29,11 +41,11 @@ function Chip({
       {...buttonElementProps}
     >
       {isChecked && iconLocation === 'left' ? (
-        <IconCheck style={{ width: '16px', height: '16px' }} />
+        <Icon color='red' style={{ width: '16px', height: '16px' }} />
       ) : null}
       <span>{children}</span>
       {isChecked && iconLocation === 'right' ? (
-        <IconCheck style={{ width: '16px', height: '16px' }} />
+        <Icon style={{ width: '16px', height: '16px' }} />
       ) : null}
     </button>
   );
