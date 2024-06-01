@@ -13,6 +13,8 @@ export const root = style({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  width: "fit-content",
+  height: "fit-content",
 });
 
 const sprinkleProperties = defineProperties({

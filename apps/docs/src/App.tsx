@@ -51,17 +51,18 @@ function App() {
     <div
       style={{
         display: "flex",
+        width: "100%",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         gap: "10px",
       }}
     >
+      <span style={{ color: "white", fontSize: "12px" }}>Default</span>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -79,7 +80,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -97,7 +97,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -115,7 +114,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -129,12 +127,11 @@ function App() {
           TAG
         </TAG>
       </div>
-      // primary
+      <span style={{ color: "white", fontSize: "12px" }}>Primary</span>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -152,7 +149,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -170,7 +166,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -188,7 +183,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -202,12 +196,11 @@ function App() {
           TAG
         </TAG>
       </div>
-      // secondary
+      <span style={{ color: "white", fontSize: "12px" }}>Secondary</span>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -225,7 +218,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -243,7 +235,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
@@ -261,7 +252,6 @@ function App() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           gap: "3px",
         }}
       >
