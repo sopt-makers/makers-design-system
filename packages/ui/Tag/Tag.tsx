@@ -1,4 +1,5 @@
 import * as S from "./style.css";
+import createTagStyle from "./utils";
 
 interface TagProps {
   children?: React.ReactNode;
@@ -15,7 +16,8 @@ function Tag({
   variant = "default",
   type = "solid",
 }: TagProps) {
-  return <div>{children}</div>;
+  const style = createTagStyle(type, variant, shape, size);
+  return <div className={`${S.root} ${style}`}>{children}</div>;
 }
 
 export default Tag;
