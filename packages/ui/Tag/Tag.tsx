@@ -17,7 +17,11 @@ function Tag({
   type = "solid",
 }: TagProps) {
   const style = createTagStyle(type, variant, shape, size);
-  return <div className={`${S.root} ${style}`}>{children}</div>;
+  return (
+    <div className={`${S.root} ${style}`}>
+      <span>{children}</span>
+    </div>
+  );
 }
 
 export default Tag;

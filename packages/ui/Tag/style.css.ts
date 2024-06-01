@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css";
 import {
   bgColors,
   borderRadiuses,
+  borders,
   fonts,
   paddings,
   textColors,
@@ -17,6 +18,7 @@ export const root = style({
 const sprinkleProperties = defineProperties({
   properties: {
     backgroundColor: bgColors,
+    border: borders,
     color: textColors,
     borderRadius: borderRadiuses,
     padding: paddings,

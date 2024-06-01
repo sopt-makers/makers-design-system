@@ -1,10 +1,10 @@
 import "./App.css";
 
+import { Button, Test } from "@sopt-makers/ui";
 import { ChangeEvent, useState } from "react";
 
 import SearchField from "../../../packages/ui/Input/SearchField";
-import Tag from "../../../packages/ui/Tag/Tag";
-import { Test } from "@sopt-makers/ui";
+import TAG from "../../../packages/ui/TAG/TAG";
 import TextArea from "../../../packages/ui/Input/TextArea";
 import TextField from "../../../packages/ui/Input/TextField";
 
@@ -65,15 +65,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="rect" variant="default" type="solid">
-          Tag
-        </Tag>
-        <Tag size="md" shape="rect" variant="default" type="solid">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="rect" variant="default" type="solid">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="rect" variant="default" type="solid">
+          TAG
+        </TAG>
+        <TAG size="md" shape="rect" variant="default" type="solid">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="rect" variant="default" type="solid">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -83,15 +83,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="pill" variant="default" type="solid">
-          Tag
-        </Tag>
-        <Tag size="md" shape="pill" variant="default" type="solid">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="pill" variant="default" type="solid">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="pill" variant="default" type="solid">
+          TAG
+        </TAG>
+        <TAG size="md" shape="pill" variant="default" type="solid">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="pill" variant="default" type="solid">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -101,15 +101,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="rect" variant="default" type="line">
-          Tag
-        </Tag>
-        <Tag size="md" shape="rect" variant="default" type="line">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="rect" variant="default" type="line">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="rect" variant="default" type="line">
+          TAG
+        </TAG>
+        <TAG size="md" shape="rect" variant="default" type="line">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="rect" variant="default" type="line">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -119,15 +119,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="pill" variant="default" type="line">
-          Tag
-        </Tag>
-        <Tag size="md" shape="pill" variant="default" type="line">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="pill" variant="default" type="line">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="pill" variant="default" type="line">
+          TAG
+        </TAG>
+        <TAG size="md" shape="pill" variant="default" type="line">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="pill" variant="default" type="line">
+          TAG
+        </TAG>
       </div>
       // primary
       <div
@@ -138,15 +138,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="rect" variant="primary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="md" shape="rect" variant="primary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="rect" variant="primary" type="solid">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="rect" variant="primary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="md" shape="rect" variant="primary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="rect" variant="primary" type="solid">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -156,15 +156,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="pill" variant="primary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="md" shape="pill" variant="primary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="pill" variant="primary" type="solid">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="pill" variant="primary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="md" shape="pill" variant="primary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="pill" variant="primary" type="solid">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -174,15 +174,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="rect" variant="primary" type="line">
-          Tag
-        </Tag>
-        <Tag size="md" shape="rect" variant="primary" type="line">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="rect" variant="primary" type="line">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="rect" variant="primary" type="line">
+          TAG
+        </TAG>
+        <TAG size="md" shape="rect" variant="primary" type="line">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="rect" variant="primary" type="line">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -192,15 +192,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="pill" variant="primary" type="line">
-          Tag
-        </Tag>
-        <Tag size="md" shape="pill" variant="primary" type="line">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="pill" variant="primary" type="line">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="pill" variant="primary" type="line">
+          TAG
+        </TAG>
+        <TAG size="md" shape="pill" variant="primary" type="line">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="pill" variant="primary" type="line">
+          TAG
+        </TAG>
       </div>
       // secondary
       <div
@@ -211,15 +211,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="rect" variant="secondary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="md" shape="rect" variant="secondary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="rect" variant="secondary" type="solid">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="rect" variant="secondary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="md" shape="rect" variant="secondary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="rect" variant="secondary" type="solid">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -229,15 +229,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="pill" variant="secondary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="md" shape="pill" variant="secondary" type="solid">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="pill" variant="secondary" type="solid">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="pill" variant="secondary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="md" shape="pill" variant="secondary" type="solid">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="pill" variant="secondary" type="solid">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -247,15 +247,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="rect" variant="secondary" type="line">
-          Tag
-        </Tag>
-        <Tag size="md" shape="rect" variant="secondary" type="line">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="rect" variant="secondary" type="line">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="rect" variant="secondary" type="line">
+          TAG
+        </TAG>
+        <TAG size="md" shape="rect" variant="secondary" type="line">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="rect" variant="secondary" type="line">
+          TAG
+        </TAG>
       </div>
       <div
         style={{
@@ -265,15 +265,15 @@ function App() {
           gap: "3px",
         }}
       >
-        <Tag size="sm" shape="pill" variant="secondary" type="line">
-          Tag
-        </Tag>
-        <Tag size="md" shape="pill" variant="secondary" type="line">
-          Tag
-        </Tag>
-        <Tag size="lg" shape="pill" variant="secondary" type="line">
-          Tag
-        </Tag>
+        <TAG size="sm" shape="pill" variant="secondary" type="line">
+          TAG
+        </TAG>
+        <TAG size="md" shape="pill" variant="secondary" type="line">
+          TAG
+        </TAG>
+        <TAG size="lg" shape="pill" variant="secondary" type="line">
+          TAG
+        </TAG>
       </div>
     </div>
   );

@@ -15,6 +15,15 @@ export const bgColors: Record<TagBgColorTheme, string> = {
   "secondary-line": "none",
 };
 
+export const borders: Record<TagBgColorTheme, string> = {
+  "default-solid": "none",
+  "primary-solid": "none",
+  "secondary-solid": "none",
+  "default-line": `1px solid ${theme.colors.gray300}`,
+  "primary-line": `1px solid ${theme.colors.orange700}`,
+  "secondary-line": `1px solid ${theme.colors.blue700}`,
+};
+
 export const textColors: Record<TagVariantTheme, string> = {
   default: theme.colors.gray10,
   primary: theme.colors.secondary,
