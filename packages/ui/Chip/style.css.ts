@@ -3,6 +3,12 @@ import { style } from '@vanilla-extract/css';
 import theme from '../theme.css';
 import { fonts, paddings } from './constants';
 
+export const activeStyle = {
+  borderColor: theme.colors.gray100,
+  color: theme.colors.white,
+  backgroundColor: theme.colors.gray700,
+};
+
 export const root = style({
   display: 'flex',
   justifyContent: 'center',
@@ -14,20 +20,16 @@ export const root = style({
   color: theme.colors.gray300,
   backgroundColor: theme.colors.gray800,
   cursor: 'pointer',
-  fontWeight: 600,
-  letterSpacing: -2,
 
   ':hover': {
     color: theme.colors.white,
     backgroundColor: theme.colors.gray700,
   },
 
-  ':active': {
-    borderColor: theme.colors.gray100,
-    color: theme.colors.white,
-    backgroundColor: theme.colors.gray700,
-  },
+  ':active': activeStyle,
 });
+
+export const selectedStyle = style(activeStyle);
 
 const sprinkleProperties = defineProperties({
   properties: {
