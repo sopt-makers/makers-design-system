@@ -10,18 +10,18 @@ export const bgColors: Record<TagBgColorTheme, string> = {
   "default-solid": theme.colors.gray700,
   "primary-solid": theme.colors.orangeAlpha200,
   "secondary-solid": theme.colors.blueAlpha200,
-  "default-line": "none",
-  "primary-line": "none",
-  "secondary-line": "none",
+  "default-line": "unset",
+  "primary-line": "unset",
+  "secondary-line": "unset",
 };
 
 export const borders: Record<TagBgColorTheme, string> = {
   "default-solid": "none",
   "primary-solid": "none",
   "secondary-solid": "none",
-  "default-line": `1px solid ${theme.colors.gray300}`,
-  "primary-line": `1px solid ${theme.colors.orange700}`,
-  "secondary-line": `1px solid ${theme.colors.blue700}`,
+  "default-line": `0 0 0 1px ${theme.colors.gray300} inset`,
+  "primary-line": `0 0 0 1px ${theme.colors.orange700} inset`,
+  "secondary-line": `0 0 0 1px ${theme.colors.blue700} inset`,
 };
 
 export const textColors: Record<TagVariantTheme, string> = {

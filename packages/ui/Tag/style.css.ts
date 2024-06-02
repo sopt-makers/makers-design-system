@@ -20,7 +20,7 @@ export const root = style({
 const sprinkleProperties = defineProperties({
   properties: {
     backgroundColor: bgColors,
-    border: borders,
+    boxShadow: borders,
     color: textColors,
     borderRadius: borderRadiuses,
     padding: paddings,
