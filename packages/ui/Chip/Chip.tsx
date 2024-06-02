@@ -5,7 +5,7 @@ import {
   type ReactNode,
 } from 'react';
 import { IconCheck } from '@sopt-makers/icons';
-import { checkedStyle, root, sprinkles } from './style.css';
+import { selectedStyle, root, sprinkles } from './style.css';
 
 interface IconProps {
   color?: string;
@@ -17,9 +17,9 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   Icon?: ComponentType<IconProps>;
   iconColor?: string;
+  iconPosition?: 'none' | 'left' | 'right';
   size?: 'sm' | 'md';
-  iconLocation?: 'none' | 'left' | 'right';
-  isChecked?: boolean;
+  selected?: boolean;
 }
 
 function Chip({
@@ -27,9 +27,9 @@ function Chip({
   className,
   Icon,
   iconColor,
+  iconPosition = 'none',
   size = 'sm',
-  iconLocation = 'none',
-  isChecked = false,
+  selected = false,
   ...buttonElementProps
 }: ChipProps) {
   const renderIcon = () => {
@@ -39,7 +39,7 @@ function Chip({
       );
     }
 
-    if (isChecked) {
+    if (selected) {
       return (
         <IconCheck
           color={iconColor}
@@ -57,13 +57,13 @@ function Chip({
         padding: size,
         fontSize: size,
         lineHeight: size,
-      })} ${isChecked && checkedStyle}`}
+      })} ${selected && selectedStyle}`}
       type='button'
       {...buttonElementProps}
     >
-      {iconLocation === 'left' && renderIcon()}
+      {iconPosition === 'left' && renderIcon()}
       <span>{children}</span>
-      {iconLocation === 'right' && renderIcon()}
+      {iconPosition === 'right' && renderIcon()}
     </button>
   );
 }

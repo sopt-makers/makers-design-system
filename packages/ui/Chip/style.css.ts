@@ -31,7 +31,7 @@ export const root = style({
   ':active': activeStyle,
 });
 
-export const checkedStyle = style(activeStyle);
+export const selectedStyle = style(activeStyle);
 
 const sprinkleProperties = defineProperties({
   properties: {
