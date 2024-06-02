@@ -4,7 +4,7 @@ import theme from '../theme.css';
 import { fonts, paddings } from './constants';
 
 export const activeStyle = {
-  borderColor: theme.colors.gray100,
+  boxShadow: `0 0 0 1px ${theme.colors.gray100} inset`,
   color: theme.colors.white,
   backgroundColor: theme.colors.gray700,
 };
@@ -14,12 +14,12 @@ export const root = style({
   justifyContent: 'center',
   alignItems: 'center',
   gap: '4px',
-  border: '1px solid',
-  borderColor: theme.colors.gray700,
+  boxShadow: `0 0 0 1px ${theme.colors.gray700} inset`,
   borderRadius: '9999px',
   color: theme.colors.gray300,
   backgroundColor: theme.colors.gray800,
   cursor: 'pointer',
+  borderStyle: 'none',
 
   ':hover': {
     color: theme.colors.white,
