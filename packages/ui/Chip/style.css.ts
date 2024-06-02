@@ -3,12 +3,6 @@ import { style } from '@vanilla-extract/css';
 import theme from '../theme.css';
 import { fontSizes, lineHeights, paddings } from './constants';
 
-export const activeStyle = {
-  borderColor: theme.colors.gray100,
-  color: theme.colors.white,
-  backgroundColor: theme.colors.gray700,
-};
-
 export const root = style({
   display: 'flex',
   justifyContent: 'center',
@@ -28,10 +22,12 @@ export const root = style({
     backgroundColor: theme.colors.gray700,
   },
 
-  ':active': activeStyle,
+  ':active': {
+    borderColor: theme.colors.gray100,
+    color: theme.colors.white,
+    backgroundColor: theme.colors.gray700,
+  },
 });
-
-export const selectedStyle = style(activeStyle);
 
 const sprinkleProperties = defineProperties({
   properties: {
