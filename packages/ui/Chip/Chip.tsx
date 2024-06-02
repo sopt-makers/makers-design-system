@@ -16,7 +16,7 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   Icon?: ComponentType<IconProps>;
   iconColor?: string;
-  iconPosition?: 'none' | 'left' | 'right';
+  iconPosition?: 'left' | 'right';
   size?: 'sm' | 'md';
   selected?: boolean;
 }
@@ -26,7 +26,7 @@ function Chip({
   className,
   Icon,
   iconColor,
-  iconPosition = 'none',
+  iconPosition = 'left',
   size = 'sm',
   selected = false,
   ...buttonElementProps
