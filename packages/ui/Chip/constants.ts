@@ -1,3 +1,4 @@
+import theme from '../theme.css';
 import type { ChipSizeTheme } from './types';
 
 export const paddings: Record<ChipSizeTheme, string> = {
@@ -5,12 +6,7 @@ export const paddings: Record<ChipSizeTheme, string> = {
   md: '10px 20px',
 };
 
-export const fontSizes: Record<ChipSizeTheme, string> = {
-  sm: '14px',
-  md: '16px',
-};
-
-export const lineHeights: Record<ChipSizeTheme, string> = {
-  sm: '18px',
-  md: '22px',
+export const fonts = {
+  sm: theme.fontsObject.LABEL_3_14_SB,
+  md: theme.fontsObject.LABEL_2_16_SB,
 };

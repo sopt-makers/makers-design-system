@@ -1,7 +1,7 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 import { style } from '@vanilla-extract/css';
 import theme from '../theme.css';
-import { fontSizes, lineHeights, paddings } from './constants';
+import { fonts, paddings } from './constants';
 
 export const root = style({
   display: 'flex',
@@ -32,8 +32,7 @@ export const root = style({
 const sprinkleProperties = defineProperties({
   properties: {
     padding: paddings,
-    fontSize: fontSizes,
-    lineHeight: lineHeights,
+    fontStyle: fonts,
   },
 });
 

@@ -33,8 +33,7 @@ function Chip({
     <button
       className={`${root} ${className} ${sprinkles({
         padding: size,
-        fontSize: size,
-        lineHeight: size,
+        fontStyle: size,
       })}`}
       type='button'
       {...buttonElementProps}
