@@ -1,5 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import theme from "../theme.css";
+import { buttonColors, calloutColors, iconColors } from "./constants";
 
 export const container = style({
   display: "flex",
@@ -25,12 +26,6 @@ const iconBase = style({
   width: 20,
 });
 
-const iconColors = {
-  danger: theme.colors.red500,
-  information: theme.colors.blue500,
-  warning: theme.colors.yellow500,
-};
-
 export const iconVariant = styleVariants(iconColors, (color) => [
   iconBase,
   { color },
@@ -46,21 +41,6 @@ const calloutBase = style({
   border: "1px solid",
   borderRadius: "10px",
 });
-
-const calloutColors = {
-  danger: {
-    backgroundColor: theme.colors.redAlpha100,
-    borderColor: theme.colors.red600,
-  },
-  information: {
-    backgroundColor: theme.colors.blueAlpha100,
-    borderColor: theme.colors.blueAlpha600,
-  },
-  warning: {
-    backgroundColor: "rgba(255, 194, 52, 0.1)",
-    borderColor: theme.colors.yellow600,
-  },
-};
 
 export const calloutVariant = styleVariants(
   calloutColors,
@@ -85,12 +65,6 @@ const buttonBase = style({
 
   cursor: "pointer",
 });
-
-const buttonColors = {
-  danger: theme.colors.red800,
-  information: theme.colors.blue800,
-  warning: theme.colors.yellow800,
-};
 
 export const buttonVariant = styleVariants(buttonColors, (backgroundColor) => [
   buttonBase,
