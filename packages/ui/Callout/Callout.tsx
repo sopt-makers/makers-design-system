@@ -1,13 +1,33 @@
 import { IconAlertCircle, IconInfoCircle } from "@sopt-makers/icons";
-import { blueIcon, callout, redIcon, text, yellowIcon } from "./style.css";
+import { callout, icon, sprinkles, text } from "./style.css";
+import type { CalloutType } from "./types";
 
-function Callout() {
+const icons = {
+  danger: IconAlertCircle,
+  information: IconInfoCircle,
+  warning: IconInfoCircle,
+};
+interface CalloutProps {
+  type: CalloutType;
+  isIcon?: boolean;
+}
+
+function Callout({ type, isIcon }: CalloutProps) {
+  const Icon = icons[type];
+
   return (
     <aside className={callout}>
-      <IconAlertCircle className={redIcon} />
-      <IconInfoCircle className={blueIcon} />
-      <IconInfoCircle className={yellowIcon} />
-      <span className={text}>테스트 Text</span>
+      {isIcon ? (
+        <Icon
+          className={`${icon} ${sprinkles({
+            color: type,
+          })}`}
+        />
+      ) : null}
+      <span className={text}>
+        테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text
+        테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text
+      </span>
     </aside>
   );
 }

@@ -1,7 +1,7 @@
 import theme from "../theme.css";
 import type { CalloutType } from "./types";
 
-export const borderColors: Record<CalloutType, string> = {
+export const borderColor: Record<CalloutType, string> = {
   danger: theme.colors.red600,
   information: theme.colors.blueAlpha600,
   warning: theme.colors.yellow600,
