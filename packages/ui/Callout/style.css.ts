@@ -25,9 +25,7 @@ export const callout = style({
   padding: "14px 18px",
 
   border: "1px solid",
-  borderColor: theme.colors.red600,
   borderRadius: "10px",
-  backgroundColor: theme.colors.redAlpha100,
 });
 
 export const text = style({

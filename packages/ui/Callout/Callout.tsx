@@ -16,7 +16,12 @@ function Callout({ type, isIcon }: CalloutProps) {
   const Icon = icons[type];
 
   return (
-    <aside className={callout}>
+    <aside
+      className={`${callout} ${sprinkles({
+        backgroundColor: type,
+        borderColor: type,
+      })}`}
+    >
       {isIcon ? (
         <Icon
           className={`${icon} ${sprinkles({
