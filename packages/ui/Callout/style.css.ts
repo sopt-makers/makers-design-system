@@ -35,6 +35,7 @@ export const text = style({
 });
 
 export const icon = style({
+  flexShrink: 0,
   width: 20,
 });
 

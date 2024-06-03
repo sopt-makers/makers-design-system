@@ -19,24 +19,24 @@ const icons = {
   warning: IconInfoCircle,
 };
 interface CalloutProps {
+  content: string;
   type: CalloutType;
-  isIcon?: boolean;
+  hasIcon?: boolean;
+  buttonLabel?: string;
+  onClick?: () => void;
 }
 
-function Callout({ type, isIcon }: CalloutProps) {
+function Callout(props: CalloutProps) {
+  const { content, type, hasIcon, buttonLabel, onClick } = props;
   const Icon = icons[type];
 
   return (
     <aside className={calloutVariant[type]}>
-      {isIcon ? <Icon className={iconVariant[type]} /> : null}
+      {hasIcon ? <Icon className={iconVariant[type]} /> : null}
       <div className={container}>
-        <span className={text}>
-          테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트
-          Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text 테스트 Text
-          테스트 Text
-        </span>
-        <button className={buttonVariant[type]} type="button">
-          <span>Button</span>
+        <span className={text}>{content}</span>
+        <button className={buttonVariant[type]} onClick={onClick} type="button">
+          <span>{buttonLabel}</span>
           <IconChevronRight className={buttonIcon} />
         </button>
       </div>
