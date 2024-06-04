@@ -16,7 +16,7 @@ import type { CalloutType } from "./types";
 const icons = {
   danger: IconAlertCircle,
   information: IconInfoCircle,
-  warning: IconInfoCircle,
+  warning: IconAlertCircle,
 };
 interface CalloutProps {
   content: string;
@@ -35,10 +35,16 @@ function Callout(props: CalloutProps) {
       {hasIcon ? <Icon className={iconVariant[type]} /> : null}
       <div className={container}>
         <span className={text}>{content}</span>
-        <button className={buttonVariant[type]} onClick={onClick} type="button">
-          <span>{buttonLabel}</span>
-          <IconChevronRight className={buttonIcon} />
-        </button>
+        {buttonLabel ? (
+          <button
+            className={buttonVariant[type]}
+            onClick={onClick}
+            type="button"
+          >
+            <span>{buttonLabel}</span>
+            <IconChevronRight className={buttonIcon} />
+          </button>
+        ) : null}
       </div>
     </aside>
   );
