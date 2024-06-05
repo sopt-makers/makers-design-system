@@ -5,7 +5,7 @@ import {
 } from "@sopt-makers/icons";
 import {
   buttonIcon,
-  buttonVariant,
+  button,
   calloutVariant,
   container,
   iconVariant,
@@ -23,11 +23,13 @@ interface CalloutProps {
   type: CalloutType;
   hasIcon?: boolean;
   buttonLabel?: string;
+  isButtonDisabled?: boolean;
   onClick?: () => void;
 }
 
 function Callout(props: CalloutProps) {
-  const { content, type, hasIcon, buttonLabel, onClick } = props;
+  const { content, type, hasIcon, buttonLabel, isButtonDisabled, onClick } =
+    props;
   const Icon = icons[type];
 
   return (
@@ -37,7 +39,8 @@ function Callout(props: CalloutProps) {
         <span className={text}>{content}</span>
         {buttonLabel ? (
           <button
-            className={buttonVariant[type]}
+            className={button}
+            disabled={isButtonDisabled}
             onClick={onClick}
             type="button"
           >

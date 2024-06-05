@@ -1,6 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import theme from "../theme.css";
-import { buttonColors, calloutColors, iconColors } from "./constants";
+import { calloutColors, iconColors } from "./constants";
 
 export const container = style({
   display: "flex",
@@ -15,9 +15,50 @@ export const text = style({
   color: theme.colors.gray30,
 });
 
+export const button = style({
+  display: "flex",
+  alignItems: "center",
+
+  paddingBottom: 4,
+
+  borderWidth: "0px 0px 0.8px 0px",
+  borderStyle: "solid",
+  borderColor: "transparent",
+  backgroundColor: "transparent",
+
+  cursor: "pointer",
+  color: theme.colors.gray30,
+  ...theme.fontsObject.LABEL_4_12_SB,
+
+  ":hover": {
+    color: theme.colors.gray50,
+    borderColor: theme.colors.gray50,
+  },
+  ":active": {
+    color: theme.colors.gray100,
+    borderColor: theme.colors.gray100,
+  },
+  ":disabled": {
+    color: theme.colors.gray500,
+    borderColor: "transparent",
+    cursor: "default",
+  },
+});
+
 export const buttonIcon = style({
   width: 16,
-  color: theme.colors.white,
+  color: theme.colors.gray30,
+  selectors: {
+    [`${button}:hover &`]: {
+      color: theme.colors.gray50,
+    },
+    [`${button}:active &`]: {
+      color: theme.colors.gray100,
+    },
+    [`${button}:disabled &`]: {
+      color: theme.colors.gray500,
+    },
+  },
 });
 
 // ▶️ icon styleVariants
@@ -49,24 +90,3 @@ export const calloutVariant = styleVariants(
     { backgroundColor, borderColor },
   ]
 );
-
-// ▶️ button styleVariants
-const buttonBase = style({
-  display: "flex",
-  gap: 4,
-  padding: "9px 14px",
-  alignItems: "center",
-
-  border: 0,
-  borderRadius: 8,
-
-  ...theme.fontsObject.LABEL_3_14_SB,
-  color: theme.colors.white,
-
-  cursor: "pointer",
-});
-
-export const buttonVariant = styleVariants(buttonColors, (backgroundColor) => [
-  buttonBase,
-  { backgroundColor },
-]);

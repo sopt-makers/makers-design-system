@@ -22,9 +22,3 @@ export const calloutColors: Record<CalloutType, CSSProperties> = {
     borderColor: theme.colors.yellow600,
   },
 };
-
-export const buttonColors: Record<CalloutType, string> = {
-  danger: theme.colors.red800,
-  information: theme.colors.blue800,
-  warning: theme.colors.yellow800,
-};
