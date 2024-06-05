@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 import theme from '../theme.css';
 import { fonts, paddings } from './constants';
 
-export const activeStyle = {
+const active = {
   boxShadow: `0 0 0 1px ${theme.colors.gray100} inset`,
   color: theme.colors.white,
   backgroundColor: theme.colors.gray700,
@@ -26,10 +26,10 @@ export const root = style({
     backgroundColor: theme.colors.gray700,
   },
 
-  ':active': activeStyle,
+  ':active': active,
 });
 
-export const selectedStyle = style(activeStyle);
+export const activeStyle = style(active);
 
 const sprinkleProperties = defineProperties({
   properties: {

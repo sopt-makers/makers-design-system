@@ -4,7 +4,7 @@ import {
   type ComponentType,
   type ReactNode,
 } from 'react';
-import { root, selectedStyle, sprinkles } from './style.css';
+import { root, activeStyle, sprinkles } from './style.css';
 
 interface IconProps {
   color?: string;
@@ -18,7 +18,7 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconColor?: string;
   iconPosition?: 'left' | 'right';
   size?: 'sm' | 'md';
-  selected?: boolean;
+  active?: boolean;
 }
 
 function Chip({
@@ -28,7 +28,7 @@ function Chip({
   iconColor,
   iconPosition = 'left',
   size = 'sm',
-  selected = false,
+  active = false,
   ...buttonElementProps
 }: ChipProps) {
   return (
@@ -36,7 +36,7 @@ function Chip({
       className={`${root} ${className} ${sprinkles({
         padding: size,
         fontStyle: size,
-      })} ${selected && selectedStyle}`}
+      })} ${active && activeStyle}`}
       type='button'
       {...buttonElementProps}
     >
