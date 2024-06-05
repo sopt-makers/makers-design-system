@@ -3,6 +3,7 @@ import {
   IconChevronRight,
   IconInfoCircle,
 } from "@sopt-makers/icons";
+import type { ReactNode } from "react";
 import {
   buttonIcon,
   button,
@@ -19,7 +20,7 @@ const icons = {
   warning: IconAlertCircle,
 };
 interface CalloutProps {
-  content: string;
+  children: ReactNode;
   type: CalloutType;
   hasIcon?: boolean;
   buttonLabel?: string;
@@ -28,7 +29,7 @@ interface CalloutProps {
 }
 
 function Callout(props: CalloutProps) {
-  const { content, type, hasIcon, buttonLabel, isButtonDisabled, onClick } =
+  const { children, type, hasIcon, buttonLabel, isButtonDisabled, onClick } =
     props;
   const Icon = icons[type];
 
@@ -36,7 +37,7 @@ function Callout(props: CalloutProps) {
     <aside className={calloutVariant[type]}>
       {hasIcon ? <Icon className={iconVariant[type]} /> : null}
       <div className={container}>
-        <span className={text}>{content}</span>
+        <span className={text}>{children}</span>
         {buttonLabel ? (
           <button
             className={button}
