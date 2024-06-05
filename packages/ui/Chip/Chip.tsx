@@ -14,9 +14,9 @@ interface IconProps {
 interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   className?: string;
-  Icon?: ComponentType<IconProps>;
+  LeftIcon?: ComponentType<IconProps>;
+  RightIcon?: ComponentType<IconProps>;
   iconColor?: string;
-  iconPosition?: 'left' | 'right';
   size?: 'sm' | 'md';
   active?: boolean;
 }
@@ -24,9 +24,9 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 function Chip({
   children,
   className,
-  Icon,
+  LeftIcon,
+  RightIcon,
   iconColor,
-  iconPosition = 'left',
   size = 'sm',
   active = false,
   ...buttonElementProps
@@ -40,12 +40,15 @@ function Chip({
       type='button'
       {...buttonElementProps}
     >
-      {Icon && iconPosition === 'left' ? (
-        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
+      {LeftIcon ? (
+        <LeftIcon color={iconColor} style={{ width: '16px', height: '16px' }} />
       ) : null}
       <span>{children}</span>
-      {Icon && iconPosition === 'right' ? (
-        <Icon color={iconColor} style={{ width: '16px', height: '16px' }} />
+      {RightIcon ? (
+        <RightIcon
+          color={iconColor}
+          style={{ width: '16px', height: '16px' }}
+        />
       ) : null}
     </button>
   );
