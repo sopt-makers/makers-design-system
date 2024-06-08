@@ -74,6 +74,32 @@ export const checkBox = styleVariants({
     large: { width: 24, color: theme.colors.white },
   });
 
-export const toggleBase = style({
-  all: 'unset',
-})
+  // Toggle 관련 스타일링
+  const toggleBase = style({
+    all: 'unset',
+    display: 'flex',
+    borderRadius: '9999px',
+    border: 'none',
+  });
+
+  const toggleThumbBase = style({
+    display: 'block',
+    borderRadius: '9999px',
+    backgroundColor: theme.colors.white,
+    filter: 'drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.20))',
+  });
+
+  export const toggleWrapper = styleVariants({
+    large : [toggleBase, { width : 32, height : 16, padding: 4 }],
+    small : [toggleBase, { width : 24, height : 12, padding: 3 }]
+  });
+
+  export const toggleState = styleVariants({
+    true : { justifyContent: 'flex-end', backgroundColor: theme.colors.blue400 },
+    false : { justifyContent: 'flex-start', backgroundColor: theme.colors.gray400 }  
+  });
+
+  export const toggleThumb = styleVariants({
+    large : [toggleThumbBase, { width : 16, height : 16 }],
+    small : [toggleThumbBase, { width : 12, height : 12 }]
+  });
