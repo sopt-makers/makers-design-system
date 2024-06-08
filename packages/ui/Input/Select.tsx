@@ -1,18 +1,19 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { IconChevronDown } from '@sopt-makers/icons';
+import { IconChevronDown, IconUser } from '@sopt-makers/icons';
 import * as S from './style.css';
 
-interface Option<T> {
+export interface Option<T> {
   label: string;
   value: T;
   description?: string;
-  icon?: React.ReactNode | string;
+  icon?: React.ReactNode;
+  profileUrl?: string;
 }
 
 interface SelectProps<T> {
   className?: string;
   placeholder?: string;
-  type: 'Default' | 'Text' | 'UserList';
+  type: 'Text' | 'TextDesc' | 'TextIcon' | 'UserList' | 'UserListDesc';
   options: Option<T>[];
   visibleOptions?: number;
   defaultValue?: T;
@@ -24,7 +25,7 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
 
   const optionsRef = useRef<HTMLUListElement>(null);
 
-  const [selected, setSelected] = useState<T | undefined>(defaultValue);
+  const [selected, setSelected] = useState<T | null>(defaultValue ?? null);
   const [open, setOpen] = useState(false);
 
   const handleToggleOpen = useCallback(() => {
@@ -32,11 +33,23 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
   }, []);
 
   const calcMaxHeight = useCallback(() => {
-    const optionHeight = 42;
+    const getOptionHeight = () => {
+      switch (type) {
+        case 'Text':
+        case 'TextIcon':
+          return 42;
+        case 'TextDesc':
+        case 'UserListDesc':
+          return 62;
+        case 'UserList':
+          return 48;
+      }
+    }
     const gapHeight = 6;
     const paddingHeight = 8;
-    return optionHeight * visibleOptions + gapHeight * (visibleOptions - 1) + paddingHeight * 2;
-  }, [visibleOptions]);
+
+    return getOptionHeight() * visibleOptions + gapHeight * (visibleOptions - 1) + paddingHeight * 2;
+  }, [visibleOptions, type]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,11 +73,18 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
       <p className={!selected ? S.selectPlaceholder : ''}>{selected ?? placeholder}</p>
       <IconChevronDown style={{ width: 20, height: 20, transform: open ? 'rotate(-180deg)' : '', transition: 'all 0.5s' }} />
     </button>
+
     {open ? <ul className={S.optionList} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
       {options.map(option =>
         <li key={option.label}>
           <button className={S.option} onClick={() => { handleOptionClick(option.value); }} type="button">
-            {option.label}
+            {type === 'TextIcon' && option.icon}
+            {(type === 'UserList' || type === 'UserListDesc') && (option.profileUrl ? <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} /> : <div className={S.optionProfileEmpty}><IconUser /></div>)}
+
+            <div>
+              <p>{option.label}</p>
+              {(type === 'TextDesc' || type === 'UserListDesc') && <p className={S.optionDesc}>{option.description}</p>}
+            </div>
           </button>
         </li>
       )}

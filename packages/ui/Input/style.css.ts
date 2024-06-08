@@ -177,6 +177,9 @@ export const option = style({
   width: "100%",
   textAlign: "left",
   cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
 
   ":hover": {
     background: theme.colors.gray700,
@@ -186,10 +189,44 @@ export const option = style({
   },
 });
 
+export const optionDesc = style({
+  ...theme.fontsObject.BODY_4_13_R,
+  color: theme.colors.gray100,
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+  textOverflow: "ellipsis",
+});
+
+export const optionProfileImg = style({
+  width: "32px",
+  height: "32px",
+  borderRadius: "50%",
+});
+
+export const optionProfileEmpty = style({
+  width: "32px",
+  height: "32px",
+  borderRadius: "50%",
+  background: theme.colors.gray700,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
 globalStyle(`${inputWrap} > ${description}`, {
   marginTop: 0,
 });
 
 globalStyle(`${label} > span`, {
   marginBottom: "8px",
+});
+
+globalStyle(`${option} > svg`, {
+  width: "16px",
+  height: "16px",
+});
+
+globalStyle(`${optionProfileEmpty} > svg`, {
+  width: "20px",
+  height: "20px",
 });
