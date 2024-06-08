@@ -11,15 +11,25 @@ interface IconProps {
   style?: CSSProperties;
 }
 
-interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface BaseChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   className?: string;
-  LeftIcon?: ComponentType<IconProps>;
-  RightIcon?: ComponentType<IconProps>;
   iconColor?: string;
   size?: 'sm' | 'md';
   active?: boolean;
 }
+
+interface LeftIconChipProps extends BaseChipProps {
+  LeftIcon?: ComponentType<IconProps>;
+  RightIcon?: never;
+}
+
+interface RightIconChipProps extends BaseChipProps {
+  LeftIcon?: never;
+  RightIcon?: ComponentType<IconProps>;
+}
+
+type ChipProps = LeftIconChipProps | RightIconChipProps;
 
 function Chip({
   children,
