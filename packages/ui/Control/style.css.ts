@@ -30,13 +30,36 @@ export const labelColor = styleVariants({
   });
 
   // Radio 관련 스타일링
-  const RadioBase = style({
+  const radioBase = style({
+    all: 'unset',
+    borderRadius: '9999px',
+    border: `1.5px solid ${theme.colors.gray500}`,
 
   }); 
 
   export const radio = styleVariants({
-    small:[RadioBase,{ width: '16px', height: '16px' }],
-    big:[RadioBase, { width:'22px', height: '22px' }],
+    small:[radioBase,{
+      width: '13px',
+      height: '13px',
+      selectors: {
+      '&:checked': {
+        width: '8px',
+        height: '8px',
+        border: `4px solid ${theme.colors.blue400}`,
+        backgroundColor: theme.colors.white,
+      },
+    } }],
+    large:[radioBase,{
+      width: '19px',
+      height: '19px',
+      selectors: {
+      '&:checked': {
+        width: '10px',
+        height: '10px',
+        border: `6px solid ${theme.colors.blue400}`,
+        backgroundColor: theme.colors.white,
+      },
+    } }],
 });
 
 
