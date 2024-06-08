@@ -18,14 +18,14 @@ export const Default: Story = {
     },
   };
 
-  export const LargeRadio: StoryObj = {
+  export const LargeToggle: StoryObj = {
     args: {
       checked: false,
       size: 'large',
     },
   };
   
-  export const SmallRadio: StoryObj = {
+  export const SmallToggle: StoryObj = {
     args: {
       checked: false,
       size: 'small',
