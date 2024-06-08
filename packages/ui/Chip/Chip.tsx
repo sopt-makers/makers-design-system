@@ -54,7 +54,7 @@ function Chip({
         <LeftIcon color={iconColor} style={{ width: '16px', height: '16px' }} />
       ) : null}
       <span>{children}</span>
-      {RightIcon ? (
+      {!LeftIcon && RightIcon ? (
         <RightIcon
           color={iconColor}
           style={{ width: '16px', height: '16px' }}
