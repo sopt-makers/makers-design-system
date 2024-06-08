@@ -213,6 +213,20 @@ export const optionProfileEmpty = style({
   alignItems: "center",
 });
 
+export const userMention = style({
+  background: theme.colors.gray900,
+  border: `1px solid ${theme.colors.gray700}`,
+});
+
+export const userMentionItem = style({
+  ":hover": {
+    background: theme.colors.gray800,
+  },
+  ":active": {
+    background: theme.colors.gray700,
+  },
+});
+
 globalStyle(`${inputWrap} > ${description}`, {
   marginTop: 0,
 });

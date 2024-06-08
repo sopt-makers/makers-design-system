@@ -7,7 +7,7 @@ export { Dialog, DialogContext, DialogProvider, useDialog } from "./Dialog";
 export type { DialogOptionType } from "./Dialog";
 export { ToastProvider, useToast, Toast } from "./Toast";
 export type { ToastOptionType } from "./Toast";
-export { TextField, TextArea, SearchField } from './Input';
+export { TextField, TextArea, SearchField, Select, UserMention } from "./Input";
 
 // test component
 export { default as Test } from "./Test";

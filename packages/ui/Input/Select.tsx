@@ -32,6 +32,10 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
     setOpen(true);
   }, []);
 
+  const handleToggleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
+
   const calcMaxHeight = useCallback(() => {
     const getOptionHeight = () => {
       switch (type) {
@@ -54,18 +58,18 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (optionsRef.current && !optionsRef.current.contains(event.target as Node)) {
-        setOpen(false);
+        handleToggleClose();
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => { document.removeEventListener('mousedown', handleClickOutside); };
-  }, []);
+  }, [handleToggleClose]);
 
   const handleOptionClick = (value: T) => {
     setSelected(value);
     onChange(value);
-    setOpen(false);
+    handleToggleClose();
   }
 
   return <div className={`${S.selectWrap} ${className}`}>
