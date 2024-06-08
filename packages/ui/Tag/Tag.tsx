@@ -19,7 +19,7 @@ function Tag({
   const style = createTagStyle(type, variant, shape, size);
   return (
     <div className={`${S.root} ${style}`}>
-      <span>{children}</span>
+      {children}
     </div>
   );
 }
