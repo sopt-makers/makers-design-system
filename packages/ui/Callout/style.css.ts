@@ -75,12 +75,12 @@ export const iconVariant = styleVariants(iconColors, (color) => [
 // ▶️ callout styleVariants
 const calloutBase = style({
   display: "flex",
-  gap: "10px",
+  gap: 10,
   alignItems: "flex-start",
   padding: "14px 18px",
 
   border: "1px solid",
-  borderRadius: "10px",
+  borderRadius: 10,
 });
 
 export const calloutVariant = styleVariants(
