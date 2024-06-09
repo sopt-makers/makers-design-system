@@ -13,14 +13,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     checked: true,
-    size: 'small',
+    size: 'sm',
   },
 };
 
 export const LargeLabel: StoryObj = {
   args: {
     checked: false,
-    size: 'large',
+    size: 'lg',
     label: 'Label'
   },
 };
@@ -28,7 +28,7 @@ export const LargeLabel: StoryObj = {
 export const SmallLabel: StoryObj = {
   args: {
     checked: false,
-    size: 'small',
+    size: 'sm',
     label: 'Label'
   },
 };

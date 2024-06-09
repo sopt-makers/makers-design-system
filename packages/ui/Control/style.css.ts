@@ -9,13 +9,13 @@ export const controlWrapper = style({
 });
 
 export const controlLabel = styleVariants({
-    small: [
+    sm: [
         theme.fontsObject.BODY_3_14_R,
         {
           marginLeft: '6px',
         },
       ],
-      large: [
+      lg: [
         theme.fontsObject.BODY_2_16_R,
         {
           marginLeft: '8px',
@@ -38,7 +38,7 @@ export const labelColor = styleVariants({
   }); 
 
   export const radio = styleVariants({
-    small:[radioBase,{
+    sm: [radioBase,{
       width: '13px',
       height: '13px',
       selectors: {
@@ -49,7 +49,7 @@ export const labelColor = styleVariants({
         backgroundColor: theme.colors.white,
       },
     } }],
-    large:[radioBase,{
+    lg: [radioBase,{
       width: '19px',
       height: '19px',
       selectors: {
@@ -73,8 +73,8 @@ const checkBoxBase = style({
   });
 
 export const checkBox = styleVariants({
-    small: [checkBoxBase, { width: '18px', height: '18px' }],
-    large: [checkBoxBase, { width: '24px', height: '24px' }],
+    sm: [checkBoxBase, { width: '18px', height: '18px' }],
+    lg: [checkBoxBase, { width: '24px', height: '24px' }],
   });
   
   export const checkBoxInput = style({
@@ -93,8 +93,8 @@ export const checkBox = styleVariants({
   });
 
   export const check = styleVariants({
-    small: { width: 18, color: theme.colors.white },
-    large: { width: 24, color: theme.colors.white },
+    sm: { width: 18, color: theme.colors.white },
+    lg: { width: 24, color: theme.colors.white },
   });
 
   // Toggle 관련 스타일링
@@ -113,8 +113,8 @@ export const checkBox = styleVariants({
   });
 
   export const toggleWrapper = styleVariants({
-    large : [toggleBase, { width : 32, height : 16, padding: 4 }],
-    small : [toggleBase, { width : 24, height : 12, padding: 3 }]
+    lg : [toggleBase, { width : 32, height : 16, padding: 4 }],
+    sm : [toggleBase, { width : 24, height : 12, padding: 3 }]
   });
 
   export const toggleState = styleVariants({
@@ -123,6 +123,6 @@ export const checkBox = styleVariants({
   });
 
   export const toggleThumb = styleVariants({
-    large : [toggleThumbBase, { width : 16, height : 16 }],
-    small : [toggleThumbBase, { width : 12, height : 12 }]
+    lg : [toggleThumbBase, { width : 16, height : 16 }],
+    sm : [toggleThumbBase, { width : 12, height : 12 }]
   });

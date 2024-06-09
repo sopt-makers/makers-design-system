@@ -4,14 +4,14 @@ import { controlLabel, controlWrapper, labelColor, radio } from "./style.css";
 
 export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
     label?: string;
-    size?: 'small' | 'large';
+    size?: 'sm' | 'lg';
     checked?: boolean;
     color?: 'white';
   }
 
 
   const Radio = forwardRef<HTMLInputElement, RadioProps>(
-    ({ checked = false, label, size = 'small', color = 'white', onChange, ...props }, ref) => {
+    ({ checked = false, label, size = 'sm', color = 'white', onChange, ...props }, ref) => {
         return (
             <label className={controlWrapper} >
                 <input checked={checked} className={radio[size]} onChange={onChange} ref={ref} type="radio" {...props}/>

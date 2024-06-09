@@ -2,11 +2,11 @@ import * as Switch from '@radix-ui/react-switch';
 import { toggleState, toggleThumb, toggleWrapper } from './style.css';
 
 export interface ToggleProps {
-    size?: 'small' | 'large';
+    size?: 'sm' | 'lg';
     checked: boolean;
 }
 
-export default function Toggle({size = 'large', checked = true, ...restProps}: ToggleProps) {
+export default function Toggle({size = 'lg', checked = true, ...restProps}: ToggleProps) {
 
 
 return (
@@ -14,5 +14,4 @@ return (
         <Switch.Thumb className={toggleThumb[size]} data-state={checked} />
     </Switch.Root>
     )
-}
-
+};

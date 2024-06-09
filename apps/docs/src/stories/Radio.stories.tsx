@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import  Radio  from '../../../../packages/ui/Control/Radio'
+import Radio from '../../../../packages/ui/Control/Radio';
 
 const meta = {
     title: 'Components/Control/Radio',
@@ -14,14 +14,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
       checked: true,
-      size: 'small',
+      size: 'sm',
     },
   };
 
   export const LargeRadio: StoryObj = {
     args: {
       checked: false,
-      size: 'large',
+      size: 'lg',
       label: 'Label'
     },
   };
@@ -29,7 +29,7 @@ export const Default: Story = {
   export const SmallRadio: StoryObj = {
     args: {
       checked: false,
-      size: 'small',
+      size: 'sm',
       label: 'Label'
     },
   };

@@ -6,13 +6,13 @@ import { check, checkBox, checkBoxChecked, checkBoxInput, controlLabel, controlW
 
 export interface CheckBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: string;
-  size?: 'small' | 'large';
+  size?: 'sm' | 'lg';
   checked?: boolean;
   color?: 'white';
 }
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
-  ({ checked = false, label, size = 'small', color = 'white', onChange, ...props }, ref) => {
+  ({ checked = false, label, size = 'sm', color = 'white', onChange, ...props }, ref) => {
     return (
       <label className={controlWrapper}>
         <input className={checkBoxInput} onChange={onChange} ref={ref} type="checkbox" {...props} />

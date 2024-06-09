@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import  Toggle  from '../../../../packages/ui/Control/Toggle'
+import Toggle from '../../../../packages/ui/Control/Toggle';
 
 const meta = {
     title: 'Components/Control/Toggle',
@@ -14,20 +14,20 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
     args: {
       checked: true,
-      size: 'large',
+      size: 'lg',
     },
   };
 
   export const LargeToggle: StoryObj = {
     args: {
       checked: false,
-      size: 'large',
+      size: 'lg',
     },
   };
   
   export const SmallToggle: StoryObj = {
     args: {
       checked: false,
-      size: 'small',
+      size: 'sm',
     },
   };
