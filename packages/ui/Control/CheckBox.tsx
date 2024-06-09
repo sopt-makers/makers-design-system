@@ -12,10 +12,10 @@ export interface CheckBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement
 }
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
-  ({ checked = false, label, size = 'sm', color = 'white', onChange, ...props }, ref) => {
+  ({ checked = false, label, size = 'sm', color = 'white', ...props }, ref) => {
     return (
       <label className={controlWrapper}>
-        <input className={checkBoxInput} onChange={onChange} ref={ref} type="checkbox" {...props} />
+        <input className={checkBoxInput} ref={ref} type="checkbox" {...props} />
         <div className={`${checkBox[size]} ${checkBoxChecked[`${checked}`]}`}>
           {checked ? <IconCheck className={check[size]} /> : null}
         </div>

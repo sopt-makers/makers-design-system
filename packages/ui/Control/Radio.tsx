@@ -11,10 +11,10 @@ export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 
 
   const Radio = forwardRef<HTMLInputElement, RadioProps>(
-    ({ checked = false, label, size = 'sm', color = 'white', onChange, ...props }, ref) => {
+    ({ checked = false, label, size = 'sm', color = 'white', ...props }, ref) => {
         return (
             <label className={controlWrapper} >
-                <input checked={checked} className={radio[size]} onChange={onChange} ref={ref} type="radio" {...props}/>
+                <input checked={checked} className={radio[size]} ref={ref} type="radio" {...props}/>
                 {label ? <p className={`${controlLabel[size]} ${labelColor[color]}`}>label</p> : null}
             </label>
         );

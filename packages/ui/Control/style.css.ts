@@ -6,6 +6,7 @@ export const controlWrapper = style({
     display:'flex',
     alignItems:'center',
     cursor:'pointer',
+    width: 'fit-content',
 });
 
 export const controlLabel = styleVariants({
