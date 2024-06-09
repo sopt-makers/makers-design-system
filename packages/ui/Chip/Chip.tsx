@@ -1,9 +1,4 @@
-import {
-  type ButtonHTMLAttributes,
-  type CSSProperties,
-  type ComponentType,
-  type ReactNode,
-} from 'react';
+import type { ButtonHTMLAttributes, CSSProperties, ComponentType } from 'react';
 import { root, activeStyle, sprinkles } from './style.css';
 
 interface IconProps {
@@ -12,7 +7,7 @@ interface IconProps {
 }
 
 interface BaseChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode;
+  children?: string | number;
   className?: string;
   iconColor?: string;
   size?: 'sm' | 'md';
