@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Toggle from '../../../../packages/ui/Control/Toggle';
+import { Toggle } from '@sopt-makers/ui';
 
 const meta = {
     title: 'Components/Control/Toggle',
