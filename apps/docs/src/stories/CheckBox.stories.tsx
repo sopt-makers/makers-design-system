@@ -14,6 +14,7 @@ export const Default: Story = {
   args: {
     checked: true,
     size: 'sm',
+    label: 'Label'
   },
 };
 

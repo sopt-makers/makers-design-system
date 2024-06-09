@@ -35,28 +35,24 @@ export const labelColor = styleVariants({
     all: 'unset',
     borderRadius: '9999px',
     border: `1.5px solid ${theme.colors.gray500}`,
-
+    boxSizing: 'border-box',
   }); 
 
   export const radio = styleVariants({
     sm: [radioBase,{
-      width: '13px',
-      height: '13px',
+      width: '16px',
+      height: '16px',
       selectors: {
       '&:checked': {
-        width: '8px',
-        height: '8px',
         border: `4px solid ${theme.colors.blue400}`,
         backgroundColor: theme.colors.white,
       },
     } }],
     lg: [radioBase,{
-      width: '19px',
-      height: '19px',
+      width: '22px',
+      height: '22px',
       selectors: {
       '&:checked': {
-        width: '10px',
-        height: '10px',
         border: `6px solid ${theme.colors.blue400}`,
         backgroundColor: theme.colors.white,
       },
@@ -74,8 +70,8 @@ const checkBoxBase = style({
   });
 
 export const checkBox = styleVariants({
-    sm: [checkBoxBase, { width: '18px', height: '18px' }],
-    lg: [checkBoxBase, { width: '24px', height: '24px' }],
+    sm: [checkBoxBase, { width: '16px', height: '18px' }],
+    lg: [checkBoxBase, { width: '22px', height: '24px' }],
   });
   
   export const checkBoxInput = style({
@@ -94,8 +90,8 @@ export const checkBox = styleVariants({
   });
 
   export const check = styleVariants({
-    sm: { width: 18, color: theme.colors.white },
-    lg: { width: 24, color: theme.colors.white },
+    sm: { width: 12, color: theme.colors.white },
+    lg: { width: 16, color: theme.colors.white },
   });
 
   // Toggle 관련 스타일링
@@ -104,6 +100,7 @@ export const checkBox = styleVariants({
     display: 'flex',
     borderRadius: '9999px',
     border: 'none',
+    boxSizing: 'border-box',
   });
 
   const toggleThumbBase = style({
@@ -114,8 +111,8 @@ export const checkBox = styleVariants({
   });
 
   export const toggleWrapper = styleVariants({
-    lg : [toggleBase, { width : 32, height : 16, padding: 4 }],
-    sm : [toggleBase, { width : 24, height : 12, padding: 3 }]
+    lg : [toggleBase, { width : 40, height : 24, padding: 4 }],
+    sm : [toggleBase, { width : 30, height : 18, padding: 3 }]
   });
 
   export const toggleState = styleVariants({
