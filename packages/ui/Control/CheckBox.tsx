@@ -19,7 +19,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
         <div className={`${checkBox[size]} ${checkBoxChecked[`${checked}`]}`}>
           {checked ? <IconCheck className={check[size]} /> : null}
         </div>
-        <p className={`${controlLabel[size]} ${labelColor[color]}`}>{label ? label : null}</p>
+        {label ? <p className={`${controlLabel[size]} ${labelColor[color]}`}>label</p> : null}
       </label>
     );
   }

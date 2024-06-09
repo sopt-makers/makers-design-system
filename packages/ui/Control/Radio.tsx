@@ -15,7 +15,7 @@ export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
         return (
             <label className={controlWrapper} >
                 <input checked={checked} className={radio[size]} onChange={onChange} ref={ref} type="radio" {...props}/>
-                <p className={`${controlLabel[size]} ${labelColor[color]}`}>{label ? label : null}</p>
+                {label ? <p className={`${controlLabel[size]} ${labelColor[color]}`}>label</p> : null}
             </label>
         );
     }
