@@ -35,10 +35,10 @@ function Callout(props: CalloutProps) {
 
   return (
     <aside className={calloutVariant[type]}>
-      {hasIcon ? <Icon className={iconVariant[type]} /> : null}
+      {buttonLabel || hasIcon ? <Icon className={iconVariant[type]} /> : null}
       <div className={container}>
         <span className={text}>{children}</span>
-        {hasIcon && buttonLabel ? (
+        {buttonLabel ? (
           <button
             className={button}
             disabled={isButtonDisabled}
