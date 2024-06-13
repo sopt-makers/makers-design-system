@@ -10,6 +10,7 @@ export type { ToastOptionType } from './Toast';
 export { TextField, TextArea, SearchField } from './Input';
 export { default as Tag } from "./Tag";
 export { default as Chip } from './Chip';
+export { default as Callout } from "./Callout";
 
 // test component
 export { default as Test } from './Test';
