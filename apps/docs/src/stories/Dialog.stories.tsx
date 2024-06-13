@@ -96,7 +96,7 @@ export const DesktopSingleLabel: StoryObj = {
       checkBoxOptions: {
         label: '다시는 보지 않기',
         checked: false,
-        size: 'small',
+        size: 'sm',
         color: 'white',
         onChange: (e) => checkCheckBox(e.target.checked),
       },
@@ -168,7 +168,7 @@ export const DesktopSingleLong: StoryObj = {
       checkBoxOptions: {
         label: '다시는 보지 않기',
         checked: false,
-        size: 'small',
+        size: 'sm',
         color: 'white',
         onChange: (e) => checkCheckBox(e.target.checked),
       },
@@ -259,7 +259,7 @@ export const MobileSingleLabel: StoryObj = {
       checkBoxOptions: {
         label: '다시는 보지 않기',
         checked: false,
-        size: 'small',
+        size: 'sm',
         color: 'white',
         onChange: (e) => checkCheckBox(e.target.checked),
       },
@@ -323,7 +323,7 @@ export const MobileSingleLong: StoryObj = {
       checkBoxOptions: {
         label: '다시는 보지 않기',
         checked: false,
-        size: 'small',
+        size: 'sm',
         color: 'white',
         onChange: (e) => checkCheckBox(e.target.checked),
       },
