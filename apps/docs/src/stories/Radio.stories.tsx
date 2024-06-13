@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CheckBox } from "@sopt-makers/ui";
+import { Radio } from "@sopt-makers/ui";
 
 const meta = {
-  title: "Components/Control/CheckBox",
-  component: CheckBox,
+  title: "Components/Control/Radio",
+  component: Radio,
   tags: ["autodocs"],
-} as Meta<typeof CheckBox>;
+} as Meta<typeof Radio>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -14,11 +14,10 @@ export const Default: Story = {
   args: {
     checked: true,
     size: "sm",
-    label: "Label",
   },
 };
 
-export const LargeLabel: StoryObj = {
+export const LargeRadio: StoryObj = {
   args: {
     checked: false,
     size: "lg",
@@ -26,7 +25,7 @@ export const LargeLabel: StoryObj = {
   },
 };
 
-export const SmallLabel: StoryObj = {
+export const SmallRadio: StoryObj = {
   args: {
     checked: false,
     size: "sm",

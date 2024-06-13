@@ -2,7 +2,7 @@ export * from './cssVariables';
 
 // component exports
 export { default as Button } from './Button';
-export { default as CheckBox } from './CheckBox';
+export { CheckBox, Toggle, Radio } from "./Control";
 export { Dialog, DialogContext, DialogProvider, useDialog } from './Dialog';
 export type { DialogOptionType } from './Dialog';
 export { ToastProvider, useToast, Toast } from './Toast';
