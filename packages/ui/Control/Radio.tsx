@@ -1,17 +1,18 @@
 import type { InputHTMLAttributes } from "react";
 import { forwardRef } from "react";
-import { controlLabel, controlWrapper, labelColor, radio } from "./style.css";
+import theme from "../theme.css";
+import { controlLabel, controlWrapper, radio } from "./style.css";
 
 export interface RadioProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   label?: string;
   size?: "sm" | "lg";
   checked?: boolean;
-  color?: "white";
+  color?: string;
 }
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  ({ checked = false, label, size = "sm", color = "white", ...props }, ref) => {
+  ({ checked = false, label, size = "sm", color = theme.colors.gray10, ...props }, ref) => {
     return (
       <label className={controlWrapper}>
         <input
@@ -22,7 +23,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
           {...props}
         />
         {label ? (
-          <p className={`${controlLabel[size]} ${labelColor[color]}`}>label</p>
+          <p className={controlLabel[size]} style={{ color }}>label</p>
         ) : null}
       </label>
     );
