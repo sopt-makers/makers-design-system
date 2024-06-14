@@ -165,6 +165,18 @@ export const optionList = style({
   overflow: "scroll",
   transformOrigin: "top",
   animation: `${fadeIn} 0.5s forwards`,
+  overflowX: "hidden",
+
+  "::-webkit-scrollbar": {
+    width: "16px",
+  },
+  "::-webkit-scrollbar-thumb": {
+    background: theme.colors.gray500,
+    backgroundClip: "padding-box",
+    border: "4px solid transparent",
+    boxShadow: `inset -3px 0 0 ${theme.colors.gray800}`,
+    borderRadius: "8px",
+  },
 });
 
 export const option = style({

@@ -72,9 +72,11 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
     handleToggleClose();
   }
 
+  const selectedLabel = selected ? options.find(option => option.value === selected)?.label : placeholder;
+
   return <div className={`${S.selectWrap} ${className}`}>
     <button className={S.select} onClick={handleToggleOpen} type="button">
-      <p className={!selected ? S.selectPlaceholder : ''}>{selected ?? placeholder}</p>
+      <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
       <IconChevronDown style={{ width: 20, height: 20, transform: open ? 'rotate(-180deg)' : '', transition: 'all 0.5s' }} />
     </button>
 
