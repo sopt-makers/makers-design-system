@@ -17,6 +17,12 @@ export default {
   title: "Components/Tag",
   component: Tag,
   tags: ["autodocs"],
+  argTypes: {
+    size: { control: 'radio', options: ['sm', 'md', 'lg'] },
+    shape: { control: 'radio', options: ['rect', 'pill'] },
+    variant: { control: 'radio', options: ['default', 'primary', 'secondary'] },
+    type: { control: 'radio', options: ['solid', 'line'] },
+  }
 } as Meta<TagStoryProps>;
 
 // 기본 태그 스토리
@@ -27,16 +33,5 @@ export const Default: StoryObj<TagStoryProps> = {
     shape: "rect",
     variant: "default",
     type: "solid",
-  },
-};
-
-// 커스텀 버튼 스토리
-export const Another: StoryObj<TagStoryProps> = {
-  args: {
-    children: "Another Tag",
-    size: "md",
-    shape: "pill",
-    variant: "primary",
-    type: "line",
   },
 };

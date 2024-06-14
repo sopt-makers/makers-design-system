@@ -16,6 +16,12 @@ export default {
   title: 'Components/Chip',
   component: Chip,
   tags: ['autodocs'],
+  argTypes: {
+    size: { control: 'radio', options: ['sm', 'md'] },
+    iconColor: { control: 'color' },
+    LeftIcon: { control: false },
+    RightIcon: { control: false },
+  }
 } as Meta<ChipStoryProps>;
 
 // 기본 chip 스토리
