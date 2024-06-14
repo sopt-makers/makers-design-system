@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes } from "react";
 import { forwardRef } from "react";
 import { IconCheck } from "@sopt-makers/icons";
+import theme from "../theme.css";
 import {
   check,
   checkBox,
@@ -8,7 +9,6 @@ import {
   checkBoxInput,
   controlLabel,
   controlWrapper,
-  labelColor,
 } from "./style.css";
 
 export interface CheckBoxProps
@@ -16,11 +16,11 @@ export interface CheckBoxProps
   label?: string;
   size?: "sm" | "lg";
   checked?: boolean;
-  color?: "white";
+  color?: string;
 }
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
-  ({ checked = false, label, size = "sm", color = "white", ...props }, ref) => {
+  ({ checked = false, label, size = "sm", color = theme.colors.gray10, ...props }, ref) => {
     return (
       <label className={controlWrapper}>
         <input className={checkBoxInput} ref={ref} type="checkbox" {...props} />
@@ -28,7 +28,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
           {checked ? <IconCheck className={check[size]} /> : null}
         </div>
         {label ? (
-          <p className={`${controlLabel[size]} ${labelColor[color]}`}>label</p>
+          <p className={controlLabel[size]} style={{ color }}>{label}</p>
         ) : null}
       </label>
     );

@@ -5,6 +5,11 @@ const meta = {
   title: "Components/Control/Radio",
   component: Radio,
   tags: ["autodocs"],
+  argTypes: {
+    size: { control: 'radio', options: ['sm', 'lg'] },
+    label: { control: 'text' },
+    color: { control: 'color' },
+  }
 } as Meta<typeof Radio>;
 
 export default meta;

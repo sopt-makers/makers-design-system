@@ -24,12 +24,6 @@ export const controlLabel = styleVariants({
   ],
 });
 
-export const labelColor = styleVariants({
-  white: {
-    color: theme.colors.gray10,
-  },
-});
-
 // Radio 관련 스타일링
 const radioBase = style({
   all: "unset",

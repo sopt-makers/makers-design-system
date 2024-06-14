@@ -5,6 +5,9 @@ const meta = {
   title: "Components/Control/Toggle",
   component: Toggle,
   tags: ["autodocs"],
+  argTypes: {
+    size: { control: 'radio', options: ['sm', 'lg'] },
+  }
 } as Meta<typeof Toggle>;
 
 export default meta;

@@ -14,6 +14,9 @@ export default {
   title: "Components/Callout",
   component: Callout,
   tags: ["autodocs"],
+  argTypes: {
+    type: { control: 'radio', options: ['danger', 'information', 'warning'] },
+  }
 } as Meta<CalloutProps>;
 
 // danger 콜아웃 스토리
