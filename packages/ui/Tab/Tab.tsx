@@ -2,8 +2,8 @@ import { useState } from 'react';
 import * as S from './style.css';
 import { createTabVariant, createTabItemVariant } from './utils';
 
-export type TabStyle = 'Primary' | 'Secondary';
-export type TabSize = 'Small' | 'Medium' | 'Large';
+export type TabStyle = 'primary' | 'secondary';
+export type TabSize = 'sm' | 'md' | 'lg';
 
 interface TabProps<T extends string> {
   style: TabStyle;

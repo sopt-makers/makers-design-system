@@ -52,9 +52,9 @@ globalStyle(`${tabItemUnderline}.selected`, {
 });
 
 export const fontStyles = styleVariants({
-  Small: theme.fontsObject.HEADING_7_16_B,
-  Medium: theme.fontsObject.HEADING_5_20_B,
-  Large: theme.fontsObject.HEADING_4_24_B,
+  sm: theme.fontsObject.HEADING_7_16_B,
+  md: theme.fontsObject.HEADING_5_20_B,
+  lg: theme.fontsObject.HEADING_4_24_B,
 });
 
 const tabSprinkleProperties = defineProperties({

@@ -10,8 +10,8 @@ const meta = {
     selectedInitial: 'Tab1',
   },
   argTypes: {
-    style: { control: 'radio', options: ['Primary', 'Secondary'] },
-    size: { control: 'radio', options: ['Small', 'Medium', 'Large'] },
+    style: { control: 'radio', options: ['primary', 'secondary'] },
+    size: { control: 'radio', options: ['sm', 'md', 'lg'] },
     selectedInitial: { control: 'select', options: ['Tab1', 'Tab2', 'Tab3'] },
   }
 } as Meta<typeof Tab>;
@@ -21,14 +21,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    style: 'Primary',
-    size: 'Small',
+    style: 'primary',
+    size: 'sm',
   },
 };
 
 export const Secondary: StoryObj = {
   args: {
-    style: 'Secondary',
-    size: 'Large',
+    style: 'secondary',
+    size: 'lg',
   },
 };
