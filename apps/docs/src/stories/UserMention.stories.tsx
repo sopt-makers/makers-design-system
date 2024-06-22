@@ -13,7 +13,7 @@ interface UserOption<T> {
 interface UserMentionProps<T> {
   className?: string;
   userOptions: UserOption<T>[];
-  type: 'Default' | 'Description';
+  type: 'default' | 'description';
   visibleOptions?: number;
   onChange: (value: T) => void;
 }
@@ -68,7 +68,7 @@ const meta = {
     onChange: fn(),
   },
   argTypes: {
-    type: { control: 'radio', options: ['Default', 'Description'] },
+    type: { control: 'radio', options: ['default', 'description'] },
     visibleOptions: { control: 'number' },
   }
 } as Meta<typeof UserMention>;
@@ -77,12 +77,12 @@ export default meta;
 
 export const Default: StoryObj = {
   args: {
-    type: 'Default',
+    type: 'default',
   },
 };
 
 export const Description: StoryObj = {
   args: {
-    type: 'Description',
+    type: 'description',
   },
 };

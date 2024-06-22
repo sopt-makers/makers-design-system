@@ -12,7 +12,7 @@ export interface UserOption<T> {
 interface UserMentionProps<T> {
   className?: string;
   userOptions: UserOption<T>[];
-  type: 'Default' | 'Description';
+  type: 'default' | 'description';
   visibleOptions?: number;
   onChange: (value: T) => void;
   toggleClose: () => void;
@@ -24,7 +24,7 @@ function UserMention<T extends string | number>(props: UserMentionProps<T>) {
   const userOptionsRef = useRef<HTMLUListElement>(null);
 
   const calcMaxHeight = useCallback(() => {
-    const optionHeight = type === 'Description' ? 62 : 48;
+    const optionHeight = type === 'description' ? 62 : 48;
     const gapHeight = 6;
     const paddingHeight = 8;
     return optionHeight * visibleOptions + gapHeight * (visibleOptions - 1) + paddingHeight * 2;
@@ -54,7 +54,7 @@ function UserMention<T extends string | number>(props: UserMentionProps<T>) {
             {option.profileUrl ? <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} /> : <div className={S.optionProfileEmpty}><IconUser /></div>}
             <div>
               <p>{option.label}</p>
-              {type === 'Description' && <p className={S.optionDesc}>{option.description}</p>}
+              {type === 'description' && <p className={S.optionDesc}>{option.description}</p>}
             </div>
           </button>
         </li>

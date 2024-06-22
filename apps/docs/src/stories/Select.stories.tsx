@@ -81,50 +81,50 @@ export default meta;
 
 export const Text: StoryObj = {
   args: {
-    type: 'Text',
+    type: 'text',
     options: selectOptions,
   },
   argTypes: {
-    type: { control: 'radio', options: ['Text', 'TextDesc', 'TextIcon'] },
+    type: { control: 'radio', options: ['text', 'textDesc', 'textIcon'] },
   }
 };
 
 export const TextDesc: StoryObj = {
   args: {
-    type: 'TextDesc',
+    type: 'textDesc',
     options: selectOptions,
   },
   argTypes: {
-    type: { control: 'radio', options: ['Text', 'TextDesc', 'TextIcon'] },
+    type: { control: 'radio', options: ['text', 'textDesc', 'textIcon'] },
   }
 };
 
 export const TextIcon: StoryObj = {
   args: {
-    type: 'TextIcon',
+    type: 'textIcon',
     options: selectOptions,
   },
   argTypes: {
-    type: { control: 'radio', options: ['Text', 'TextDesc', 'TextIcon'] },
+    type: { control: 'radio', options: ['text', 'textDesc', 'textIcon'] },
   }
 };
 
 export const UserList: StoryObj = {
   args: {
-    type: 'UserList',
+    type: 'userList',
     options: userOptions,
   },
   argTypes: {
-    type: { control: 'radio', options: ['UserList', 'UserListDesc'] },
+    type: { control: 'radio', options: ['userList', 'userListDesc'] },
   }
 };
 
 export const UserListDesc: StoryObj = {
   args: {
-    type: 'UserListDesc',
+    type: 'userListDesc',
     options: userOptions,
   },
   argTypes: {
-    type: { control: 'radio', options: ['UserList', 'UserListDesc'] },
+    type: { control: 'radio', options: ['userList', 'userListDesc'] },
   }
 };

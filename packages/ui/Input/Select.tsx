@@ -13,7 +13,7 @@ export interface Option<T> {
 interface SelectProps<T> {
   className?: string;
   placeholder?: string;
-  type: 'Text' | 'TextDesc' | 'TextIcon' | 'UserList' | 'UserListDesc';
+  type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
   options: Option<T>[];
   visibleOptions?: number;
   defaultValue?: T;
@@ -39,13 +39,13 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
   const calcMaxHeight = useCallback(() => {
     const getOptionHeight = () => {
       switch (type) {
-        case 'Text':
-        case 'TextIcon':
+        case 'text':
+        case 'textIcon':
           return 42;
-        case 'TextDesc':
-        case 'UserListDesc':
+        case 'textDesc':
+        case 'userListDesc':
           return 62;
-        case 'UserList':
+        case 'userList':
           return 48;
       }
     }
@@ -84,12 +84,12 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
       {options.map(option =>
         <li key={option.label}>
           <button className={S.option} onClick={() => { handleOptionClick(option.value); }} type="button">
-            {type === 'TextIcon' && option.icon}
-            {(type === 'UserList' || type === 'UserListDesc') && (option.profileUrl ? <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} /> : <div className={S.optionProfileEmpty}><IconUser /></div>)}
+            {type === 'textIcon' && option.icon}
+            {(type === 'userList' || type === 'userListDesc') && (option.profileUrl ? <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} /> : <div className={S.optionProfileEmpty}><IconUser /></div>)}
 
             <div>
               <p>{option.label}</p>
-              {(type === 'TextDesc' || type === 'UserListDesc') && <p className={S.optionDesc}>{option.description}</p>}
+              {(type === 'textDesc' || type === 'userListDesc') && <p className={S.optionDesc}>{option.description}</p>}
             </div>
           </button>
         </li>
