@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.0
+
+### Major Changes
+
+- 5b1a5a1: MDS UI 2.0 - Callout, Chip, Radio, Select, Tab, Tag, Toggle, UserMention
+
 ## 1.1.8
 
 ### Patch Changes
