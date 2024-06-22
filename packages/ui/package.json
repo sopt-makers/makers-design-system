@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-switch": "^1.0.3",
     "@sopt-makers/colors": "^3.0.1",
     "@sopt-makers/fonts": "^2.0.1",
     "@sopt-makers/icons": "^1.0.3",

@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import type React from 'react';
-import type { CheckBoxProps } from '../CheckBox';
+
+import { CheckBoxProps } from 'Control/CheckBox';
+
 
 export interface ChildrenProp {
   children: ReactNode;

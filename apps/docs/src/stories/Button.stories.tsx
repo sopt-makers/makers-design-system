@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@sopt-makers/ui';
+import { IconPlus, IconChevronRight } from '@sopt-makers/icons';
 
 interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';
@@ -16,6 +17,13 @@ export default {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
+  argTypes: {
+    size: { control: 'radio', options: ['sm', 'md', 'lg'] },
+    theme: { control: 'radio', options: ['white', 'black', 'blue', 'red'] },
+    rounded: { control: 'radio', options: ['md', 'lg'] },
+    LeftIcon: { control: false },
+    RightIcon: { control: false }
+  }
 } as Meta<ButtonStoryProps>;
 
 // 기본 버튼 스토리
@@ -30,22 +38,24 @@ export const Default: StoryObj<ButtonStoryProps> = {
 };
 
 // 커스텀 버튼 스토리
-export const Another: StoryObj<ButtonStoryProps> = {
+export const LeftIcon: StoryObj<ButtonStoryProps> = {
   args: {
-    children: 'Another Button',
-    size: 'lg',
+    children: 'LeftIcon Button',
+    size: 'sm',
     theme: 'red',
     rounded: 'lg',
     disabled: false,
+    LeftIcon: IconPlus,
   },
 };
 
-export const Disabled: StoryObj<ButtonStoryProps> = {
+export const RightIcon: StoryObj<ButtonStoryProps> = {
   args: {
-    children: 'Disabled Button',
-    size: 'md',
+    children: 'RightIcon Button',
+    size: 'lg',
     theme: 'blue',
     rounded: 'lg',
-    disabled: true,
+    disabled: false,
+    RightIcon: IconChevronRight,
   },
 };

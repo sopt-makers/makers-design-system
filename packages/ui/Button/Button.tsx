@@ -1,8 +1,9 @@
 import React, { type ButtonHTMLAttributes } from 'react';
 import * as S from './style.css';
 import createButtonVariant from './utils';
+import { iconSizes } from './constants';
 
-interface IconProps { color?: string }
+interface IconProps { color?: string, width: number, height: number }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
@@ -25,14 +26,15 @@ function Button({
   ...buttonElementProps
 }: ButtonProps) {
   const variant = createButtonVariant(theme, rounded, size);
+  const iconSize = iconSizes[size];
   return (
     <button className={`${S.root} ${variant} ${className}`}
       type="button"
       {...buttonElementProps}
     >
-      {LeftIcon ? <LeftIcon /> : null}
+      {LeftIcon ? <LeftIcon height={iconSize} width={iconSize} /> : null}
       <span>{children}</span>
-      {RightIcon ? <RightIcon /> : null}
+      {(RightIcon && !LeftIcon) ? <RightIcon height={iconSize} width={iconSize} /> : null}
     </button>
   );
 }
