@@ -1,5 +1,5 @@
+import { CheckBox } from 'Control';
 import Button from '../Button';
-import CheckBox from '../CheckBox';
 import Dialog from './Dialog';
 import { buttonSize, checkBoxWapper, descriptionMarginBottom } from './style.css';
 import type { DialogValueProps } from './types';

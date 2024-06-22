@@ -7,7 +7,7 @@ const toastAnimation = keyframes({
 });
 
 export const root = style({
-  animation: `${toastAnimation} 4s`,
+  animation: `${toastAnimation} 3s`,
   animationFillMode: "forwards",
 
   display: "flex",
@@ -19,7 +19,7 @@ export const root = style({
   left: "calc(50% - 16px)",
   transform: "translateX(-50%)",
   transition: "transform .2s linear",
-  
+
   width: "var(--mds-toast-width, 380px)",
   margin: "0 16px",
   padding: "14px 16px",
