@@ -11,6 +11,7 @@ export { TextField, TextArea, SearchField } from './Input';
 export { default as Tag } from "./Tag";
 export { default as Chip } from './Chip';
 export { default as Callout } from "./Callout";
+export { default as Tab } from "./Tab";
 
 // test component
 export { default as Test } from './Test';
