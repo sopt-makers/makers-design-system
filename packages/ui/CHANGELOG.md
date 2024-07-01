@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.1
+
+### Patch Changes
+
+- a39f883: fix : [Input/Select] 드롭다운의 정확한 토글을 위한 buttonRef 추가.
+
 ## 2.0.0
 
 ### Major Changes
