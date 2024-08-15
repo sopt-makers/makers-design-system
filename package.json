@@ -11,9 +11,15 @@
   "devDependencies": {
     "eslint": "^8.48.0",
     "husky": "^8.0.0",
+    "lint-staged": "^15.2.9",
     "prettier": "^3.0.3",
     "tsconfig": "*",
     "turbo": "latest"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mdx}": [
+      "prettier --check"
+    ]
   },
   "name": "makers-frontend",
   "version": "1.0.0",
