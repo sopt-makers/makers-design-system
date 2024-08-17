@@ -1,45 +1,45 @@
-import { style, styleVariants } from "@vanilla-extract/css";
-import theme from "../theme.css";
+import { style, styleVariants } from '@vanilla-extract/css';
+import theme from '../theme.css';
 
 // Control 컴포넌트에서 사용되는 공통 스타일링
 export const controlWrapper = style({
-  display: "flex",
-  alignItems: "center",
-  cursor: "pointer",
-  width: "fit-content",
+  display: 'flex',
+  alignItems: 'center',
+  cursor: 'pointer',
+  width: 'fit-content',
 });
 
 export const controlLabel = styleVariants({
   sm: [
     theme.fontsObject.BODY_3_14_R,
     {
-      marginLeft: "6px",
+      marginLeft: '6px',
     },
   ],
   lg: [
     theme.fontsObject.BODY_2_16_R,
     {
-      marginLeft: "8px",
+      marginLeft: '8px',
     },
   ],
 });
 
 // Radio 관련 스타일링
 const radioBase = style({
-  all: "unset",
-  borderRadius: "9999px",
+  all: 'unset',
+  borderRadius: '9999px',
   border: `1.5px solid ${theme.colors.gray500}`,
-  boxSizing: "border-box",
+  boxSizing: 'border-box',
 });
 
 export const radio = styleVariants({
   sm: [
     radioBase,
     {
-      width: "16px",
-      height: "16px",
+      width: '16px',
+      height: '16px',
       selectors: {
-        "&:checked": {
+        '&:checked': {
           border: `4px solid ${theme.colors.blue400}`,
           backgroundColor: theme.colors.white,
         },
@@ -49,10 +49,10 @@ export const radio = styleVariants({
   lg: [
     radioBase,
     {
-      width: "22px",
-      height: "22px",
+      width: '22px',
+      height: '22px',
       selectors: {
-        "&:checked": {
+        '&:checked': {
           border: `6px solid ${theme.colors.blue400}`,
           backgroundColor: theme.colors.white,
         },
@@ -63,26 +63,26 @@ export const radio = styleVariants({
 
 // CheckBox 관련 스타일링
 const checkBoxBase = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  transition: "0.2s background-color",
-  borderRadius: "5px",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: '0.2s background-color',
+  borderRadius: '5px',
 });
 
 export const checkBox = styleVariants({
-  sm: [checkBoxBase, { width: "16px", height: "18px" }],
-  lg: [checkBoxBase, { width: "22px", height: "24px" }],
+  sm: [checkBoxBase, { width: '16px', height: '18px' }],
+  lg: [checkBoxBase, { width: '22px', height: '24px' }],
 });
 
 export const checkBoxInput = style({
-  position: "absolute",
-  width: "1px",
-  height: "1px",
-  overflow: "hidden",
-  whiteSpace: "nowrap",
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
 });
 
 export const checkBoxChecked = styleVariants({
@@ -97,18 +97,19 @@ export const check = styleVariants({
 
 // Toggle 관련 스타일링
 const toggleBase = style({
-  all: "unset",
-  display: "flex",
-  borderRadius: "9999px",
-  border: "none",
-  boxSizing: "border-box",
+  all: 'unset',
+  display: 'flex',
+  borderRadius: '9999px',
+  border: 'none',
+  boxSizing: 'border-box',
+  cursor: 'pointer',
 });
 
 const toggleThumbBase = style({
-  display: "block",
-  borderRadius: "9999px",
+  display: 'block',
+  borderRadius: '9999px',
   backgroundColor: theme.colors.white,
-  filter: "drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.20))",
+  filter: 'drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.20))',
 });
 
 export const toggleWrapper = styleVariants({
@@ -117,9 +118,9 @@ export const toggleWrapper = styleVariants({
 });
 
 export const toggleState = styleVariants({
-  true: { justifyContent: "flex-end", backgroundColor: theme.colors.blue400 },
+  true: { justifyContent: 'flex-end', backgroundColor: theme.colors.blue400 },
   false: {
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
     backgroundColor: theme.colors.gray400,
   },
 });
