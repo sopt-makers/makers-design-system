@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.2
+
+### Patch Changes
+
+- bdd2689: Toggle props insterface 수정, pointer 추가
+
 ## 2.0.1
 
 ### Patch Changes
