@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.3
+
+### Patch Changes
+
+- 1138350: Toggle 컴포넌트 애니메이션 추가
+
 ## 2.0.2
 
 ### Patch Changes
