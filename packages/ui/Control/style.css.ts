@@ -103,6 +103,7 @@ const toggleBase = style({
   border: 'none',
   boxSizing: 'border-box',
   cursor: 'pointer',
+  justifyContent: 'flex-start',
 });
 
 const toggleThumbBase = style({
@@ -110,6 +111,9 @@ const toggleThumbBase = style({
   borderRadius: '9999px',
   backgroundColor: theme.colors.white,
   filter: 'drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.20))',
+  transform: 'translateX(0)',
+  transition: 'transform 200ms',
+  willChange: 'transform',
 });
 
 export const toggleWrapper = styleVariants({
@@ -118,11 +122,8 @@ export const toggleWrapper = styleVariants({
 });
 
 export const toggleState = styleVariants({
-  true: { justifyContent: 'flex-end', backgroundColor: theme.colors.blue400 },
-  false: {
-    justifyContent: 'flex-start',
-    backgroundColor: theme.colors.gray400,
-  },
+  true: { 'backgroundColor': theme.colors.blue400, '& > span[data-state="true"]': { transform: 'translateX(100%)' } },
+  false: { backgroundColor: theme.colors.gray400 },
 });
 
 export const toggleThumb = styleVariants({
