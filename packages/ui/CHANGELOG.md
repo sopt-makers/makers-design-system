@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.4
+
+### Patch Changes
+
+- cb84727: Radio label 이 정상적으로 작동하지 않던 문제 수정
+
 ## 2.0.3
 
 ### Patch Changes
