@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.5
+
+### Patch Changes
+
+- eef3061: fix css module build script in buildCSSModules.js
+
 ## 2.0.4
 
 ### Patch Changes
