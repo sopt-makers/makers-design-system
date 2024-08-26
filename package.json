@@ -18,7 +18,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mdx}": [
-      "prettier --check"
+      "eslint --fix"
     ]
   },
   "name": "makers-frontend",
