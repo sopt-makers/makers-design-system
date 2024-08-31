@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.0.6
+
+### Patch Changes
+
+- 251acba: Select 컴포넌트 defaultValue type Option<T>로 수정
+
 ## 2.0.5
 
 ### Patch Changes
