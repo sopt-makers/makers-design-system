@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { IconChevronDown, IconUser } from '@sopt-makers/icons';
-import * as S from './style.css';
+import { useState, useRef, useEffect, useCallback } from "react";
+import { IconChevronDown, IconUser } from "@sopt-makers/icons";
+import * as S from "./style.css";
 
 export interface Option<T> {
   label: string;
@@ -13,20 +13,28 @@ export interface Option<T> {
 interface SelectProps<T> {
   className?: string;
   placeholder?: string;
-  type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
+  type: "text" | "textDesc" | "textIcon" | "userList" | "userListDesc";
   options: Option<T>[];
   visibleOptions?: number;
-  defaultValue?: Option<T>;
+  defaultValue?: T;
   onChange: (value: T) => void;
 }
 
 function Select<T extends string | number | boolean>(props: SelectProps<T>) {
-  const { className, placeholder, type, options, visibleOptions = 5, defaultValue, onChange } = props;
+  const {
+    className,
+    placeholder,
+    type,
+    options,
+    visibleOptions = 5,
+    defaultValue,
+    onChange,
+  } = props;
 
   const optionsRef = useRef<HTMLUListElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const [selected, setSelected] = useState<Option<T> | null>(defaultValue ?? null);
+  const [selected, setSelected] = useState<T | null>(defaultValue ?? null);
   const [open, setOpen] = useState(false);
 
   const handleToggleOpen = useCallback(() => {
@@ -40,20 +48,24 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
   const calcMaxHeight = useCallback(() => {
     const getOptionHeight = () => {
       switch (type) {
-        case 'text':
-        case 'textIcon':
+        case "text":
+        case "textIcon":
           return 42;
-        case 'textDesc':
-        case 'userListDesc':
+        case "textDesc":
+        case "userListDesc":
           return 62;
-        case 'userList':
+        case "userList":
           return 48;
       }
     };
     const gapHeight = 6;
     const paddingHeight = 8;
 
-    return getOptionHeight() * visibleOptions + gapHeight * (visibleOptions - 1) + paddingHeight * 2;
+    return (
+      getOptionHeight() * visibleOptions +
+      gapHeight * (visibleOptions - 1) +
+      paddingHeight * 2
+    );
   }, [visibleOptions, type]);
 
   useEffect(() => {
@@ -67,50 +79,65 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
         handleToggleClose();
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [handleToggleClose]);
 
-  const handleOptionClick = (value: Option<T>) => {
+  const handleOptionClick = (value: T) => {
     setSelected(value);
-    onChange(value.value); // value 자체가 아닌 value.value를 onChange에 전달
+    onChange(value);
     handleToggleClose();
   };
 
-  const selectedLabel = selected ? options.find((option) => option.value === selected.value)?.label : placeholder;
+  const selectedLabel = selected
+    ? options.find((option) => option.value === selected)?.label
+    : placeholder;
 
   return (
     <div className={`${S.selectWrap} ${className}`}>
-      <button className={S.select} onClick={handleToggleOpen} ref={buttonRef} type='button'>
-        <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
+      <button
+        className={S.select}
+        onClick={handleToggleOpen}
+        ref={buttonRef}
+        type="button"
+      >
+        <p className={!selected ? S.selectPlaceholder : ""}>{selectedLabel}</p>
         <IconChevronDown
           style={{
             width: 20,
             height: 20,
-            transform: open ? 'rotate(-180deg)' : '',
-            transition: 'all 0.5s',
+            transform: open ? "rotate(-180deg)" : "",
+            transition: "all 0.5s",
           }}
         />
       </button>
 
       {open ? (
-        <ul className={S.optionList} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
+        <ul
+          className={S.optionList}
+          ref={optionsRef}
+          style={{ maxHeight: calcMaxHeight() }}
+        >
           {options.map((option) => (
             <li key={option.label}>
               <button
                 className={S.option}
                 onClick={() => {
-                  handleOptionClick(option); // Option<T> 타입으로 전달
+                  handleOptionClick(option.value);
                 }}
-                type='button'
+                type="button"
               >
-                {type === 'textIcon' && option.icon}
-                {(type === 'userList' || type === 'userListDesc') &&
+                {type === "textIcon" && option.icon}
+                {(type === "userList" || type === "userListDesc") &&
                   (option.profileUrl ? (
-                    <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} />
+                    <img
+                      alt={option.label}
+                      className={S.optionProfileImg}
+                      src={option.profileUrl}
+                    />
                   ) : (
                     <div className={S.optionProfileEmpty}>
                       <IconUser />
@@ -119,7 +146,7 @@ function Select<T extends string | number | boolean>(props: SelectProps<T>) {
 
                 <div>
                   <p>{option.label}</p>
-                  {(type === 'textDesc' || type === 'userListDesc') && (
+                  {(type === "textDesc" || type === "userListDesc") && (
                     <p className={S.optionDesc}>{option.description}</p>
                   )}
                 </div>
