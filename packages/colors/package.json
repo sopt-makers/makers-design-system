@@ -10,7 +10,6 @@
     "build": "tsup index.ts --format cjs,esm --dts",
     "dev": "tsup index.ts --format cjs,esm --dts --watch"
   },
-  "dependencies": {},
   "devDependencies": {
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"

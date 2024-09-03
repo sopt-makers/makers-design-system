@@ -19,7 +19,6 @@
     "url": "https://github.com/sopt-makers/makers-frontend/issues"
   },
   "homepage": "https://github.com/sopt-makers/makers-frontend#readme",
-  "dependencies": {},
   "devDependencies": {
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
