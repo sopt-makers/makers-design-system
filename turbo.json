@@ -13,6 +13,8 @@
       "cache": false,
       "persistent": true
     },
-    "test": {}
+    "test": {
+      "cache": false
+    }
   }
 }
