@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "test": "turbo run test",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -23,7 +24,7 @@
   },
   "name": "makers-frontend",
   "version": "1.0.0",
-  "packageManager": "yarn@1.22.17",
+  "packageManager": "yarn@4.4.1",
   "workspaces": [
     "apps/*",
     "packages/*"
