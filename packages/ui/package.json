@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "vitest",
-    "build": "yarn clean && tsup --format cjs,esm --dts --sourcemap && yarn buildCssModules",
+    "build": "pnpm clean && tsup --format cjs,esm --dts --sourcemap && pnpm buildCssModules",
     "watch": "tsup --watch",
     "clean": "rm -rf dist desktop-variables.css mobile-variables.css",
     "buildCssModules": "node ./scripts/buildCssModules.js",
@@ -35,7 +35,7 @@
     "@types/react-dom": "^18.2.0",
     "@vanilla-extract/esbuild-plugin": "^2.3.5",
     "@vanilla-extract/vite-plugin": "^4.0.15",
-    "eslint-config-custom": "*",
+    "eslint-config-custom": "workspace:*",
     "jsdom": "^25.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

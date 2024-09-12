@@ -14,7 +14,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.2.9",
     "prettier": "^3.0.3",
-    "tsconfig": "*",
+    "tsconfig": "workspace:*",
     "turbo": "latest"
   },
   "lint-staged": {
@@ -24,7 +24,7 @@
   },
   "name": "makers-frontend",
   "version": "1.0.0",
-  "packageManager": "yarn@4.4.1",
+  "packageManager": "pnpm@9.7.0",
   "workspaces": [
     "apps/*",
     "packages/*"
