@@ -1,5 +1,11 @@
 # @sopt-makers/icons
 
+## 1.0.5
+
+### Patch Changes
+
+- af4fb40: icons 패키지에 @types-react 의존성 추가
+
 ## 1.0.4
 
 ### Patch Changes
