@@ -25,10 +25,6 @@
   "name": "makers-frontend",
   "version": "1.0.0",
   "packageManager": "pnpm@9.7.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "engines": {
     "node": ">=18",
     "pnpm": ">=9"
