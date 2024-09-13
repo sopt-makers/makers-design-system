@@ -21,6 +21,7 @@
   "homepage": "https://github.com/sopt-makers/makers-frontend#readme",
   "devDependencies": {
     "@svgr/cli": "^8.1.0",
+    "@types/react": "^18.3.5",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
