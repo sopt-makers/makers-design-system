@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.1.0
+
+### Minor Changes
+
+- 30fc469: ui 패키지 테스트 코드 추가 / pnpm 마이그레이션으로 인한 script 변경
+
 ## 2.0.6
 
 ### Patch Changes
