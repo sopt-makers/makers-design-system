@@ -15,14 +15,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
   ({ checked = false, label, size = 'sm', color = theme.colors.gray10, ...props }, ref) => {
     return (
       <label className={controlWrapper}>
-        <input
-          aria-checked={checked}
-          checked={checked}
-          className={checkBoxInput}
-          ref={ref}
-          type='checkbox'
-          {...props}
-        />
+        <input checked={checked} className={checkBoxInput} ref={ref} type='checkbox' {...props} />
         <div className={`${checkBox[size]} ${checkBoxChecked[`${checked}`]}`}>
           {checked ? <IconCheck className={check[size]} /> : null}
         </div>

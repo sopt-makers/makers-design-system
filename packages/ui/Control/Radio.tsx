@@ -14,7 +14,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ checked = false, label, size = 'sm', color = theme.colors.gray10, ...props }, ref) => {
     return (
       <label className={controlWrapper}>
-        <input aria-checked={checked} checked={checked} className={radio[size]} ref={ref} type='radio' {...props} />
+        <input checked={checked} className={radio[size]} ref={ref} type='radio' {...props} />
         {label ? (
           <p className={controlLabel[size]} style={{ color }}>
             {label}
