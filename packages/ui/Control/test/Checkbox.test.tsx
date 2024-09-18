@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import type { CheckBoxProps } from 'Control/CheckBox';
 import { CheckBox } from '../index';
 
