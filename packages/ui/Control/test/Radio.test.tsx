@@ -1,6 +1,6 @@
 import type { RadioProps } from 'Control/Radio';
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Radio } from '../index';
 
 describe('Radio의', () => {
@@ -25,6 +25,18 @@ describe('Radio의', () => {
       renderRadio({ checked: false });
 
       expect(screen.getByRole('radio')).not.toBeChecked();
+    });
+  });
+
+  describe('onClick 이벤트는 다음과 같다.', () => {
+    it('Radio를 클릭했을 때 onClick 핸들러가 호출된다.', () => {
+      const handleClick = vi.fn();
+      renderRadio({ onClick: handleClick });
+
+      const radio = screen.getByRole('radio');
+      fireEvent.click(radio);
+
+      expect(handleClick).toHaveBeenCalled();
     });
   });
 });

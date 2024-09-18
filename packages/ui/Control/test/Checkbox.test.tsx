@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 import type { CheckBoxProps } from 'Control/CheckBox';
 import { CheckBox } from '../index';
 
@@ -25,6 +25,18 @@ describe('Checkbox의', () => {
       renderCheckbox({ checked: false });
 
       expect(screen.getByRole('checkbox')).not.toBeChecked();
+    });
+  });
+
+  describe('onClick 이벤트는 다음과 같다.', () => {
+    it('Checkbox를 클릭했을 때 onClick 핸들러가 호출된다.', () => {
+      const handleClick = vi.fn();
+      renderCheckbox({ onClick: handleClick });
+
+      const checkbox = screen.getByRole('checkbox');
+      fireEvent.click(checkbox);
+
+      expect(handleClick).toHaveBeenCalled();
     });
   });
 });
