@@ -1,5 +1,5 @@
 import type { RadioProps } from 'Control/Radio';
-import { describe } from 'vitest';
+import { describe, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Radio } from '../index';
 

@@ -1,4 +1,4 @@
-import { describe } from 'vitest';
+import { describe, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import type { ToggleProps } from 'Control/Toggle';
 import { Toggle } from '../index';
