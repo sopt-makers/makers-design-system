@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.1.1
+
+### Patch Changes
+
+- 15fb35b: add Control test code.
+
 ## 2.1.0
 
 ### Minor Changes
