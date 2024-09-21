@@ -6,6 +6,7 @@ interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';
   theme?: 'white' | 'black' | 'blue' | 'red';
   rounded?: 'md' | 'lg';
+  variant?: 'fill' | 'outlined';
   disabled?: boolean;
   LeftIcon?: React.ComponentType;
   RightIcon?: React.ComponentType;
@@ -21,9 +22,10 @@ export default {
     size: { control: 'radio', options: ['sm', 'md', 'lg'] },
     theme: { control: 'radio', options: ['white', 'black', 'blue', 'red'] },
     rounded: { control: 'radio', options: ['md', 'lg'] },
+    variant: { control: 'radio', options: ['fill', 'outlined'] },
     LeftIcon: { control: false },
-    RightIcon: { control: false }
-  }
+    RightIcon: { control: false },
+  },
 } as Meta<ButtonStoryProps>;
 
 // 기본 버튼 스토리
@@ -33,6 +35,18 @@ export const Default: StoryObj<ButtonStoryProps> = {
     size: 'md',
     theme: 'white',
     rounded: 'md',
+    disabled: false,
+  },
+};
+
+// outlined 버튼 스토리
+export const Outlined: StoryObj<ButtonStoryProps> = {
+  args: {
+    children: 'Outlined Button',
+    size: 'md',
+    theme: 'white',
+    rounded: 'md',
+    variant: 'outlined',
     disabled: false,
   },
 };
