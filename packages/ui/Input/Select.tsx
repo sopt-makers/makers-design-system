@@ -26,8 +26,6 @@ interface SelectContextProps<T> {
   selected: Option<T> | null;
   handleOptionClick: (option: Option<T>) => void;
   type: SelectProps<T>['type'];
-  visibleOptions: number;
-  placeholder?: string;
   onChange: (value: T) => void;
   buttonRef: React.RefObject<HTMLButtonElement>;
   optionsRef: React.RefObject<HTMLUListElement>;
@@ -48,7 +46,7 @@ function useSelectContext<T>() {
 
 // SelectRoot 컴포넌트: Select 컴포넌트에게 context를 제공
 function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) {
-  const { children, onChange, defaultValue, type, visibleOptions = 5, placeholder, className } = props;
+  const { children, onChange, defaultValue, type, visibleOptions = 5, className } = props;
 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
@@ -113,8 +111,6 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
     selected,
     handleOptionClick,
     type,
-    visibleOptions,
-    placeholder,
     onChange,
     buttonRef,
     optionsRef,
@@ -153,11 +149,12 @@ SelectTrigger.displayName = 'Select.Trigger';
 
 interface SelectTriggerContentProps {
   className?: string;
+  placeholder?: string;
 }
 
 // Select.TriggerContent 컴포넌트: trigger의 미리 정의된 UI
-function SelectTriggerContent({ className }: SelectTriggerContentProps) {
-  const { open, selected, placeholder } = useSelectContext();
+function SelectTriggerContent({ className, placeholder }: SelectTriggerContentProps) {
+  const { open, selected } = useSelectContext();
 
   const selectedLabel = selected ? selected.label : placeholder;
 
