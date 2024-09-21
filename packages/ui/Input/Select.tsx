@@ -14,7 +14,6 @@ interface SelectProps<T> {
   className?: string;
   placeholder?: string;
   type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
-  options: Option<T>[];
   visibleOptions?: number;
   defaultValue?: Option<T>;
   onChange: (value: T) => void;
@@ -26,7 +25,6 @@ interface SelectContextProps<T> {
   setOpen: (open: boolean) => void;
   selected: Option<T> | null;
   handleOptionClick: (option: Option<T>) => void;
-  options: Option<T>[];
   type: SelectProps<T>['type'];
   visibleOptions: number;
   placeholder?: string;
@@ -50,7 +48,7 @@ function useSelectContext<T>() {
 
 // SelectRoot 컴포넌트: Select 컴포넌트에게 context를 제공
 function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) {
-  const { children, onChange, options, defaultValue, type, visibleOptions = 5, placeholder, className } = props;
+  const { children, onChange, defaultValue, type, visibleOptions = 5, placeholder, className } = props;
 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
@@ -114,7 +112,6 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
     setOpen,
     selected,
     handleOptionClick,
-    options,
     type,
     visibleOptions,
     placeholder,
@@ -181,9 +178,13 @@ function SelectTriggerContent({ className }: SelectTriggerContentProps) {
 
 SelectTriggerContent.displayName = 'Select.TriggerContent';
 
+interface SelectMenuProps {
+  children: React.ReactNode;
+}
+
 // SelectMenu 컴포넌트: 옵션 목록을 렌더링
-function SelectMenu() {
-  const { open, options, type, handleOptionClick, optionsRef, calcMaxHeight } = useSelectContext();
+function SelectMenu({ children }: SelectMenuProps) {
+  const { open, optionsRef, calcMaxHeight } = useSelectContext();
 
   if (!open) {
     return null;
@@ -191,43 +192,63 @@ function SelectMenu() {
 
   return (
     <ul className={S.optionList} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
-      {options.map((option) => (
-        <li key={option.label}>
-          <button
-            className={S.option}
-            onClick={() => {
-              handleOptionClick(option);
-            }}
-            type='button'
-          >
-            {type === 'textIcon' && option.icon}
-            {(type === 'userList' || type === 'userListDesc') &&
-              (option.profileUrl ? (
-                <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} />
-              ) : (
-                <div className={S.optionProfileEmpty}>
-                  <IconUser />
-                </div>
-              ))}
-
-            <div>
-              <p>{option.label}</p>
-              {(type === 'textDesc' || type === 'userListDesc') && <p className={S.optionDesc}>{option.description}</p>}
-            </div>
-          </button>
-        </li>
-      ))}
+      {children}
     </ul>
   );
 }
 
 SelectMenu.displayName = 'Select.Menu';
 
+interface SelectMenuItemProps<T> {
+  option: Option<T>;
+  onClick?: () => void;
+}
+
+// SelectMenuItem 컴포넌트: 옵션 목록 하나의 UI
+function SelectMenuItem<T>({ option, onClick }: SelectMenuItemProps<T>) {
+  const { open, type, handleOptionClick } = useSelectContext();
+
+  const handleClick = () => {
+    handleOptionClick(option);
+    if (onClick) {
+      onClick();
+    }
+  };
+
+  if (!open) {
+    return null;
+  }
+
+  return (
+    <li key={option.label}>
+      <button className={S.option} onClick={handleClick} type='button'>
+        {type === 'textIcon' && option.icon}
+        {(type === 'userList' || type === 'userListDesc') &&
+          (option.profileUrl ? (
+            <img alt={option.label} className={S.optionProfileImg} src={option.profileUrl} />
+          ) : (
+            <div className={S.optionProfileEmpty}>
+              <IconUser />
+            </div>
+          ))}
+
+        <div>
+          <p>{option.label}</p>
+          {(type === 'textDesc' || type === 'userListDesc') && <p className={S.optionDesc}>{option.description}</p>}
+        </div>
+      </button>
+    </li>
+  );
+}
+
+SelectMenuItem.displayName = 'Select.MenuItem';
+
 const Select = {
   Root: SelectRoot,
   Trigger: SelectTrigger,
   TriggerContent: SelectTriggerContent,
   Menu: SelectMenu,
+  MenuItem: SelectMenuItem,
 };
 
 export default Select;
