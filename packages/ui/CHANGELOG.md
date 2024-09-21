@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.2.0
+
+### Minor Changes
+
+- ad26fa9: Button 컴포넌트 variant 인터페이스 추가
+
 ## 2.1.1
 
 ### Patch Changes
