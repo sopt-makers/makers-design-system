@@ -43,8 +43,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(react@18.3.1)
       '@sopt-makers/ui':
-        specifier: ^2.0.0
-        version: 2.0.6(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+        specifier: ^2.2.0
+        version: 2.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^7.6.3
@@ -2324,10 +2324,11 @@ packages:
     peerDependencies:
       react: ^18.2.0
 
-  '@sopt-makers/ui@2.0.6':
-    resolution: {integrity: sha512-lMCKcA7mhByVAjrT1TsdCLHyGvX8jrn1BoDjdRgqFIXMDl4mYUDKJYZZ3O4AvE7IF4jEQeP/JjdKrJ5pKG5mjQ==}
+  '@sopt-makers/ui@2.2.0':
+    resolution: {integrity: sha512-9aXqdqbfqLZ0d3gql2nO+tdEDKBGgk9yqmg3KK9RwJ/Nep6UhYVs8WtA5rLgReW7KwzL/UBcVup6DCLiywsheA==}
     peerDependencies:
       react: ^18.2.0
+      react-dom: ^18.2.0
 
   '@storybook/addon-actions@7.6.20':
     resolution: {integrity: sha512-c/GkEQ2U9BC/Ew/IMdh+zvsh4N6y6n7Zsn2GIhJgcu9YEAa5aF2a9/pNgEGBMOABH959XE8DAOMERw/5qiLR8g==}
@@ -9179,7 +9180,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@sopt-makers/ui@2.0.6(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
+  '@sopt-makers/ui@2.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
     dependencies:
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9189,6 +9190,7 @@ snapshots:
       '@vanilla-extract/css': 1.15.5
       '@vanilla-extract/sprinkles': 1.6.1(@vanilla-extract/css@1.15.5)
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
       tsup: 8.2.4(postcss@8.4.45)(typescript@5.6.2)
     transitivePeerDependencies:
       - '@microsoft/api-extractor'
@@ -9198,7 +9200,6 @@ snapshots:
       - babel-plugin-macros
       - jiti
       - postcss
-      - react-dom
       - supports-color
       - tsx
       - typescript
