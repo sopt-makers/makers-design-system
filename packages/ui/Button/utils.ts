@@ -29,7 +29,7 @@ function createButtonVariant(
       default: `${styleVariant}-${colorTheme}-default`,
       hover: `${styleVariant}-${colorTheme}-hover`,
       active: `${styleVariant}-${colorTheme}-press`,
-      disabled: 'outlined-disabled',
+      disabled: `${styleVariant}-disabled`,
     },
     borderRadius: radiusTheme === 'lg' ? 'max' : sizeTheme,
     padding: sizeTheme,

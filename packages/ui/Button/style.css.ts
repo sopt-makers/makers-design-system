@@ -26,6 +26,7 @@ const sprinkleProperties = defineProperties({
     borderWidth: { ...borderWidths },
     borderColor: {
       ...borderColors,
+      'fill-disabled': 'transparent',
       'outlined-disabled': theme.colors.gray500,
     },
     padding: paddings,
