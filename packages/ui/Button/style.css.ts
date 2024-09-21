@@ -9,6 +9,7 @@ export const root = style({
   alignItems: 'center',
   gap: '4px',
   borderStyle: 'solid',
+  boxSizing: 'border-box',
   cursor: 'pointer',
   fontWeight: 600,
 });
