@@ -40,8 +40,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@sopt-makers/icons':
-        specifier: ^1.0.4
-        version: 1.0.4(react@18.3.1)
+        specifier: ^1.0.5
+        version: 1.0.5(react@18.3.1)
       '@sopt-makers/ui':
         specifier: ^2.2.0
         version: 2.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
@@ -185,8 +185,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@sopt-makers/icons':
-        specifier: ^1.0.3
-        version: 1.0.4(react@18.3.1)
+        specifier: ^1.0.5
+        version: 1.0.5(react@18.3.1)
       '@vanilla-extract/css':
         specifier: ^1.14.0
         version: 1.15.5
@@ -2319,8 +2319,8 @@ packages:
   '@sopt-makers/fonts@2.0.1':
     resolution: {integrity: sha512-glvB8aPm70XyOuhjrDW27wUH8i7BcVTiWByYAm3b1TMK5bBJzaX8Ga6Xgz5g9FY0VzDvBr/O5iXdMyO9Yhd4yA==}
 
-  '@sopt-makers/icons@1.0.4':
-    resolution: {integrity: sha512-MnEiiSA8lQGBIVL0R8G/Ojpq7IjOLEw05x2s0yscHwSCFIUuaCkbZ651i3woZjJ9wj677iGlzDW3BHekzX78uw==}
+  '@sopt-makers/icons@1.0.5':
+    resolution: {integrity: sha512-u3mnMEyAs3tulfE9GYqjbmO6FAnzrp/AaCCKulwnVOw5O6GBXIoHe1A6lDxD+A73RoMu96QoL1OZ9y5h10Fe1w==}
     peerDependencies:
       react: ^18.2.0
 
@@ -9176,7 +9176,7 @@ snapshots:
 
   '@sopt-makers/fonts@2.0.1': {}
 
-  '@sopt-makers/icons@1.0.4(react@18.3.1)':
+  '@sopt-makers/icons@1.0.5(react@18.3.1)':
     dependencies:
       react: 18.3.1
 
@@ -9186,7 +9186,7 @@ snapshots:
       '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sopt-makers/colors': 3.0.1
       '@sopt-makers/fonts': 2.0.1
-      '@sopt-makers/icons': 1.0.4(react@18.3.1)
+      '@sopt-makers/icons': 1.0.5(react@18.3.1)
       '@vanilla-extract/css': 1.15.5
       '@vanilla-extract/sprinkles': 1.6.1(@vanilla-extract/css@1.15.5)
       react: 18.3.1
