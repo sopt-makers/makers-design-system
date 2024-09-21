@@ -55,11 +55,6 @@ export const textColors: Record<ButtonColorThemeWithStatus, string> = {
   'outlined-red-press': theme.colors.red600,
 };
 
-// export const borderWidths: Record<string, string> = {
-//   outlined: '1px',
-//   fill: '0',
-// };
-
 export const borders: Record<ButtonColorThemeWithStatus, string> = {
   'fill-white-default': 'none',
   'fill-black-default': 'none',
