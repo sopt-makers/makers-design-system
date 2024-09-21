@@ -55,12 +55,12 @@ export const textColors: Record<ButtonColorThemeWithStatus, string> = {
   'outlined-red-press': theme.colors.red600,
 };
 
-export const borderWidths: Record<string, string> = {
-  outlined: '1px',
-  fill: '0',
-};
+// export const borderWidths: Record<string, string> = {
+//   outlined: '1px',
+//   fill: '0',
+// };
 
-export const borderColors: Record<ButtonColorThemeWithStatus, string> = {
+export const borders: Record<ButtonColorThemeWithStatus, string> = {
   'fill-white-default': 'none',
   'fill-black-default': 'none',
   'fill-blue-default': 'none',
@@ -73,18 +73,18 @@ export const borderColors: Record<ButtonColorThemeWithStatus, string> = {
   'fill-black-press': 'none',
   'fill-blue-press': 'none',
   'fill-red-press': 'none',
-  'outlined-white-default': theme.colors.white,
-  'outlined-black-default': theme.colors.white,
-  'outlined-blue-default': theme.colors.success,
-  'outlined-red-default': theme.colors.error,
-  'outlined-white-hover': theme.colors.white,
-  'outlined-black-hover': theme.colors.white,
-  'outlined-blue-hover': theme.colors.blue500,
-  'outlined-red-hover': theme.colors.red500,
-  'outlined-white-press': theme.colors.white,
-  'outlined-black-press': theme.colors.white,
-  'outlined-blue-press': theme.colors.blue600,
-  'outlined-red-press': theme.colors.red600,
+  'outlined-white-default': `inset 0 0 0 1px ${theme.colors.white}`,
+  'outlined-black-default': `inset 0 0 0 1px ${theme.colors.white}`,
+  'outlined-blue-default': `inset 0 0 0 1px ${theme.colors.success}`,
+  'outlined-red-default': `inset 0 0 0 1px ${theme.colors.error}`,
+  'outlined-white-hover': `inset 0 0 0 1px ${theme.colors.white}`,
+  'outlined-black-hover': `inset 0 0 0 1px ${theme.colors.white}`,
+  'outlined-blue-hover': `inset 0 0 0 1px ${theme.colors.blue500}`,
+  'outlined-red-hover': `inset 0 0 0 1px ${theme.colors.red500}`,
+  'outlined-white-press': `inset 0 0 0 1px ${theme.colors.white}`,
+  'outlined-black-press': `inset 0 0 0 1px ${theme.colors.white}`,
+  'outlined-blue-press': `inset 0 0 0 1px ${theme.colors.blue600}`,
+  'outlined-red-press': `inset 0 0 0 1px ${theme.colors.red600}`,
 };
 
 export const borderRadiuses: Record<ButtonSizeTheme, string> = {

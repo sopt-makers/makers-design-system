@@ -20,8 +20,7 @@ function createButtonVariant(
       active: `${styleVariant}-${colorTheme}-press`,
       disabled: `${styleVariant}-disabled`,
     },
-    borderWidth: styleVariant,
-    borderColor: {
+    boxShadow: {
       default: `${styleVariant}-${colorTheme}-default`,
       hover: `${styleVariant}-${colorTheme}-hover`,
       active: `${styleVariant}-${colorTheme}-press`,
