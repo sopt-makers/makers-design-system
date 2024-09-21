@@ -99,12 +99,12 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
   }, [handleToggleClose, open]);
 
   const handleOptionClick = (option: Option<T>) => {
+    setSelected(option);
+    handleToggleClose();
+
     if (onChange) {
       onChange(option.value);
     }
-
-    setSelected(option);
-    handleToggleClose();
   };
 
   const contextValue: SelectContextProps<T> = {
@@ -208,6 +208,7 @@ function SelectMenuItem<T>({ option, onClick }: SelectMenuItemProps<T>) {
 
   const handleClick = () => {
     handleOptionClick(option);
+
     if (onClick) {
       onClick();
     }
@@ -218,7 +219,7 @@ function SelectMenuItem<T>({ option, onClick }: SelectMenuItemProps<T>) {
   }
 
   return (
-    <li key={option.label}>
+    <li>
       <button className={S.option} onClick={handleClick} type='button'>
         {type === 'textIcon' && option.icon}
         {(type === 'userList' || type === 'userListDesc') &&
