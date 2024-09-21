@@ -15,7 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
   theme?: 'white' | 'black' | 'blue' | 'red';
   rounded?: 'md' | 'lg';
-  outlined?: boolean;
+  styleVariant?: 'fill' | 'outlined';
   LeftIcon?: React.ComponentType<IconProps>;
   RightIcon?: React.ComponentType<IconProps>;
 }
@@ -28,10 +28,10 @@ function Button({
   rounded = 'md',
   LeftIcon,
   RightIcon,
-  outlined = false,
+  styleVariant = 'fill',
   ...buttonElementProps
 }: ButtonProps) {
-  const variant = createButtonVariant(theme, rounded, size, outlined);
+  const variant = createButtonVariant(theme, rounded, size, styleVariant);
   const iconSize = iconSizes[size];
   return (
     <button className={`${S.root} ${variant} ${className}`} type='button' {...buttonElementProps}>

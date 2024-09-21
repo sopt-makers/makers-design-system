@@ -18,15 +18,15 @@ const sprinkleProperties = defineProperties({
   properties: {
     backgroundColor: {
       ...bgColors,
-      disabled: theme.colors.gray800,
-      outlined_disabled: 'transparent',
+      'fill-disabled': theme.colors.gray800,
+      'outlined-disabled': 'transparent',
     },
-    color: { ...textColors, disabled: theme.colors.gray500, outlined_disabled: theme.colors.gray500 },
+    color: { ...textColors, 'fill-disabled': theme.colors.gray500, 'outlined-disabled': theme.colors.gray500 },
     borderRadius: { ...borderRadiuses, max: '9999px' },
     borderWidth: { ...borderWidths },
     borderColor: {
       ...borderColors,
-      outlined_disabled: theme.colors.gray500,
+      'outlined-disabled': theme.colors.gray500,
     },
     padding: paddings,
     fontSize: fontSizes,
