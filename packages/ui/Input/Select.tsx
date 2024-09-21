@@ -160,13 +160,13 @@ interface SelectTriggerContentProps {
 
 // Select.TriggerContent 컴포넌트: trigger의 미리 정의된 UI
 function SelectTriggerContent({ className }: SelectTriggerContentProps) {
-  const { open, selected, options, placeholder } = useSelectContext();
+  const { open, selected, placeholder } = useSelectContext();
 
-  const selectedLabel = selected ? options.find((option) => option.value === selected.value)?.label : placeholder;
+  const selectedLabel = selected ? selected.label : placeholder;
 
   return (
     <div className={`${S.select} ${className ? className : ''}`}>
-      <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>{' '}
+      <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
       <IconChevronDown
         style={{
           width: 20,
@@ -193,7 +193,13 @@ function SelectMenu() {
     <ul className={S.optionList} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
       {options.map((option) => (
         <li key={option.label}>
-          <button className={S.option} onClick={() => { handleOptionClick(option); }} type='button'>
+          <button
+            className={S.option}
+            onClick={() => {
+              handleOptionClick(option);
+            }}
+            type='button'
+          >
             {type === 'textIcon' && option.icon}
             {(type === 'userList' || type === 'userListDesc') &&
               (option.profileUrl ? (
