@@ -16,7 +16,7 @@ interface SelectProps<T> {
   type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
   visibleOptions?: number;
   defaultValue?: Option<T>;
-  onChange: (value: T) => void;
+  onChange?: (value: T) => void;
   children: React.ReactNode;
 }
 
@@ -26,7 +26,6 @@ interface SelectContextProps<T> {
   selected: Option<T> | null;
   handleOptionClick: (option: Option<T>) => void;
   type: SelectProps<T>['type'];
-  onChange: (value: T) => void;
   buttonRef: React.RefObject<HTMLButtonElement>;
   optionsRef: React.RefObject<HTMLUListElement>;
   calcMaxHeight: () => number;
@@ -100,8 +99,11 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
   }, [handleToggleClose, open]);
 
   const handleOptionClick = (option: Option<T>) => {
+    if (onChange) {
+      onChange(option.value);
+    }
+
     setSelected(option);
-    onChange(option.value);
     handleToggleClose();
   };
 
@@ -111,7 +113,6 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
     selected,
     handleOptionClick,
     type,
-    onChange,
     buttonRef,
     optionsRef,
     calcMaxHeight,
