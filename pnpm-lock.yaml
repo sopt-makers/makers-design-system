@@ -34,17 +34,17 @@ importers:
   apps/docs:
     dependencies:
       '@sopt-makers/colors':
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: workspace:^
+        version: link:../../packages/colors
       '@sopt-makers/fonts':
-        specifier: ^2.0.1
-        version: 2.0.1
+        specifier: workspace:^
+        version: link:../../packages/fonts
       '@sopt-makers/icons':
-        specifier: ^1.0.4
-        version: 1.0.4(react@18.3.1)
+        specifier: workspace:^
+        version: link:../../packages/icons
       '@sopt-makers/ui':
-        specifier: ^2.0.0
-        version: 2.0.6(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+        specifier: workspace:^
+        version: link:../../packages/ui
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^7.6.3
@@ -2321,11 +2321,6 @@ packages:
 
   '@sopt-makers/icons@1.0.4':
     resolution: {integrity: sha512-MnEiiSA8lQGBIVL0R8G/Ojpq7IjOLEw05x2s0yscHwSCFIUuaCkbZ651i3woZjJ9wj677iGlzDW3BHekzX78uw==}
-    peerDependencies:
-      react: ^18.2.0
-
-  '@sopt-makers/ui@2.0.6':
-    resolution: {integrity: sha512-lMCKcA7mhByVAjrT1TsdCLHyGvX8jrn1BoDjdRgqFIXMDl4mYUDKJYZZ3O4AvE7IF4jEQeP/JjdKrJ5pKG5mjQ==}
     peerDependencies:
       react: ^18.2.0
 
@@ -9179,31 +9174,6 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@sopt-makers/ui@2.0.6(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
-    dependencies:
-      '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sopt-makers/colors': 3.0.1
-      '@sopt-makers/fonts': 2.0.1
-      '@sopt-makers/icons': 1.0.4(react@18.3.1)
-      '@vanilla-extract/css': 1.15.5
-      '@vanilla-extract/sprinkles': 1.6.1(@vanilla-extract/css@1.15.5)
-      react: 18.3.1
-      tsup: 8.2.4(postcss@8.4.45)(typescript@5.6.2)
-    transitivePeerDependencies:
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/react'
-      - '@types/react-dom'
-      - babel-plugin-macros
-      - jiti
-      - postcss
-      - react-dom
-      - supports-color
-      - tsx
-      - typescript
-      - yaml
-
   '@storybook/addon-actions@7.6.20':
     dependencies:
       '@storybook/core-events': 7.6.20
@@ -14707,33 +14677,6 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.45
       typescript: 4.9.5
-    transitivePeerDependencies:
-      - jiti
-      - supports-color
-      - tsx
-      - yaml
-
-  tsup@8.2.4(postcss@8.4.45)(typescript@5.6.2):
-    dependencies:
-      bundle-require: 5.0.0(esbuild@0.23.1)
-      cac: 6.7.14
-      chokidar: 3.6.0
-      consola: 3.2.3
-      debug: 4.3.7
-      esbuild: 0.23.1
-      execa: 5.1.1
-      globby: 11.1.0
-      joycon: 3.1.1
-      picocolors: 1.1.0
-      postcss-load-config: 6.0.1(postcss@8.4.45)(yaml@2.5.1)
-      resolve-from: 5.0.0
-      rollup: 4.21.2
-      source-map: 0.8.0-beta.0
-      sucrase: 3.35.0
-      tree-kill: 1.2.2
-    optionalDependencies:
-      postcss: 8.4.45
-      typescript: 5.6.2
     transitivePeerDependencies:
       - jiti
       - supports-color
