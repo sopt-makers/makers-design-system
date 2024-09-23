@@ -1,5 +1,23 @@
 # @sopt-makers/ui
 
+## 2.2.1
+
+### Patch Changes
+
+- 36c3cf8: 패키지 의존성 업데이트
+
+## 2.2.0
+
+### Minor Changes
+
+- ad26fa9: Button 컴포넌트 variant 인터페이스 추가
+
+## 2.1.1
+
+### Patch Changes
+
+- 15fb35b: add Control test code.
+
 ## 2.1.0
 
 ### Minor Changes

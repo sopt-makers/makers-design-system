@@ -1,13 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 import theme from '../theme.css';
-import {
-  bgColors,
-  borderRadiuses,
-  fontSizes,
-  paddings,
-  textColors,
-} from './constants';
+import { bgColors, borderRadiuses, borders, fontSizes, paddings, textColors } from './constants';
 
 export const root = style({
   display: 'flex',
@@ -23,10 +17,16 @@ const sprinkleProperties = defineProperties({
   properties: {
     backgroundColor: {
       ...bgColors,
-      disabled: theme.colors.gray800,
+      'fill-disabled': theme.colors.gray800,
+      'outlined-disabled': 'transparent',
     },
-    color: { ...textColors, disabled: theme.colors.gray500 },
+    color: { ...textColors, 'fill-disabled': theme.colors.gray500, 'outlined-disabled': theme.colors.gray500 },
     borderRadius: { ...borderRadiuses, max: '9999px' },
+    boxShadow: {
+      ...borders,
+      'fill-disabled': 'none',
+      'outlined-disabled': `inset 0 0 0 1px ${theme.colors.gray500}`,
+    },
     padding: paddings,
     fontSize: fontSizes,
   },
