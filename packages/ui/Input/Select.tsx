@@ -12,7 +12,6 @@ export interface Option<T> {
 
 interface SelectProps<T> {
   className?: string;
-  placeholder?: string;
   type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
   visibleOptions?: number;
   defaultValue?: Option<T>;
@@ -125,8 +124,6 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
   );
 }
 
-SelectRoot.displayName = 'Select.Root';
-
 // Select.Trigger 컴포넌트: 메뉴를 열고 닫는 trigger
 interface SelectTriggerProps {
   children: React.ReactNode;
@@ -145,8 +142,6 @@ function SelectTrigger({ children }: SelectTriggerProps) {
     </button>
   );
 }
-
-SelectTrigger.displayName = 'Select.Trigger';
 
 interface SelectTriggerContentProps {
   className?: string;
@@ -174,8 +169,6 @@ function SelectTriggerContent({ className, placeholder }: SelectTriggerContentPr
   );
 }
 
-SelectTriggerContent.displayName = 'Select.TriggerContent';
-
 interface SelectMenuProps {
   children: React.ReactNode;
 }
@@ -194,8 +187,6 @@ function SelectMenu({ children }: SelectMenuProps) {
     </ul>
   );
 }
-
-SelectMenu.displayName = 'Select.Menu';
 
 interface SelectMenuItemProps<T> {
   option: Option<T>;
@@ -239,8 +230,6 @@ function SelectMenuItem<T>({ option, onClick }: SelectMenuItemProps<T>) {
     </li>
   );
 }
-
-SelectMenuItem.displayName = 'Select.MenuItem';
 
 const Select = {
   Root: SelectRoot,
