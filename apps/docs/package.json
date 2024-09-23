@@ -13,10 +13,10 @@
     "chromatic": "npx chromatic --project-token=chpt_98c750b6bad066a"
   },
   "dependencies": {
-    "@sopt-makers/colors": "workspace:^",
-    "@sopt-makers/fonts": "workspace:^",
-    "@sopt-makers/icons": "workspace:^",
-    "@sopt-makers/ui": "workspace:^"
+    "@sopt-makers/colors": "^3.0.1",
+    "@sopt-makers/fonts": "^2.0.1",
+    "@sopt-makers/icons": "^1.0.5",
+    "@sopt-makers/ui": "^2.2.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.3",
