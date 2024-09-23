@@ -21,6 +21,7 @@ export const overlay = style({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: theme.colors.backgroundDimmed,
+  zIndex: 999,
 });
 
 export const buttonSize = style({
