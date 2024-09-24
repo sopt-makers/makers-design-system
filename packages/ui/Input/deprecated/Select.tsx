@@ -21,6 +21,7 @@ interface SelectProps<T> {
 }
 
 /**
+ * @deprecated
  * Select 컴포넌트는 더 이상 권장되지 않지만 계속 사용할 수 있습니다.
  * 새로운 `SelectV2` 컴포넌트 사용을 권장합니다.
  */
