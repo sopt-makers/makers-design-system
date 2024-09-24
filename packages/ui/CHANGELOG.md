@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.2.2
+
+### Patch Changes
+
+- 71392ea: Dialog onCLick 이 정상적으로 작동하지 않는 문제 수정
+
 ## 2.2.1
 
 ### Patch Changes
