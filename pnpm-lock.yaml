@@ -43,8 +43,8 @@ importers:
         specifier: ^1.0.5
         version: 1.0.5(react@18.3.1)
       '@sopt-makers/ui':
-        specifier: ^2.2.0
-        version: 2.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+        specifier: ^2.3.0
+        version: 2.3.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^7.6.3
@@ -123,7 +123,7 @@ importers:
     devDependencies:
       tsup:
         specifier: ^7.2.0
-        version: 7.3.0(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))(typescript@5.6.2)
+        version: 7.3.0(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2))(typescript@5.6.2)
       typescript:
         specifier: ^5.2.2
         version: 5.6.2
@@ -138,13 +138,13 @@ importers:
         version: 1.13.4(eslint@8.57.0)
       eslint-plugin-vitest:
         specifier: ^0.5.4
-        version: 0.5.4(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)(vitest@2.0.5(@types/node@20.16.5)(jsdom@25.0.0))
+        version: 0.5.4(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)(vitest@2.0.5)
 
   packages/fonts:
     devDependencies:
       tsup:
         specifier: ^7.2.0
-        version: 7.3.0(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))(typescript@5.6.2)
+        version: 7.3.0(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2))(typescript@5.6.2)
       typescript:
         specifier: ^5.2.2
         version: 5.6.2
@@ -163,7 +163,7 @@ importers:
         version: 18.3.5
       tsup:
         specifier: ^7.2.0
-        version: 7.3.0(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))(typescript@5.6.2)
+        version: 7.3.0(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2))(typescript@5.6.2)
       typescript:
         specifier: ^5.2.2
         version: 5.6.2
@@ -2324,8 +2324,8 @@ packages:
     peerDependencies:
       react: ^18.2.0
 
-  '@sopt-makers/ui@2.2.0':
-    resolution: {integrity: sha512-9aXqdqbfqLZ0d3gql2nO+tdEDKBGgk9yqmg3KK9RwJ/Nep6UhYVs8WtA5rLgReW7KwzL/UBcVup6DCLiywsheA==}
+  '@sopt-makers/ui@2.3.0':
+    resolution: {integrity: sha512-NGASovJHlEwJB2oKGbo1SJj6zyYklZLK6A5d7L/ykCKW8qfBiR+l+Grm03n4J6ZRYK+9fkmHJz3hc/KiZ7y9OA==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -9180,7 +9180,7 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@sopt-makers/ui@2.2.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
+  '@sopt-makers/ui@2.3.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
     dependencies:
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10448,7 +10448,7 @@ snapshots:
       '@vanilla-extract/integration': 6.5.0(@types/node@20.16.5)
       outdent: 0.8.0
       postcss: 8.4.45
-      postcss-load-config: 4.0.2(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
+      postcss-load-config: 4.0.2(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2))
       vite: 5.4.4(@types/node@20.16.5)
     transitivePeerDependencies:
       - '@types/node'
@@ -11935,7 +11935,7 @@ snapshots:
       semver: 7.6.3
       strip-indent: 3.0.0
 
-  eslint-plugin-vitest@0.5.4(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)(vitest@2.0.5(@types/node@20.16.5)(jsdom@25.0.0)):
+  eslint-plugin-vitest@0.5.4(@typescript-eslint/eslint-plugin@6.21.0(@typescript-eslint/parser@6.21.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)(vitest@2.0.5):
     dependencies:
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.0)(typescript@5.6.2)
       eslint: 8.57.0
@@ -13617,7 +13617,7 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-load-config@4.0.2(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2)):
+  postcss-load-config@4.0.2(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2)):
     dependencies:
       lilconfig: 3.1.2
       yaml: 2.5.1
@@ -14664,7 +14664,7 @@ snapshots:
 
   tslib@2.7.0: {}
 
-  tsup@7.3.0(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))(typescript@5.6.2):
+  tsup@7.3.0(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2))(typescript@5.6.2):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.19.12)
       cac: 6.7.14
@@ -14674,7 +14674,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.2(postcss@8.4.45)(ts-node@10.9.2(@types/node@20.16.5)(typescript@5.6.2))
+      postcss-load-config: 4.0.2(postcss@8.4.45)(ts-node@10.9.2(typescript@5.6.2))
       resolve-from: 5.0.0
       rollup: 4.21.2
       source-map: 0.8.0-beta.0
