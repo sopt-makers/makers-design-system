@@ -1,7 +1,7 @@
 {
   "name": "docs",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,8 +15,8 @@
   "dependencies": {
     "@sopt-makers/colors": "^3.0.1",
     "@sopt-makers/fonts": "^2.0.1",
-    "@sopt-makers/icons": "^1.0.4",
-    "@sopt-makers/ui": "^2.0.0"
+    "@sopt-makers/icons": "^1.0.5",
+    "@sopt-makers/ui": "^2.2.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.3",

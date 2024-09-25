@@ -1,5 +1,23 @@
 # @sopt-makers/ui
 
+## 2.2.2
+
+### Patch Changes
+
+- 71392ea: Dialog onCLick 이 정상적으로 작동하지 않는 문제 수정
+
+## 2.2.1
+
+### Patch Changes
+
+- 36c3cf8: 패키지 의존성 업데이트
+
+## 2.2.0
+
+### Minor Changes
+
+- ad26fa9: Button 컴포넌트 variant 인터페이스 추가
+
 ## 2.1.1
 
 ### Patch Changes

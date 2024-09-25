@@ -1,22 +1,30 @@
-import { colorThemeToTextColor } from './constants';
 import { sprinkles } from './style.css';
 import type { ButtonColorTheme, ButtonRadiusTheme, ButtonSizeTheme } from './types';
 
 function createButtonVariant(
   colorTheme: ButtonColorTheme,
   radiusTheme: ButtonRadiusTheme,
-  sizeTheme: ButtonSizeTheme
+  sizeTheme: ButtonSizeTheme,
+  variant: 'fill' | 'outlined',
 ) {
   return sprinkles({
     backgroundColor: {
-      default: `${colorTheme}-default`,
-      hover: `${colorTheme}-hover`,
-      active: `${colorTheme}-press`,
-      disabled: 'disabled',
+      default: `${variant}-${colorTheme}-default`,
+      hover: `${variant}-${colorTheme}-hover`,
+      active: `${variant}-${colorTheme}-press`,
+      disabled: `${variant}-disabled`,
     },
     color: {
-      default: colorThemeToTextColor[colorTheme],
-      disabled: 'disabled',
+      default: `${variant}-${colorTheme}-default`,
+      hover: `${variant}-${colorTheme}-hover`,
+      active: `${variant}-${colorTheme}-press`,
+      disabled: `${variant}-disabled`,
+    },
+    boxShadow: {
+      default: `${variant}-${colorTheme}-default`,
+      hover: `${variant}-${colorTheme}-hover`,
+      active: `${variant}-${colorTheme}-press`,
+      disabled: `${variant}-disabled`,
     },
     borderRadius: radiusTheme === 'lg' ? 'max' : sizeTheme,
     padding: sizeTheme,
