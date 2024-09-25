@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.3.0
+
+### Minor Changes
+
+- 932893f: Input/SelectV2 컴포넌트 출시
+
 ## 2.2.2
 
 ### Patch Changes
