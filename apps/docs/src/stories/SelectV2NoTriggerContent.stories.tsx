@@ -82,7 +82,6 @@ export const TextDesc: StoryObj<typeof SelectV2.Root> = {
         </div>
       </SelectV2.Trigger>
       <SelectV2.Menu>
-        <IconSend />
         {selectOptions.map((option) => (
           <SelectV2.MenuItem key={option.value} option={option} />
         ))}
