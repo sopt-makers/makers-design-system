@@ -1,5 +1,11 @@
 # docs
 
+## 0.0.3
+
+### Patch Changes
+
+- bafb50f: SelectV2 스토리북 작성
+
 ## 0.0.2
 
 ### Patch Changes
