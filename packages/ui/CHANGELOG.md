@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.3.1
+
+### Patch Changes
+
+- ddd78ee: Add Button Unit Test.
+
 ## 2.3.0
 
 ### Minor Changes
