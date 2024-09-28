@@ -1,19 +1,20 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Tab } from "@sopt-makers/ui";
+import type { Meta, StoryObj } from '@storybook/react';
+import { Tab } from '@sopt-makers/ui';
 
 const meta = {
-  title: "Components/Tab",
+  title: 'Components/Tab',
   component: Tab,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     tabItems: ['Tab1', 'Tab2', 'Tab3'],
     selectedInitial: 'Tab1',
+    translator: { Tab1: '탭1', Tab2: '탭2', Tab3: '탭3' },
   },
   argTypes: {
     style: { control: 'radio', options: ['primary', 'secondary'] },
     size: { control: 'radio', options: ['sm', 'md', 'lg'] },
     selectedInitial: { control: 'select', options: ['Tab1', 'Tab2', 'Tab3'] },
-  }
+  },
 } as Meta<typeof Tab>;
 
 export default meta;
