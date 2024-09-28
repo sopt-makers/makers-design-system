@@ -10,17 +10,35 @@ interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>
   errorMessage?: string;
   value: string;
   maxLength: number;
-  // isError -> validationFn 순서로 적용
+  /**
+   * isError - validationFn 순서로 적용
+   * */
   isError?: boolean;
   validationFn?: (input: string) => boolean;
-  onSubmit: () => void;
+  onSubmit?: () => void;
   disableEnterSubmit?: boolean;
   lineHeight?: number; // px
   fixedHeight?: number; // px
+  hasSendButton?: boolean;
 }
 
 function TextArea(props: TextAreaProps) {
-  const { className, labelText, descriptionText, errorMessage, value, maxLength, isError, validationFn, onSubmit, disableEnterSubmit = false, lineHeight = 26, fixedHeight, ...inputProps } = props;
+  const {
+    className,
+    labelText,
+    descriptionText,
+    errorMessage,
+    value,
+    maxLength,
+    isError,
+    validationFn,
+    onSubmit,
+    disableEnterSubmit = false,
+    lineHeight = 26,
+    fixedHeight,
+    hasSendButton = false,
+    ...inputProps
+  } = props;
   const { onChange, ...restInputProps } = inputProps;
 
   const [calcHeight, setCalcHeight] = useState(48);
@@ -30,7 +48,7 @@ function TextArea(props: TextAreaProps) {
     if (isError !== undefined) return isError;
     if (validationFn && !validationFn(value)) return true;
     return false;
-  }
+  };
 
   const disabled = inputProps.disabled || inputProps.readOnly || value.length === 0 || hasError();
 
@@ -44,12 +62,12 @@ function TextArea(props: TextAreaProps) {
       const height = 48 + lineHeight * (lines > 4 ? 4 : lines);
       setCalcHeight(height);
     }
-  }
+  };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!disableEnterSubmit && event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
-      !disabled && onSubmit();
+      !disabled && onSubmit && onSubmit();
     }
   };
 
@@ -57,18 +75,62 @@ function TextArea(props: TextAreaProps) {
 
   const required = inputProps.required ? <span className={S.required}>*</span> : null;
   const description = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
-  const input = <textarea {...restInputProps} className={`${S.input} ${S.textarea} ${hasError() ? S.inputError : ''}`} onChange={handleInputChange} onKeyDown={handleKeyPress} style={{ ...inputProps.style, height: `${fixedHeight ?? calcHeight}px` }} value={value} />;
+  const input = (
+    <textarea
+      {...restInputProps}
+      className={`${S.input} ${S.textarea} ${hasError() ? S.inputError : ''}`}
+      onChange={handleInputChange}
+      onKeyDown={handleKeyPress}
+      style={{ ...inputProps.style, height: `${fixedHeight ?? calcHeight}px` }}
+      value={value}
+    />
+  );
 
-  return <div className={className} style={{ position: 'relative' }}>
-    {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <div className={S.inputWrap}>{description}{input}</div>}
+  return (
+    <div className={className} style={{ position: 'relative' }}>
+      {labelText ? (
+        <label className={S.label}>
+          <span>
+            {labelText}
+            {required}
+          </span>
+          {description}
+          {input}
+        </label>
+      ) : (
+        <div className={S.inputWrap}>
+          {description}
+          {input}
+        </div>
+      )}
 
-    <button className={S.submitButton} disabled={disabled} onClick={onSubmit} style={{ transform: `translateY(-${buttonPosition}px)` }} type="submit"><SendIcon disabled={disabled} /></button>
+      {hasSendButton ? (
+        <button
+          className={S.submitButton}
+          disabled={disabled}
+          onClick={onSubmit}
+          style={{ transform: `translateY(-${buttonPosition}px)` }}
+          type='submit'
+        >
+          <SendIcon disabled={disabled} />
+        </button>
+      ) : null}
 
-    <div className={S.inputBottom}>
-      {hasError() ? <div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div> : <div> </div>}
-      <p className={`${S.count} ${value.length === maxLength ? S.maxCount : ''}`}>{value.length}/{maxLength}</p>
+      <div className={S.inputBottom}>
+        {hasError() ? (
+          <div className={S.errorMessage}>
+            <AlertCircleIcon />
+            <p>{errorMessage ?? 'error'}</p>
+          </div>
+        ) : (
+          <div> </div>
+        )}
+        <p className={`${S.count} ${value.length === maxLength ? S.maxCount : ''}`}>
+          {value.length}/{maxLength}
+        </p>
+      </div>
     </div>
-  </div>
+  );
 }
 
 export default TextArea;
