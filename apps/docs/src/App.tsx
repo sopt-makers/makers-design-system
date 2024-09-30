@@ -61,12 +61,12 @@ function App() {
       <TextArea
         placeholder="Placeholder..."
         required
-        labelText="Label"
-        descriptionText="description"
+        topAddon={{ labelText: "Label", descriptionText: "description" }}
+        rightAddon={{ onClick: () => handleTextareaSubmit() }}
         validationFn={textareaValidation}
+        errorMessage="Error Message"
         value={textarea}
         onChange={handleTextareaChange}
-        onSubmit={handleTextareaSubmit}
         maxLength={300}
       />
       <SearchField

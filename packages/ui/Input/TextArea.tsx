@@ -1,74 +1,160 @@
-import { useState, type ChangeEvent, type TextareaHTMLAttributes } from 'react';
+import { useMemo, useRef, type ChangeEvent, type TextareaHTMLAttributes, isValidElement, useState } from 'react';
 import * as S from './style.css';
 import AlertCircleIcon from './icons/AlertCircleIcon';
 import SendIcon from './icons/SendIcon';
 
 interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value'> {
   className?: string;
-  labelText?: string;
-  descriptionText?: string;
-  errorMessage?: string;
-  value: string;
-  maxLength: number;
-  // isError -> validationFn 순서로 적용
+  topAddon?: React.ReactNode | { labelText?: string; descriptionText?: string; };
+  rightAddon?: React.ReactNode | { buttonContent?: React.ReactNode; onClick: () => void; }; // ReactNode로 버튼을 전달하면 disabled 및 onKeyDown 직접처리 필요
+
   isError?: boolean;
-  validationFn?: (input: string) => boolean;
-  onSubmit: () => void;
-  disableEnterSubmit?: boolean;
-  lineHeight?: number; // px
-  fixedHeight?: number; // px
+  validationFn?: (input: string) => boolean; // isError가 없을 때만 적용
+  errorMessage?: string; // isError 또는 validationFn 결과가 true일 때만 표시
+  value: string; // string 타입으로 한정
+
+  disableEnterSubmit?: boolean; // true일 경우, Enter 키는 줄바꿈으로 동작
+  maxLength?: number; // 없으면 무제한
+  fixedHeight?: number; // px -> 늘어나지 않도록 높이를 고정
+  maxHeight?: number; // px -> 늘어나면서 최대 높이를 제한
 }
 
 function TextArea(props: TextAreaProps) {
-  const { className, labelText, descriptionText, errorMessage, value, maxLength, isError, validationFn, onSubmit, disableEnterSubmit = false, lineHeight = 26, fixedHeight, ...inputProps } = props;
+  const {
+    className,
+    topAddon,
+    rightAddon,
+    isError,
+    validationFn,
+    errorMessage,
+    value,
+    disableEnterSubmit = false,
+    maxLength,
+    fixedHeight,
+    maxHeight = 130, // lineHeight가 26일 경우 5줄
+    ...inputProps
+  } = props;
   const { onChange, ...restInputProps } = inputProps;
+  const { disabled, readOnly, required } = restInputProps;
 
-  const [calcHeight, setCalcHeight] = useState(48);
+  const isValid = validationFn ? validationFn(value) : true;
+  const isEmpty = value.length === 0;
 
-  const hasError = () => {
-    if (inputProps.disabled || inputProps.readOnly) return false;
+  const submitButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  const [isFocused, setIsFocused] = useState(false);
+
+  const hasError = useMemo(() => {
+    if (disabled || readOnly) return false;
     if (isError !== undefined) return isError;
-    if (validationFn && !validationFn(value)) return true;
+    if (!isValid) return true;
     return false;
-  }
+  }, [disabled, readOnly, isError, isValid]);
 
-  const disabled = inputProps.disabled || inputProps.readOnly || value.length === 0 || hasError();
+  const isSubmitDisabled = disabled || readOnly || isEmpty || hasError;
 
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
-    const slicedText = text.slice(0, maxLength);
+    const slicedText = maxLength ? text.slice(0, maxLength) : text;
     onChange && onChange({ ...e, target: { ...e.target, value: slicedText } });
 
+    // textarea rows
     if (!fixedHeight) {
-      const lines = (slicedText.match(/\n/g) || []).length;
-      const height = 48 + lineHeight * (lines > 4 ? 4 : lines);
-      setCalcHeight(height);
+      e.target.style.height = '1px';
+      e.target.style.height = `${e.target.scrollHeight}px`;
     }
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!disableEnterSubmit && event.key === 'Enter' && !event.shiftKey) {
+      // Enter 키를 누르면 onClick 이벤트 발생
       event.preventDefault();
-      !disabled && onSubmit();
+      !isSubmitDisabled && submitButtonRef.current?.click();
     }
   };
 
-  const buttonPosition = 48 + ((fixedHeight ?? calcHeight) - 48) / 2;
+  const labelText = useMemo(() => {
+    if (topAddon && typeof topAddon === 'object' && 'labelText' in topAddon) {
+      return topAddon.labelText;
+    }
+  }, [topAddon]);
 
-  const required = inputProps.required ? <span className={S.required}>*</span> : null;
-  const description = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
-  const input = <textarea {...restInputProps} className={`${S.input} ${S.textarea} ${hasError() ? S.inputError : ''}`} onChange={handleInputChange} onKeyDown={handleKeyPress} style={{ ...inputProps.style, height: `${fixedHeight ?? calcHeight}px` }} value={value} />;
+  const descriptionText = useMemo(() => {
+    if (topAddon && typeof topAddon === 'object' && 'descriptionText' in topAddon) {
+      return topAddon.descriptionText;
+    }
+  }, [topAddon]);
 
-  return <div className={className} style={{ position: 'relative' }}>
-    {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <div className={S.inputWrap}>{description}{input}</div>}
+  const submitButton = useMemo(() => {
+    if (rightAddon && typeof rightAddon === 'object' && 'onClick' in rightAddon) {
+      return (
+        <button className={S.textareaSubmitButton} disabled={isSubmitDisabled} onClick={rightAddon.onClick} ref={submitButtonRef} type="button">
+          {/* buttonContent 가 없을 경우 default로 SendIcon 표시 */}
+          {rightAddon.buttonContent ?? <SendIcon disabled={isSubmitDisabled} />}
+        </button>
+      );
+    }
+  }, [rightAddon, isSubmitDisabled]);
 
-    <button className={S.submitButton} disabled={disabled} onClick={onSubmit} style={{ transform: `translateY(-${buttonPosition}px)` }} type="submit"><SendIcon disabled={disabled} /></button>
+  const handleFocus = () => {
+    setIsFocused(true);
+  }
 
-    <div className={S.inputBottom}>
-      {hasError() ? <div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div> : <div> </div>}
-      <p className={`${S.count} ${value.length === maxLength ? S.maxCount : ''}`}>{value.length}/{maxLength}</p>
+  const handleBlur = () => {
+    setIsFocused(false);
+  }
+
+  const requiredEl = required ? <span className={S.required}>*</span> : null;
+  const descriptionEl = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
+  const labelEl = labelText ? (
+    <label className={S.label} htmlFor={labelText}>
+      <span>{labelText}{requiredEl}</span>
+      {descriptionEl}
+    </label>
+  ) : (
+    <div className={S.inputWrap}>{descriptionEl}</div>
+  );
+
+  return (
+    <div className={className}>
+      {isValidElement(topAddon) ? topAddon : labelEl}
+
+      <div className={`${S.textareaWrap} ${hasError ? S.inputError : ''} ${isFocused ? S.focus : ''}`}>
+        <textarea
+          {...restInputProps}
+          className={`${S.input} ${S.textarea}`}
+          id={labelText}
+          onBlur={handleBlur}
+          onChange={handleInputChange}
+          onFocus={handleFocus}
+          onKeyDown={inputProps.onKeyDown ?? handleKeyPress}
+          rows={1}
+          style={{ ...inputProps.style, height: fixedHeight ? `${fixedHeight}px` : 'auto', maxHeight: `${maxHeight}px` }}
+          value={value}
+        />
+        {isValidElement(rightAddon) ? rightAddon : submitButton}
+      </div>
+
+      {(hasError || maxLength) ? (
+        <div className={S.inputBottom}>
+          {hasError ? (
+            <div className={S.errorMessage}>
+              <AlertCircleIcon />
+              <p>{errorMessage ?? 'error'}</p>
+            </div>
+          ) : (
+            <div> </div> // space-between 속성때문에 필요
+          )}
+
+          {maxLength ? (
+            <p className={`${S.count} ${value.length === maxLength ? S.maxCount : ''}`}>
+              {value.length}/{maxLength}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
     </div>
-  </div>
+  );
 }
 
 export default TextArea;

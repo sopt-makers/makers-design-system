@@ -40,24 +40,43 @@ export const input = style({
   },
 });
 
+export const textareaWrap = style({
+  height: 'fit-content',
+  display: 'flex',
+  alignItems: 'center',
+  border: '1px solid transparent',
+  borderRadius: '10px',
+  padding: '10px 0',
+  background: theme.colors.gray800,
+});
+
 export const textarea = style({
   'resize': 'none',
-  'paddingRight': 0,
   'display': 'block',
+  'padding': '0 8px 0 16px',
+  'marginRight': '8px',
+  'flex': 1,
+  'border': 0,
+  ':focus': {
+    border: 0,
+    outline: 'none',
+  },
 
   '::-webkit-scrollbar': {
-    width: '48px',
+    width: '4px',
   },
   '::-webkit-scrollbar-thumb': {
     backgroundColor: theme.colors.gray500,
-    backgroundClip: 'padding-box',
-    border: '4px solid transparent',
-    boxShadow: `inset -36px 0 0 ${theme.colors.gray800}`,
-    borderRadius: '6px',
+    borderRadius: '4px',
   },
   '::-webkit-scrollbar-track': {
     backgroundColor: 'transparent',
   },
+});
+
+export const focus = style({
+  border: `1px solid ${theme.colors.gray200}`,
+  outline: 'none',
 });
 
 export const searchField = style({
@@ -114,6 +133,20 @@ export const submitButton = style({
   'height': '48px',
   'position': 'absolute',
   'right': 0,
+  ':hover': {
+    cursor: 'pointer',
+  },
+  ':disabled': {
+    cursor: 'not-allowed',
+  },
+});
+
+export const textareaSubmitButton = style({
+  'background': 'none',
+  'border': 'none',
+  'width': '34px',
+  'height': '100%',
+  'textAlign': 'left',
   ':hover': {
     cursor: 'pointer',
   },
@@ -255,6 +288,10 @@ globalStyle(`${option} > svg`, {
 globalStyle(`${optionProfileEmpty} > svg`, {
   width: '20px',
   height: '20px',
+});
+
+globalStyle(`${textareaWrap} > *`, {
+  flexShrink: 0,
 });
 
 export const buttonWithNoStyle = style({
