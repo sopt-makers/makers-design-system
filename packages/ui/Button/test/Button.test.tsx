@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { it, expect, vi } from 'vitest';
 import Button from '../Button';
 
 it('Button 컴포넌트가 정상적으로 렌더링됩니다.', () => {
