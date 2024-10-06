@@ -1,5 +1,11 @@
 # @sopt-makers/colors
 
+## 3.0.2
+
+### Patch Changes
+
+- 5eae36b: backgroundDimmed 컬러 80%로 수정
+
 ## 3.0.1
 
 ### Patch Changes
