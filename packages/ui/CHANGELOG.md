@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.3.2
+
+### Patch Changes
+
+- 9956291: vitest globals 옵션 활성화로 인한 import문 제거
+
 ## 2.3.1
 
 ### Patch Changes
