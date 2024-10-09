@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
 import Tab from '../Tab';
 
 describe('Tab 컴포넌트는', () => {
