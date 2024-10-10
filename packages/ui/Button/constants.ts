@@ -96,7 +96,7 @@ export const paddings: Record<ButtonSizeTheme, string> = {
 
 export const fontSizes: Record<ButtonSizeTheme, string> = {
   sm: '14px',
-  md: '14px',
+  md: '16px',
   lg: '18px',
 };
 
