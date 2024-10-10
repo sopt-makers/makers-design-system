@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.4.2
+
+### Patch Changes
+
+- c9a5645: 의존성 업데이트
+
 ## 2.4.1
 
 ### Patch Changes
