@@ -34,8 +34,8 @@ importers:
   apps/docs:
     dependencies:
       '@sopt-makers/colors':
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: ^3.0.2
+        version: 3.0.2
       '@sopt-makers/fonts':
         specifier: ^2.0.1
         version: 2.0.1
@@ -176,8 +176,8 @@ importers:
         specifier: ^1.0.3
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sopt-makers/colors':
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: ^3.0.2
+        version: 3.0.2
       '@sopt-makers/fonts':
         specifier: ^2.0.1
         version: 2.0.1
@@ -2310,8 +2310,8 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-  '@sopt-makers/colors@3.0.1':
-    resolution: {integrity: sha512-OcPzu29VAcdYQVw6F4vRDgcCKJlQ7FFcQrd/BqYckYdoUWdo1VVqgowp+iTUEIm1nlZjior5xUzInVr+O7Ck0w==}
+  '@sopt-makers/colors@3.0.2':
+    resolution: {integrity: sha512-DI7UBz584bGgZPLlAa7kL5mx6t6wMmhAKhWFwEjCBXgfFD0yvzkIH6f87nHsylAJ35lutEsF92hBjNKG0WSn5g==}
 
   '@sopt-makers/fonts@2.0.1':
     resolution: {integrity: sha512-glvB8aPm70XyOuhjrDW27wUH8i7BcVTiWByYAm3b1TMK5bBJzaX8Ga6Xgz5g9FY0VzDvBr/O5iXdMyO9Yhd4yA==}
@@ -9129,7 +9129,7 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@sopt-makers/colors@3.0.1': {}
+  '@sopt-makers/colors@3.0.2': {}
 
   '@sopt-makers/fonts@2.0.1': {}
 
@@ -9141,7 +9141,7 @@ snapshots:
     dependencies:
       '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sopt-makers/colors': 3.0.1
+      '@sopt-makers/colors': 3.0.2
       '@sopt-makers/fonts': 2.0.1
       '@sopt-makers/icons': 1.0.5(react@18.3.1)
       '@vanilla-extract/css': 1.15.5
