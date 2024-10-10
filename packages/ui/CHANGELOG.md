@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.4.1
+
+### Patch Changes
+
+- 7d8e506: Button 사이즈 md 일 때 text 사이즈 16px로 변경
+
 ## 2.4.0
 
 ### Minor Changes
