@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.4.0
+
+### Minor Changes
+
+- cd5cd60: Textarea 구조 변경
+
 ## 2.3.2
 
 ### Patch Changes
