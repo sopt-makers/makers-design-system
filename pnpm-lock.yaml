@@ -34,13 +34,8 @@ importers:
   apps/docs:
     dependencies:
       '@sopt-makers/colors':
-<<<<<<< Updated upstream
-        specifier: ^3.0.2
-        version: 3.0.2
-=======
         specifier: workspace:^
         version: link:../../packages/colors
->>>>>>> Stashed changes
       '@sopt-makers/fonts':
         specifier: workspace:^
         version: link:../../packages/fonts
@@ -181,13 +176,8 @@ importers:
         specifier: ^1.0.3
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sopt-makers/colors':
-<<<<<<< Updated upstream
-        specifier: ^3.0.2
-        version: 3.0.2
-=======
         specifier: workspace:^
         version: link:../colors
->>>>>>> Stashed changes
       '@sopt-makers/fonts':
         specifier: workspace:^
         version: link:../fonts
@@ -2320,26 +2310,6 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
-<<<<<<< Updated upstream
-  '@sopt-makers/colors@3.0.2':
-    resolution: {integrity: sha512-DI7UBz584bGgZPLlAa7kL5mx6t6wMmhAKhWFwEjCBXgfFD0yvzkIH6f87nHsylAJ35lutEsF92hBjNKG0WSn5g==}
-
-  '@sopt-makers/fonts@2.0.1':
-    resolution: {integrity: sha512-glvB8aPm70XyOuhjrDW27wUH8i7BcVTiWByYAm3b1TMK5bBJzaX8Ga6Xgz5g9FY0VzDvBr/O5iXdMyO9Yhd4yA==}
-
-  '@sopt-makers/icons@1.0.5':
-    resolution: {integrity: sha512-u3mnMEyAs3tulfE9GYqjbmO6FAnzrp/AaCCKulwnVOw5O6GBXIoHe1A6lDxD+A73RoMu96QoL1OZ9y5h10Fe1w==}
-    peerDependencies:
-      react: ^18.2.0
-
-  '@sopt-makers/ui@2.3.0':
-    resolution: {integrity: sha512-NGASovJHlEwJB2oKGbo1SJj6zyYklZLK6A5d7L/ykCKW8qfBiR+l+Grm03n4J6ZRYK+9fkmHJz3hc/KiZ7y9OA==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-
-=======
->>>>>>> Stashed changes
   '@storybook/addon-actions@7.6.20':
     resolution: {integrity: sha512-c/GkEQ2U9BC/Ew/IMdh+zvsh4N6y6n7Zsn2GIhJgcu9YEAa5aF2a9/pNgEGBMOABH959XE8DAOMERw/5qiLR8g==}
 
@@ -9142,42 +9112,6 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-<<<<<<< Updated upstream
-  '@sopt-makers/colors@3.0.2': {}
-
-  '@sopt-makers/fonts@2.0.1': {}
-
-  '@sopt-makers/icons@1.0.5(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-
-  '@sopt-makers/ui@2.3.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
-    dependencies:
-      '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sopt-makers/colors': 3.0.2
-      '@sopt-makers/fonts': 2.0.1
-      '@sopt-makers/icons': 1.0.5(react@18.3.1)
-      '@vanilla-extract/css': 1.15.5
-      '@vanilla-extract/sprinkles': 1.6.1(@vanilla-extract/css@1.15.5)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      tsup: 8.2.4(postcss@8.4.45)(typescript@5.6.2)
-    transitivePeerDependencies:
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/react'
-      - '@types/react-dom'
-      - babel-plugin-macros
-      - jiti
-      - postcss
-      - supports-color
-      - tsx
-      - typescript
-      - yaml
-
-=======
->>>>>>> Stashed changes
   '@storybook/addon-actions@7.6.20':
     dependencies:
       '@storybook/core-events': 7.6.20
