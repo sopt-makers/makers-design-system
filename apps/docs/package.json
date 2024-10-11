@@ -13,10 +13,17 @@
     "chromatic": "npx chromatic --project-token=chpt_98c750b6bad066a"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "@sopt-makers/colors": "^3.0.2",
     "@sopt-makers/fonts": "^2.0.1",
     "@sopt-makers/icons": "^1.0.5",
     "@sopt-makers/ui": "^2.3.0"
+=======
+    "@sopt-makers/colors": "workspace:^",
+    "@sopt-makers/fonts": "workspace:^",
+    "@sopt-makers/icons": "workspace:^",
+    "@sopt-makers/ui": "workspace:^"
+>>>>>>> Stashed changes
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.3",
