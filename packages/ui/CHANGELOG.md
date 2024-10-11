@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.4.3
+
+### Patch Changes
+
+- b0a088e: fix dependancy (static version -> workspace:^)
+
 ## 2.4.2
 
 ### Patch Changes
