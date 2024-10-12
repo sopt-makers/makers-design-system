@@ -162,23 +162,17 @@ export const selectWrap = style({
 
 export const select = style({
   ...theme.fontsObject.BODY_2_16_M,
-  'color': theme.colors.white,
-  'width': '160px',
-  'height': '48px',
-  'borderRadius': '10px',
-  'background': theme.colors.gray800,
-  'border': '1px solid transparent',
-  'padding': '11px 16px',
-  'display': 'flex',
-  'justifyContent': 'space-between',
-  'alignItems': 'center',
-  'gap': '12px',
-  'cursor': 'pointer',
-  'transition': 'border 0.2s',
-
-  ':focus': {
-    border: `1px solid ${theme.colors.gray200}`,
-  },
+  color: theme.colors.white,
+  width: '160px',
+  height: '48px',
+  borderRadius: '10px',
+  background: theme.colors.gray800,
+  padding: '11px 16px',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: '12px',
+  cursor: 'pointer',
 });
 
 export const selectPlaceholder = style({
@@ -200,9 +194,6 @@ export const optionList = style({
   'animation': `${fadeIn} 0.5s forwards`,
   'overflowX': 'hidden',
 
-  '::-webkit-scrollbar': {
-    width: '16px',
-  },
   '::-webkit-scrollbar-thumb': {
     background: theme.colors.gray500,
     backgroundClip: 'padding-box',
@@ -300,4 +291,8 @@ export const buttonWithNoStyle = style({
   padding: 0,
   margin: 0,
   cursor: 'pointer',
+});
+
+export const width100 = style({
+  width: '100%',
 });
