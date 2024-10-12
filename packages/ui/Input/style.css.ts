@@ -292,7 +292,3 @@ export const buttonWithNoStyle = style({
   margin: 0,
   cursor: 'pointer',
 });
-
-export const width100 = style({
-  width: '100%',
-});
