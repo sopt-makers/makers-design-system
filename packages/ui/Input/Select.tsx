@@ -155,7 +155,7 @@ function SelectTriggerContent({ className, placeholder }: SelectTriggerContentPr
   const selectedLabel = selected ? selected.label : placeholder;
 
   return (
-    <div className={`${S.select} ${className ? className : ''}`}>
+    <div className={`${S.select} ${open ? S.focus : ''} ${className ? className : ''}`}>
       <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
       <IconChevronDown
         style={{
