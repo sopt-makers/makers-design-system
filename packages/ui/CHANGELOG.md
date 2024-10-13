@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.4.4
+
+### Patch Changes
+
+- 9bde25b: SelectV2 피그마 명세와 상이한 border/padding 수정
+
 ## 2.4.3
 
 ### Patch Changes

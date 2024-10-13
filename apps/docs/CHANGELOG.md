@@ -1,5 +1,12 @@
 # docs
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [9bde25b]
+  - @sopt-makers/ui@2.4.4
+
 ## 0.0.4
 
 ### Patch Changes
