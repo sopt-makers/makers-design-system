@@ -1,6 +1,6 @@
 {
   "name": "@sopt-makers/ui",
-  "version": "2.4.0",
+  "version": "2.4.4",
   "description": "sopt-makers의 frontend repository에 사용되는 ui를 제공해요.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -18,9 +18,9 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-switch": "^1.0.3",
-    "@sopt-makers/colors": "^3.0.1",
-    "@sopt-makers/fonts": "^2.0.1",
-    "@sopt-makers/icons": "^1.0.5",
+    "@sopt-makers/colors": "workspace:^",
+    "@sopt-makers/fonts": "workspace:^",
+    "@sopt-makers/icons": "workspace:^",
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/sprinkles": "1.6.1",
     "tsup": "^8.0.2"

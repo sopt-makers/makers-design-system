@@ -1,5 +1,29 @@
 # @sopt-makers/ui
 
+## 2.4.4
+
+### Patch Changes
+
+- 9bde25b: SelectV2 피그마 명세와 상이한 border/padding 수정
+
+## 2.4.3
+
+### Patch Changes
+
+- b0a088e: fix dependancy (static version -> workspace:^)
+
+## 2.4.2
+
+### Patch Changes
+
+- c9a5645: 의존성 업데이트
+
+## 2.4.1
+
+### Patch Changes
+
+- 7d8e506: Button 사이즈 md 일 때 text 사이즈 16px로 변경
+
 ## 2.4.0
 
 ### Minor Changes

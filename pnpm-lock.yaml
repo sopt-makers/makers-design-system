@@ -34,17 +34,17 @@ importers:
   apps/docs:
     dependencies:
       '@sopt-makers/colors':
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: workspace:^
+        version: link:../../packages/colors
       '@sopt-makers/fonts':
-        specifier: ^2.0.1
-        version: 2.0.1
+        specifier: workspace:^
+        version: link:../../packages/fonts
       '@sopt-makers/icons':
-        specifier: ^1.0.5
-        version: 1.0.5(react@18.3.1)
+        specifier: workspace:^
+        version: link:../../packages/icons
       '@sopt-makers/ui':
-        specifier: ^2.3.0
-        version: 2.3.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)
+        specifier: workspace:^
+        version: link:../../packages/ui
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^7.6.3
@@ -176,14 +176,14 @@ importers:
         specifier: ^1.0.3
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@sopt-makers/colors':
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: workspace:^
+        version: link:../colors
       '@sopt-makers/fonts':
-        specifier: ^2.0.1
-        version: 2.0.1
+        specifier: workspace:^
+        version: link:../fonts
       '@sopt-makers/icons':
-        specifier: ^1.0.5
-        version: 1.0.5(react@18.3.1)
+        specifier: workspace:^
+        version: link:../icons
       '@vanilla-extract/css':
         specifier: ^1.14.0
         version: 1.15.5
@@ -2309,23 +2309,6 @@ packages:
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
-
-  '@sopt-makers/colors@3.0.1':
-    resolution: {integrity: sha512-OcPzu29VAcdYQVw6F4vRDgcCKJlQ7FFcQrd/BqYckYdoUWdo1VVqgowp+iTUEIm1nlZjior5xUzInVr+O7Ck0w==}
-
-  '@sopt-makers/fonts@2.0.1':
-    resolution: {integrity: sha512-glvB8aPm70XyOuhjrDW27wUH8i7BcVTiWByYAm3b1TMK5bBJzaX8Ga6Xgz5g9FY0VzDvBr/O5iXdMyO9Yhd4yA==}
-
-  '@sopt-makers/icons@1.0.5':
-    resolution: {integrity: sha512-u3mnMEyAs3tulfE9GYqjbmO6FAnzrp/AaCCKulwnVOw5O6GBXIoHe1A6lDxD+A73RoMu96QoL1OZ9y5h10Fe1w==}
-    peerDependencies:
-      react: ^18.2.0
-
-  '@sopt-makers/ui@2.3.0':
-    resolution: {integrity: sha512-NGASovJHlEwJB2oKGbo1SJj6zyYklZLK6A5d7L/ykCKW8qfBiR+l+Grm03n4J6ZRYK+9fkmHJz3hc/KiZ7y9OA==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
 
   '@storybook/addon-actions@7.6.20':
     resolution: {integrity: sha512-c/GkEQ2U9BC/Ew/IMdh+zvsh4N6y6n7Zsn2GIhJgcu9YEAa5aF2a9/pNgEGBMOABH959XE8DAOMERw/5qiLR8g==}
@@ -9129,39 +9112,6 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
-  '@sopt-makers/colors@3.0.1': {}
-
-  '@sopt-makers/fonts@2.0.1': {}
-
-  '@sopt-makers/icons@1.0.5(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-
-  '@sopt-makers/ui@2.3.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(postcss@8.4.45)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.2)':
-    dependencies:
-      '@radix-ui/react-dialog': 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@radix-ui/react-switch': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@sopt-makers/colors': 3.0.1
-      '@sopt-makers/fonts': 2.0.1
-      '@sopt-makers/icons': 1.0.5(react@18.3.1)
-      '@vanilla-extract/css': 1.15.5
-      '@vanilla-extract/sprinkles': 1.6.1(@vanilla-extract/css@1.15.5)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      tsup: 8.2.4(postcss@8.4.45)(typescript@5.6.2)
-    transitivePeerDependencies:
-      - '@microsoft/api-extractor'
-      - '@swc/core'
-      - '@types/react'
-      - '@types/react-dom'
-      - babel-plugin-macros
-      - jiti
-      - postcss
-      - supports-color
-      - tsx
-      - typescript
-      - yaml
-
   '@storybook/addon-actions@7.6.20':
     dependencies:
       '@storybook/core-events': 7.6.20
@@ -14616,33 +14566,6 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.45
       typescript: 4.9.5
-    transitivePeerDependencies:
-      - jiti
-      - supports-color
-      - tsx
-      - yaml
-
-  tsup@8.2.4(postcss@8.4.45)(typescript@5.6.2):
-    dependencies:
-      bundle-require: 5.0.0(esbuild@0.23.1)
-      cac: 6.7.14
-      chokidar: 3.6.0
-      consola: 3.2.3
-      debug: 4.3.7
-      esbuild: 0.23.1
-      execa: 5.1.1
-      globby: 11.1.0
-      joycon: 3.1.1
-      picocolors: 1.1.0
-      postcss-load-config: 6.0.1(postcss@8.4.45)(yaml@2.5.1)
-      resolve-from: 5.0.0
-      rollup: 4.21.2
-      source-map: 0.8.0-beta.0
-      sucrase: 3.35.0
-      tree-kill: 1.2.2
-    optionalDependencies:
-      postcss: 8.4.45
-      typescript: 5.6.2
     transitivePeerDependencies:
       - jiti
       - supports-color
