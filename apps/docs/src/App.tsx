@@ -1,16 +1,16 @@
-import "./App.css";
+import './App.css';
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from 'react';
 
-import SearchField from "../../../packages/ui/Input/SearchField";
-import { Test } from "@sopt-makers/ui";
-import TextArea from "../../../packages/ui/Input/TextArea";
-import TextField from "../../../packages/ui/Input/TextField";
+import '@sopt-makers/ui/dist/index.css';
+
+import { FieldBox, SearchField, Test, TextArea, TextField } from '@sopt-makers/ui';
+import { colors } from '@sopt-makers/colors';
 
 function App() {
-  const [input, setInput] = useState("");
-  const [textarea, setTextarea] = useState("");
-  const [search, setSearch] = useState("");
+  const [input, setInput] = useState('');
+  const [textarea, setTextarea] = useState('');
+  const [search, setSearch] = useState('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -43,39 +43,51 @@ function App() {
   };
 
   const handleSearchReset = () => {
-    setSearch("");
+    setSearch('');
   };
 
   return (
     <>
-      <Test text="Test Component" size="big" color="blue" />
+      <Test text='Test Component' size='big' color='blue' />
       <TextField<string>
-        placeholder="Placeholder..."
+        placeholder='Placeholder...'
         required
-        labelText="Label"
-        descriptionText="description"
+        labelText='Label'
+        descriptionText='description'
         validationFn={inputValidation}
         value={input}
         onChange={handleInputChange}
       />
       <TextArea
-        placeholder="Placeholder..."
+        placeholder='Placeholder...'
         required
-        topAddon={{ labelText: "Label", descriptionText: "description" }}
+        topAddon={{ labelText: 'Label', descriptionText: 'description' }}
         rightAddon={{ onClick: () => handleTextareaSubmit() }}
         validationFn={textareaValidation}
-        errorMessage="Error Message"
+        errorMessage='Error Message'
         value={textarea}
         onChange={handleTextareaChange}
         maxLength={300}
       />
       <SearchField
-        placeholder="Placeholder..."
+        placeholder='Placeholder...'
         value={search}
         onChange={handleSearchChange}
         onSubmit={handleSearchSubmit}
         onReset={handleSearchReset}
       />
+      <div style={{ padding: '20px', backgroundColor: colors.secondary }} />
+      <FieldBox
+        topAddon={<FieldBox.Label label='안녕?' description='디스크립션' required />}
+        bottomAddon={
+          <FieldBox.BottomAddon
+            leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
+            rightAddon={<div style={{ color: colors.white }}>롸이트애드온</div>}
+          />
+        }
+      >
+        <span style={{ color: colors.white }}>여긴 본문</span>
+      </FieldBox>
     </>
   );
 }
