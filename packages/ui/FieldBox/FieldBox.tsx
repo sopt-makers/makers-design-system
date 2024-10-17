@@ -1,24 +1,26 @@
 import { forwardRef } from 'react';
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { FieldBoxLabel } from './Label';
 
-export interface FieldBoxProps {
+export interface FieldBoxProps extends HTMLAttributes<HTMLDivElement> {
   topAddon?: ReactNode;
   bottomAddon?: ReactNode;
-  children: ReactNode;
 }
 
-const FieldBox = forwardRef<HTMLDivElement, FieldBoxProps>((props, forwardedRef) => {
+const FieldBoxImpl = forwardRef<HTMLDivElement, FieldBoxProps>((props, forwardedRef) => {
   const { topAddon, bottomAddon, children, ...restProps } = props;
 
   return (
     <div ref={forwardedRef} {...restProps}>
-      <div>{topAddon}</div>
+      {topAddon}
       <div>{children}</div>
       <div>{bottomAddon}</div>
     </div>
   );
 });
 
-FieldBox.displayName = 'FieldBox';
+FieldBoxImpl.displayName = 'FieldBoxImpl';
 
-export default FieldBox;
+export const FieldBox = Object.assign(FieldBoxImpl, {
+  Label: FieldBoxLabel,
+});
