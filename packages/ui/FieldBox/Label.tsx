@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-import * as S from './style.css';
+import { requiredMarkStyle, TopAddonDescriptionStyle, TopAddonLabelStyle } from './style.css';
 
 export interface FieldBoxLabelProps extends HTMLAttributes<HTMLDivElement> {
   label: string;
@@ -13,12 +13,12 @@ export const FieldBoxLabel = forwardRef<HTMLDivElement, FieldBoxLabelProps>((pro
 
   return (
     <div ref={forwardedRef}>
-      <label className={S.label}>
+      <label className={TopAddonLabelStyle}>
         <span>
           {label}
-          {required ? <span className={S.required}>*</span> : null}
+          {required ? <span className={requiredMarkStyle}>*</span> : null}
         </span>
-        <p className={S.description}>{description}</p>
+        <p className={TopAddonDescriptionStyle}>{description}</p>
       </label>
     </div>
   );

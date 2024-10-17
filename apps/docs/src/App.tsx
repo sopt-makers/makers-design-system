@@ -77,7 +77,17 @@ function App() {
         onReset={handleSearchReset}
       />
       <div style={{ padding: '20px', backgroundColor: colors.secondary }} />
-      <FieldBox topAddon={<FieldBox.Label label='안녕?' description='디스크립션' required />}>여긴 본문</FieldBox>
+      <FieldBox
+        topAddon={<FieldBox.Label label='안녕?' description='디스크립션' required />}
+        bottomAddon={
+          <FieldBox.BottomAddon
+            leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
+            rightAddon={<div style={{ color: colors.white }}>롸이트애드온</div>}
+          />
+        }
+      >
+        <span style={{ color: colors.white }}>여긴 본문</span>
+      </FieldBox>
     </>
   );
 }

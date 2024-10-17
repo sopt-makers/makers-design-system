@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { FieldBoxLabel } from './Label';
+import { BottomAddon } from './BottomAddon';
 
 export interface FieldBoxProps extends HTMLAttributes<HTMLDivElement> {
   topAddon?: ReactNode;
@@ -23,4 +24,5 @@ FieldBoxImpl.displayName = 'FieldBoxImpl';
 
 export const FieldBox = Object.assign(FieldBoxImpl, {
   Label: FieldBoxLabel,
+  BottomAddon,
 });
