@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 import type { HTMLAttributes, ReactNode } from 'react';
-import { FieldBoxLabel } from './Label';
-import { BottomAddon } from './BottomAddon';
+import { BottomAddon, FieldBoxLabel } from './components';
 
 export interface FieldBoxProps extends HTMLAttributes<HTMLDivElement> {
   topAddon?: ReactNode;

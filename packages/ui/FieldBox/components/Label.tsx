@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-import { requiredMarkStyle, TopAddonDescriptionStyle, TopAddonLabelStyle } from './style.css';
+import { requiredMarkStyle, TopAddonDescriptionStyle, TopAddonLabelStyle } from '../style.css';
 
 export interface FieldBoxLabelProps extends HTMLAttributes<HTMLDivElement> {
   label: string;

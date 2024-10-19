@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
-import { bottomAddonContainerStyle } from './style.css';
+import { bottomAddonContainerStyle } from '../style.css';
 
 export interface BottomAddon extends HTMLAttributes<HTMLDivElement> {
   leftAddon?: ReactNode;
