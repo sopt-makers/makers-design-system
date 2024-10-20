@@ -12,7 +12,7 @@ export const FieldBoxLabel = forwardRef<HTMLDivElement, FieldBoxLabelProps>((pro
   const { required, label, description } = props;
 
   return (
-    <div ref={forwardedRef}>
+    <div aria-label={label} aria-required={required} ref={forwardedRef}>
       <label className={TopAddonLabelStyle}>
         <span>
           {label}
