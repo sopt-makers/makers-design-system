@@ -2,12 +2,12 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import { bottomAddonContainerStyle } from '../style.css';
 
-export interface BottomAddon extends HTMLAttributes<HTMLDivElement> {
+export interface FieldBoxBottomAddonProps extends HTMLAttributes<HTMLDivElement> {
   leftAddon?: ReactNode;
   rightAddon?: ReactNode;
 }
 
-export const BottomAddon = forwardRef<HTMLDivElement, BottomAddon>((props, forwardedRef) => {
+export const BottomAddon = forwardRef<HTMLDivElement, FieldBoxBottomAddonProps>((props, forwardedRef) => {
   const { leftAddon, rightAddon } = props;
 
   return (
