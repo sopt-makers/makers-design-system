@@ -26,3 +26,11 @@ export const bottomAddonContainerStyle = style({
   justifyContent: 'space-between',
   alignItems: 'center',
 });
+
+export const errorMessage = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+  color: theme.colors.error,
+  ...theme.fontsObject.LABEL_4_12_SB,
+});
