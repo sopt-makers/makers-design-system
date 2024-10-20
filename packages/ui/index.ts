@@ -12,6 +12,7 @@ export { default as Tag } from './Tag';
 export { default as Chip } from './Chip';
 export { default as Callout } from './Callout';
 export { default as Tab } from './Tab';
+export * from './Skeleton';
 
 // test component
 export { default as Test } from './Test';
