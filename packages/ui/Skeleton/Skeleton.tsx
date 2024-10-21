@@ -1,25 +1,21 @@
-import type { SkeletonProps as RadixSkeletonProps } from '@radix-ui/themes';
-import { Skeleton as RadixSkeleton } from '@radix-ui/themes';
-import '@radix-ui/themes/styles.css';
-import { colors } from '@sopt-makers/colors';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-export type SkeletonProps = RadixSkeletonProps;
+export interface SkeletonProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
+  children: ReactNode;
+  width: number | string;
+  height: number | string;
+  variant: 'circular' | 'rectangular' | 'rounded' | 'text';
+  animation: 'pulse' | 'wave';
+}
 
-/**
- * - 자세한 옵션은 [radix-ui/Skeleton](https://www.radix-ui.com/themes/docs/components/skeleton)문서를 참고해주세요.
- */
 export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>((props, forwardedRef) => {
   const { children, ...restProps } = props;
 
   return (
-    <RadixSkeleton
-      ref={forwardedRef}
-      style={{ backgroundColor: colors.gray700, borderRadius: '9999px' }}
-      {...restProps}
-    >
+    <span ref={forwardedRef} {...restProps}>
       {children}
-    </RadixSkeleton>
+    </span>
   );
 });
 
