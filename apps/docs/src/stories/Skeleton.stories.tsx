@@ -21,7 +21,7 @@ export const Circular: StoryObj<SkeletonProps> = {
   },
 };
 
-export const Button: StoryObj<SkeletonProps> = {
+export const HasChildren: StoryObj<SkeletonProps> = {
   render: () => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
