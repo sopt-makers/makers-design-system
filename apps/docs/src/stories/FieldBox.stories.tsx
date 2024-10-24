@@ -21,7 +21,7 @@ type FieldBoxStoryProps = FieldBoxProps & FieldBoxLabelProps & FieldBoxBottomAdd
  *
  * #### 예시 코드
  * ```tsx
- * <FieldBox
+ * <FieldBox>
  *  topAddon={<FieldBox.Label label='안녕?' description='디스크립션' required />}
  *  bottomAddon={
  *   <FieldBox.BottomAddon
