@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.5.0
+
+### Minor Changes
+
+- 95401ea: Add FieldBox Component.
+
 ## 2.4.4
 
 ### Patch Changes
