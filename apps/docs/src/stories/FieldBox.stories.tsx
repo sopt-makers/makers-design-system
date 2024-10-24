@@ -1,4 +1,3 @@
-import { colors } from '@sopt-makers/colors';
 import {
   FieldBox,
   FieldBoxProps,
@@ -33,6 +32,15 @@ type FieldBoxStoryProps = FieldBoxProps & FieldBoxLabelProps & FieldBoxBottomAdd
  *  <span style={{ color: colors.white }}>여긴 본문</span>
  * </FieldBox>
  * ```
+ *
+ * #### Sub-Components
+ *
+ * |컴포넌트명|설명
+ * |-------|--------|
+ * |FieldBox|FieldBox의 Root 컴포넌트.
+ * |FieldBox.Label|TopAddon 영역에 사용, Label과 description, required prop을 통해 제어가능.
+ * |FieldBox.BottomAddon|BottomAddon 속성에 사용할 수 있는 Wrapper 컴포넌트, leftAddon, rightAddon prop 제공.
+ * |FieldBox.ErrorMessage|BottomAddon > leftAddon에 사용하는 것을 권장, 에러메시지를 출력할 수 있는 텍스트 컴포넌트.
  */
 
 const meta: Meta<FieldBoxStoryProps> = {
@@ -40,9 +48,9 @@ const meta: Meta<FieldBoxStoryProps> = {
   component: FieldBox,
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'string' },
-    description: { control: 'string' },
-    required: { control: 'boolean' },
+    label: { controls: 'string', description: `<FieldBox.Label /> 컴포넌트의 label 영역을 설정합니다.` },
+    description: { controls: 'string', description: `<FieldBox.Label /> 컴포넌트의 description 영역을 설정합니다.` },
+    required: { controls: 'boolean', description: `<FieldBox.Label /> 컴포넌트의 required 속성을 설정합니다.` },
     style: { control: false },
   },
   args: { style: { width: '100%', minWidth: '335px' }, label: 'Label', description: 'Description', required: false },
@@ -59,8 +67,12 @@ export const WithTextField: StoryObj<FieldBoxStoryProps> = {
         }
         bottomAddon={
           <FieldBox.BottomAddon
-            leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
-            rightAddon={<div style={{ color: colors.white }}>롸이트애드온</div>}
+            leftAddon={<FieldBox.ErrorMessage message='ErrorMessage' />}
+            rightAddon={
+              <Button theme='blue' size='sm'>
+                Button
+              </Button>
+            }
           />
         }
         {...args}
@@ -80,8 +92,12 @@ export const WithTextArea: StoryObj<FieldBoxStoryProps> = {
         }
         bottomAddon={
           <FieldBox.BottomAddon
-            leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
-            rightAddon={<div style={{ color: colors.white }}>롸이트애드온</div>}
+            leftAddon={<FieldBox.ErrorMessage message='ErrorMessage' />}
+            rightAddon={
+              <Button theme='blue' size='sm'>
+                Button
+              </Button>
+            }
           />
         }
         {...args}
@@ -102,7 +118,7 @@ export const WithRadio: StoryObj<FieldBoxStoryProps> = {
         }
         bottomAddon={
           <FieldBox.BottomAddon
-            leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
+            leftAddon={<FieldBox.ErrorMessage message='ErrorMessage' />}
             rightAddon={
               <Button theme='blue' size='sm'>
                 입력 완료
@@ -134,7 +150,7 @@ export const WithCheckBox: StoryObj<FieldBoxStoryProps> = {
         }
         bottomAddon={
           <FieldBox.BottomAddon
-            leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
+            leftAddon={<FieldBox.ErrorMessage message='ErrorMessage' />}
             rightAddon={
               <Button theme='blue' size='sm'>
                 입력 완료
