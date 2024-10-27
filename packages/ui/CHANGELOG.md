@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.6.0
+
+### Minor Changes
+
+- be92ccf: Add Skeleton Component.
+
 ## 2.5.0
 
 ### Minor Changes
