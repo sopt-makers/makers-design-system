@@ -5,6 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import '@sopt-makers/ui/dist/index.css';
 
 import { FieldBox, SearchField, Test, TextArea, TextField } from '@sopt-makers/ui';
+import { IconBirthdayPrimary, IconBirthdaySecondary, IconPhone, IconAlarmClock } from '@sopt-makers/icons';
 import { colors } from '@sopt-makers/colors';
 
 function App() {
@@ -88,6 +89,11 @@ function App() {
       >
         <span style={{ color: colors.white }}>여긴 본문</span>
       </FieldBox>
+      <div>
+        <IconBirthdayPrimary />
+        <IconBirthdaySecondary />
+        <IconPhone />
+      </div>
     </>
   );
 }
