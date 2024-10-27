@@ -144,18 +144,18 @@ function SelectTrigger({ children }: SelectTriggerProps) {
 }
 
 interface SelectTriggerContentProps {
-  className?: string;
   placeholder?: string;
+  className?: string;
 }
 
 // Select.TriggerContent 컴포넌트: trigger의 미리 정의된 UI
-function SelectTriggerContent({ className, placeholder }: SelectTriggerContentProps) {
+function SelectTriggerContent({ placeholder, className }: SelectTriggerContentProps) {
   const { open, selected } = useSelectContext();
 
   const selectedLabel = selected ? selected.label : placeholder;
 
   return (
-    <div className={`${S.select} ${open ? S.focus : ''} ${className ? className : ''}`}>
+    <div className={`${S.select} ${open ? S.focus : ''} ${className}`}>
       <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
       <IconChevronDown
         style={{
@@ -171,10 +171,11 @@ function SelectTriggerContent({ className, placeholder }: SelectTriggerContentPr
 
 interface SelectMenuProps {
   children: React.ReactNode;
+  className?: string;
 }
 
 // SelectMenu 컴포넌트: 옵션 목록을 렌더링
-function SelectMenu({ children }: SelectMenuProps) {
+function SelectMenu({ children, className }: SelectMenuProps) {
   const { open, optionsRef, calcMaxHeight } = useSelectContext();
 
   if (!open) {
@@ -182,7 +183,7 @@ function SelectMenu({ children }: SelectMenuProps) {
   }
 
   return (
-    <ul className={S.optionList} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
+    <ul className={`${S.optionList} ${className}`} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
       {children}
     </ul>
   );
@@ -191,10 +192,11 @@ function SelectMenu({ children }: SelectMenuProps) {
 interface SelectMenuItemProps<T> {
   option: Option<T>;
   onClick?: () => void;
+  className?: string;
 }
 
 // SelectMenuItem 컴포넌트: 옵션 목록 하나의 UI
-function SelectMenuItem<T>({ option, onClick }: SelectMenuItemProps<T>) {
+function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T>) {
   const { open, type, handleOptionClick } = useSelectContext();
 
   const handleClick = () => {
@@ -211,7 +213,7 @@ function SelectMenuItem<T>({ option, onClick }: SelectMenuItemProps<T>) {
 
   return (
     <li>
-      <button className={S.option} onClick={handleClick} type='button'>
+      <button className={`${S.option} ${className}`} onClick={handleClick} type='button'>
         {type === 'textIcon' && option.icon}
         {(type === 'userList' || type === 'userListDesc') &&
           (option.profileUrl ? (
