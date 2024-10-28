@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.1
+
+### Patch Changes
+
+- 7297d43: Fix Select border issue
+
 ## 2.7.0
 
 ### Minor Changes
