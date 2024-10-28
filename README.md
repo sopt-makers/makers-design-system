@@ -11,7 +11,7 @@
 
 ## Links
 
-[Github](https://github.com/sopt-makers/makers-design-system) / [npm](https://www.npmjs.com/search?q=%40sopt-makers)
+[Github](https://github.com/sopt-makers/makers-design-system) / [npm](https://www.npmjs.com/search?q=%40sopt-makers) / [Storybook](https://main--6571c88390d085ed7efcce84.chromatic.com/?path=/docs/introduction--docs)
 
 ## Packages(npm)
 
