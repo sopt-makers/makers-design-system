@@ -1,11 +1,13 @@
-import { type InputHTMLAttributes } from 'react';
+import type { ReactNode, InputHTMLAttributes } from 'react';
+import { FieldBox } from 'index';
 import * as S from './style.css';
-import AlertCircleIcon from './icons/AlertCircleIcon';
 
 interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
   className?: string;
+  topAddon?: ReactNode;
   labelText?: string;
   descriptionText?: string;
+  required?: boolean;
   errorMessage?: string;
   value: T;
   // isError -> validationFn 순서로 적용
@@ -14,23 +16,45 @@ interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 
 }
 
 function TextField<T extends string | number>(props: TextFieldProps<T>) {
-  const { className, labelText, descriptionText, errorMessage, value, isError, validationFn, ...inputProps } = props;
+  const {
+    className,
+    topAddon,
+    labelText,
+    descriptionText,
+    required,
+    errorMessage,
+    value,
+    isError,
+    validationFn,
+    ...inputProps
+  } = props;
 
   const hasError = () => {
     if (inputProps.disabled || inputProps.readOnly) return false;
     if (isError !== undefined) return isError;
     if (validationFn && !validationFn(value)) return true;
     return false;
-  }
+  };
 
-  const required = inputProps.required ? <span className={S.required}>*</span> : null;
-  const description = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
-  const input = <input {...inputProps} className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} />;
-
-  return <div className={className}>
-    {labelText ? <label className={S.label}><span>{labelText}{required}</span>{description}{input}</label> : <div className={S.inputWrap}>{description}{input}</div>}
-    {hasError() ? <div className={S.inputBottom}><div className={S.errorMessage}><AlertCircleIcon /><p>{errorMessage ?? 'error'}</p></div></div> : null}
-  </div>
+  return (
+    <FieldBox
+      bottomAddon={
+        <FieldBox.BottomAddon
+          leftAddon={hasError() && errorMessage ? <FieldBox.ErrorMessage message={errorMessage} /> : null}
+        />
+      }
+      className={className}
+      topAddon={
+        labelText || descriptionText ? (
+          <FieldBox.Label description={descriptionText} label={labelText} required={required} />
+        ) : (
+          topAddon
+        )
+      }
+    >
+      <input {...inputProps} className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} />
+    </FieldBox>
+  );
 }
 
 export default TextField;
