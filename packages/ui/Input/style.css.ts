@@ -193,6 +193,7 @@ export const optionList = style({
   'transformOrigin': 'top',
   'animation': `${fadeIn} 0.5s forwards`,
   'overflowX': 'hidden',
+  'zIndex': 24,
 
   '::-webkit-scrollbar-thumb': {
     background: theme.colors.gray500,

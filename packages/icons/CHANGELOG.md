@@ -1,5 +1,11 @@
 # @sopt-makers/icons
 
+## 1.0.6
+
+### Patch Changes
+
+- 17b473b: birthday phone 아이콘 추가
+
 ## 1.0.5
 
 ### Patch Changes

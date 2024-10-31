@@ -1,5 +1,18 @@
 # @sopt-makers/ui
 
+## 2.7.3
+
+### Patch Changes
+
+- f16c80e: select classname prop 추가
+
+## 2.7.2
+
+### Patch Changes
+
+- Updated dependencies [17b473b]
+  - @sopt-makers/icons@1.0.6
+
 ## 2.7.1
 
 ### Patch Changes
