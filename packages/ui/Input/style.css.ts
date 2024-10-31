@@ -75,7 +75,7 @@ export const textarea = style({
 });
 
 export const focus = style({
-  border: `1px solid ${theme.colors.gray200}`,
+  boxShadow: `0 0 0 1px ${theme.colors.gray200}`,
   outline: 'none',
 });
 

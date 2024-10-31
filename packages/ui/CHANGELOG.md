@@ -1,5 +1,24 @@
 # @sopt-makers/ui
 
+## 2.7.2
+
+### Patch Changes
+
+- Updated dependencies [17b473b]
+  - @sopt-makers/icons@1.0.6
+
+## 2.7.1
+
+### Patch Changes
+
+- 7297d43: Fix Select border issue
+
+## 2.7.0
+
+### Minor Changes
+
+- c3270e7: Add Skeleton Component.
+
 ## 2.6.0
 
 ### Minor Changes
