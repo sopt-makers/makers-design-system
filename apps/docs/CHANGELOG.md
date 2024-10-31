@@ -1,5 +1,12 @@
 # docs
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [f16c80e]
+  - @sopt-makers/ui@2.7.3
+
 ## 0.0.11
 
 ### Patch Changes
