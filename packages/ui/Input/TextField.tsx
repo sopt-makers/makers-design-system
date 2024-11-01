@@ -5,6 +5,7 @@ import * as S from './style.css';
 interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
   className?: string;
   topAddon?: ReactNode;
+  bottomAddon?: ReactNode;
   labelText?: string;
   descriptionText?: string;
   required?: boolean;
@@ -19,6 +20,7 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
   const {
     className,
     topAddon,
+    bottomAddon,
     labelText,
     descriptionText,
     required,
@@ -41,6 +43,7 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
       bottomAddon={
         <FieldBox.BottomAddon
           leftAddon={hasError() && errorMessage ? <FieldBox.ErrorMessage message={errorMessage} /> : null}
+          rightAddon={bottomAddon}
         />
       }
       className={className}
