@@ -1,5 +1,5 @@
 import type { ReactNode, InputHTMLAttributes } from 'react';
-import { FieldBox } from 'index';
+import { FieldBox } from 'FieldBox';
 import * as S from './style.css';
 
 interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
