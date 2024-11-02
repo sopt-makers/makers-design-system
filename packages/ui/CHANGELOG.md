@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.5
+
+### Patch Changes
+
+- 86ba686: Extend HTMLDivElement in Tag Component
+
 ## 2.7.4
 
 ### Patch Changes
