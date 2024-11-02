@@ -1,9 +1,5 @@
 import * as Icons from '@sopt-makers/icons';
 
-export default {
-  title: 'icons/Icons',
-};
-
 export const Default = {
   argTypes: {
     color: { control: 'color' },
@@ -623,4 +619,9 @@ export const Default = {
       </div>
     );
   },
+};
+
+export default {
+  title: 'icons/Icons',
+  component: Default,
 };
