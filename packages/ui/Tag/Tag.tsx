@@ -1,27 +1,24 @@
-import * as S from "./style.css";
-import createTagStyle from "./utils";
+import { forwardRef, type HTMLAttributes } from 'react';
+import * as S from './style.css';
+import createTagStyle from './utils';
 
-interface TagProps {
+export interface TagProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
-  size?: "sm" | "md" | "lg";
-  shape?: "rect" | "pill";
-  variant?: "default" | "primary" | "secondary";
-  type?: "solid" | "line";
+  size?: 'sm' | 'md' | 'lg';
+  shape?: 'rect' | 'pill';
+  variant?: 'default' | 'primary' | 'secondary';
+  type?: 'solid' | 'line';
 }
 
-function Tag({
-  children,
-  size = "sm",
-  shape = "rect",
-  variant = "default",
-  type = "solid",
-}: TagProps) {
+export const Tag = forwardRef<HTMLDivElement, TagProps>((props, forwardedRef) => {
+  const { children, size = 'sm', shape = 'rect', variant = 'default', type = 'solid' } = props;
   const style = createTagStyle(type, variant, shape, size);
+
   return (
-    <div className={`${S.root} ${style}`}>
+    <div className={`${S.root} ${style}`} ref={forwardedRef}>
       {children}
     </div>
   );
-}
+});
 
-export default Tag;
+Tag.displayName = 'Tag';
