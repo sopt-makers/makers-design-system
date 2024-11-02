@@ -15,22 +15,22 @@ const useTextField = (props: TextFieldProps) => {
 
   const handleTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
-  }
+  };
 
-  return <TextField<string> {...props} value={text} onChange={handleTextChange} />
-}
+  return <TextField<string> {...props} value={text} onChange={handleTextChange} />;
+};
 
 export default {
   title: 'Components/Input/TextField',
   component: useTextField,
   tags: ['autodocs'],
   args: {
-    style: { width: '335px' }
+    style: { width: '335px' },
   },
   argTypes: {
-    style: { control: false }
-  }
-}
+    style: { control: false },
+  },
+};
 
 export const Default: StoryObj<TextFieldProps> = {
   args: {
@@ -52,7 +52,7 @@ export const NoLabel: StoryObj<TextFieldProps> = {
     placeholder: 'Placeholder...',
     isError: false,
     errorMessage: 'error message',
-    required: true,
+    required: false,
     readOnly: false,
     disabled: false,
   },

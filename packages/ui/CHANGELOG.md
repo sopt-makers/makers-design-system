@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.4
+
+### Patch Changes
+
+- 37b6b9b: TextField 컴포넌트를 FieldBox 기반으로 수정합니다.
+
 ## 2.7.3
 
 ### Patch Changes
