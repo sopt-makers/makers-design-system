@@ -11,6 +11,7 @@ export const root = style({
   border: 'none',
   cursor: 'pointer',
   fontWeight: 600,
+  minWidth: 'max-content',
 });
 
 const sprinkleProperties = defineProperties({
