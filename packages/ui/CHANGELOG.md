@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.6
+
+### Patch Changes
+
+- 00b1a6a: Button 내 max-width 속성 추가
+
 ## 2.7.5
 
 ### Patch Changes
