@@ -5,8 +5,8 @@ import SendIcon from './icons/SendIcon';
 
 interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value'> {
   className?: string;
-  topAddon?: React.ReactNode | { labelText?: string; descriptionText?: string; };
-  rightAddon?: React.ReactNode | { buttonContent?: React.ReactNode; onClick: () => void; }; // ReactNode로 버튼을 전달하면 disabled 및 onKeyDown 직접처리 필요
+  topAddon?: React.ReactNode | { labelText?: string; descriptionText?: string };
+  rightAddon?: React.ReactNode | { buttonContent?: React.ReactNode; onClick: () => void }; // ReactNode로 버튼을 전달하면 disabled 및 onKeyDown 직접처리 필요
 
   isError?: boolean;
   validationFn?: (input: string) => boolean; // isError가 없을 때만 적용
@@ -63,7 +63,7 @@ function TextArea(props: TextAreaProps) {
       e.target.style.height = '1px';
       e.target.style.height = `${e.target.scrollHeight}px`;
     }
-  }
+  };
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (!disableEnterSubmit && event.key === 'Enter' && !event.shiftKey) {
@@ -88,7 +88,13 @@ function TextArea(props: TextAreaProps) {
   const submitButton = useMemo(() => {
     if (rightAddon && typeof rightAddon === 'object' && 'onClick' in rightAddon) {
       return (
-        <button className={S.textareaSubmitButton} disabled={isSubmitDisabled} onClick={rightAddon.onClick} ref={submitButtonRef} type="button">
+        <button
+          className={S.textareaSubmitButton}
+          disabled={isSubmitDisabled}
+          onClick={rightAddon.onClick}
+          ref={submitButtonRef}
+          type='button'
+        >
           {/* buttonContent 가 없을 경우 default로 SendIcon 표시 */}
           {rightAddon.buttonContent ?? <SendIcon disabled={isSubmitDisabled} />}
         </button>
@@ -96,19 +102,24 @@ function TextArea(props: TextAreaProps) {
     }
   }, [rightAddon, isSubmitDisabled]);
 
-  const handleFocus = () => {
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement, Element>) => {
     setIsFocused(true);
-  }
+    inputProps.onFocus && inputProps.onFocus(e);
+  };
 
-  const handleBlur = () => {
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement, Element>) => {
     setIsFocused(false);
-  }
+    inputProps.onBlur && inputProps.onBlur(e);
+  };
 
   const requiredEl = required ? <span className={S.required}>*</span> : null;
   const descriptionEl = descriptionText ? <p className={S.description}>{descriptionText}</p> : null;
   const labelEl = labelText ? (
     <label className={S.label} htmlFor={labelText}>
-      <span>{labelText}{requiredEl}</span>
+      <span>
+        {labelText}
+        {requiredEl}
+      </span>
       {descriptionEl}
     </label>
   ) : (
@@ -129,13 +140,17 @@ function TextArea(props: TextAreaProps) {
           onFocus={handleFocus}
           onKeyDown={inputProps.onKeyDown ?? handleKeyPress}
           rows={1}
-          style={{ ...inputProps.style, height: fixedHeight ? `${fixedHeight}px` : 'auto', maxHeight: `${maxHeight}px` }}
+          style={{
+            ...inputProps.style,
+            height: fixedHeight ? `${fixedHeight}px` : 'auto',
+            maxHeight: `${maxHeight}px`,
+          }}
           value={value}
         />
         {isValidElement(rightAddon) ? rightAddon : submitButton}
       </div>
 
-      {(hasError || maxLength) ? (
+      {hasError || maxLength ? (
         <div className={S.inputBottom}>
           {hasError ? (
             <div className={S.errorMessage}>
@@ -147,7 +162,7 @@ function TextArea(props: TextAreaProps) {
           )}
 
           {maxLength ? (
-            <p className={`${S.count} ${value.length === maxLength ? S.maxCount : ''}`}>
+            <p className={`${S.count} ${value.length > maxLength ? S.maxCount : ''}`}>
               {value.length}/{maxLength}
             </p>
           ) : null}
