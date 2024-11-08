@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.8
+
+### Patch Changes
+
+- 5d886fd: [UI] Textarea maxLength 초과시 error 뜨도록 변경
+
 ## 2.7.7
 
 ### Patch Changes
