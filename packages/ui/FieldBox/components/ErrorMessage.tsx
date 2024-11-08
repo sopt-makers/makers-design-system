@@ -1,5 +1,5 @@
-import AlertCircleIcon from 'Input/icons/AlertCircleIcon';
 import { forwardRef, type HTMLAttributes } from 'react';
+import AlertCircleIcon from 'Input/icons/AlertCircleIcon';
 import { errorMessage } from '../style.css';
 
 export interface FieldBoxErrorMessageProps extends HTMLAttributes<HTMLDivElement> {

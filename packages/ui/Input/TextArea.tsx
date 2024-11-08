@@ -102,12 +102,12 @@ function TextArea(props: TextAreaProps) {
     }
   }, [rightAddon, isSubmitDisabled]);
 
-  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement, Element>) => {
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused(true);
     inputProps.onFocus && inputProps.onFocus(e);
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement, Element>) => {
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused(false);
     inputProps.onBlur && inputProps.onBlur(e);
   };
