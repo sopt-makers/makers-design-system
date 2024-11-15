@@ -1,11 +1,17 @@
 {
   "name": "@sopt-makers/ui",
-  "version": "2.7.8",
+  "version": "2.7.9",
   "description": "sopt-makers의 frontend repository에 사용되는 ui를 제공해요.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "license": "MIT",
+  "files": [
+    "dist",
+    "desktop-variables.css",
+    "mobile-variables.css",
+    "README.md"
+  ],
   "scripts": {
     "test": "vitest",
     "build": "pnpm clean && tsup --format cjs,esm --dts --sourcemap && pnpm buildCssModules",
@@ -22,8 +28,7 @@
     "@sopt-makers/fonts": "workspace:^",
     "@sopt-makers/icons": "workspace:^",
     "@vanilla-extract/css": "^1.14.0",
-    "@vanilla-extract/sprinkles": "1.6.1",
-    "tsup": "^8.0.2"
+    "@vanilla-extract/sprinkles": "1.6.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.5.0",
