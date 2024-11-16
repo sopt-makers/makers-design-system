@@ -6,6 +6,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
     "dev": "tsup index.ts --format cjs,esm --dts --watch"
