@@ -188,7 +188,7 @@ importers:
         specifier: ^1.14.0
         version: 1.16.0
       '@vanilla-extract/sprinkles':
-        specifier: 1.6.1
+        specifier: ^1.6.1
         version: 1.6.1(@vanilla-extract/css@1.16.0)
     devDependencies:
       '@testing-library/jest-dom':
