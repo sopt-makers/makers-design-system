@@ -1,5 +1,15 @@
 # docs
 
+## 0.0.18
+
+### Patch Changes
+
+- Updated dependencies [ffd6ebf]
+  - @sopt-makers/colors@3.0.3
+  - @sopt-makers/fonts@2.0.2
+  - @sopt-makers/icons@1.0.7
+  - @sopt-makers/ui@2.7.9
+
 ## 0.0.17
 
 ### Patch Changes
