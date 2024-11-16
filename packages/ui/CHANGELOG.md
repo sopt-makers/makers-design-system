@@ -1,5 +1,15 @@
 # @sopt-makers/ui
 
+## 2.7.9
+
+### Patch Changes
+
+- ffd6ebf: Optimize Package buldles
+- Updated dependencies [ffd6ebf]
+  - @sopt-makers/colors@3.0.3
+  - @sopt-makers/fonts@2.0.2
+  - @sopt-makers/icons@1.0.7
+
 ## 2.7.8
 
 ### Patch Changes

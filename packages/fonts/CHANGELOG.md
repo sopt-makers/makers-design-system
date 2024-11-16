@@ -1,5 +1,11 @@
 # @sopt-makers/fonts
 
+## 2.0.2
+
+### Patch Changes
+
+- ffd6ebf: Optimize Package buldles
+
 ## 2.0.1
 
 ### Patch Changes

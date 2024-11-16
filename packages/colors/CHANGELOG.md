@@ -1,5 +1,11 @@
 # @sopt-makers/colors
 
+## 3.0.3
+
+### Patch Changes
+
+- ffd6ebf: Optimize Package buldles
+
 ## 3.0.2
 
 ### Patch Changes
