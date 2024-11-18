@@ -10,7 +10,7 @@ interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   descriptionText?: string;
   required?: boolean;
   errorMessage?: string;
-  value: T;
+  value?: T;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
   validationFn?: (input: T) => boolean;
@@ -34,7 +34,7 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
   const hasError = () => {
     if (inputProps.disabled || inputProps.readOnly) return false;
     if (isError !== undefined) return isError;
-    if (validationFn && !validationFn(value)) return true;
+    if (validationFn && value && !validationFn(value)) return true;
     return false;
   };
 
