@@ -13,7 +13,7 @@ interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'va
   value?: string;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
-  validationFn?: (input: string | number) => boolean;
+  validationFn?: (input: string) => boolean;
 }
 
 const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
