@@ -1,8 +1,8 @@
-import type { ReactNode, InputHTMLAttributes } from 'react';
+import { type ReactNode, type InputHTMLAttributes, forwardRef } from 'react';
 import { FieldBox } from 'FieldBox';
 import * as S from './style.css';
 
-interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
+interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
   className?: string;
   topAddon?: ReactNode;
   bottomAddon?: ReactNode;
@@ -10,13 +10,13 @@ interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   descriptionText?: string;
   required?: boolean;
   errorMessage?: string;
-  value: T;
+  value?: string;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
-  validationFn?: (input: T) => boolean;
+  validationFn?: (input: string) => boolean;
 }
 
-function TextField<T extends string | number>(props: TextFieldProps<T>) {
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
   const {
     className,
     topAddon,
@@ -34,7 +34,7 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
   const hasError = () => {
     if (inputProps.disabled || inputProps.readOnly) return false;
     if (isError !== undefined) return isError;
-    if (validationFn && !validationFn(value)) return true;
+    if (validationFn && value && !validationFn(value)) return true;
     return false;
   };
 
@@ -47,6 +47,7 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
         />
       }
       className={className}
+      ref={ref}
       topAddon={
         labelText || descriptionText ? (
           <FieldBox.Label description={descriptionText} label={labelText} required={required} />
@@ -58,6 +59,8 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
       <input {...inputProps} className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} />
     </FieldBox>
   );
-}
+});
+
+TextField.displayName = 'TextField';
 
 export default TextField;

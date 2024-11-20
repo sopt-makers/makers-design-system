@@ -54,7 +54,7 @@ function App() {
   return (
     <>
       <Test text='Test Component' size='big' color='blue' />
-      <TextField<string>
+      <TextField
         placeholder='Placeholder...'
         required
         labelText='Label'
