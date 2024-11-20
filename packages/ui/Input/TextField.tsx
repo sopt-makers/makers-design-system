@@ -1,4 +1,4 @@
-import type { ReactNode, InputHTMLAttributes } from 'react';
+import { type ReactNode, type InputHTMLAttributes, forwardRef } from 'react';
 import { FieldBox } from 'FieldBox';
 import * as S from './style.css';
 
@@ -16,7 +16,7 @@ interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   validationFn?: (input: T) => boolean;
 }
 
-function TextField<T extends string | number>(props: TextFieldProps<T>) {
+const TextField = forwardRef<HTMLInputElement, TextFieldProps<string | number>>((props, forwardedRef) => {
   const {
     className,
     topAddon,
@@ -47,6 +47,7 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
         />
       }
       className={className}
+      ref={forwardedRef}
       topAddon={
         labelText || descriptionText ? (
           <FieldBox.Label description={descriptionText} label={labelText} required={required} />
@@ -58,6 +59,8 @@ function TextField<T extends string | number>(props: TextFieldProps<T>) {
       <input {...inputProps} className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} />
     </FieldBox>
   );
-}
+});
+
+TextField.displayName = 'TextField';
 
 export default TextField;
