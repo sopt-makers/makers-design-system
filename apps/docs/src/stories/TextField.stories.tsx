@@ -17,7 +17,7 @@ const useTextField = (props: TextFieldProps) => {
     setText(e.target.value);
   };
 
-  return <TextField<string> {...props} value={text} onChange={handleTextChange} />;
+  return <TextField {...props} value={text} onChange={handleTextChange} />;
 };
 
 export default {

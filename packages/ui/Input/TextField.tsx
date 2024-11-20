@@ -10,7 +10,7 @@ interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'va
   descriptionText?: string;
   required?: boolean;
   errorMessage?: string;
-  value?: string | number;
+  value?: string;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
   validationFn?: (input: string | number) => boolean;
