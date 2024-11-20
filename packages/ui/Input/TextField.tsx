@@ -2,7 +2,7 @@ import { type ReactNode, type InputHTMLAttributes, forwardRef } from 'react';
 import { FieldBox } from 'FieldBox';
 import * as S from './style.css';
 
-interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
+interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
   className?: string;
   topAddon?: ReactNode;
   bottomAddon?: ReactNode;
@@ -10,13 +10,13 @@ interface TextFieldProps<T> extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   descriptionText?: string;
   required?: boolean;
   errorMessage?: string;
-  value?: T;
+  value?: string | number;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
-  validationFn?: (input: T) => boolean;
+  validationFn?: (input: string | number) => boolean;
 }
 
-const TextField = forwardRef<HTMLInputElement, TextFieldProps<string | number>>((props, forwardedRef) => {
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
   const {
     className,
     topAddon,
@@ -47,7 +47,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps<string | number>>(
         />
       }
       className={className}
-      ref={forwardedRef}
+      ref={ref}
       topAddon={
         labelText || descriptionText ? (
           <FieldBox.Label description={descriptionText} label={labelText} required={required} />
