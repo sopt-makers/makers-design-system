@@ -11,11 +11,11 @@ export interface TagProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>((props, forwardedRef) => {
-  const { children, size = 'sm', shape = 'rect', variant = 'default', type = 'solid' } = props;
+  const { children, size = 'sm', shape = 'rect', variant = 'default', type = 'solid', ...restProps } = props;
   const style = createTagStyle(type, variant, shape, size);
 
   return (
-    <div className={`${S.root} ${style}`} ref={forwardedRef}>
+    <div className={`${S.root} ${style}`} ref={forwardedRef} {...restProps}>
       {children}
     </div>
   );
