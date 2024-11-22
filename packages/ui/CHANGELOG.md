@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.11
+
+### Patch Changes
+
+- 6ae2c68: Add restProps in Tag Component.
+
 ## 2.7.10
 
 ### Patch Changes
