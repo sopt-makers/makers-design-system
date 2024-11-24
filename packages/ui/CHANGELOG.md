@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.12
+
+### Patch Changes
+
+- 1a61ae4: Add forwardRef in TextArea component
+
 ## 2.7.11
 
 ### Patch Changes
