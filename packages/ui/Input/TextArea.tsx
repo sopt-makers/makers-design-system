@@ -1,4 +1,12 @@
-import { useMemo, useRef, type ChangeEvent, type TextareaHTMLAttributes, isValidElement, useState } from 'react';
+import {
+  useMemo,
+  useRef,
+  type ChangeEvent,
+  type TextareaHTMLAttributes,
+  isValidElement,
+  useState,
+  forwardRef,
+} from 'react';
 import * as S from './style.css';
 import AlertCircleIcon from './icons/AlertCircleIcon';
 import SendIcon from './icons/SendIcon';
@@ -11,7 +19,7 @@ interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>
   isError?: boolean;
   validationFn?: (input: string) => boolean; // isError가 없을 때만 적용
   errorMessage?: string; // isError 또는 validationFn 결과가 true일 때만 표시
-  value: string; // string 타입으로 한정
+  value?: string; // string 타입으로 한정
 
   disableEnterSubmit?: boolean; // true일 경우, Enter 키는 줄바꿈으로 동작
   maxLength?: number; // 없으면 무제한
@@ -19,7 +27,7 @@ interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>
   maxHeight?: number; // px -> 늘어나면서 최대 높이를 제한
 }
 
-function TextArea(props: TextAreaProps) {
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwardedRef) => {
   const {
     className,
     topAddon,
@@ -27,7 +35,7 @@ function TextArea(props: TextAreaProps) {
     isError,
     validationFn,
     errorMessage,
-    value,
+    value = '',
     disableEnterSubmit = false,
     maxLength,
     fixedHeight,
@@ -132,6 +140,7 @@ function TextArea(props: TextAreaProps) {
 
       <div className={`${S.textareaWrap} ${hasError ? S.inputError : ''} ${isFocused ? S.focus : ''}`}>
         <textarea
+          ref={forwardedRef}
           {...restInputProps}
           className={`${S.input} ${S.textarea}`}
           id={labelText}
@@ -170,6 +179,8 @@ function TextArea(props: TextAreaProps) {
       ) : null}
     </div>
   );
-}
+});
+
+TextArea.displayName = 'TextArea';
 
 export default TextArea;
