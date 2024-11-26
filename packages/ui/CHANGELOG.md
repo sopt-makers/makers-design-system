@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.13
+
+### Patch Changes
+
+- 6d311fd: TextArea Value prop이 undefined일 경우 발생하는 타입 에러 수정
+
 ## 2.7.12
 
 ### Patch Changes
