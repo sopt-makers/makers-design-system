@@ -35,7 +35,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwarde
     isError,
     validationFn,
     errorMessage,
-    value = '',
+    value,
     disableEnterSubmit = false,
     maxLength,
     fixedHeight,
@@ -45,8 +45,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwarde
   const { onChange, ...restInputProps } = inputProps;
   const { disabled, readOnly, required } = restInputProps;
 
-  const isValid = validationFn ? validationFn(value) : true;
-  const isEmpty = value.length === 0;
+  const isValid = validationFn ? validationFn(value ?? '') : true;
+  const isEmpty = value && value.length === 0;
 
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -171,8 +171,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwarde
           )}
 
           {maxLength ? (
-            <p className={`${S.count} ${value.length > maxLength ? S.maxCount : ''}`}>
-              {value.length}/{maxLength}
+            <p className={`${S.count} ${!isEmpty && value && value.length > maxLength ? S.maxCount : ''}`}>
+              {value?.length}/{maxLength}
             </p>
           ) : null}
         </div>
