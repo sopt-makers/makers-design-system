@@ -70,7 +70,7 @@ function App() {
         rightAddon={{ onClick: () => handleTextareaSubmit() }}
         validationFn={textareaValidation}
         errorMessage='Error Message'
-        value={textarea}
+        // value={textarea}
         onChange={handleTextareaChange}
         maxLength={300}
       />
