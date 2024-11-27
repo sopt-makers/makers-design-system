@@ -1,8 +1,3 @@
-<div align='center'>
-  <image src='https://github.com/user-attachments/assets/ab037184-42c3-4fa7-ad04-8fa45a5ac4d4' alt='mds thumbnail' width=300 align='center' />
-</div>
-
-
 # mds
 **The Design System for SOPT makers**
 > makers design system(mds) is a design system created to support the goals of approximately 50 members across 5 teams
