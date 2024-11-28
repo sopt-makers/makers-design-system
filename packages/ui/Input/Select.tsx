@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback, createContext, useContext } from 'react';
 import { IconChevronDown, IconUser } from '@sopt-makers/icons';
+import { createPortal } from 'react-dom';
 import * as S from './style.css';
 
 export interface Option<T> {
@@ -176,16 +177,22 @@ interface SelectMenuProps {
 
 // SelectMenu 컴포넌트: 옵션 목록을 렌더링
 function SelectMenu({ children, className }: SelectMenuProps) {
-  const { open, optionsRef, calcMaxHeight } = useSelectContext();
+  const { open, optionsRef, calcMaxHeight, buttonRef } = useSelectContext();
 
-  if (!open) {
+  const buttonRect = buttonRef.current?.getBoundingClientRect();
+
+  if (!open || !buttonRect) {
     return null;
   }
 
-  return (
-    <ul className={`${S.optionList} ${className}`} ref={optionsRef} style={{ maxHeight: calcMaxHeight() }}>
+  const top = `${buttonRect.top + buttonRect.height}px`;
+  const left = `${buttonRect.left}px`;
+
+  return createPortal(
+    <ul className={`${S.optionList} ${className}`} ref={optionsRef} style={{ top, left, maxHeight: calcMaxHeight() }}>
       {children}
-    </ul>
+    </ul>,
+    document.body,
   );
 }
 

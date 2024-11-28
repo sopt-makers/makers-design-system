@@ -189,18 +189,26 @@ export const optionList = style({
   'borderRadius': '13px',
   'minWidth': '160px',
   'background': theme.colors.gray800,
-  'overflow': 'scroll',
+  'overflowY': 'auto',
   'transformOrigin': 'top',
   'animation': `${fadeIn} 0.5s forwards`,
   'overflowX': 'hidden',
   'zIndex': 24,
 
+  '::-webkit-scrollbar': {
+    width: '14px',
+  },
+  '::-webkit-scrollbar-track': {
+    background: 'transparent',
+  },
   '::-webkit-scrollbar-thumb': {
     background: theme.colors.gray500,
     backgroundClip: 'padding-box',
-    border: '4px solid transparent',
+    border: '2px solid transparent',
+    borderTopWidth: '3px',
+    borderBottomWidth: '3px',
     boxShadow: `inset -3px 0 0 ${theme.colors.gray800}`,
-    borderRadius: '8px',
+    borderRadius: '16px',
   },
 });
 
