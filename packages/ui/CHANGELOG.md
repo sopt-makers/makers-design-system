@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.14
+
+### Patch Changes
+
+- 4c39924: Select에 createPortal 적용하여 옵션이 부모요소에 영향을 받지 않도록 수정
+
 ## 2.7.13
 
 ### Patch Changes
