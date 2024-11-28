@@ -10,16 +10,16 @@ const active = {
 };
 
 export const root = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: 4,
-  boxShadow: `0 0 0 1px ${theme.colors.gray700} inset`,
-  borderRadius: 9999,
-  color: theme.colors.gray300,
-  backgroundColor: theme.colors.gray800,
-  cursor: 'pointer',
-  borderStyle: 'none',
+  'display': 'flex',
+  'justifyContent': 'center',
+  'alignItems': 'center',
+  'gap': 4,
+  'boxShadow': `0 0 0 1px ${theme.colors.gray700} inset`,
+  'borderRadius': 9999,
+  'color': theme.colors.gray300,
+  'backgroundColor': theme.colors.gray800,
+  'cursor': 'pointer',
+  'borderStyle': 'none',
 
   ':hover': {
     color: theme.colors.white,
@@ -27,6 +27,10 @@ export const root = style({
   },
 
   ':active': active,
+
+  ':disabled': {
+    pointerEvents: 'none',
+  },
 });
 
 export const activeStyle = style(active);
