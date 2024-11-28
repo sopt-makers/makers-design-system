@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.7.15
+
+### Patch Changes
+
+- dcb4ef7: Chip에 disabled 스타일 적용
+
 ## 2.7.14
 
 ### Patch Changes
