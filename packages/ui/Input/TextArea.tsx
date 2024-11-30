@@ -45,7 +45,11 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwarde
   const { onChange, ...restInputProps } = inputProps;
   const { disabled, readOnly, required } = restInputProps;
 
+<<<<<<< Updated upstream
   const isValid = validationFn ? validationFn(value ?? '') : true;
+=======
+  const isValid = validationFn ? validationFn(value) : true;
+>>>>>>> Stashed changes
   const isEmpty = value && value.length === 0;
 
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -171,8 +175,13 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwarde
           )}
 
           {maxLength ? (
+<<<<<<< Updated upstream
             <p className={`${S.count} ${!isEmpty && value && value.length > maxLength ? S.maxCount : ''}`}>
               {value?.length}/{maxLength}
+=======
+            <p className={`${S.count} ${!isEmpty && value.length > maxLength ? S.maxCount : ''}`}>
+              {value.length}/{maxLength}
+>>>>>>> Stashed changes
             </p>
           ) : null}
         </div>
