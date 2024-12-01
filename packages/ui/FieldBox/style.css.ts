@@ -20,6 +20,12 @@ export const requiredMarkStyle = style({
   marginLeft: '4px',
 });
 
+export const topAddonContainerStyle = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
 export const bottomAddonContainerStyle = style({
   marginTop: '8px',
   display: 'flex',
