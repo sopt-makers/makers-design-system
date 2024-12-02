@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.0
+
+### Minor Changes
+
+- 17897dc: Add FieldBox/TopAddon
+
 ## 2.7.15
 
 ### Patch Changes
