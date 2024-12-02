@@ -14,11 +14,13 @@ export const FieldBoxLabel = forwardRef<HTMLDivElement, FieldBoxLabelProps>((pro
   return (
     <div aria-label={label} aria-required={required} ref={forwardedRef}>
       <label className={TopAddonLabelStyle}>
-        <span>
-          {label}
-          {required ? <span className={requiredMarkStyle}>*</span> : null}
-        </span>
-        <p className={TopAddonDescriptionStyle}>{description}</p>
+        {label ? (
+          <span>
+            {label}
+            {required ? <span className={requiredMarkStyle}>*</span> : null}
+          </span>
+        ) : null}
+        {description ? <p className={TopAddonDescriptionStyle}>{description}</p> : null}
       </label>
     </div>
   );
