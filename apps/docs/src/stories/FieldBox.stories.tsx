@@ -3,7 +3,6 @@ import {
   FieldBoxProps,
   FieldBoxLabelProps,
   FieldBoxBottomAddonProps,
-  FieldBoxLabel,
   TextField,
   TextArea,
   Radio,
@@ -22,7 +21,16 @@ type FieldBoxStoryProps = FieldBoxProps & FieldBoxLabelProps & FieldBoxBottomAdd
  * #### 예시 코드
  * ```tsx
  * <FieldBox>
- *  topAddon={<FieldBox.Label label='안녕?' description='디스크립션' required />}
+ * topAddon={
+ *          <FieldBox.TopAddon
+ *           leftAddon={<FieldBox.Label label={args.label} description={args.description} required={args.required} />}
+ *           rightAddon={
+ *             <Button variant='outlined' size='sm' disabled>
+ *               미리보기
+ *             </Button>
+ *           }
+ *         />
+ *       }
  *  bottomAddon={
  *   <FieldBox.BottomAddon
  *    leftAddon={<div style={{ color: colors.white }}>레프트애드온</div>}
@@ -63,7 +71,14 @@ export const WithTextField: StoryObj<FieldBoxStoryProps> = {
     return (
       <FieldBox
         topAddon={
-          <FieldBoxLabel label={args.label} description={args.description} required={args.required}></FieldBoxLabel>
+          <FieldBox.TopAddon
+            leftAddon={<FieldBox.Label label={args.label} description={args.description} required={args.required} />}
+            rightAddon={
+              <Button variant='outlined' size='sm' disabled>
+                미리보기
+              </Button>
+            }
+          />
         }
         bottomAddon={
           <FieldBox.BottomAddon
@@ -88,7 +103,14 @@ export const WithTextArea: StoryObj<FieldBoxStoryProps> = {
     return (
       <FieldBox
         topAddon={
-          <FieldBoxLabel label={args.label} description={args.description} required={args.required}></FieldBoxLabel>
+          <FieldBox.TopAddon
+            leftAddon={<FieldBox.Label label={args.label} description={args.description} required={args.required} />}
+            rightAddon={
+              <Button variant='outlined' size='sm' disabled>
+                미리보기
+              </Button>
+            }
+          />
         }
         bottomAddon={
           <FieldBox.BottomAddon
@@ -114,7 +136,14 @@ export const WithRadio: StoryObj<FieldBoxStoryProps> = {
     return (
       <FieldBox
         topAddon={
-          <FieldBoxLabel label={args.label} description={args.description} required={args.required}></FieldBoxLabel>
+          <FieldBox.TopAddon
+            leftAddon={<FieldBox.Label label={args.label} description={args.description} required={args.required} />}
+            rightAddon={
+              <Button variant='outlined' size='sm' disabled>
+                미리보기
+              </Button>
+            }
+          />
         }
         bottomAddon={
           <FieldBox.BottomAddon
@@ -146,7 +175,14 @@ export const WithCheckBox: StoryObj<FieldBoxStoryProps> = {
     return (
       <FieldBox
         topAddon={
-          <FieldBoxLabel label={args.label} description={args.description} required={args.required}></FieldBoxLabel>
+          <FieldBox.TopAddon
+            leftAddon={<FieldBox.Label label={args.label} description={args.description} required={args.required} />}
+            rightAddon={
+              <Button variant='outlined' size='sm' disabled>
+                미리보기
+              </Button>
+            }
+          />
         }
         bottomAddon={
           <FieldBox.BottomAddon
@@ -180,7 +216,14 @@ export const WithChip: StoryObj<FieldBoxStoryProps> = {
     return (
       <FieldBox
         topAddon={
-          <FieldBoxLabel label={args.label} description={args.description} required={args.required}></FieldBoxLabel>
+          <FieldBox.TopAddon
+            leftAddon={<FieldBox.Label label={args.label} description={args.description} required={args.required} />}
+            rightAddon={
+              <Button variant='outlined' size='sm' disabled>
+                미리보기
+              </Button>
+            }
+          />
         }
         bottomAddon={
           <FieldBox.BottomAddon

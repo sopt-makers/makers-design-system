@@ -41,10 +41,12 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
   return (
     <FieldBox
       bottomAddon={
-        <FieldBox.BottomAddon
-          leftAddon={hasError() && errorMessage ? <FieldBox.ErrorMessage message={errorMessage} /> : null}
-          rightAddon={bottomAddon}
-        />
+        (hasError() && errorMessage) || bottomAddon ? (
+          <FieldBox.BottomAddon
+            leftAddon={hasError() && errorMessage ? <FieldBox.ErrorMessage message={errorMessage} /> : null}
+            rightAddon={bottomAddon}
+          />
+        ) : null
       }
       className={className}
       ref={ref}

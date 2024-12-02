@@ -13,8 +13,8 @@ const FieldBoxImpl = forwardRef<HTMLDivElement, FieldBoxProps>((props, forwarded
   return (
     <div ref={forwardedRef} {...restProps}>
       {topAddon}
-      <div>{children}</div>
-      <div>{bottomAddon}</div>
+      {children}
+      {bottomAddon}
     </div>
   );
 });
