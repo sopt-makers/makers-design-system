@@ -4,14 +4,17 @@ import theme from '../theme.css';
 import { bgColors, borderRadiuses, borders, fontSizes, paddings, textColors } from './constants';
 
 export const root = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '4px',
-  border: 'none',
-  cursor: 'pointer',
-  fontWeight: 600,
-  minWidth: 'max-content',
+  'display': 'flex',
+  'justifyContent': 'center',
+  'alignItems': 'center',
+  'gap': '4px',
+  'border': 'none',
+  'cursor': 'pointer',
+  'fontWeight': 600,
+  'minWidth': 'max-content',
+  ':disabled': {
+    cursor: 'not-allowed',
+  },
 });
 
 const sprinkleProperties = defineProperties({

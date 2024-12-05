@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.1
+
+### Patch Changes
+
+- 2ccc009: fix: Add `cursor: not-allowed` style when `disabled` attribute is active
+
 ## 2.8.0
 
 ### Minor Changes
