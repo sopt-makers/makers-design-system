@@ -1,28 +1,43 @@
+import { IconImagePlus } from '@sopt-makers/icons';
 import { FieldBox } from 'FieldBox';
 import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import { useDropzone } from 'react-dropzone';
+import { dropzoneStyle } from './style.css';
 
-export interface DropZoneProps extends HTMLAttributes<HTMLInputElement> {
+export interface DropzoneProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
   description?: string;
   required?: boolean;
-  width?: number;
-  height?: number;
+  width?: string;
+  height?: string;
   icon?: ReactNode;
 }
 
-const DropZone = forwardRef<HTMLInputElement, DropZoneProps>((props, forwardedRef) => {
-  const { label, description, required = false, width, height, icon = 'andada' } = props;
+export const Dropzone = forwardRef<HTMLInputElement, DropzoneProps>((props, forwardedRef) => {
+  const {
+    label,
+    description,
+    required = false,
+    width = '300px',
+    height = '170px',
+    icon = <IconImagePlus color='white' style={{ width: '24px', height: '24px' }} />,
+  } = props;
+
+  const { getRootProps, getInputProps } = useDropzone();
 
   return (
-    <FieldBox topAddon={<FieldBox.Label description={description} label={label} required={required} />}>
-      <input ref={forwardedRef} type='file'>
+    <FieldBox
+      topAddon={
+        <FieldBox.TopAddon leftAddon={<FieldBox.Label description={description} label={label} required={required} />} />
+      }
+    >
+      <div className={dropzoneStyle} style={{ width, height }} {...getRootProps()}>
         {icon}
-      </input>
+        <input ref={forwardedRef} {...getInputProps()} />
+      </div>
     </FieldBox>
   );
 });
 
-DropZone.displayName = 'DropZone';
-
-export default DropZone;
+Dropzone.displayName = 'Dropzone';

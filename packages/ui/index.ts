@@ -14,5 +14,6 @@ export { default as Tab } from './Tab';
 export * from './Skeleton';
 export * from './FieldBox';
 export * from './Tag';
+export * from './Dropzone';
 // test component
 export { default as Test } from './Test';
