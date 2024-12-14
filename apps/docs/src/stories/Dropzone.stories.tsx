@@ -1,4 +1,4 @@
-import { Dropzone, DropzoneProps } from '@sopt-makers/ui';
+import { Button, Dropzone, DropzoneProps, FieldBox } from '@sopt-makers/ui';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<DropzoneProps> = {
@@ -6,19 +6,31 @@ const meta: Meta<DropzoneProps> = {
   component: Dropzone,
   tags: ['autodocs'],
   args: {
-    label: 'label',
-    description: 'description',
-    required: true,
+    width: '300px',
   },
 };
 
 export default meta;
 
 export const Default: StoryObj<DropzoneProps> = {
-  args: {
-    label: '이미지 등록',
-    description: `[PC] 이미지는 1824*328 px 크기로 올려주세요.`,
-    width: '500px',
-  },
   render: (args) => <Dropzone {...args} />,
+};
+
+export const WithFieldbox: StoryObj<DropzoneProps> = {
+  render: (args) => (
+    <FieldBox
+      topAddon={
+        <FieldBox.TopAddon
+          leftAddon={<FieldBox.Label label='이미지 등록' description='description' required />}
+          rightAddon={
+            <Button variant='outlined' size='sm' disabled>
+              Button
+            </Button>
+          }
+        />
+      }
+    >
+      <Dropzone {...args} />
+    </FieldBox>
+  ),
 };
