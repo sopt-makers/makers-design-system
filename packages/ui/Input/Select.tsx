@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useState, useRef, useEffect, useCallback, createContext, useContext } from 'react';
 import { IconChevronDown, IconUser } from '@sopt-makers/icons';
 import { createPortal } from 'react-dom';
@@ -147,10 +148,13 @@ function SelectTrigger({ children }: SelectTriggerProps) {
 interface SelectTriggerContentProps {
   placeholder?: string;
   className?: string;
+  icon?: ReactNode;
 }
 
 // Select.TriggerContent 컴포넌트: trigger의 미리 정의된 UI
-function SelectTriggerContent({ placeholder, className }: SelectTriggerContentProps) {
+function SelectTriggerContent(props: SelectTriggerContentProps) {
+  const { placeholder, className, icon } = props;
+
   const { open, selected } = useSelectContext();
 
   const selectedLabel = selected ? selected.label : placeholder;
@@ -158,14 +162,18 @@ function SelectTriggerContent({ placeholder, className }: SelectTriggerContentPr
   return (
     <div className={`${S.select} ${open ? S.focus : ''} ${className}`}>
       <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
-      <IconChevronDown
-        style={{
-          width: 20,
-          height: 20,
-          transform: open ? 'rotate(-180deg)' : '',
-          transition: 'all 0.3s ease',
-        }}
-      />
+      {icon ? (
+        icon
+      ) : (
+        <IconChevronDown
+          style={{
+            width: 20,
+            height: 20,
+            transform: open ? 'rotate(-180deg)' : '',
+            transition: 'all 0.3s ease',
+          }}
+        />
+      )}
     </div>
   );
 }
