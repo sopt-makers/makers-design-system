@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.2
+
+### Patch Changes
+
+- 161f23a: SelectV2 TriggerContent 내 커스텀 Icon을 적용할 수 있도록 icon prop 추가.
+
 ## 2.8.1
 
 ### Patch Changes
