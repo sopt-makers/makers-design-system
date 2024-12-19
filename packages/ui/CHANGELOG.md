@@ -1,5 +1,12 @@
 # @sopt-makers/ui
 
+## 2.8.3
+
+### Patch Changes
+
+- Updated dependencies [0594176]
+  - @sopt-makers/icons@1.1.0
+
 ## 2.8.2
 
 ### Patch Changes
