@@ -1,0 +1,10 @@
+export { default as IconApple } from './ic-apple';
+export { default as IconBehance } from './ic-behance';
+export { default as IconFacebook } from './ic-facebook';
+export { default as IconGithub } from './ic-github';
+export { default as IconGoogleColor } from './ic-google-color';
+export { default as IconGoogleMono } from './ic-google-mono';
+export { default as IconInstagram } from './ic-instagram';
+export { default as IconKakao } from './ic-kakao';
+export { default as IconLinkedin } from './ic-linkedin';
+export { default as IconPlaystore } from './ic-playstore';

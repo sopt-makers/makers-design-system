@@ -95,6 +95,14 @@ export const Default = {
             <Icons.IconSend style={style} />
             <p>send</p>
           </div>
+          <div>
+            <Icons.IconLocation style={style} />
+            <p>location</p>
+          </div>
+          <div>
+            <Icons.IconLocationFilled style={style} />
+            <p>location-filled</p>
+          </div>
         </div>
 
         <div className='icons-group'>
@@ -614,6 +622,50 @@ export const Default = {
           <div>
             <Icons.IconUsers style={style} />
             <p>users</p>
+          </div>
+        </div>
+
+        <div className='icons-group'>
+          <h4>Logo</h4>
+          <div>
+            <Icons.IconApple style={style} />
+            <p>apple</p>
+          </div>
+          <div>
+            <Icons.IconBehance style={style} />
+            <p>behance</p>
+          </div>
+          <div>
+            <Icons.IconFacebook style={style} />
+            <p>facebook</p>
+          </div>
+          <div>
+            <Icons.IconGithub style={style} />
+            <p>github</p>
+          </div>
+          <div>
+            <Icons.IconGoogleColor style={style} />
+            <p>google-color</p>
+          </div>
+          <div>
+            <Icons.IconGoogleMono style={style} />
+            <p>google-mono</p>
+          </div>
+          <div>
+            <Icons.IconInstagram style={style} />
+            <p>instagram</p>
+          </div>
+          <div>
+            <Icons.IconKakao style={style} />
+            <p>kakao</p>
+          </div>
+          <div>
+            <Icons.IconLinkedin style={style} />
+            <p>linkedin</p>
+          </div>
+          <div>
+            <Icons.IconPlaystore style={style} />
+            <p>playstore</p>
           </div>
         </div>
       </div>
