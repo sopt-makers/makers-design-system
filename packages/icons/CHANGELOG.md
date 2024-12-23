@@ -1,5 +1,11 @@
 # @sopt-makers/icons
 
+## 1.1.0
+
+### Minor Changes
+
+- 0594176: Fix white -> currentColor, add Logo and Communication/location
+
 ## 1.0.7
 
 ### Patch Changes
