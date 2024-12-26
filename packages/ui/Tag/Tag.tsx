@@ -4,6 +4,7 @@ import createTagStyle from './utils';
 
 export interface TagProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
+  className?: string;
   size?: 'sm' | 'md' | 'lg';
   shape?: 'rect' | 'pill';
   variant?: 'default' | 'primary' | 'secondary';
@@ -11,11 +12,11 @@ export interface TagProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>((props, forwardedRef) => {
-  const { children, size = 'sm', shape = 'rect', variant = 'default', type = 'solid', ...restProps } = props;
+  const { children, className, size = 'sm', shape = 'rect', variant = 'default', type = 'solid', ...restProps } = props;
   const style = createTagStyle(type, variant, shape, size);
 
   return (
-    <div className={`${S.root} ${style}`} ref={forwardedRef} {...restProps}>
+    <div className={`${S.root} ${style} ${className}`} ref={forwardedRef} {...restProps}>
       {children}
     </div>
   );
