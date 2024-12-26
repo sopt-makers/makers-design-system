@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.4
+
+### Patch Changes
+
+- c312754: Tag 컴포넌트에 ClassName Prop을 추가해 커스텀 스타일이 가능케 합니다.
+
 ## 2.8.3
 
 ### Patch Changes
