@@ -1,16 +1,11 @@
-import type {
-  TagShapeTheme,
-  TagSizeTheme,
-  TagTypeTheme,
-  TagVariantTheme,
-} from "./types";
-import { sprinkles } from "./style.css";
+import type { TagShapeTheme, TagSizeTheme, TagTypeTheme, TagVariantTheme } from './types';
+import { sprinkles } from './style.css';
 
 function createTagStyle(
   typeTheme: TagTypeTheme,
   variantTheme: TagVariantTheme,
   shapeTheme: TagShapeTheme,
-  sizeTheme: TagSizeTheme
+  sizeTheme: TagSizeTheme,
 ) {
   return sprinkles({
     backgroundColor: `${variantTheme}-${typeTheme}`,
