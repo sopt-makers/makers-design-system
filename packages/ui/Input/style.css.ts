@@ -1,9 +1,18 @@
-import { globalStyle, style, keyframes } from '@vanilla-extract/css';
+import { globalStyle, style, keyframes, styleVariants } from '@vanilla-extract/css';
 import theme from '../theme.css';
 
-const fadeIn = keyframes({
+const fadeInDown = keyframes({
   '0%': { opacity: 0, transform: 'translateY(0)' },
   '100%': { opacity: 1, transform: 'translateY(10px)' },
+});
+const fadeInUp = keyframes({
+  '0%': { opacity: 0, transform: 'translateY(0)' },
+  '100%': { opacity: 1, transform: 'translateY(-10px)' },
+});
+
+export const optionListAnimation = styleVariants({
+  up: { animationName: fadeInUp },
+  down: { animationName: fadeInDown },
 });
 
 export const label = style({
@@ -191,7 +200,8 @@ export const optionList = style({
   'background': theme.colors.gray800,
   'overflowY': 'auto',
   'transformOrigin': 'top',
-  'animation': `${fadeIn} 0.5s forwards`,
+  'animationDuration': '0.5s',
+  'animationFillMode': 'forwards',
   'overflowX': 'hidden',
   'zIndex': 24,
 
