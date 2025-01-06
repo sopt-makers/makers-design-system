@@ -193,11 +193,22 @@ function SelectMenu({ children, className }: SelectMenuProps) {
     return null;
   }
 
-  const top = `${buttonRect.top + buttonRect.height}px`;
-  const left = `${buttonRect.left}px`;
+  const maxHeight = calcMaxHeight();
+
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
+  const spaceBelow = window.innerHeight - buttonRect.bottom;
+  const hasSpaceBelow = spaceBelow >= maxHeight;
+
+  const top = hasSpaceBelow
+    ? `${buttonRect.top + buttonRect.height + scrollTop}px`
+    : `${buttonRect.top + scrollTop - maxHeight}px`;
+  const left = `${buttonRect.left + scrollLeft}px`;
+
+  const animationClass = hasSpaceBelow ? S.optionListAnimation.down : S.optionListAnimation.up;
 
   return createPortal(
-    <ul className={`${S.optionList} ${className}`} ref={optionsRef} style={{ top, left, maxHeight: calcMaxHeight() }}>
+    <ul className={`${S.optionList} ${animationClass} ${className}`} ref={optionsRef} style={{ top, left, maxHeight }}>
       {children}
     </ul>,
     document.body,
