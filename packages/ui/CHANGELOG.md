@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.5
+
+### Patch Changes
+
+- 681a859: fix(ui) Select Menu 렌더링 위치 수정
+
 ## 2.8.4
 
 ### Patch Changes
