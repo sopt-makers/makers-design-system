@@ -52,7 +52,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
       ref={ref}
       topAddon={
         labelText || descriptionText ? (
-          <FieldBox.Label description={descriptionText} label={labelText} required={required} />
+          <FieldBox.TopAddon
+            leftAddon={<FieldBox.Label description={descriptionText} label={labelText} required={required} />}
+          />
         ) : (
           topAddon
         )
