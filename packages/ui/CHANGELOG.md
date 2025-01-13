@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.6
+
+### Patch Changes
+
+- f5434c6: fix: Add <FieldBox.TopAddon /> in TextField's topAddon prop.
+
 ## 2.8.5
 
 ### Patch Changes
