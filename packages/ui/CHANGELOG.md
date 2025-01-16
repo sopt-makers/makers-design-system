@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.7
+
+### Patch Changes
+
+- fc0cc0a: Add rightAddon prop in TextField.
+
 ## 2.8.6
 
 ### Patch Changes
