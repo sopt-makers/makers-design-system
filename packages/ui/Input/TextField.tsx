@@ -2,7 +2,7 @@ import { type ReactNode, type InputHTMLAttributes, forwardRef } from 'react';
 import { FieldBox } from 'FieldBox';
 import * as S from './style.css';
 
-export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
+interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
   className?: string;
   topAddon?: ReactNode;
   bottomAddon?: ReactNode;
