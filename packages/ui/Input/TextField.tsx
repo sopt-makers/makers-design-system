@@ -2,10 +2,11 @@ import { type ReactNode, type InputHTMLAttributes, forwardRef } from 'react';
 import { FieldBox } from 'FieldBox';
 import * as S from './style.css';
 
-interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
+export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'> {
   className?: string;
   topAddon?: ReactNode;
   bottomAddon?: ReactNode;
+  rightAddon?: ReactNode;
   labelText?: string;
   descriptionText?: string;
   required?: boolean;
@@ -21,6 +22,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
     className,
     topAddon,
     bottomAddon,
+    rightAddon,
     labelText,
     descriptionText,
     required,
@@ -60,7 +62,10 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
         )
       }
     >
-      <input {...inputProps} className={`${S.input} ${hasError() ? S.inputError : ''}`} value={value} />
+      <div className={`${S.inputWrapper} ${hasError() ? S.inputError : ''}`}>
+        <input {...inputProps} className={S.input} value={value} />
+        {rightAddon}
+      </div>
     </FieldBox>
   );
 });

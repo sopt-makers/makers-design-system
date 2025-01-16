@@ -23,8 +23,8 @@ export const label = style({
   color: theme.colors.white,
 });
 
-export const input = style({
-  ...theme.fontsObject.BODY_2_16_M,
+export const inputWrapper = style({
+  'display': 'flex',
   'background': theme.colors.gray800,
   'border': '1px solid transparent',
   'borderRadius': '10px',
@@ -34,11 +34,23 @@ export const input = style({
   'color': theme.colors.white,
   'boxSizing': 'border-box',
 
+  ':focus-within': {
+    border: `1px solid ${theme.colors.gray200}`,
+  },
+});
+
+export const input = style({
+  ...theme.fontsObject.BODY_2_16_M,
+  'flex': 1,
+  'border': 0,
+  'background': 'transparent',
+  'color': theme.colors.white,
+  'boxSizing': 'border-box',
+
   '::placeholder': {
     color: theme.colors.gray300,
   },
   ':focus': {
-    border: `1px solid ${theme.colors.gray200}`,
     outline: 'none',
   },
   ':disabled': {
