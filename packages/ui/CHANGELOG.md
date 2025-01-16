@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.8
+
+### Patch Changes
+
+- 6ecc11d: Add align-items
+
 ## 2.8.7
 
 ### Patch Changes
