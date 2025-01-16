@@ -25,6 +25,7 @@ export const label = style({
 
 export const inputWrapper = style({
   'display': 'flex',
+  'alignItems': 'center',
   'background': theme.colors.gray800,
   'border': '1px solid transparent',
   'borderRadius': '10px',
