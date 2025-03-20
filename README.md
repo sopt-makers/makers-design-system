@@ -1,5 +1,7 @@
 # mds
+
 **The Design System for SOPT makers**
+
 > makers design system(mds) is a design system created to support the goals of approximately 50 members across 5 teams
 
 <br />
@@ -41,8 +43,7 @@
 
 ### [Colors](https://main--6571c88390d085ed7efcce84.chromatic.com/?path=/story/colors-colors--default) / [Fonts](https://main--6571c88390d085ed7efcce84.chromatic.com/?path=/story/fonts-fonts--default) / [Icons](https://main--6571c88390d085ed7efcce84.chromatic.com/?path=/story/icons-icons--default)
 
-## Maintainers(SOPT 35th)
-   - [Sohee Kwon](https://github.com/sohee-K)
-   - [Hyeongkyeom Kim](https://github.com/Brokyeom)
-   - [Jungwoo Lee](https://github.com/jungwoo3490)
-   - [Daewon Seo](https://github.com/suwonthugger)
+## Maintainers(SOPT 36th)
+
+- [Daewon Seo](https://github.com/suwonthugger)
+- [Juyong Choi](https://github.com/wuzoo)
