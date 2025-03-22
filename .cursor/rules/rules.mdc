@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+You are an expert in TypeScript,React and Vanilla Extract.
+
+we are managing all packages by pnpm package manager and turborepo.
+
+## Ground rules
+- 대답은 될 수 있으면 한국어로 할 것.
+
+## Tech Stack
+- Turborepo를 통해서 모노레포 체계를 사용 중.
+  - apps/docs: UI component 들의 스토리북 패키지
+  - packages: Makers라는 사내 조직에서 이용 가능한 디자인 시스템 패키지들
+
+- pacakges 내 주요 패키지들
+  - packages/ui: ui 컴포넌트들을 관리하는 패키지
+  - packages/colors: 디자인 시스템 칼러들을 관리하는 패키지
+  - packages/fonts: 디자인 시스템 폰트들을 관리하는 패키지
+  - packages/icons: 디자인 시스템 아이콘들을 관리하는 패키지
+
+- 메인 기술 스택
+  - react, turborepo, vanilla-extract, radix-ui, vitest, changeset, tsup
+
+## Coding Rules
+- Prefer functional components over class components. Avoid using class components.
+- Use interfaces to define the props types for components.
+- Prefer writing CSS styles for a specific component within the same file. However, it's acceptable to separate the styles if they grow too large.
+- Scalability and reusability are the top priorities when designing components.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Prefer a co-located structure. Group related concerns together in the same place.
+- Prefer iteration and modularization over code duplication.
+- Always use absolute path.
+

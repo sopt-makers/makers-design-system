@@ -7,7 +7,11 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "publish-packages": "turbo run build lint && changeset publish",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build:ui": "pnpm build --filter @sopt-makers/ui",
+    "build:icon": "pnpm build --filter @sopt-makers/icons",
+    "build:font": "pnpm build --filter @sopt-makers/fonts",
+    "build:color": "pnpm build --filter @sopt-makers/colors"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
