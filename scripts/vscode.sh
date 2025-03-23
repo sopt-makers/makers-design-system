@@ -4,21 +4,13 @@ fi
 
 pnpm install
 
-if [ ! -d "packages/ui/dist" ]; then
-    pnpm build:ui
-fi
+packages=("ui" "icons" "fonts" "colors")
 
-if [ ! -d "packages/icons/dist" ]; then
-    pnpm build:icon
-fi
-
-if [ ! -d "packages/fonts/dist" ]; then
-    pnpm build:font
-fi
-
-if [ ! -d "packages/colors/dist" ]; then
-    pnpm build:color
-fi
+for pkg in ${packages[@]}; do
+    if [ ! -d "packages/${pkg}/dist" ]; then
+        pnpm build:${pkg}
+    fi
+done
 
 pnpm test
 

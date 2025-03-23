@@ -9,9 +9,9 @@
     "publish-packages": "turbo run build lint && changeset publish",
     "prepare": "husky install",
     "build:ui": "pnpm build --filter @sopt-makers/ui",
-    "build:icon": "pnpm build --filter @sopt-makers/icons",
-    "build:font": "pnpm build --filter @sopt-makers/fonts",
-    "build:color": "pnpm build --filter @sopt-makers/colors"
+    "build:icons": "pnpm build --filter @sopt-makers/icons",
+    "build:fonts": "pnpm build --filter @sopt-makers/fonts",
+    "build:colors": "pnpm build --filter @sopt-makers/colors"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
