@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.9
+
+### Patch Changes
+
+- 9d4442a: feat: TextArea에서 inputError가 적용된 경우 focus 스타일이 나타나지 않도록 수정"
+
 ## 2.8.8
 
 ### Patch Changes
