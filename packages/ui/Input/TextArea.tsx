@@ -138,7 +138,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, forwarde
     <div className={className}>
       {isValidElement(topAddon) ? topAddon : labelEl}
 
-      <div className={`${S.textareaWrap} ${hasError ? S.inputError : ''} ${isFocused ? S.focus : ''}`}>
+      <div className={`${S.textareaWrap} ${hasError ? S.inputError : ''} ${!hasError && isFocused ? S.focus : ''}`}>
         <textarea
           ref={forwardedRef}
           {...restInputProps}
