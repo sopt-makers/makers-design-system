@@ -1,5 +1,5 @@
+import { Tab, Tag } from '@sopt-makers/ui';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tab } from '@sopt-makers/ui';
 
 const meta = {
   title: 'Components/Tab',
@@ -31,5 +31,32 @@ export const Secondary: StoryObj = {
   args: {
     style: 'secondary',
     size: 'lg',
+  },
+};
+
+export const WithComponent: StoryObj = {
+  args: {
+    style: 'primary',
+    size: 'md',
+    translator: {
+      Tab1: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          탭1
+          <Tag>1</Tag>
+        </div>
+      ),
+      Tab2: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          탭2
+          <Tag>2</Tag>
+        </div>
+      ),
+      Tab3: (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          탭3
+          <Tag>3</Tag>
+        </div>
+      ),
+    },
   },
 };
