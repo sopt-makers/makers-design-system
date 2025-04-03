@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.10
+
+### Patch Changes
+
+- b64698f: tab ui translator 컴포넌트 허용
+
 ## 2.8.9
 
 ### Patch Changes
