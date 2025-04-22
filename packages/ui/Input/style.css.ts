@@ -1,4 +1,5 @@
 import { globalStyle, style, keyframes, styleVariants } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 import theme from '../theme.css';
 
 const fadeInDown = keyframes({
@@ -23,20 +24,29 @@ export const label = style({
   color: theme.colors.white,
 });
 
-export const inputWrapper = style({
-  'display': 'flex',
-  'alignItems': 'center',
-  'background': theme.colors.gray800,
-  'border': '1px solid transparent',
-  'borderRadius': '10px',
-  'width': '100%',
-  'height': '48px',
-  'padding': '10px 16px',
-  'color': theme.colors.white,
-  'boxSizing': 'border-box',
+export const inputWrapper = recipe({
+  base: {
+    'display': 'flex',
+    'alignItems': 'center',
+    'background': theme.colors.gray800,
+    'border': '1px solid transparent',
+    'borderRadius': '10px',
+    'width': '100%',
+    'height': '48px',
+    'padding': '10px 16px',
+    'color': theme.colors.white,
+    'boxSizing': 'border-box',
 
-  ':focus-within': {
-    border: `1px solid ${theme.colors.gray200}`,
+    ':focus-within': {
+      border: `1px solid ${theme.colors.gray200}`,
+    },
+  },
+  variants: {
+    place: {
+      admin: {
+        background: theme.colors.gray700,
+      },
+    },
   },
 });
 

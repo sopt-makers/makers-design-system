@@ -14,6 +14,7 @@ interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'va
   value?: string;
   // isError -> validationFn 순서로 적용
   isError?: boolean;
+  place?: 'admin';
   validationFn?: (input: string) => boolean;
 }
 
@@ -30,6 +31,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
     value,
     isError,
     validationFn,
+    place,
     ...inputProps
   } = props;
 
@@ -62,7 +64,7 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
         )
       }
     >
-      <div className={`${S.inputWrapper} ${hasError() ? S.inputError : ''}`}>
+      <div className={`${S.inputWrapper({ place })} ${hasError() ? S.inputError : ''}`}>
         <input {...inputProps} className={S.input} value={value} />
         {rightAddon}
       </div>
