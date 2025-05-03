@@ -185,7 +185,7 @@ export const selectWrap = style({
 export const select = style({
   ...theme.fontsObject.BODY_2_16_M,
   color: theme.colors.white,
-  minWidth: '130px',
+  minWidth: '160px',
   maxWidth: '200px',
   width: '100%',
   height: '48px',
@@ -224,6 +224,7 @@ export const optionList = style({
   'animationFillMode': 'forwards',
   'overflowX': 'hidden',
   'zIndex': 24,
+  'transition': 'all 0.3s ease',
 
   '::-webkit-scrollbar': {
     width: '14px',
