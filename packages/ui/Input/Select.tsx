@@ -183,11 +183,20 @@ function SelectTriggerContent<T>(props: SelectTriggerContentProps) {
 
     if (multiple) {
       const selectedArray = selected as Option<T>[];
-      return (
-        <div className={S.multipleLabelWrap}>
-          {selectedArray.length > 0 ? selectedArray.map((item) => item.label).join(', ') : placeholder}
-        </div>
-      );
+
+      switch (selectedArray.length) {
+        case 0:
+          return placeholder;
+        case 1:
+          return placeholder;
+        default:
+          return (
+            <div className={S.multipleLabelWrap}>
+              {placeholder}
+              <div className={S.multipleLabelCount}>{selectedArray.length}</div>
+            </div>
+          );
+      }
     }
 
     return (selected as Option<T>).label;
@@ -278,11 +287,7 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
   return (
     <li>
       <button className={`${S.option} ${className}`} onClick={handleClick} type='button'>
-        {multiple && (
-          <div className={S.checkboxWrap}>
-            <CheckBox checked={isSelected} size={'lg'} />
-          </div>
-        )}
+        {multiple && <CheckBox checked={isSelected} size='sm' />}
         {type === 'textIcon' && option.icon}
         {(type === 'userList' || type === 'userListDesc') &&
           (option.profileUrl ? (

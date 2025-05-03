@@ -185,7 +185,6 @@ export const selectWrap = style({
 export const select = style({
   ...theme.fontsObject.BODY_2_16_M,
   color: theme.colors.white,
-  width: '160px',
   height: '48px',
   borderRadius: '10px',
   background: theme.colors.gray800,
@@ -325,18 +324,24 @@ export const buttonWithNoStyle = style({
   cursor: 'pointer',
 });
 
-export const checkboxWrap = style({
-  width: 20,
-  height: 20,
-  border: `1px solid ${theme.colors.gray300}`,
-  borderRadius: 4,
+export const multipleLabelWrap = style({
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
-  justifyContent: 'center',
+  gap: '6px',
 });
 
-export const multipleLabelWrap = style({
-   display: 'flex',
-   flexDirection: 'column',
-  
-})
+export const multipleLabelCount = style([
+  theme.fontsObject.LABEL_5_11_SB,
+  {
+    color: theme.colors.success,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '3px 8px',
+    height: '20px',
+    width: '23px',
+    borderRadius: 100,
+    backgroundColor: theme.colors.blueAlpha200,
+  },
+]);
