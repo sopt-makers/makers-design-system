@@ -133,10 +133,7 @@ function App() {
           multiple={true}
         >
           <SelectV2.Trigger>
-            <SelectV2.TriggerContent
-              placeholder='카테고리를 선택해주세요'
-              label='카테고리카테고리카테고리카테고리카테고리카테고리카테고리'
-            />
+            <SelectV2.TriggerContent placeholder='카테고리를 선택해주세요' label='카테고리' />
           </SelectV2.Trigger>
           <SelectV2.Menu>
             {options.map((option) => (
