@@ -6,6 +6,7 @@ import { fn } from '@storybook/test';
 
 interface SelectStoryArgs extends ComponentProps<typeof SelectV2.Root> {
   placeholder: string;
+  label?: string;
 }
 
 const selectOptions = [
@@ -129,10 +130,14 @@ const meta: Meta<typeof SelectV2.Root> = {
       control: false,
       description: 'onChange 이벤트 핸들러',
     },
-    multiple: { control: 'boolean', description: '다중선택으로 쓸 때 true 로 설정' },
+    multiple: { control: 'boolean', description: '다중선택으로 쓸 때 true 로 설정합니다.' },
     placeholder: {
       control: 'text',
       description: 'placeholder',
+    },
+    label: {
+      control: 'text',
+      description: 'multiple일 때 사용합니다. TriggerContent에 label을 넣어주면 multiple select 의 라벨 역할을 합니다.',
     },
     type: {
       control: 'radio',
@@ -145,10 +150,10 @@ const meta: Meta<typeof SelectV2.Root> = {
 export default meta;
 
 export const Text: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, ...args }) => (
+  render: ({ placeholder, label, ...args }) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} />
+        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {selectOptions.map((option) => (
@@ -168,10 +173,10 @@ export const Text: StoryObj<SelectStoryArgs> = {
 };
 
 export const TextDesc: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, ...args }) => (
+  render: ({ placeholder, label, ...args }) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} />
+        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {selectOptions.map((option) => (
@@ -191,10 +196,10 @@ export const TextDesc: StoryObj<SelectStoryArgs> = {
 };
 
 export const TextIcon: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, ...args }) => (
+  render: ({ placeholder, label, ...args }) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} />
+        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {selectOptions.map((option) => (
@@ -214,10 +219,10 @@ export const TextIcon: StoryObj<SelectStoryArgs> = {
 };
 
 export const UserList: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, ...args }) => (
+  render: ({ placeholder, label, ...args }) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} />
+        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {userOptions.map((option) => (
@@ -237,10 +242,10 @@ export const UserList: StoryObj<SelectStoryArgs> = {
 };
 
 export const UserListDesc: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, ...args }) => (
+  render: ({ placeholder, label, ...args }) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} />
+        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {userOptions.map((option) => (
@@ -260,10 +265,10 @@ export const UserListDesc: StoryObj<SelectStoryArgs> = {
 };
 
 export const Multiple: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, ...args }) => (
+  render: ({ placeholder, label, ...args }) => (
     <SelectV2.Root {...args} multiple={true}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={'라벨'} />
+        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {multipleOptions.map((option) => (
@@ -277,6 +282,7 @@ export const Multiple: StoryObj<SelectStoryArgs> = {
     visibleOptions: 3,
     placeholder: 'placeholder',
     multiple: true,
+    label: '카테고리',
   },
   argTypes: {
     multiple: { control: true },

@@ -184,10 +184,11 @@ function SelectTriggerContent<T>(props: SelectTriggerContentProps) {
 
     if (multiple) {
       const selectedArray = selected as Option<T>[];
+      // if (!label && selectedArray.length === 1) return selectedArray[0].label;
 
       return (
         <div className={S.multipleLabelWrap}>
-          <p className={S.multipleLabel}>{label}</p>
+          <p className={S.multipleLabel}>{label || placeholder}</p>
           {selectedArray.length > 1 && <div className={S.multipleLabelCount}>{selectedArray.length}</div>}
         </div>
       );
