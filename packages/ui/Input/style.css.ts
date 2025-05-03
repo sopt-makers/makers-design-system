@@ -186,6 +186,7 @@ export const select = style({
   ...theme.fontsObject.BODY_2_16_M,
   color: theme.colors.white,
   minWidth: '130px',
+  maxWidth: '200px',
   width: '100%',
   height: '48px',
   borderRadius: '10px',
@@ -200,6 +201,11 @@ export const select = style({
 
 export const selectPlaceholder = style({
   color: theme.colors.gray300,
+  maxWidth: '168px',
+
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
 });
 
 export const optionList = style({
@@ -327,6 +333,7 @@ export const buttonWithNoStyle = style({
 });
 
 export const multipleLabelWrap = style({
+  maxWidth: '138px',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -345,5 +352,14 @@ export const multipleLabelCount = style([
     width: '23px',
     borderRadius: 100,
     backgroundColor: theme.colors.blueAlpha200,
+  },
+]);
+
+export const multipleLabel = style([
+  theme.fontsObject.BODY_2_16_M,
+  {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
   },
 ]);

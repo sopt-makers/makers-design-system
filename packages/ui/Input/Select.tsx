@@ -169,13 +169,14 @@ function SelectTrigger({ children }: SelectTriggerProps) {
 
 interface SelectTriggerContentProps {
   placeholder?: string;
+  label?: string;
   className?: string;
   icon?: ReactNode;
 }
 
 // Select.TriggerContent 컴포넌트: trigger의 미리 정의된 UI
 function SelectTriggerContent<T>(props: SelectTriggerContentProps) {
-  const { placeholder, className, icon } = props;
+  const { placeholder, label, className, icon } = props;
   const { open, selected, multiple } = useSelectContext<T>();
 
   const getSelectedLabel = () => {
@@ -184,26 +185,19 @@ function SelectTriggerContent<T>(props: SelectTriggerContentProps) {
     if (multiple) {
       const selectedArray = selected as Option<T>[];
 
-      switch (selectedArray.length) {
-        case 0:
-          return placeholder;
-        case 1:
-          return placeholder;
-        default:
-          return (
-            <div className={S.multipleLabelWrap}>
-              {placeholder}
-              <div className={S.multipleLabelCount}>{selectedArray.length}</div>
-            </div>
-          );
-      }
+      return (
+        <div className={S.multipleLabelWrap}>
+          <p className={S.multipleLabel}>{label}</p>
+          {selectedArray.length > 1 && <div className={S.multipleLabelCount}>{selectedArray.length}</div>}
+        </div>
+      );
     }
 
     return (selected as Option<T>).label;
   };
 
   return (
-    <div className={`${S.select} ${open ? S.focus : ''} ${className}`}>
+    <div className={`${S.select} ${open && S.focus} ${className}`}>
       <p className={!selected ? S.selectPlaceholder : ''}>{getSelectedLabel()}</p>
       {icon ? (
         icon
