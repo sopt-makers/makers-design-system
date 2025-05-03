@@ -4,8 +4,9 @@ import { ChangeEvent, useState } from 'react';
 
 import '@sopt-makers/ui/dist/index.css';
 
-import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2 } from '@sopt-makers/ui';
 import { colors } from '@sopt-makers/colors';
+import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2 } from '@sopt-makers/ui';
+
 
 function App() {
   const [input, setInput] = useState('');
@@ -109,6 +110,31 @@ function App() {
               <SelectV2.MenuItem
                 key={option.value}
                 option={option}
+                
+                onClick={() => {
+                  console.log('custom logic');
+                }}
+              />
+            ))}
+          </SelectV2.Menu>
+        </SelectV2.Root>
+      <SelectV2.Root
+          visibleOptions={2}
+          onChange={() => {
+            console.log('dsad');
+          }}
+          type='text'
+          multiple={true}
+        >
+          <SelectV2.Trigger>
+            <SelectV2.TriggerContent placeholder='새로운 SelectV2' />
+          </SelectV2.Trigger>
+          <SelectV2.Menu>
+            {options.map((option) => (
+              <SelectV2.MenuItem
+                key={option.value}
+                option={option}
+                
                 onClick={() => {
                   console.log('custom logic');
                 }}

@@ -324,3 +324,19 @@ export const buttonWithNoStyle = style({
   margin: 0,
   cursor: 'pointer',
 });
+
+export const checkboxWrap = style({
+  width: 20,
+  height: 20,
+  border: `1px solid ${theme.colors.gray300}`,
+  borderRadius: 4,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
+export const multipleLabelWrap = style({
+   display: 'flex',
+   flexDirection: 'column',
+  
+})

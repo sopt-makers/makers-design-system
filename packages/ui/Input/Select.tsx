@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, useCallback, createContext, useContext } f
 import { IconChevronDown, IconUser } from '@sopt-makers/icons';
 import { createPortal } from 'react-dom';
 import * as S from './style.css';
+import { CheckBox } from '../Control';
 
 export interface Option<T> {
   label: string;
@@ -17,19 +18,21 @@ interface SelectProps<T> {
   type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
   visibleOptions?: number;
   defaultValue?: Option<T>;
-  onChange?: (value: T) => void;
+  onChange?: (value: T | T[]) => void;
   children: React.ReactNode;
+  multiple?: boolean;
 }
 
 interface SelectContextProps<T> {
   open: boolean;
   setOpen: (open: boolean) => void;
-  selected: Option<T> | null;
+  selected: Option<T> | Option<T>[] | null;
   handleOptionClick: (option: Option<T>) => void;
   type: SelectProps<T>['type'];
   buttonRef: React.RefObject<HTMLButtonElement>;
   optionsRef: React.RefObject<HTMLUListElement>;
   calcMaxHeight: () => number;
+  multiple?: boolean;
 }
 
 // SelectContext: Select.root 하위 컴포넌트들이 사용할 Context
@@ -46,12 +49,12 @@ function useSelectContext<T>() {
 
 // SelectRoot 컴포넌트: Select 컴포넌트에게 context를 제공
 function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) {
-  const { children, onChange, defaultValue, type, visibleOptions = 5, className } = props;
+  const { children, onChange, defaultValue, type, visibleOptions = 5, className, multiple } = props;
 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
 
-  const [selected, setSelected] = useState<Option<T> | null>(defaultValue ?? null);
+  const [selected, setSelected] = useState<Option<T> | Option<T>[] | null>(defaultValue ?? null);
   const [open, setOpen] = useState(false);
 
   const handleToggleClose = useCallback(() => {
@@ -100,11 +103,29 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
   }, [handleToggleClose, open]);
 
   const handleOptionClick = (option: Option<T>) => {
-    setSelected(option);
-    handleToggleClose();
+    if (multiple) {
+      const currentSelected = selected as Option<T>[] | null;
+      const isSelected = currentSelected?.some((item) => item.value === option.value);
+      let newSelected: Option<T>[];
 
-    if (onChange) {
-      onChange(option.value);
+      if (isSelected) {
+        newSelected = currentSelected?.filter((item) => item.value !== option.value) ?? [];
+      } else {
+        newSelected = [...(currentSelected ?? []), option];
+      }
+
+      setSelected(newSelected);
+
+      if (onChange) {
+        onChange(newSelected.map((item) => item.value));
+      }
+    } else {
+      setSelected(option);
+      handleToggleClose();
+
+      if (onChange) {
+        onChange(option.value);
+      }
     }
   };
 
@@ -117,6 +138,7 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
     buttonRef,
     optionsRef,
     calcMaxHeight,
+    multiple,
   };
 
   return (
@@ -152,16 +174,28 @@ interface SelectTriggerContentProps {
 }
 
 // Select.TriggerContent 컴포넌트: trigger의 미리 정의된 UI
-function SelectTriggerContent(props: SelectTriggerContentProps) {
+function SelectTriggerContent<T>(props: SelectTriggerContentProps) {
   const { placeholder, className, icon } = props;
+  const { open, selected, multiple } = useSelectContext<T>();
 
-  const { open, selected } = useSelectContext();
+  const getSelectedLabel = () => {
+    if (!selected) return placeholder;
 
-  const selectedLabel = selected ? selected.label : placeholder;
+    if (multiple) {
+      const selectedArray = selected as Option<T>[];
+      return (
+        <div className={S.multipleLabelWrap}>
+          {selectedArray.length > 0 ? selectedArray.map((item) => item.label).join(', ') : placeholder}
+        </div>
+      );
+    }
+
+    return (selected as Option<T>).label;
+  };
 
   return (
     <div className={`${S.select} ${open ? S.focus : ''} ${className}`}>
-      <p className={!selected ? S.selectPlaceholder : ''}>{selectedLabel}</p>
+      <p className={!selected ? S.selectPlaceholder : ''}>{getSelectedLabel()}</p>
       {icon ? (
         icon
       ) : (
@@ -223,7 +257,11 @@ interface SelectMenuItemProps<T> {
 
 // SelectMenuItem 컴포넌트: 옵션 목록 하나의 UI
 function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T>) {
-  const { open, type, handleOptionClick } = useSelectContext();
+  const { open, type, handleOptionClick, selected, multiple } = useSelectContext<T>();
+
+  const isSelected = multiple
+    ? (selected as Option<T>[] | null)?.some((item) => item.value === option.value)
+    : (selected as Option<T> | null)?.value === option.value;
 
   const handleClick = () => {
     handleOptionClick(option);
@@ -240,6 +278,11 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
   return (
     <li>
       <button className={`${S.option} ${className}`} onClick={handleClick} type='button'>
+        {multiple && (
+          <div className={S.checkboxWrap}>
+            <CheckBox checked={isSelected} size={'lg'} />
+          </div>
+        )}
         {type === 'textIcon' && option.icon}
         {(type === 'userList' || type === 'userListDesc') &&
           (option.profileUrl ? (
