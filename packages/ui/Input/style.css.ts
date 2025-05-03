@@ -185,6 +185,8 @@ export const selectWrap = style({
 export const select = style({
   ...theme.fontsObject.BODY_2_16_M,
   color: theme.colors.white,
+  minWidth: '130px',
+  width: '100%',
   height: '48px',
   borderRadius: '10px',
   background: theme.colors.gray800,

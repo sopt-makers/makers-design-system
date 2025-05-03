@@ -101,7 +101,29 @@ function App() {
       >
         <span style={{ color: colors.white }}>여긴 본문</span>
       </FieldBox>
-      <div>
+      <div style={{ textAlign: 'left' }}>
+        <SelectV2.Root
+          visibleOptions={5}
+          onChange={() => {
+            console.log('dsad');
+          }}
+          type='text'
+        >
+          <SelectV2.Trigger>
+            <SelectV2.TriggerContent placeholder='카테고리' />
+          </SelectV2.Trigger>
+          <SelectV2.Menu>
+            {options.map((option) => (
+              <SelectV2.MenuItem
+                key={option.value}
+                option={option}
+                onClick={() => {
+                  console.log('custom logic');
+                }}
+              />
+            ))}
+          </SelectV2.Menu>
+        </SelectV2.Root>
         <SelectV2.Root
           visibleOptions={5}
           onChange={() => {
