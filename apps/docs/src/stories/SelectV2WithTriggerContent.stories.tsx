@@ -5,8 +5,7 @@ import { IconSend } from '@sopt-makers/icons';
 import { fn } from '@storybook/test';
 
 interface SelectStoryArgs extends ComponentProps<typeof SelectV2.Root> {
-  placeholder: string;
-  label?: string;
+  // placeholder와 label은 TriggerContent의 props이므로 여기서 제거
 }
 
 const selectOptions = [
@@ -131,18 +130,31 @@ const meta: Meta<typeof SelectV2.Root> = {
       description: 'onChange 이벤트 핸들러',
     },
     multiple: { control: 'boolean', description: '다중선택으로 쓸 때 true 로 설정합니다.' },
-    placeholder: {
-      control: 'text',
-      description: 'placeholder',
-    },
-    label: {
-      control: 'text',
-      description: 'multiple일 때 사용합니다. TriggerContent에 label을 넣어주면 multiple select 의 라벨 역할을 합니다.',
-    },
     type: {
       control: 'radio',
       options: ['text', 'textDesc', 'textIcon', 'userList', 'userListDesc'],
       description: 'select 컴포넌트 type',
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<SelectV2.Root onChange={fn()} multiple={true}>
+  <SelectV2.Trigger>
+    <SelectV2.TriggerContent placeholder='placeholder' />
+  </SelectV2.Trigger>
+  <SelectV2.Menu>
+    {options.map((option) => (
+      <SelectV2.MenuItem key={option.value} option={option} />
+    ))}
+  </SelectV2.Menu>
+</SelectV2.Root>
+        `,
+      },
+      description: {
+        component: `SelectV2 컴포넌트는 다양한 옵션을 선택할 수 있는 드롭다운 메뉴를 제공합니다.<br /> 다양한 옵션을 제공하여 사용자가 원하는 값을 쉽게 선택할 수 있도록 도와줍니다.`,
+      },
     },
   },
 };
@@ -150,10 +162,10 @@ const meta: Meta<typeof SelectV2.Root> = {
 export default meta;
 
 export const Text: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, label, ...args }) => (
+  render: (args) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
+        <SelectV2.TriggerContent placeholder='placeholder' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {selectOptions.map((option) => (
@@ -165,7 +177,6 @@ export const Text: StoryObj<SelectStoryArgs> = {
   args: {
     type: 'text',
     visibleOptions: 3,
-    placeholder: 'placeholder',
   },
   argTypes: {
     type: { control: 'radio', options: ['text', 'textDesc', 'textIcon'] },
@@ -173,10 +184,10 @@ export const Text: StoryObj<SelectStoryArgs> = {
 };
 
 export const TextDesc: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, label, ...args }) => (
+  render: (args) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
+        <SelectV2.TriggerContent placeholder='placeholder' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {selectOptions.map((option) => (
@@ -188,7 +199,6 @@ export const TextDesc: StoryObj<SelectStoryArgs> = {
   args: {
     type: 'textDesc',
     visibleOptions: 3,
-    placeholder: 'placeholder',
   },
   argTypes: {
     type: { control: 'radio', options: ['text', 'textDesc', 'textIcon'] },
@@ -196,10 +206,10 @@ export const TextDesc: StoryObj<SelectStoryArgs> = {
 };
 
 export const TextIcon: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, label, ...args }) => (
+  render: (args) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
+        <SelectV2.TriggerContent placeholder='placeholder' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {selectOptions.map((option) => (
@@ -211,7 +221,6 @@ export const TextIcon: StoryObj<SelectStoryArgs> = {
   args: {
     type: 'textIcon',
     visibleOptions: 3,
-    placeholder: 'placeholder',
   },
   argTypes: {
     type: { control: 'radio', options: ['text', 'textDesc', 'textIcon'] },
@@ -219,10 +228,10 @@ export const TextIcon: StoryObj<SelectStoryArgs> = {
 };
 
 export const UserList: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, label, ...args }) => (
+  render: (args) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
+        <SelectV2.TriggerContent placeholder='placeholder' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {userOptions.map((option) => (
@@ -234,7 +243,6 @@ export const UserList: StoryObj<SelectStoryArgs> = {
   args: {
     type: 'userList',
     visibleOptions: 3,
-    placeholder: 'placeholder',
   },
   argTypes: {
     type: { control: 'radio', options: ['userList', 'userListDesc'] },
@@ -242,10 +250,10 @@ export const UserList: StoryObj<SelectStoryArgs> = {
 };
 
 export const UserListDesc: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, label, ...args }) => (
+  render: (args) => (
     <SelectV2.Root {...args}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
+        <SelectV2.TriggerContent placeholder='placeholder' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {userOptions.map((option) => (
@@ -257,7 +265,6 @@ export const UserListDesc: StoryObj<SelectStoryArgs> = {
   args: {
     type: 'userListDesc',
     visibleOptions: 3,
-    placeholder: 'placeholder',
   },
   argTypes: {
     type: { control: 'radio', options: ['userList', 'userListDesc'] },
@@ -265,10 +272,10 @@ export const UserListDesc: StoryObj<SelectStoryArgs> = {
 };
 
 export const Multiple: StoryObj<SelectStoryArgs> = {
-  render: ({ placeholder, label, ...args }) => (
+  render: (args) => (
     <SelectV2.Root {...args} multiple={true}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder={placeholder} label={label} />
+        <SelectV2.TriggerContent placeholder='placeholder' label='카테고리' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {multipleOptions.map((option) => (
@@ -280,11 +287,33 @@ export const Multiple: StoryObj<SelectStoryArgs> = {
   args: {
     type: 'text',
     visibleOptions: 3,
-    placeholder: 'placeholder',
     multiple: true,
-    label: '카테고리',
   },
   argTypes: {
     multiple: { control: true },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<SelectV2.Root multiple={true} onChange={fn()}>
+  <SelectV2.Trigger>
+    <SelectV2.TriggerContent
+      placeholder="placeholder"
+      label="카테고리"
+    />
+  </SelectV2.Trigger>
+  <SelectV2.Menu>
+    {options.map((option) => (
+      <SelectV2.MenuItem key={option.value} option={option} />
+    ))}
+  </SelectV2.Menu>
+</SelectV2.Root>
+        `,
+      },
+      description: {
+        story: `SelectV2 컴포넌트는 다중 선택을 지원합니다.<br /> multiple prop을 true로 설정하면 다중 선택 모드로 작동합니다.<br />  다중 선택 시 숫자 왼쪽에 보여지는 라벨을 설정하려면 TriggerContent의 label prop을 사용하세요. `,
+      },
+    },
   },
 };
