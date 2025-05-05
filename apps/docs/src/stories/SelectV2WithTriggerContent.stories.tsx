@@ -275,7 +275,7 @@ export const Multiple: StoryObj<SelectStoryArgs> = {
   render: (args) => (
     <SelectV2.Root {...args} multiple={true}>
       <SelectV2.Trigger>
-        <SelectV2.TriggerContent placeholder='placeholder' label='카테고리' />
+        <SelectV2.TriggerContent placeholder='placeholder' />
       </SelectV2.Trigger>
       <SelectV2.Menu>
         {multipleOptions.map((option) => (

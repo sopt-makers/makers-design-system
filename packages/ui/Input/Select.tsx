@@ -26,7 +26,7 @@ interface SelectProps<T> {
 interface SelectContextProps<T> {
   open: boolean;
   setOpen: (open: boolean) => void;
-  selected: Option<T> | Option<T>[] | null;
+  selected: Option<T>[] | null;
   handleOptionClick: (option: Option<T>) => void;
   type: SelectProps<T>['type'];
   buttonRef: React.RefObject<HTMLButtonElement>;
@@ -54,7 +54,7 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
 
-  const [selected, setSelected] = useState<Option<T> | Option<T>[] | null>(defaultValue ?? null);
+  const [selected, setSelected] = useState<Option<T>[] | null>(defaultValue ? [defaultValue] : null);
   const [open, setOpen] = useState(false);
 
   const handleToggleClose = useCallback(() => {
@@ -104,14 +104,15 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
 
   const handleOptionClick = (option: Option<T>) => {
     if (multiple) {
-      const currentSelected = selected as Option<T>[] | null;
-      const isSelected = currentSelected?.some((item) => item.value === option.value);
+      const currentSelected = selected ?? [];
+      const isSelected = currentSelected.some((item) => item.value === option.value);
+
       let newSelected: Option<T>[];
 
       if (isSelected) {
-        newSelected = currentSelected?.filter((item) => item.value !== option.value) ?? [];
+        newSelected = currentSelected.filter((item) => item.value !== option.value);
       } else {
-        newSelected = [...(currentSelected ?? []), option];
+        newSelected = [...currentSelected, option];
       }
 
       setSelected(newSelected);
@@ -120,7 +121,7 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
         onChange(newSelected.map((item) => item.value));
       }
     } else {
-      setSelected(option);
+      setSelected([option]);
       handleToggleClose();
 
       if (onChange) {
@@ -180,25 +181,23 @@ function SelectTriggerContent<T>(props: SelectTriggerContentProps) {
   const { open, selected, multiple } = useSelectContext<T>();
 
   const getSelectedLabel = () => {
-    if (!selected || !label) return placeholder;
+    if (!selected || selected.length === 0) return placeholder;
 
     if (multiple) {
-      const selectedArray = selected as Option<T>[];
-
       return (
         <div className={S.multipleLabelWrap}>
-          <p className={S.multipleLabel}>{label}</p>
-          {selectedArray.length > 1 && <div className={S.multipleLabelCount}>{selectedArray.length}</div>}
+          <p className={S.multipleLabel}>{label ? label : selected[0].label}</p>
+          {selected.length > 1 && <div className={S.multipleLabelCount}>{selected.length}</div>}
         </div>
       );
     }
 
-    return (selected as Option<T>).label;
+    return selected[0].label;
   };
 
   return (
     <div className={`${S.select} ${open && S.focus} ${className}`}>
-      <p className={!selected ? S.selectPlaceholder : ''}>{getSelectedLabel()}</p>
+      <div className={!selected || selected.length === 0 ? S.selectPlaceholder : ''}>{getSelectedLabel()}</div>
       {icon ? (
         icon
       ) : (
@@ -263,8 +262,8 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
   const { open, type, handleOptionClick, selected, multiple } = useSelectContext<T>();
 
   const isSelected = multiple
-    ? (selected as Option<T>[] | null)?.some((item) => item.value === option.value)
-    : (selected as Option<T> | null)?.value === option.value;
+    ? selected?.some((item) => item.value === option.value)
+    : selected?.[0]?.value === option.value;
 
   const handleClick = () => {
     handleOptionClick(option);
@@ -281,7 +280,7 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
   return (
     <li>
       <button className={`${S.option} ${className}`} onClick={handleClick} type='button'>
-        {multiple && <CheckBox checked={isSelected} size='sm' />}
+        {multiple && <CheckBox checked={isSelected} size='sm' readOnly />}
         {type === 'textIcon' && option.icon}
         {(type === 'userList' || type === 'userListDesc') &&
           (option.profileUrl ? (
@@ -291,7 +290,6 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
               <IconUser />
             </div>
           ))}
-
         <div>
           <p>{option.label}</p>
           {(type === 'textDesc' || type === 'userListDesc') && <p className={S.optionDesc}>{option.description}</p>}
