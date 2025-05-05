@@ -312,7 +312,7 @@ export const Multiple: StoryObj<SelectStoryArgs> = {
         `,
       },
       description: {
-        story: `SelectV2 컴포넌트는 다중 선택을 지원합니다.<br /> multiple prop을 true로 설정하면 다중 선택 모드로 작동합니다.<br />  다중 선택 시 숫자 왼쪽에 보여지는 라벨을 설정하려면 TriggerContent의 label prop을 사용하세요. `,
+        story: `SelectV2 컴포넌트는 다중 선택을 지원합니다.<br /> multiple prop을 true로 설정하면 다중 선택 모드로 작동합니다.<br />  다중 선택 시 숫자 왼쪽에 보여지는 라벨을 설정하려면 TriggerContent의 label prop을 사용하세요. <br /> label 을 세팅하지 않으면, 처음 선택한 값이 라벨로 설정됩니다.`,
       },
     },
   },
