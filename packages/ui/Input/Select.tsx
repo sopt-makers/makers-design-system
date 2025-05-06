@@ -280,7 +280,15 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
   return (
     <li>
       <button className={`${S.option} ${className}`} onClick={handleClick} type='button'>
-        {multiple && <CheckBox checked={isSelected} size='sm' readOnly />}
+        {multiple ? (
+          <CheckBox
+            checked={isSelected}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            size='sm'
+          />
+        ) : null}
         {type === 'textIcon' && option.icon}
         {(type === 'userList' || type === 'userListDesc') &&
           (option.profileUrl ? (
@@ -290,6 +298,7 @@ function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T
               <IconUser />
             </div>
           ))}
+
         <div>
           <p>{option.label}</p>
           {(type === 'textDesc' || type === 'userListDesc') && <p className={S.optionDesc}>{option.description}</p>}

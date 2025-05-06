@@ -104,8 +104,8 @@ function App() {
       <div style={{ textAlign: 'left' }}>
         <SelectV2.Root
           visibleOptions={5}
-          onChange={() => {
-            console.log('dsad');
+          onChange={(value) => {
+            console.log(value);
           }}
           type='text'
         >
@@ -126,8 +126,8 @@ function App() {
         </SelectV2.Root>
         <SelectV2.Root
           visibleOptions={5}
-          onChange={() => {
-            console.log('dsad');
+          onChange={(value) => {
+            console.log(value);
           }}
           type='text'
           multiple={true}
