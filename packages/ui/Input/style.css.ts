@@ -185,7 +185,9 @@ export const selectWrap = style({
 export const select = style({
   ...theme.fontsObject.BODY_2_16_M,
   color: theme.colors.white,
-  width: '160px',
+  minWidth: '160px',
+  maxWidth: '200px',
+  width: '100%',
   height: '48px',
   borderRadius: '10px',
   background: theme.colors.gray800,
@@ -199,6 +201,11 @@ export const select = style({
 
 export const selectPlaceholder = style({
   color: theme.colors.gray300,
+  maxWidth: '168px',
+
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
 });
 
 export const optionList = style({
@@ -217,6 +224,7 @@ export const optionList = style({
   'animationFillMode': 'forwards',
   'overflowX': 'hidden',
   'zIndex': 24,
+  'transition': 'all 0.3s ease',
 
   '::-webkit-scrollbar': {
     width: '14px',
@@ -324,3 +332,35 @@ export const buttonWithNoStyle = style({
   margin: 0,
   cursor: 'pointer',
 });
+
+export const multipleLabelWrap = style({
+  maxWidth: '138px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: '6px',
+});
+
+export const multipleLabelCount = style([
+  theme.fontsObject.LABEL_5_11_SB,
+  {
+    color: theme.colors.success,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '3px 8px',
+    height: '20px',
+    width: '23px',
+    borderRadius: 100,
+    backgroundColor: theme.colors.blueAlpha200,
+  },
+]);
+
+export const multipleLabel = style([
+  theme.fontsObject.BODY_2_16_M,
+  {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+  },
+]);
