@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.11
+
+### Patch Changes
+
+- cd3ec4d: feat: 다중선택 Select component feature add
+
 ## 2.8.10
 
 ### Patch Changes
