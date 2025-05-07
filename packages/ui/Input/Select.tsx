@@ -17,7 +17,7 @@ interface SelectProps<T> {
   className?: string;
   type: 'text' | 'textDesc' | 'textIcon' | 'userList' | 'userListDesc';
   visibleOptions?: number;
-  defaultValue?: Option<T>;
+  defaultValue?: Option<T> | Option<T>[] | null;
   onChange?: (value: T | T[]) => void;
   children: React.ReactNode;
   multiple?: boolean;
@@ -54,12 +54,16 @@ function SelectRoot<T extends string | number | boolean>(props: SelectProps<T>) 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const optionsRef = useRef<HTMLUListElement>(null);
 
-  const [selected, setSelected] = useState<Option<T>[] | null>(defaultValue ? [defaultValue] : null);
   const [open, setOpen] = useState(false);
 
   const handleToggleClose = useCallback(() => {
     setOpen(false);
   }, []);
+
+  const [selected, setSelected] = useState<Option<T>[] | null>(() => {
+    if (!defaultValue) return null;
+    return Array.isArray(defaultValue) ? [...defaultValue] : [defaultValue];
+  });
 
   const calcMaxHeight = useCallback(() => {
     const getOptionHeight = () => {
@@ -261,9 +265,7 @@ interface SelectMenuItemProps<T> {
 function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T>) {
   const { open, type, handleOptionClick, selected, multiple } = useSelectContext<T>();
 
-  const isSelected = multiple
-    ? selected?.some((item) => item.value === option.value)
-    : selected?.[0]?.value === option.value;
+  const isSelected = Boolean(selected?.find((item) => item.value === option.value));
 
   const handleClick = () => {
     handleOptionClick(option);
