@@ -6,13 +6,15 @@ import '@sopt-makers/ui/dist/index.css';
 
 import { colors } from '@sopt-makers/colors';
 import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2 } from '@sopt-makers/ui';
-export interface Option<T> {
+
+interface Option<T> {
   label: string;
   value: T;
   description?: string;
   icon?: React.ReactNode;
   profileUrl?: string;
 }
+
 function App() {
   const [input, setInput] = useState('');
   const [textarea, setTextarea] = useState('');
