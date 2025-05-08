@@ -264,9 +264,9 @@ interface SelectMenuItemProps<T> {
 // SelectMenuItem 컴포넌트: 옵션 목록 하나의 UI
 function SelectMenuItem<T>({ option, onClick, className }: SelectMenuItemProps<T>) {
   const { open, type, handleOptionClick, selected, multiple } = useSelectContext<T>();
-
-  const isSelected = Boolean(selected?.find((item) => item.value === option.value));
-
+  
+  const isSelected = selected?.some((item) => item.value === option.value);
+  
   const handleClick = () => {
     handleOptionClick(option);
 
