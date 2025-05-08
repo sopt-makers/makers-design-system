@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.8.12
+
+### Patch Changes
+
+- 63d5d61: fix: select component bug fix
+
 ## 2.8.11
 
 ### Patch Changes
