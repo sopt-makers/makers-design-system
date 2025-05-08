@@ -7,6 +7,14 @@ import '@sopt-makers/ui/dist/index.css';
 import { colors } from '@sopt-makers/colors';
 import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2 } from '@sopt-makers/ui';
 
+interface Option<T> {
+  label: string;
+  value: T;
+  description?: string;
+  icon?: React.ReactNode;
+  profileUrl?: string;
+}
+
 function App() {
   const [input, setInput] = useState('');
   const [textarea, setTextarea] = useState('');
@@ -57,6 +65,11 @@ function App() {
     { label: 'Option 8', value: 'option8' },
     { label: 'Option 9', value: 'option9' },
     { label: 'Option 10', value: 'option10' },
+  ];
+
+  const defaultOptions: Option<string>[] = [
+    { label: 'Option 1', value: 'option1' },
+    { label: 'Option 2', value: 'option2' },
   ];
 
   return (
@@ -131,6 +144,7 @@ function App() {
           }}
           type='text'
           multiple={true}
+          defaultValue={defaultOptions}
         >
           <SelectV2.Trigger>
             <SelectV2.TriggerContent placeholder='카테고리를 선택해주세요' label='카테고리' />

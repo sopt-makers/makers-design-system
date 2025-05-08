@@ -37,3 +37,4 @@ pnpm-debug.log*
 .vercel
 
 dist/
+.idea
