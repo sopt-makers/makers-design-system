@@ -1,5 +1,13 @@
 # docs
 
+## 0.0.37
+
+### Patch Changes
+
+- 63d5d61: fix: select component bug fix
+- Updated dependencies [63d5d61]
+  - @sopt-makers/ui@2.8.12
+
 ## 0.0.36
 
 ### Patch Changes
