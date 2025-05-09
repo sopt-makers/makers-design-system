@@ -83,6 +83,16 @@ function App() {
         validationFn={inputValidation}
         value={input}
         onChange={handleInputChange}
+        place={'admin'}
+      />
+      <TextField
+        placeholder='Placeholder...'
+        required
+        labelText='Label'
+        descriptionText='description'
+        validationFn={inputValidation}
+        value={input}
+        onChange={handleInputChange}
       />
       <TextArea
         placeholder='Placeholder...'

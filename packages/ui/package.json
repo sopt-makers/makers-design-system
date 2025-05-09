@@ -28,6 +28,7 @@
     "@sopt-makers/fonts": "workspace:^",
     "@sopt-makers/icons": "workspace:^",
     "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/recipes": "^0.5.5",
     "@vanilla-extract/sprinkles": "^1.6.1"
   },
   "devDependencies": {
