@@ -11,6 +11,7 @@ export { TextField, TextArea, SearchField, SelectV2, Select, UserMention } from 
 export { default as Chip } from './Chip';
 export { default as Callout } from './Callout';
 export { default as Tab } from './Tab';
+export { default as Tooltip } from './Tooltip';
 export * from './Skeleton';
 export * from './FieldBox';
 export * from './Tag';
