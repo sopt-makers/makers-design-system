@@ -1,16 +1,16 @@
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
-interface BubblePointIconProps extends HTMLAttributes<SVGSVGElement> {}
+type BubblePointIconProps = HTMLAttributes<SVGSVGElement>
 
 function BubblePointIcon({ className, ...props }: BubblePointIconProps) {
   return (
     <svg
-      width='16'
+      className={className}
+      fill='none'
       height='14'
       viewBox='0 0 16 14'
-      fill='none'
+      width='16'
       xmlns='http://www.w3.org/2000/svg'
-      className={className}
       {...props}
     >
       <path

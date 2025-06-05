@@ -1,36 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import type { HTMLAttributes } from 'react';
 import { BubblePointIcon, AlertIcon } from 'Tooltip/icons';
-import * as S from './style.css';
 import useTooltip from 'Tooltip/useTooltip';
-import { HTMLAttributes } from 'react';
+import * as S from './style.css';
 
 interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   triggerContent: string;
 }
 
-const Tooltip = ({ triggerContent, children, ...props }: TooltipProps) => {
+function Tooltip({ triggerContent, children, ...props }: TooltipProps) {
   const { isVisible, tooltipRef } = useTooltip();
 
   return (
     <div className={S.tooltipWrapper} ref={tooltipRef} {...props}>
-      <span className={S.trigger} aria-describedby={isVisible ? 'tooltip-content' : undefined} tabIndex={0}>
+      <span aria-describedby={isVisible ? 'tooltip-content' : undefined} className={S.trigger}>
         {triggerContent} <AlertIcon />
       </span>
       <div
-        role='tooltip'
+        aria-hidden={!isVisible}
         className={`${S.contentWrapper} ${S.contentWrapperVariant[isVisible ? 'visible' : 'hidden']}`}
         data-visible={isVisible}
-        aria-hidden={!isVisible}
+        role='tooltip'
       >
-        {children && (
+        {children ? (
           <>
             <BubblePointIcon className={S.bubblePointIcon} />
             <span className={S.content}>{children}</span>
           </>
-        )}
+        ) : null}
       </div>
     </div>
   );
-};
+}
 
 export default Tooltip;
