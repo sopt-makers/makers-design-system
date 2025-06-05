@@ -15,6 +15,23 @@ const meta = {
       description: '툴팁 내용입니다.',
     },
   },
+  parameters: {
+    layout: 'centered',
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100px',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Tooltip>;
 
 export default meta;
