@@ -22,8 +22,12 @@ const Tooltip = ({ triggerContent, children, ...props }: TooltipProps) => {
         data-visible={isVisible}
         aria-hidden={!isVisible}
       >
-        <BubblePointIcon className={S.bubblePointIcon} />
-        <span className={S.content}>{children}</span>
+        {children && (
+          <>
+            <BubblePointIcon className={S.bubblePointIcon} />
+            <span className={S.content}>{children}</span>
+          </>
+        )}
       </div>
     </div>
   );
