@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import type { PropsWithChildren, ReactNode  } from 'react';
-import { AlertIcon } from 'Tooltip/icons';
-import { TooltipContext } from 'Tooltip/Tooltip';
+import type { PropsWithChildren, ReactNode } from 'react';
+import { AlertIcon } from './icons';
 import * as S from './style.css';
+import { TooltipContext } from './TooltipContext';
 
 export interface TooltipTriggerProps extends PropsWithChildren {
   icon?: ReactNode;

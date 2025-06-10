@@ -1,8 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import { forwardRef } from 'react';
-import { useTooltipContext } from './Tooltip';
 import { BubblePointIcon } from './icons';
 import * as S from './style.css';
+import { useTooltipContext } from './TooltipContext';
 
 export type TooltipContentProps = PropsWithChildren;
 
@@ -23,5 +23,7 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ childr
     </div>
   );
 });
+
+TooltipContent.displayName = 'TooltipContent';
 
 export default TooltipContent;
