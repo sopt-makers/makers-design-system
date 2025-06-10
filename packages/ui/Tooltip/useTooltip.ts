@@ -1,16 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 
+type ContentPosition = 'top' | 'bottom';
+
 const TOOLTIP_MARGIN = 20;
 
 export const useTooltip = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-  const [position, setPosition] = useState<'top' | 'bottom'>('bottom');
+  const [position, setPosition] = useState<ContentPosition>('bottom');
+
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const showTooltip = () => {
     setIsTooltipVisible(true);
-    requestAnimationFrame(() => { calculateTooltipPosition(); });
+    requestAnimationFrame(() => {
+      calculateTooltipPosition();
+    });
   };
 
   const hideTooltip = () => {
