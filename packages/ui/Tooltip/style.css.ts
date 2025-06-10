@@ -80,7 +80,7 @@ export const bubblePointIconPosition = styleVariants({
 });
 
 export const content = style({
-  wordBreak: 'keep-all',
+  wordBreak: 'break-word',
   color: theme.colors.gray50,
   ...theme.fontsObject.LABEL_4_12_SB,
 });
