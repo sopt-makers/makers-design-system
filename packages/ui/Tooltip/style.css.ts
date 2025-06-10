@@ -19,28 +19,34 @@ export const trigger = style({
 
 export const contentWrapper = style({
   position: 'absolute',
-  top: '32px',
-  right: 0,
   width: 'max-content',
   maxWidth: '191px',
   padding: '16px',
   borderRadius: '10px',
   backgroundColor: theme.colors.gray600,
   opacity: 0,
-  transform: 'translateY(-5px)',
-  transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
-  pointerEvents: 'auto',
+  transition: 'opacity 0.3s ease-in-out',
 
   selectors: {
     '&[data-visible="true"]': {
       opacity: 1,
-      transform: 'translateY(0)',
-      transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
+      transition: 'opacity 0.3s ease-in-out',
+      pointerEvents: 'auto',
+      visibility: 'visible',
     },
-    '&[data-visible="true"]:hover': {
-      opacity: 1,
-      transform: 'translateY(0)',
-    },
+  },
+});
+
+export const contentWrapperPosition = styleVariants({
+  top: {
+    bottom: '32px',
+    right: 0,
+    top: 'auto',
+  },
+  bottom: {
+    top: '32px',
+    right: 0,
+    bottom: 'auto',
   },
 });
 
@@ -57,8 +63,20 @@ export const contentWrapperVariant = styleVariants({
 
 export const bubblePointIcon = style({
   position: 'absolute',
-  top: '-13px',
   right: '16px',
+});
+
+export const bubblePointIconPosition = styleVariants({
+  top: {
+    bottom: '-13px',
+    top: 'auto',
+    transform: 'rotate(180deg)',
+  },
+  bottom: {
+    top: '-13px',
+    bottom: 'auto',
+    transform: 'rotate(0deg)',
+  },
 });
 
 export const content = style({

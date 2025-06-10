@@ -1,27 +1,26 @@
-import { PropsWithChildren } from 'react';
-import { useContext } from 'react';
-import { BubblePointIcon } from 'Tooltip/icons';
-import { TooltipContext } from 'Tooltip/Tooltip';
+import { forwardRef, PropsWithChildren } from 'react';
+import { useTooltipContext } from './Tooltip';
+import { BubblePointIcon } from './icons';
 import * as S from './style.css';
 
-const TooltipContent = ({ children }: PropsWithChildren) => {
-  const isTooltipVisible = useContext(TooltipContext);
+export type TooltipContentProps = PropsWithChildren;
+
+const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ children }) => {
+  const { isTooltipVisible, position, contentRef } = useTooltipContext();
 
   return (
     <div
-      aria-hidden={!isTooltipVisible}
-      className={`${S.contentWrapper} ${S.contentWrapperVariant[isTooltipVisible ? 'visible' : 'hidden']}`}
-      data-visible={isTooltipVisible}
+      ref={contentRef}
       role='tooltip'
+      aria-hidden={!isTooltipVisible}
+      data-visible={isTooltipVisible}
+      className={`${S.contentWrapper} ${S.contentWrapperPosition[position]}`}
+      style={{ visibility: isTooltipVisible ? 'visible' : 'hidden' }}
     >
-      {children ? (
-        <>
-          <BubblePointIcon className={S.bubblePointIcon} />
-          <span className={S.content}>{children}</span>
-        </>
-      ) : null}
+      <BubblePointIcon className={`${S.bubblePointIcon} ${S.bubblePointIconPosition[position]}`} />
+      <span className={S.content}>{children}</span>
     </div>
   );
-};
+});
 
 export default TooltipContent;

@@ -1,36 +1,60 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useTooltip = () => {
+const TOOLTIP_MARGIN = 20;
+
+export const useTooltip = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const [position, setPosition] = useState<'top' | 'bottom'>('bottom');
+  const triggerRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
-  const tooltipRef = useRef<HTMLDivElement | null>(null);
-
-  const handleMouseEnter = () => {
+  const showTooltip = () => {
     setIsTooltipVisible(true);
+    requestAnimationFrame(() => calculateTooltipPosition());
   };
 
-  const handleMouseLeave = () => {
+  const hideTooltip = () => {
     setIsTooltipVisible(false);
   };
 
+  const calculateTooltipPosition = () => {
+    if (!triggerRef.current || !contentRef.current) return;
+
+    const triggerRect = triggerRef.current.getBoundingClientRect();
+    const contentRect = contentRef.current.getBoundingClientRect();
+
+    const spaceBelow = window.innerHeight - triggerRect.bottom;
+    const spaceAbove = triggerRect.top;
+
+    const isSpaceBelowEnough = spaceBelow < contentRect.height + TOOLTIP_MARGIN;
+    const isSpaceAboveEnough = spaceAbove > spaceBelow;
+
+    setPosition(isSpaceBelowEnough && isSpaceAboveEnough ? 'top' : 'bottom');
+  };
+
   useEffect(() => {
-    const tooltip = tooltipRef.current;
+    const triggerElementRef = triggerRef.current;
+    if (!triggerElementRef) return;
 
-    if (tooltip) {
-      tooltip.addEventListener('mouseenter', handleMouseEnter);
-      tooltip.addEventListener('mouseleave', handleMouseLeave);
+    triggerElementRef.addEventListener('mouseenter', showTooltip);
+    triggerElementRef.addEventListener('mouseleave', hideTooltip);
 
-      return () => {
-        tooltip.removeEventListener('mouseenter', handleMouseEnter);
-        tooltip.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
+    window.addEventListener('resize', calculateTooltipPosition);
+    window.addEventListener('scroll', calculateTooltipPosition);
+
+    return () => {
+      triggerElementRef.removeEventListener('mouseenter', showTooltip);
+      triggerElementRef.removeEventListener('mouseleave', hideTooltip);
+
+      window.removeEventListener('resize', calculateTooltipPosition);
+      window.removeEventListener('scroll', calculateTooltipPosition);
+    };
   }, []);
 
   return {
     isTooltipVisible,
-    tooltipRef,
+    position,
+    triggerRef,
+    contentRef,
   };
 };
-
-export default useTooltip;
