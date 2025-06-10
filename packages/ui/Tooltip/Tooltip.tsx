@@ -2,9 +2,8 @@ import type { HTMLAttributes } from 'react';
 import TooltipTrigger from './Trigger';
 import TooltipContent from './Content';
 import { useTooltip } from './useTooltip';
-import * as S from './style.css';
-
 import { TooltipContext } from './TooltipContext';
+import * as S from './style.css';
 
 function TooltipRoot({ children, ...props }: HTMLAttributes<HTMLDivElement>) {
   const { isTooltipVisible, triggerRef, contentRef, position } = useTooltip();
