@@ -5,13 +5,13 @@ import { TooltipContext } from 'Tooltip/Tooltip';
 import * as S from './style.css';
 
 const TooltipContent = ({ children }: PropsWithChildren) => {
-  const isVisible = useContext(TooltipContext);
+  const isTooltipVisible = useContext(TooltipContext);
 
   return (
     <div
-      aria-hidden={!isVisible}
-      className={`${S.contentWrapper} ${S.contentWrapperVariant[isVisible ? 'visible' : 'hidden']}`}
-      data-visible={isVisible}
+      aria-hidden={!isTooltipVisible}
+      className={`${S.contentWrapper} ${S.contentWrapperVariant[isTooltipVisible ? 'visible' : 'hidden']}`}
+      data-visible={isTooltipVisible}
       role='tooltip'
     >
       {children ? (

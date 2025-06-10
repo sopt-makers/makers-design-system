@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 
 const useTooltip = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
   const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   const handleMouseEnter = () => {
-    setIsVisible(true);
+    setIsTooltipVisible(true);
   };
 
   const handleMouseLeave = () => {
-    setIsVisible(false);
+    setIsTooltipVisible(false);
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const useTooltip = () => {
   }, []);
 
   return {
-    isVisible,
+    isTooltipVisible,
     tooltipRef,
   };
 };

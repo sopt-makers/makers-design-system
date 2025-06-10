@@ -7,10 +7,10 @@ import TooltipContent from 'Tooltip/Content';
 export const TooltipContext = createContext<boolean>(false);
 
 const TooltipRoot = ({ children, ...props }: HTMLAttributes<HTMLDivElement>) => {
-  const { isVisible, tooltipRef } = useTooltip();
+  const { isTooltipVisible, tooltipRef } = useTooltip();
 
   return (
-    <TooltipContext.Provider value={isVisible}>
+    <TooltipContext.Provider value={isTooltipVisible}>
       <div className={S.tooltipWrapper} ref={tooltipRef} {...props}>
         {children}
       </div>
