@@ -1,6 +1,5 @@
-import { PropsWithChildren, ReactNode } from 'react';
-
 import { useContext } from 'react';
+import type { PropsWithChildren, ReactNode  } from 'react';
 import { AlertIcon } from 'Tooltip/icons';
 import { TooltipContext } from 'Tooltip/Tooltip';
 import * as S from './style.css';
@@ -9,7 +8,7 @@ export interface TooltipTriggerProps extends PropsWithChildren {
   icon?: ReactNode;
 }
 
-const TooltipTrigger = ({ icon = <AlertIcon />, children }: TooltipTriggerProps) => {
+function TooltipTrigger({ icon = <AlertIcon />, children }: TooltipTriggerProps) {
   const isTooltipVisible = useContext(TooltipContext);
 
   return (
@@ -18,6 +17,6 @@ const TooltipTrigger = ({ icon = <AlertIcon />, children }: TooltipTriggerProps)
       {icon}
     </div>
   );
-};
+}
 
 export default TooltipTrigger;

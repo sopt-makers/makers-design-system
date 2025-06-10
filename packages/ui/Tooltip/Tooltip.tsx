@@ -1,4 +1,5 @@
-import { HTMLAttributes, createContext, useContext } from 'react';
+import type { HTMLAttributes} from 'react';
+import { createContext, useContext } from 'react';
 import TooltipTrigger from 'Tooltip/Trigger';
 import TooltipContent from 'Tooltip/Content';
 import { useTooltip } from 'Tooltip/useTooltip';
@@ -20,7 +21,7 @@ export const useTooltipContext = () => {
   return context;
 };
 
-const TooltipRoot = ({ children, ...props }: HTMLAttributes<HTMLDivElement>) => {
+function TooltipRoot({ children, ...props }: HTMLAttributes<HTMLDivElement>) {
   const { isTooltipVisible, triggerRef, contentRef, position } = useTooltip();
 
   return (
@@ -30,7 +31,7 @@ const TooltipRoot = ({ children, ...props }: HTMLAttributes<HTMLDivElement>) => 
       </div>
     </TooltipContext.Provider>
   );
-};
+}
 
 const Tooltip = {
   Root: TooltipRoot,

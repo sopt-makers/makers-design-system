@@ -1,4 +1,5 @@
-import { forwardRef, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
+import { forwardRef } from 'react';
 import { useTooltipContext } from './Tooltip';
 import { BubblePointIcon } from './icons';
 import * as S from './style.css';
@@ -10,11 +11,11 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ childr
 
   return (
     <div
+      aria-hidden={!isTooltipVisible}
+      className={`${S.contentWrapper} ${S.contentWrapperPosition[position]}`}
+      data-visible={isTooltipVisible}
       ref={contentRef}
       role='tooltip'
-      aria-hidden={!isTooltipVisible}
-      data-visible={isTooltipVisible}
-      className={`${S.contentWrapper} ${S.contentWrapperPosition[position]}`}
       style={{ visibility: isTooltipVisible ? 'visible' : 'hidden' }}
     >
       <BubblePointIcon className={`${S.bubblePointIcon} ${S.bubblePointIconPosition[position]}`} />

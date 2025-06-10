@@ -10,7 +10,7 @@ export const useTooltip = () => {
 
   const showTooltip = () => {
     setIsTooltipVisible(true);
-    requestAnimationFrame(() => calculateTooltipPosition());
+    requestAnimationFrame(() => { calculateTooltipPosition(); });
   };
 
   const hideTooltip = () => {
