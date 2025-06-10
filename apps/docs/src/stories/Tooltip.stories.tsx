@@ -1,22 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '@sopt-makers/ui';
+import { IconMessageAlert } from '@sopt-makers/icons';
 
 const meta = {
   title: 'Components/Tooltip',
-  component: Tooltip,
+  component: Tooltip.Root,
   tags: ['autodocs'],
-  argTypes: {
-    triggerContent: {
-      control: 'text',
-      description: '툴팁을 트리거하는 텍스트입니다.',
-    },
-    children: {
-      control: 'text',
-      description: '툴팁 내용입니다.',
-    },
-  },
   parameters: {
     layout: 'centered',
+  },
+  argTypes: {
+    children: {
+      control: 'text',
+    },
   },
   decorators: [
     (Story) => (
@@ -32,14 +28,30 @@ const meta = {
       </div>
     ),
   ],
-} as Meta<typeof Tooltip>;
+} satisfies Meta<typeof Tooltip.Root>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    triggerContent: 'Tooltip',
-    children: 'Default Content',
-  },
+  render: () => (
+    <Tooltip.Root>
+      <Tooltip.Trigger>호버해보세요</Tooltip.Trigger>
+      <Tooltip.Content>툴팁 내용입니다.</Tooltip.Content>
+    </Tooltip.Root>
+  ),
+};
+
+export const CustomContent: Story = {
+  render: () => (
+    <Tooltip.Root>
+      <Tooltip.Trigger>호버해보세요</Tooltip.Trigger>
+      <Tooltip.Content>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          <IconMessageAlert style={{ width: '15px', height: '15px' }} />
+          <span>툴팁 내용입니다.</span>
+        </div>
+      </Tooltip.Content>
+    </Tooltip.Root>
+  ),
 };

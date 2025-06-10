@@ -1,35 +1,27 @@
-import type { HTMLAttributes } from 'react';
-import { BubblePointIcon, AlertIcon } from 'Tooltip/icons';
+import { HTMLAttributes, PropsWithChildren, createContext, useContext } from 'react';
 import useTooltip from 'Tooltip/useTooltip';
 import * as S from './style.css';
+import TooltipTrigger from 'Tooltip/Trigger';
+import TooltipContent from 'Tooltip/Content';
 
-interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
-  triggerContent: string;
-}
+export const TooltipContext = createContext<boolean>(false);
 
-function Tooltip({ triggerContent, children, ...props }: TooltipProps) {
+const TooltipRoot = ({ children, ...props }: HTMLAttributes<HTMLDivElement>) => {
   const { isVisible, tooltipRef } = useTooltip();
 
   return (
-    <div className={S.tooltipWrapper} ref={tooltipRef} {...props}>
-      <span aria-describedby={isVisible ? 'tooltip-content' : undefined} className={S.trigger}>
-        {triggerContent} <AlertIcon />
-      </span>
-      <div
-        aria-hidden={!isVisible}
-        className={`${S.contentWrapper} ${S.contentWrapperVariant[isVisible ? 'visible' : 'hidden']}`}
-        data-visible={isVisible}
-        role='tooltip'
-      >
-        {children ? (
-          <>
-            <BubblePointIcon className={S.bubblePointIcon} />
-            <span className={S.content}>{children}</span>
-          </>
-        ) : null}
+    <TooltipContext.Provider value={isVisible}>
+      <div className={S.tooltipWrapper} ref={tooltipRef} {...props}>
+        {children}
       </div>
-    </div>
+    </TooltipContext.Provider>
   );
-}
+};
+
+const Tooltip = {
+  Root: TooltipRoot,
+  Trigger: TooltipTrigger,
+  Content: TooltipContent,
+};
 
 export default Tooltip;
