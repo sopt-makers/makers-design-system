@@ -1,17 +1,22 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 import { useContext } from 'react';
 import { AlertIcon } from 'Tooltip/icons';
 import { TooltipContext } from 'Tooltip/Tooltip';
 import * as S from './style.css';
 
-const TooltipTrigger = ({ children }: PropsWithChildren) => {
-  const isVisible = useContext(TooltipContext);
+export interface TooltipTriggerProps extends PropsWithChildren {
+  icon?: ReactNode;
+}
+
+const TooltipTrigger = ({ icon = <AlertIcon />, children }: TooltipTriggerProps) => {
+  const isTooltipVisible = useContext(TooltipContext);
 
   return (
-    <span aria-describedby={isVisible ? 'tooltip-content' : undefined} className={S.trigger}>
-      {children} <AlertIcon />
-    </span>
+    <div aria-describedby={isTooltipVisible ? 'tooltip-content' : undefined} className={S.trigger}>
+      <span>{children}</span>
+      {icon}
+    </div>
   );
 };
 
