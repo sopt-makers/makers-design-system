@@ -5,8 +5,15 @@ import { useTooltip } from './useTooltip';
 import { TooltipContext } from './TooltipContext';
 import * as S from './style.css';
 
-function TooltipRoot({ children, ...props }: HTMLAttributes<HTMLDivElement>) {
-  const { isOpen, triggerRef, contentRef, position } = useTooltip();
+interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {
+  isOpen?: boolean;
+  defaultOpen?: boolean;
+}
+
+function TooltipRoot({ isOpen: open, defaultOpen = false, children, ...props }: TooltipRootProps) {
+  const { isOpen: internalOpen, triggerRef, contentRef, position } = useTooltip({ defaultOpen });
+
+  const isOpen = open ?? internalOpen;
 
   return (
     <TooltipContext.Provider value={{ isOpen, position, contentRef }}>

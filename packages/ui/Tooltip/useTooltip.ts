@@ -4,8 +4,12 @@ type ContentPosition = 'top' | 'bottom';
 
 const TOOLTIP_MARGIN = 20;
 
-export const useTooltip = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface UseTooltipProps {
+  defaultOpen?: boolean;
+}
+
+export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const [position, setPosition] = useState<ContentPosition>('bottom');
 
   const triggerRef = useRef<HTMLDivElement | null>(null);
