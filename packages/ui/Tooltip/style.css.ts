@@ -27,38 +27,32 @@ export const contentWrapper = style({
   opacity: 0,
   top: '32px',
   right: 0,
-  transition: 'opacity 0.3s ease-in-out',
+  visibility: 'hidden',
+  pointerEvents: 'none',
+  transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
 
   selectors: {
     '&[data-visible="true"]': {
       opacity: 1,
       pointerEvents: 'auto',
       visibility: 'visible',
+      transform: 'translateY(0)',
     },
   },
 });
 
 export const contentWrapperPosition = styleVariants({
   top: {
-    bottom: '32px',
+    bottom: '35px',
     right: 0,
     top: 'auto',
+    transform: 'translateY(10px)',
   },
   bottom: {
-    top: '32px',
+    top: '35px',
     right: 0,
     bottom: 'auto',
-  },
-});
-
-export const contentWrapperVariant = styleVariants({
-  visible: {
-    visibility: 'visible',
-    pointerEvents: 'auto',
-  },
-  hidden: {
-    visibility: 'hidden',
-    pointerEvents: 'none',
+    transform: 'translateY(-10px)',
   },
 });
 
