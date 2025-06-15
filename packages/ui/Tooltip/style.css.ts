@@ -25,12 +25,13 @@ export const contentWrapper = style({
   borderRadius: '10px',
   backgroundColor: theme.colors.gray600,
   opacity: 0,
+  top: '32px',
+  right: 0,
   transition: 'opacity 0.3s ease-in-out',
 
   selectors: {
     '&[data-visible="true"]': {
       opacity: 1,
-      transition: 'opacity 0.3s ease-in-out',
       pointerEvents: 'auto',
       visibility: 'visible',
     },

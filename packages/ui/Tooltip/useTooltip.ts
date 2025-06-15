@@ -38,7 +38,21 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
     const isSpaceBelowEnough = spaceBelow < contentRect.height + TOOLTIP_MARGIN;
     const isSpaceAboveEnough = spaceAbove > spaceBelow;
 
-    setPosition(isSpaceBelowEnough && isSpaceAboveEnough ? 'top' : 'bottom');
+    const updatePosition = isSpaceBelowEnough && isSpaceAboveEnough ? 'top' : 'bottom';
+    setPosition(updatePosition);
+
+    requestAnimationFrame(() => {
+      const contentElement = contentRef.current;
+      if (!contentElement) return;
+
+      contentElement.style.transition = 'none';
+      contentElement.style.transform = updatePosition === 'top' ? 'translateY(3px)' : 'translateY(-3px)';
+
+      requestAnimationFrame(() => {
+        contentElement.style.transition = 'transform 0.3s ease-out';
+        contentElement.style.transform = 'translateY(0)';
+      });
+    });
   };
 
   useEffect(() => {
@@ -48,9 +62,14 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
     triggerElementRef.addEventListener('mouseenter', showTooltip);
     triggerElementRef.addEventListener('mouseleave', hideTooltip);
 
+    window.addEventListener('resize', calculateTooltipPosition);
+    window.addEventListener('scroll', calculateTooltipPosition);
+
     return () => {
       triggerElementRef.removeEventListener('mouseenter', showTooltip);
       triggerElementRef.removeEventListener('mouseleave', hideTooltip);
+      window.removeEventListener('resize', calculateTooltipPosition);
+      window.removeEventListener('scroll', calculateTooltipPosition);
     };
   }, []);
 
