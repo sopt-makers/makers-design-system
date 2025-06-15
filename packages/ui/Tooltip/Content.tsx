@@ -16,7 +16,6 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ childr
       data-visible={isOpen}
       ref={contentRef}
       role='tooltip'
-      style={{ visibility: isOpen ? 'visible' : 'hidden' }}
     >
       <BubblePointIcon className={`${S.bubblePointIcon} ${S.bubblePointIconPosition[position]}`} />
       <span className={S.content}>{children}</span>
