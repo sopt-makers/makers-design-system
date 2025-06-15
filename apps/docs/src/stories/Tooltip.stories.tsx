@@ -10,8 +10,8 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-    children: {
-      control: 'text',
+    defaultOpen: {
+      control: 'boolean',
     },
   },
   decorators: [
@@ -34,17 +34,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
-    <Tooltip.Root>
+  render: (args) => (
+    <Tooltip.Root {...args}>
       <Tooltip.Trigger>호버해보세요</Tooltip.Trigger>
       <Tooltip.Content>툴팁 내용입니다.</Tooltip.Content>
     </Tooltip.Root>
   ),
+  args: {
+    defaultOpen: false,
+  },
 };
 
 export const CustomContent: Story = {
-  render: () => (
-    <Tooltip.Root>
+  render: (args) => (
+    <Tooltip.Root {...args}>
       <Tooltip.Trigger>호버해보세요</Tooltip.Trigger>
       <Tooltip.Content>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -54,4 +57,7 @@ export const CustomContent: Story = {
       </Tooltip.Content>
     </Tooltip.Root>
   ),
+  args: {
+    defaultOpen: false,
+  },
 };

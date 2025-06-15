@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useLayoutEffect } from 'react';
+import { useRef, useState, useLayoutEffect, useEffect } from 'react';
 
 type ContentPosition = 'top' | 'bottom';
 
@@ -41,7 +41,7 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
 
   useLayoutEffect(() => {
     const triggerElementRef = triggerRef.current;
-    if (!triggerElementRef) return;
+    if (!triggerElementRef || defaultOpen) return;
 
     triggerElementRef.addEventListener('mouseenter', showTooltip);
     triggerElementRef.addEventListener('mouseleave', hideTooltip);
@@ -56,7 +56,15 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
       window.removeEventListener('resize', calculateTooltipPosition);
       window.removeEventListener('scroll', calculateTooltipPosition);
     };
-  }, []);
+  }, [defaultOpen]);
+
+  useEffect(() => {
+    if (defaultOpen) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [defaultOpen]);
 
   return {
     isOpen,
