@@ -6,10 +6,10 @@ import { TooltipContext } from './TooltipContext';
 import * as S from './style.css';
 
 function TooltipRoot({ children, ...props }: HTMLAttributes<HTMLDivElement>) {
-  const { isTooltipVisible, triggerRef, contentRef, position } = useTooltip();
+  const { isOpen, triggerRef, contentRef, position } = useTooltip();
 
   return (
-    <TooltipContext.Provider value={{ isTooltipVisible, position, contentRef }}>
+    <TooltipContext.Provider value={{ isOpen, position, contentRef }}>
       <div className={S.tooltipWrapper} ref={triggerRef} {...props}>
         {children}
       </div>

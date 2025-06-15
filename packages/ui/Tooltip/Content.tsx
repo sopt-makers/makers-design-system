@@ -7,16 +7,16 @@ import { useTooltipContext } from './TooltipContext';
 export type TooltipContentProps = PropsWithChildren;
 
 const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ children }) => {
-  const { isTooltipVisible, position, contentRef } = useTooltipContext();
+  const { isOpen, position, contentRef } = useTooltipContext();
 
   return (
     <div
-      aria-hidden={!isTooltipVisible}
+      aria-hidden={!isOpen}
       className={`${S.contentWrapper} ${S.contentWrapperPosition[position]}`}
-      data-visible={isTooltipVisible}
+      data-visible={isOpen}
       ref={contentRef}
       role='tooltip'
-      style={{ visibility: isTooltipVisible ? 'visible' : 'hidden' }}
+      style={{ visibility: isOpen ? 'visible' : 'hidden' }}
     >
       <BubblePointIcon className={`${S.bubblePointIcon} ${S.bubblePointIconPosition[position]}`} />
       <span className={S.content}>{children}</span>

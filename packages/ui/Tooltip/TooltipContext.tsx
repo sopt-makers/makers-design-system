@@ -1,7 +1,7 @@
 import { createContext, RefObject, useContext } from 'react';
 
 export interface TooltipContextProps {
-  isTooltipVisible: boolean;
+  isOpen: boolean;
   position: 'top' | 'bottom';
   contentRef: RefObject<HTMLDivElement>;
 }

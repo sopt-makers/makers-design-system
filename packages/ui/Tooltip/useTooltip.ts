@@ -5,21 +5,21 @@ type ContentPosition = 'top' | 'bottom';
 const TOOLTIP_MARGIN = 20;
 
 export const useTooltip = () => {
-  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState<ContentPosition>('bottom');
 
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const showTooltip = () => {
-    setIsTooltipVisible(true);
+    setIsOpen(true);
     requestAnimationFrame(() => {
       calculateTooltipPosition();
     });
   };
 
   const hideTooltip = () => {
-    setIsTooltipVisible(false);
+    setIsOpen(false);
   };
 
   const calculateTooltipPosition = () => {
@@ -57,7 +57,7 @@ export const useTooltip = () => {
   }, []);
 
   return {
-    isTooltipVisible,
+    isOpen,
     position,
     triggerRef,
     contentRef,
