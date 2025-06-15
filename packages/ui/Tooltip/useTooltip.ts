@@ -48,15 +48,9 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
     triggerElementRef.addEventListener('mouseenter', showTooltip);
     triggerElementRef.addEventListener('mouseleave', hideTooltip);
 
-    window.addEventListener('resize', calculateTooltipPosition);
-    window.addEventListener('scroll', calculateTooltipPosition);
-
     return () => {
       triggerElementRef.removeEventListener('mouseenter', showTooltip);
       triggerElementRef.removeEventListener('mouseleave', hideTooltip);
-
-      window.removeEventListener('resize', calculateTooltipPosition);
-      window.removeEventListener('scroll', calculateTooltipPosition);
     };
   }, []);
 
