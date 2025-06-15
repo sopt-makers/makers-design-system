@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useLayoutEffect } from 'react';
 
 type ContentPosition = 'top' | 'bottom';
 
@@ -17,9 +17,6 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
 
   const showTooltip = () => {
     setIsOpen(true);
-    requestAnimationFrame(() => {
-      calculateTooltipPosition();
-    });
   };
 
   const hideTooltip = () => {
@@ -40,22 +37,9 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
 
     const updatePosition = isSpaceBelowEnough && isSpaceAboveEnough ? 'top' : 'bottom';
     setPosition(updatePosition);
-
-    requestAnimationFrame(() => {
-      const contentElement = contentRef.current;
-      if (!contentElement) return;
-
-      contentElement.style.transition = 'none';
-      contentElement.style.transform = updatePosition === 'top' ? 'translateY(3px)' : 'translateY(-3px)';
-
-      requestAnimationFrame(() => {
-        contentElement.style.transition = 'transform 0.3s ease-out';
-        contentElement.style.transform = 'translateY(0)';
-      });
-    });
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const triggerElementRef = triggerRef.current;
     if (!triggerElementRef) return;
 
@@ -68,6 +52,7 @@ export const useTooltip = ({ defaultOpen = false }: UseTooltipProps) => {
     return () => {
       triggerElementRef.removeEventListener('mouseenter', showTooltip);
       triggerElementRef.removeEventListener('mouseleave', hideTooltip);
+
       window.removeEventListener('resize', calculateTooltipPosition);
       window.removeEventListener('scroll', calculateTooltipPosition);
     };
