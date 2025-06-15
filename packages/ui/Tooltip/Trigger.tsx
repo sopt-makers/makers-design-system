@@ -9,10 +9,10 @@ export interface TooltipTriggerProps extends PropsWithChildren {
 }
 
 function TooltipTrigger({ icon = <AlertIcon />, children }: TooltipTriggerProps) {
-  const isTooltipVisible = useContext(TooltipContext);
+  const isOpen = useContext(TooltipContext);
 
   return (
-    <div aria-describedby={isTooltipVisible ? 'tooltip-content' : undefined} className={S.trigger}>
+    <div aria-describedby={isOpen ? 'tooltip-content' : undefined} className={S.trigger}>
       <span>{children}</span>
       {icon}
     </div>
