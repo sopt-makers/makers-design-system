@@ -28,13 +28,11 @@ export const contentWrapper = style({
   top: '32px',
   right: 0,
   visibility: 'hidden',
-  pointerEvents: 'none',
   transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
 
   selectors: {
     '&[data-visible="true"]': {
       opacity: 1,
-      pointerEvents: 'auto',
       visibility: 'visible',
       transform: 'translateY(0)',
     },
