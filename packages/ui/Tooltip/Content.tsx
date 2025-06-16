@@ -14,7 +14,7 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ childr
       role='tooltip'
       aria-hidden={!isOpen}
       data-visible={isOpen}
-      className={`${S.contentWrapper} ${S.contentWrapperPosition[position]}`}
+      className={`${S.contentWrapper[isOpen ? 'visible' : 'hidden']} ${S.contentWrapperPosition[position]} ${S.commonContentWrapper} `}
       ref={contentRef}
     >
       <BubblePointIcon className={`${S.bubblePointIcon} ${S.bubblePointIconPosition[position]}`} />

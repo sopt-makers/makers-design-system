@@ -17,40 +17,38 @@ export const trigger = style({
   ...theme.fontsObject.LABEL_4_12_SB,
 });
 
-export const contentWrapper = style({
+export const commonContentWrapper = style({
   position: 'absolute',
+  right: 0,
   width: 'max-content',
   maxWidth: '191px',
   padding: '16px',
   borderRadius: '10px',
   backgroundColor: theme.colors.gray600,
-  opacity: 0,
-  top: '32px',
-  right: 0,
-  visibility: 'hidden',
   transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
+});
 
-  selectors: {
-    '&[data-visible="true"]': {
-      opacity: 1,
-      visibility: 'visible',
-      transform: 'translateY(0)',
-    },
+export const contentWrapper = styleVariants({
+  visible: {
+    opacity: 1,
+    visibility: 'visible',
+    transform: 'translateY(0)',
+  },
+  hidden: {
+    opacity: 0,
+    visibility: 'hidden',
+    transform: 'translateY(10px)',
   },
 });
 
 export const contentWrapperPosition = styleVariants({
   top: {
     bottom: '35px',
-    right: 0,
     top: 'auto',
-    transform: 'translateY(10px)',
   },
   bottom: {
     top: '35px',
-    right: 0,
     bottom: 'auto',
-    transform: 'translateY(-10px)',
   },
 });
 
