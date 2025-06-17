@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import '@sopt-makers/ui/dist/index.css';
 
 import { colors } from '@sopt-makers/colors';
-import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2 } from '@sopt-makers/ui';
+import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2, CheckBox } from '@sopt-makers/ui';
 
 interface Option<T> {
   label: string;
