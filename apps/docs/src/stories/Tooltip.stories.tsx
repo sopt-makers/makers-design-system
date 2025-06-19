@@ -10,7 +10,7 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-    defaultOpen: {
+    isOpen: {
       control: 'boolean',
     },
   },
@@ -40,15 +40,16 @@ export const Default: Story = {
       <Tooltip.Content>툴팁 내용입니다.</Tooltip.Content>
     </Tooltip.Root>
   ),
-  args: {
-    defaultOpen: false,
-  },
+  args: {},
 };
 
 export const CustomContent: Story = {
   render: (args) => (
     <Tooltip.Root {...args}>
-      <Tooltip.Trigger>호버해보세요</Tooltip.Trigger>
+      <Tooltip.Trigger>
+        호버해보세요
+        <IconMessageAlert style={{ width: '15px', height: '15px' }} />
+      </Tooltip.Trigger>
       <Tooltip.Content>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           <IconMessageAlert style={{ width: '15px', height: '15px' }} />
@@ -57,7 +58,5 @@ export const CustomContent: Story = {
       </Tooltip.Content>
     </Tooltip.Root>
   ),
-  args: {
-    defaultOpen: false,
-  },
+  args: {},
 };
