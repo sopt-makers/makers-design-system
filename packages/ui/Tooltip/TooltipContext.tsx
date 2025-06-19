@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useRef, useState } from 'react';
+import type { ReactNode} from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 
 export type ContentPosition = 'top' | 'bottom';
 
@@ -17,14 +18,14 @@ interface TooltipProviderProps {
 
 export const TooltipContext = createContext<TooltipContextProps | null>(null);
 
-export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderProps) => {
+export function TooltipProvider({ controlledOpen, children }: TooltipProviderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const triggerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const showTooltip = () => setIsOpen(true);
-  const hideTooltip = () => setIsOpen(false);
+  const showTooltip = () => { setIsOpen(true); };
+  const hideTooltip = () => { setIsOpen(false); };
 
   return (
     <TooltipContext.Provider
@@ -39,7 +40,7 @@ export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderPro
       {children}
     </TooltipContext.Provider>
   );
-};
+}
 
 export const useTooltipContext = () => {
   const context = useContext(TooltipContext);

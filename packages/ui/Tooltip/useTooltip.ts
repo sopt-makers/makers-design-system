@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
-import { ContentPosition, useTooltipContext } from './TooltipContext';
+import type { ContentPosition} from './TooltipContext';
+import { useTooltipContext } from './TooltipContext';
 
 const TOOLTIP_MARGIN = 20;
 
