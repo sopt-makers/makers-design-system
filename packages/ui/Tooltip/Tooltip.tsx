@@ -9,7 +9,7 @@ interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
 }
 
-function TooltipRoot({ isOpen: controlledOpen, children, ...props }: TooltipRootProps) {
+const TooltipRoot = ({ isOpen: controlledOpen, children, ...props }: TooltipRootProps) => {
   return (
     <TooltipProvider controlledOpen={controlledOpen}>
       <div className={clsx(S.tooltipWrapper, props.className)} {...props}>
@@ -17,7 +17,7 @@ function TooltipRoot({ isOpen: controlledOpen, children, ...props }: TooltipRoot
       </div>
     </TooltipProvider>
   );
-}
+};
 
 const Tooltip = {
   Root: TooltipRoot,
