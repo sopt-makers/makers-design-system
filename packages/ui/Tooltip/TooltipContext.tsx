@@ -20,7 +20,7 @@ interface TooltipProviderProps {
 
 export const TooltipContext = createContext<TooltipContextProps | null>(null);
 
-export function TooltipProvider({ controlledOpen, children, id }: TooltipProviderProps) {
+export const TooltipProvider = ({ controlledOpen, children, id }: TooltipProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ export function TooltipProvider({ controlledOpen, children, id }: TooltipProvide
       {children}
     </TooltipContext.Provider>
   );
-}
+};
 
 export const useTooltipContext = () => {
   const context = useContext(TooltipContext);
