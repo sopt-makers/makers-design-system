@@ -1,14 +1,45 @@
-import { createContext, RefObject, useContext } from 'react';
+import { createContext, ReactNode, useContext, useRef, useState } from 'react';
 
 export type ContentPosition = 'top' | 'bottom';
 
-export interface TooltipContextProps {
+interface TooltipContextProps {
   isOpen: boolean;
-  position: ContentPosition;
-  contentRef: RefObject<HTMLDivElement>;
+  showTooltip: () => void;
+  hideTooltip: () => void;
+  triggerRef: React.RefObject<HTMLDivElement>;
+  contentRef: React.RefObject<HTMLDivElement>;
+}
+
+interface TooltipProviderProps {
+  controlledOpen?: boolean;
+  children: ReactNode;
 }
 
 export const TooltipContext = createContext<TooltipContextProps | null>(null);
+
+export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const showTooltip = () => setIsOpen(true);
+  const hideTooltip = () => setIsOpen(false);
+
+  return (
+    <TooltipContext.Provider
+      value={{
+        isOpen: controlledOpen ?? isOpen,
+        showTooltip,
+        hideTooltip,
+        triggerRef,
+        contentRef,
+      }}
+    >
+      {children}
+    </TooltipContext.Provider>
+  );
+};
 
 export const useTooltipContext = () => {
   const context = useContext(TooltipContext);

@@ -1,28 +1,24 @@
 import type { HTMLAttributes } from 'react';
-import TooltipTrigger from './Trigger';
-import TooltipContent from './Content';
-import { useTooltip } from './useTooltip';
-import { TooltipContext } from './TooltipContext';
+
+import { TooltipProvider } from './TooltipContext';
 import * as S from './style.css';
+import clsx from 'clsx';
+import TooltipTrigger from 'Tooltip/Trigger';
+import TooltipContent from 'Tooltip/Content';
 
 interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
-  defaultOpen?: boolean;
 }
 
-function TooltipRoot({ isOpen: open, defaultOpen = false, children, ...props }: TooltipRootProps) {
-  const { isOpen: internalOpen, triggerRef, contentRef, position } = useTooltip({ defaultOpen });
-
-  const isOpen = open ?? internalOpen;
-
+const TooltipRoot = ({ isOpen: controlledOpen, children, ...props }: TooltipRootProps) => {
   return (
-    <TooltipContext.Provider value={{ isOpen, position, contentRef }}>
-      <div className={S.tooltipWrapper} ref={triggerRef} {...props}>
+    <TooltipProvider controlledOpen={controlledOpen}>
+      <div className={clsx(S.tooltipWrapper, props.className)} {...props}>
         {children}
       </div>
-    </TooltipContext.Provider>
+    </TooltipProvider>
   );
-}
+};
 
 const Tooltip = {
   Root: TooltipRoot,
