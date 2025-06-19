@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '@sopt-makers/ui';
-import { IconMessageAlert } from '@sopt-makers/icons';
+import { IconAlertCircle } from '@sopt-makers/icons';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -48,11 +48,11 @@ export const CustomContent: Story = {
     <Tooltip.Root {...args}>
       <Tooltip.Trigger>
         호버해보세요
-        <IconMessageAlert style={{ width: '15px', height: '15px' }} />
+        <IconAlertCircle style={{ width: '15px', height: '15px' }} />
       </Tooltip.Trigger>
       <Tooltip.Content>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-          <IconMessageAlert style={{ width: '15px', height: '15px' }} />
+          <IconAlertCircle style={{ width: '15px', height: '15px' }} />
           <span>툴팁 내용입니다.</span>
         </div>
       </Tooltip.Content>
