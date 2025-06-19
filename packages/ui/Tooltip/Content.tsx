@@ -7,11 +7,12 @@ import { useTooltipContext } from './TooltipContext';
 import { useTooltip } from './useTooltip';
 
 const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }) => {
-  const { isOpen } = useTooltipContext();
+  const { isOpen, id } = useTooltipContext();
   const { position, contentRef } = useTooltip();
 
   return (
     <div
+      id={id}
       aria-hidden={!isOpen}
       className={clsx(
         S.contentWrapper[isOpen ? 'visible' : 'hidden'],
