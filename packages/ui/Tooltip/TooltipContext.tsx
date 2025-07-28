@@ -8,18 +8,20 @@ interface TooltipContextProps {
   showTooltip: () => void;
   hideTooltip: () => void;
   contentRef: React.RefObject<HTMLDivElement>;
+  tooltipId?: string;
+  setTooltipId: (id: string) => void;
 }
 
 interface TooltipProviderProps {
-  id: string;
   controlledOpen?: boolean;
   children: ReactNode;
 }
 
 export const TooltipContext = createContext<TooltipContextProps | null>(null);
 
-export const TooltipProvider = ({ controlledOpen, children, id }: TooltipProviderProps) => {
+export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [tooltipId, setTooltipIdState] = useState<string>();
 
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -30,6 +32,10 @@ export const TooltipProvider = ({ controlledOpen, children, id }: TooltipProvide
     setIsOpen(false);
   };
 
+  const setTooltipId = (id: string) => {
+    setTooltipIdState(id);
+  };
+
   return (
     <TooltipContext.Provider
       value={{
@@ -37,6 +43,8 @@ export const TooltipProvider = ({ controlledOpen, children, id }: TooltipProvide
         showTooltip,
         hideTooltip,
         contentRef,
+        tooltipId,
+        setTooltipId,
       }}
     >
       {children}

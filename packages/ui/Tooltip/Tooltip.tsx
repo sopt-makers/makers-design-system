@@ -1,4 +1,4 @@
-import { useId, type HTMLAttributes } from 'react';
+import { type HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import TooltipTrigger from 'Tooltip/Trigger';
 import TooltipContent from 'Tooltip/Content';
@@ -10,10 +10,8 @@ interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const TooltipRoot = ({ isOpen: controlledOpen, children, ...props }: TooltipRootProps) => {
-  const id = useId();
-
   return (
-    <TooltipProvider controlledOpen={controlledOpen} id={id}>
+    <TooltipProvider controlledOpen={controlledOpen}>
       <div className={clsx(S.tooltipWrapper, props.className)} {...props}>
         {children}
       </div>

@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useId, useEffect } from 'react';
 import clsx from 'clsx';
 import { BubblePointIcon } from './icons';
 import * as S from './style.css';
@@ -7,12 +7,19 @@ import { useTooltipContext } from './TooltipContext';
 import { useTooltip } from './useTooltip';
 
 const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }) => {
-  const { isOpen } = useTooltipContext();
+  const { isOpen, setTooltipId } = useTooltipContext();
   const { position, contentRef } = useTooltip();
+
+  const id = useId();
+  const tooltipId = `${id}-tooltip`;
+
+  useEffect(() => {
+    setTooltipId(tooltipId);
+  }, [tooltipId, setTooltipId]);
 
   return (
     <div
-      aria-labelledby={`tooltip content: ${children}`}
+      id={tooltipId}
       aria-hidden={!isOpen}
       className={clsx(
         S.contentWrapper[isOpen ? 'visible' : 'hidden'],

@@ -3,15 +3,10 @@ import { useTooltipContext } from './TooltipContext';
 import * as S from './style.css';
 
 const TooltipTrigger = ({ children }: PropsWithChildren) => {
-  const { showTooltip, hideTooltip } = useTooltipContext();
+  const { showTooltip, hideTooltip, tooltipId } = useTooltipContext();
 
   return (
-    <div
-      aria-labelledby={`tooltip trigger: ${children}`}
-      className={S.trigger}
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
-    >
+    <div aria-describedby={tooltipId} className={S.trigger} onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>
       {children}
     </div>
   );
