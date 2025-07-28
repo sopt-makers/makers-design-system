@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 import { useState, useRef, useEffect, useCallback, createContext, useContext } from 'react';
 import { IconChevronDown, IconUser } from '@sopt-makers/icons';
 import { createPortal } from 'react-dom';
-import * as S from './style.css';
 import { CheckBox } from '../Control';
+import * as S from './style.css';
 
 export interface Option<T> {
   label: string;
