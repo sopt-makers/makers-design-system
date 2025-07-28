@@ -4,11 +4,9 @@ import { createContext, useContext, useRef, useState } from 'react';
 export type ContentPosition = 'top' | 'bottom';
 
 interface TooltipContextProps {
-  id: string;
   isOpen: boolean;
   showTooltip: () => void;
   hideTooltip: () => void;
-  triggerRef: React.RefObject<HTMLDivElement>;
   contentRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -23,7 +21,6 @@ export const TooltipContext = createContext<TooltipContextProps | null>(null);
 export const TooltipProvider = ({ controlledOpen, children, id }: TooltipProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const triggerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const showTooltip = () => {
@@ -36,11 +33,9 @@ export const TooltipProvider = ({ controlledOpen, children, id }: TooltipProvide
   return (
     <TooltipContext.Provider
       value={{
-        id: id,
         isOpen: controlledOpen ?? isOpen,
         showTooltip,
         hideTooltip,
-        triggerRef,
         contentRef,
       }}
     >

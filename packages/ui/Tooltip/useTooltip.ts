@@ -1,15 +1,15 @@
 import { useLayoutEffect, useState } from 'react';
-import type { ContentPosition} from './TooltipContext';
+import type { ContentPosition } from './TooltipContext';
 import { useTooltipContext } from './TooltipContext';
 
 const TOOLTIP_MARGIN = 20;
 
 export const useTooltip = () => {
-  const { triggerRef, contentRef } = useTooltipContext();
+  const { contentRef } = useTooltipContext();
   const [position, setPosition] = useState<ContentPosition>('bottom');
 
   const calculateTooltipPosition = () => {
-    if (!triggerRef.current || !contentRef.current) return;
+    if (!contentRef.current) return;
 
     const contentRect = contentRef.current.getBoundingClientRect();
     const spaceBelow = window.innerHeight - contentRect.bottom;

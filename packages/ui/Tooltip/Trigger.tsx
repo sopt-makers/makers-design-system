@@ -2,20 +2,21 @@ import type { PropsWithChildren } from 'react';
 import { useTooltipContext } from './TooltipContext';
 import * as S from './style.css';
 
-function TooltipTrigger({ children }: PropsWithChildren) {
-  const { triggerRef, showTooltip, hideTooltip, id } = useTooltipContext();
+const TooltipTrigger = ({ children }: PropsWithChildren) => {
+  const { showTooltip, hideTooltip } = useTooltipContext();
 
   return (
     <div
+      aria-labelledby={`tooltip trigger: ${children}`}
       className={S.trigger}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
-      ref={triggerRef}
-      aria-describedby={id}
     >
       {children}
     </div>
   );
-}
+};
+
+TooltipTrigger.displayName = 'TooltipTrigger';
 
 export default TooltipTrigger;
