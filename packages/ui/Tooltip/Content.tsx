@@ -19,13 +19,13 @@ const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children
 
   return (
     <div
-      id={tooltipId}
       aria-hidden={!isOpen}
       className={clsx(
         S.contentWrapper[isOpen ? 'visible' : 'hidden'],
         S.contentWrapperPosition[position],
         S.commonContentWrapper,
       )}
+      id={tooltipId}
       ref={contentRef}
       role='tooltip'
     >
