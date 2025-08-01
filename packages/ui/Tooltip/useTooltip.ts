@@ -19,9 +19,9 @@ export const useTooltip = () => {
   }, [contentRef]);
 
   useLayoutEffect(() => {
-    if (isOpen) {
-      calculateTooltipPosition();
-    }
+    if (!isOpen) return;
+
+    calculateTooltipPosition();
   }, [isOpen, calculateTooltipPosition]);
 
   useEffect(() => {
