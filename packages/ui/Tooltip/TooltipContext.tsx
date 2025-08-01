@@ -9,7 +9,7 @@ interface TooltipContextProps {
   hideTooltip: () => void;
   contentRef: React.RefObject<HTMLDivElement>;
   tooltipId: string;
-  onIdChange: (id: string) => void;
+  onSetId: (id: string) => void;
 }
 
 interface TooltipProviderProps {
@@ -32,7 +32,7 @@ export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderPro
     setIsOpen(false);
   };
 
-  const onIdChange = (id: string) => {
+  const onSetId = (id: string) => {
     setTooltipId(id);
   };
 
@@ -44,7 +44,7 @@ export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderPro
         hideTooltip,
         contentRef,
         tooltipId,
-        onIdChange,
+        onSetId,
       }}
     >
       {children}

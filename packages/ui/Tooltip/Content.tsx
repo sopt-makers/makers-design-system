@@ -7,15 +7,15 @@ import { useTooltipContext } from './TooltipContext';
 import { useTooltip } from './useTooltip';
 
 const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }) => {
-  const { isOpen, onIdChange } = useTooltipContext();
+  const { isOpen, onSetId } = useTooltipContext();
   const { position, contentRef } = useTooltip();
 
   const id = useId();
   const tooltipId = `${id}-tooltip`;
 
   useEffect(() => {
-    onIdChange(tooltipId);
-  }, [tooltipId, onIdChange]);
+    onSetId(tooltipId);
+  }, [tooltipId, onSetId]);
 
   return (
     <div
