@@ -1,21 +1,14 @@
 import type { PropsWithChildren } from 'react';
-import { forwardRef, useId, useEffect } from 'react';
+import { forwardRef } from 'react';
+import BubblePointIcon from 'Tooltip/icons/bubblePoint';
 import clsx from 'clsx';
-import { BubblePointIcon } from './icons';
 import * as S from './style.css';
 import { useTooltipContext } from './TooltipContext';
 import { useTooltip } from './useTooltip';
 
 const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }) => {
-  const { isOpen, onSetId } = useTooltipContext();
+  const { isOpen, tooltipId } = useTooltipContext();
   const { position, contentRef } = useTooltip();
-
-  const id = useId();
-  const tooltipId = `${id}-tooltip`;
-
-  useEffect(() => {
-    onSetId(tooltipId);
-  }, [tooltipId, onSetId]);
 
   return (
     <div
