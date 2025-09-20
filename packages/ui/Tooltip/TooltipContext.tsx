@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import { createContext, useContext, useId, useRef, useState } from 'react';
 
-export type ContentPosition = 'top' | 'bottom';
-
 interface TooltipContextProps {
   isOpen: boolean;
   showTooltip: () => void;

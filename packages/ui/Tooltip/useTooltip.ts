@@ -1,8 +1,9 @@
 import { useLayoutEffect, useState, useCallback, useEffect } from 'react';
-import type { ContentPosition } from './TooltipContext';
 import { useTooltipContext } from './TooltipContext';
 
 const TOOLTIP_MARGIN = 20;
+
+type ContentPosition = 'top' | 'bottom';
 
 export const useTooltip = () => {
   const { contentRef, isOpen } = useTooltipContext();
