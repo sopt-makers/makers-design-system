@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import '@sopt-makers/ui/dist/index.css';
 
 import { colors } from '@sopt-makers/colors';
-import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2 } from '@sopt-makers/ui';
+import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2, Tooltip } from '@sopt-makers/ui';
 
 interface Option<T> {
   label: string;
@@ -161,6 +161,10 @@ function App() {
             ))}
           </SelectV2.Menu>
         </SelectV2.Root>
+        <Tooltip.Root>
+          <Tooltip.Trigger>툴팁 트리거</Tooltip.Trigger>
+          <Tooltip.Content>콘텐츠</Tooltip.Content>
+        </Tooltip.Root>
       </div>
     </>
   );
