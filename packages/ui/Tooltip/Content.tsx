@@ -4,11 +4,11 @@ import BubblePointIcon from 'Tooltip/icons/bubblePoint';
 import clsx from 'clsx';
 import * as S from './style.css';
 import { useTooltipContext } from './TooltipContext';
-import { useTooltip } from './useTooltip';
+import { useTooltipContentPosition } from 'Tooltip/useTooltip';
 
 const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }) => {
-  const { isOpen, tooltipId } = useTooltipContext();
-  const { position, contentRef } = useTooltip();
+  const { isOpen, tooltipId, contentRef } = useTooltipContext();
+  const { position } = useTooltipContentPosition();
 
   return (
     <div

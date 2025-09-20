@@ -5,7 +5,7 @@ const TOOLTIP_MARGIN = 20;
 
 type ContentPosition = 'top' | 'bottom';
 
-export const useTooltip = () => {
+export const useTooltipContentPosition = () => {
   const { contentRef, isOpen } = useTooltipContext();
   const [position, setPosition] = useState<ContentPosition>('bottom');
 
@@ -36,5 +36,5 @@ export const useTooltip = () => {
     };
   }, [isOpen, calculateTooltipPosition]);
 
-  return { position, contentRef };
+  return { position };
 };
