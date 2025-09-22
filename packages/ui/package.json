@@ -27,6 +27,7 @@
     "@sopt-makers/colors": "workspace:^",
     "@sopt-makers/fonts": "workspace:^",
     "@sopt-makers/icons": "workspace:^",
+    "@toss/react": "^1.8.1",
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/sprinkles": "^1.6.1",
     "clsx": "^2.1.1"
