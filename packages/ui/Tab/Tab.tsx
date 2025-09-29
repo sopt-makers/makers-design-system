@@ -1,4 +1,4 @@
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 import * as S from './style.css';
 import { createTabItemVariant, createTabVariant } from './utils';
@@ -53,3 +53,5 @@ function Tab<T extends string>(props: TabProps<T>) {
 }
 
 export default Tab;
+
+Tab.displayName = 'Tab';
