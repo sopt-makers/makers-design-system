@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "SUIT", sans-serif;
+  font-family: 'SUIT', sans-serif;
   font-style: normal;
 }
 
@@ -11,37 +11,32 @@ body {
 }
 
 @font-face {
-  font-family: "SUIT";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2")
-    format("woff2");
+  font-family: 'SUIT';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: "SUIT";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
-    format("woff2");
+  font-family: 'SUIT';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: "SUIT";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2")
-    format("woff2");
+  font-family: 'SUIT';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "SUIT";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2")
-    format("woff2");
+  font-family: 'SUIT';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "SUIT";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2")
-    format("woff2");
+  font-family: 'SUIT';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
@@ -58,7 +53,7 @@ body {
   flex-direction: column;
   gap: 16px;
   color: white;
-  font-family: "SUIT", sans-serif;
+  font-family: 'SUIT', sans-serif;
 
   h4 {
     font-size: 28px;
@@ -99,6 +94,54 @@ body {
     a {
       width: 80px;
       height: 80px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: transparent;
+      transition: color 160ms ease;
+      /* GPU layer for smoother fade */
+      will-change: color;
+    }
+
+    a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transition: opacity 160ms ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    a::after {
+      content: attr(data-title);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      text-align: center;
+      white-space: pre-line;
+      color: white;
+      opacity: 0;
+      transition: opacity 160ms ease;
+      pointer-events: none;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      z-index: 2;
+    }
+
+    a:hover::before {
+      opacity: 1;
+    }
+    a:hover::after {
+      opacity: 1;
     }
   }
 }
