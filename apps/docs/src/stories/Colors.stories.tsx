@@ -13,7 +13,20 @@ export const Default = {
     const renderColorChips = (scalesArr: number[], name: string) =>
       scalesArr.map((item) => {
         const key = `${name}${item}` as keyof typeof colors;
-        return <a key={key} data-title={`${key}\n${colors[key]}`} style={{ background: colors[key] }}></a>;
+        return <a key={key} data-title={`${key}\n${colors[key]}`} style={{ backgroundColor: colors[key] }}></a>;
+      });
+
+    const renderAlphaChips = (scalesArr: number[], name: string) =>
+      scalesArr.map((item) => {
+        const colorKey = `${name}Alpha${item}` as keyof typeof colors;
+        const displayName = `alpha${item}`;
+        return (
+          <a
+            key={colorKey}
+            data-title={`${displayName}\n${colors[colorKey]}`}
+            style={{ backgroundColor: colors[colorKey] }}
+          ></a>
+        );
       });
 
     return (
@@ -24,13 +37,13 @@ export const Default = {
         <div className='colors-group'>
           <p>black</p>
           <div className='color-chips'>
-            <a data-title={`black\n${colors.black}`} style={{ background: colors.black }}></a>
+            <a data-title={`black\n${colors.black}`} style={{ backgroundColor: colors.black }}></a>
           </div>
         </div>
         <div className='colors-group'>
           <p>white</p>
           <div className='color-chips'>
-            <a data-title={`white\n${colors.white}`} style={{ background: colors.white }}></a>
+            <a data-title={`white\n${colors.white}`} style={{ backgroundColor: colors.white }}></a>
           </div>
         </div>
 
@@ -65,26 +78,26 @@ export const Default = {
         <h4>Alpha Color</h4>
         <div className='colors-group'>
           <p>red</p>
-          <div className='color-chips'>{renderColorChips(alphaScales, 'red')}</div>
+          <div className='color-chips'>{renderAlphaChips(alphaScales, 'red')}</div>
         </div>
         <div className='colors-group'>
           <p>orange</p>
-          <div className='color-chips'>{renderColorChips(alphaScales, 'orange')}</div>
+          <div className='color-chips'>{renderAlphaChips(alphaScales, 'orange')}</div>
         </div>
         <div className='colors-group'>
           <p>blue</p>
-          <div className='color-chips'>{renderColorChips(alphaScales, 'blue')}</div>
+          <div className='color-chips'>{renderAlphaChips(alphaScales, 'blue')}</div>
         </div>
         <div className='colors-group'>
           <p>gray</p>
-          <div className='color-chips'>{renderColorChips(alphaScales, 'gray')}</div>
+          <div className='color-chips'>{renderAlphaChips(alphaScales, 'gray')}</div>
         </div>
 
         <h4>Semantic Color</h4>
         <div className='colors-group'>
           <p>background</p>
           <div className='color-chips'>
-            <a data-title={`background\n${colors.background}`} style={{ background: colors.background }}></a>
+            <a data-title={`background\n${colors.background}`} style={{ backgroundColor: colors.background }}></a>
           </div>
         </div>
         <div className='colors-group'>
@@ -92,38 +105,38 @@ export const Default = {
           <div className='color-chips'>
             <a
               data-title={`background-dimmed\n${colors.backgroundDimmed}`}
-              style={{ background: colors.backgroundDimmed }}
+              style={{ backgroundColor: colors.backgroundDimmed }}
             ></a>
           </div>
         </div>
         <div className='colors-group'>
           <p>secondary</p>
           <div className='color-chips'>
-            <a data-title={`secondary\n${colors.secondary}`} style={{ background: colors.secondary }}></a>
+            <a data-title={`secondary\n${colors.secondary}`} style={{ backgroundColor: colors.secondary }}></a>
           </div>
         </div>
         <div className='colors-group'>
           <p>success</p>
           <div className='color-chips'>
-            <a data-title={`success\n${colors.success}`} style={{ background: colors.success }}></a>
+            <a data-title={`success\n${colors.success}`} style={{ backgroundColor: colors.success }}></a>
           </div>
         </div>
         <div className='colors-group'>
           <p>error</p>
           <div className='color-chips'>
-            <a data-title={`error\n${colors.error}`} style={{ background: colors.error }}></a>
+            <a data-title={`error\n${colors.error}`} style={{ backgroundColor: colors.error }}></a>
           </div>
         </div>
         <div className='colors-group'>
           <p>information</p>
           <div className='color-chips'>
-            <a data-title={`information\n${colors.information}`} style={{ background: colors.information }}></a>
+            <a data-title={`information\n${colors.information}`} style={{ backgroundColor: colors.information }}></a>
           </div>
         </div>
         <div className='colors-group'>
           <p>attention</p>
           <div className='color-chips'>
-            <a data-title={`attention\n${colors.attention}`} style={{ background: colors.attention }}></a>
+            <a data-title={`attention\n${colors.attention}`} style={{ backgroundColor: colors.attention }}></a>
           </div>
         </div>
       </div>
