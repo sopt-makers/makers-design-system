@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import type { ActionType, DefaultIconType, StrictPropsWithChildren } from "../types";
-import { ToastIconSuccess, ToastIconAlert, ToastIconError } from "../icons";
-import * as styles from "./style.css";
+import { forwardRef } from 'react';
+import type { ActionType, DefaultIconType, StrictPropsWithChildren } from '../types';
+import { ToastIconSuccess, ToastIconAlert, ToastIconError } from '../icons';
+import * as styles from './style.css';
 
 // ============================== ToastRoot ===============================
 
@@ -18,16 +18,12 @@ interface RootProps {
 
 function Root(props: StrictPropsWithChildren<RootProps>, ref: React.Ref<HTMLDivElement>) {
   const { children, icon, style } = props;
-  const isDefaultIcon = typeof icon === "string";
+  const isDefaultIcon = typeof icon === 'string';
   const DefaultIcon = isDefaultIcon ? convertToIcon[icon] : undefined;
 
   return (
-    <div className={styles.root} ref={ref} style={style} >
-      {DefaultIcon ? (
-        <DefaultIcon />
-      ) : (
-        icon && <div className={styles.icon}>{icon}</div>
-      )}
+    <div className={styles.root} ref={ref} style={style} aria-live='polite' aria-atomic='true'>
+      {DefaultIcon ? <DefaultIcon /> : icon && <div className={styles.icon}>{icon}</div>}
       {children}
     </div>
   );
@@ -42,10 +38,14 @@ interface ContentProps {
   style?: React.CSSProperties;
 }
 
-function Content(props : ContentProps) {
+function Content(props: ContentProps) {
   const { content, style } = props;
 
-  return <p className={styles.content} style={style}>{content}</p>;
+  return (
+    <p className={styles.content} style={style}>
+      {content}
+    </p>
+  );
 }
 
 // ============================== ToastAction ===============================
@@ -58,7 +58,7 @@ function Action(props: ActionProps) {
   const { name, style, ...actionProps } = props;
 
   return (
-    <button className={styles.action} style={style} type="button" {...actionProps}>
+    <button className={styles.action} style={style} type='button' aria-label={name} {...actionProps}>
       {name}
     </button>
   );
