@@ -1,6 +1,10 @@
 import { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { useToast, ToastProvider, type ToastOptionType } from '@sopt-makers/ui';
 import { IconCopy } from '@sopt-makers/icons';
+import { CSSProperties } from 'react';
+import { fn } from '@storybook/test';
+
+const COPY_ICON = <IconCopy />;
 
 interface ToastArgs {
   icon?: 'success' | 'alert' | 'error' | 'custom' | undefined;
@@ -9,6 +13,7 @@ interface ToastArgs {
     name: string;
     onClick: () => void;
   };
+  style?: CSSProperties;
 }
 
 const meta: Meta<ToastArgs> = {
@@ -21,14 +26,20 @@ const meta: Meta<ToastArgs> = {
       defaultValue: undefined,
       description:
         '토스트의 아이콘으로 사용할 아이콘을 지정합니다.<br />기본 값으로 `undefined`값을 가집니다. <br /><br />custom의 경우 사용자가 직접 아이콘을 지정합니다.',
-      mapping: { default: undefined, custom: <IconCopy /> },
+      mapping: { default: undefined, custom: COPY_ICON },
       table: { type: { summary: 'success | alert | error | custom' } },
     },
     content: { description: '토스트의 내용을 작성합니다.', control: 'text', table: { type: { summary: 'string' } } },
     action: {
-      description: '토스트의 액션을 지정합니다.',
+      description:
+        '토스트의 액션을 지정합니다.<br />`name`에는 액션의 이름을, `onClick`에는 액션의 클릭 이벤트를 지정합니다.',
       table: { type: { summary: 'object' } },
       control: 'object',
+    },
+    style: {
+      description: '토스트의 스타일을 지정합니다.',
+      control: 'object',
+      table: { type: { summary: 'CSSProperties' } },
     },
   },
   decorators: [
@@ -52,14 +63,21 @@ export const Default: StoryObj<ToastArgs> = {
   args: {
     icon: undefined,
     content: '토스트 메시지입니다.',
+    action: {
+      name: '',
+      onClick: () => {},
+    },
   },
   render: (args) => {
     const { open } = useToast();
+
     const option: ToastOptionType = {
-      icon: args.icon === 'custom' ? <IconCopy /> : args.icon,
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
+
     return <button onClick={() => open(option)}>Open Toast</button>;
   },
 };
@@ -68,6 +86,10 @@ export const SuccessIcon: StoryObj<ToastArgs> = {
   name: 'Success',
   args: {
     content: '프로젝트가 등록되었어요.',
+    action: {
+      name: '',
+      onClick: () => {},
+    },
   },
   parameters: {
     controls: { exclude: ['icon'] },
@@ -76,7 +98,8 @@ export const SuccessIcon: StoryObj<ToastArgs> = {
     const option: ToastOptionType = {
       icon: 'success',
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -86,6 +109,10 @@ export const AlertIcon: StoryObj<ToastArgs> = {
   name: 'Alert',
   args: {
     content: '이메일을 입력해주세요.',
+    action: {
+      name: '',
+      onClick: () => {},
+    },
   },
   parameters: {
     controls: { exclude: ['icon'] },
@@ -94,7 +121,8 @@ export const AlertIcon: StoryObj<ToastArgs> = {
     const option: ToastOptionType = {
       icon: 'alert',
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -112,7 +140,8 @@ export const ErrorIcon: StoryObj<ToastArgs> = {
     const option: ToastOptionType = {
       icon: 'error',
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -128,9 +157,9 @@ export const CustomIcon: StoryObj<ToastArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
-      icon: <IconCopy />,
+      icon: COPY_ICON,
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -140,12 +169,17 @@ export const ActionButton: StoryObj<ToastArgs> = {
   args: {
     icon: 'success',
     content: '프로젝트가 등록되었어요.',
+    action: {
+      name: '보러가기',
+      onClick: fn(),
+    },
   },
   render: (args) => {
     const option: ToastOptionType = {
-      icon: args.icon === 'custom' ? <IconCopy /> : args.icon,
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
       content: args.content,
-      action: { name: '보러가기', onClick: () => {} },
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -159,9 +193,10 @@ export const TextOver: StoryObj<ToastArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
-      icon: args.icon === 'custom' ? <IconCopy /> : args.icon,
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -176,9 +211,10 @@ export const CloseToast: StoryObj<ToastArgs> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { open, close } = useToast();
     const option: ToastOptionType = {
-      icon: args.icon === 'custom' ? <IconCopy /> : args.icon,
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
       content: args.content,
-      action: args.action,
+      action: args.action?.name ? args.action : undefined,
+      style: args.style ? { root: args.style } : undefined,
     };
     return (
       <>
