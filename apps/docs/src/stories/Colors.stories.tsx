@@ -57,8 +57,6 @@ export const Default = {
           <p>yellow</p>
           <div className='color-chips'>{renderColorChips(scales, 'yellow')}</div>
         </div>
-
-        <h4>Sub Color</h4>
         <div className='colors-group'>
           <p>orange</p>
           <div className='color-chips'>{renderColorChips(scales, 'orange')}</div>
