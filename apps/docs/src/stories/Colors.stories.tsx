@@ -21,11 +21,10 @@ export const Default = {
         const colorKey = `${name}Alpha${item}` as keyof typeof colors;
         const displayName = `alpha${item}`;
         return (
-          <a
-            key={colorKey}
-            data-title={`${displayName}\n${colors[colorKey]}`}
-            style={{ backgroundColor: colors[colorKey] }}
-          ></a>
+          <a key={colorKey} data-title={`${displayName}`}>
+            <span className='alpha-bg' aria-hidden='true'></span>
+            <span className='alpha-fill' aria-hidden='true' style={{ backgroundColor: colors[colorKey] }}></span>
+          </a>
         );
       });
 
@@ -78,19 +77,19 @@ export const Default = {
         <h4>Alpha Color</h4>
         <div className='colors-group'>
           <p>red</p>
-          <div className='color-chips'>{renderAlphaChips(alphaScales, 'red')}</div>
+          <div className='color-chips alpha-surface'>{renderAlphaChips(alphaScales, 'red')}</div>
         </div>
         <div className='colors-group'>
           <p>orange</p>
-          <div className='color-chips'>{renderAlphaChips(alphaScales, 'orange')}</div>
+          <div className='color-chips alpha-surface'>{renderAlphaChips(alphaScales, 'orange')}</div>
         </div>
         <div className='colors-group'>
           <p>blue</p>
-          <div className='color-chips'>{renderAlphaChips(alphaScales, 'blue')}</div>
+          <div className='color-chips alpha-surface'>{renderAlphaChips(alphaScales, 'blue')}</div>
         </div>
         <div className='colors-group'>
           <p>gray</p>
-          <div className='color-chips'>{renderAlphaChips(alphaScales, 'gray')}</div>
+          <div className='color-chips alpha-surface'>{renderAlphaChips(alphaScales, 'gray')}</div>
         </div>
 
         <h4>Semantic Color</h4>

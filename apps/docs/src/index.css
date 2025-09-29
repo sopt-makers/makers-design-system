@@ -143,6 +143,31 @@ body {
     a:hover::after {
       opacity: 1;
     }
+    a .alpha-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('/src/assets/Opacity.png');
+      background-position: center;
+      background-repeat: repeat;
+      background-size: 80px 80px;
+      border-radius: 6px;
+      z-index: 0;
+    }
+    a .alpha-fill {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      z-index: 0;
+    }
+  }
+  .alpha-surface {
+    padding: 6px;
+    gap: 10px;
+    border-radius: 8px;
+  }
+  .alpha-surface a {
+    border: 1px solid rgba(255, 255, 255);
+    border-radius: 6px;
   }
 }
 
