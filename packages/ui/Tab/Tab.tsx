@@ -1,4 +1,4 @@
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 import * as S from './style.css';
 import { createTabItemVariant, createTabVariant } from './utils';
@@ -30,21 +30,24 @@ function Tab<T extends string>(props: TabProps<T>) {
   };
 
   return (
-    <div className={`${S.tab} ${tabVariant} ${className}`}>
+    <div className={`${S.tab} ${tabVariant} ${className}`} role='tablist'>
       {tabItems.map((item) => {
-        const isSelected = selected === item ? 'selected' : '';
+        const isSelected = selected === item;
         return (
           <div className={S.tabItemWrap} key={item}>
             <button
-              className={`${S.tabItem} ${tabItemVariant} ${isSelected} ${S.fontStyles[size]}`}
+              aria-selected={isSelected}
+              className={`${S.tabItem} ${tabItemVariant} ${isSelected ? 'selected' : ''} ${S.fontStyles[size]}`}
               onClick={() => {
                 handleClickTabItem(item);
               }}
+              role='tab'
+              tabIndex={isSelected ? 0 : -1}
               type='button'
             >
               {translator ? translator[item] : item}
             </button>
-            <div className={`${S.tabItemUnderline} ${isSelected}`} />
+            <div className={`${S.tabItemUnderline} ${isSelected ? 'selected' : ''}`} />
           </div>
         );
       })}
@@ -53,3 +56,5 @@ function Tab<T extends string>(props: TabProps<T>) {
 }
 
 export default Tab;
+
+Tab.displayName = 'Tab';
