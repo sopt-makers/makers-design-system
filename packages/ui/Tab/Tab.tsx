@@ -30,21 +30,23 @@ function Tab<T extends string>(props: TabProps<T>) {
   };
 
   return (
-    <div className={`${S.tab} ${tabVariant} ${className}`}>
+    <div className={`${S.tab} ${tabVariant} ${className}`} role='tablist'>
       {tabItems.map((item) => {
-        const isSelected = selected === item ? 'selected' : '';
+        const isSelected = selected === item;
         return (
           <div className={S.tabItemWrap} key={item}>
             <button
-              className={`${S.tabItem} ${tabItemVariant} ${isSelected} ${S.fontStyles[size]}`}
+              aria-selected={isSelected}
+              className={`${S.tabItem} ${tabItemVariant} ${isSelected ? 'selected' : ''} ${S.fontStyles[size]}`}
               onClick={() => {
                 handleClickTabItem(item);
               }}
+              role='tab'
               type='button'
             >
               {translator ? translator[item] : item}
             </button>
-            <div className={`${S.tabItemUnderline} ${isSelected}`} />
+            <div className={`${S.tabItemUnderline} ${isSelected ? 'selected' : ''}`} />
           </div>
         );
       })}
