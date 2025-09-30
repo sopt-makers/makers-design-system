@@ -1,33 +1,41 @@
 import { sprinkles } from './style.css';
-import type { ButtonColorTheme, ButtonRadiusTheme, ButtonSizeTheme } from './types';
+import type { ButtonIntent, ButtonSizeTheme, ButtonShape, ButtonColorTheme, ButtonVariant } from './types';
 
 function createButtonVariant(
-  colorTheme: ButtonColorTheme,
-  radiusTheme: ButtonRadiusTheme,
+  buttonIntent: ButtonIntent,
+  radiusTheme: ButtonShape,
   sizeTheme: ButtonSizeTheme,
-  variant: 'fill' | 'outlined',
+  variant: ButtonVariant,
+  isExpanded: boolean,
 ) {
   return sprinkles({
     backgroundColor: {
-      default: `${variant}-${colorTheme}-default`,
-      hover: `${variant}-${colorTheme}-hover`,
-      active: `${variant}-${colorTheme}-press`,
+      default: `${variant}-${buttonIntent}-default`,
+      hover: `${variant}-${buttonIntent}-hover`,
+      active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
     color: {
-      default: `${variant}-${colorTheme}-default`,
-      hover: `${variant}-${colorTheme}-hover`,
-      active: `${variant}-${colorTheme}-press`,
+      default: `${variant}-${buttonIntent}-default`,
+      hover: `${variant}-${buttonIntent}-hover`,
+      active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
     boxShadow: {
-      default: `${variant}-${colorTheme}-default`,
-      hover: `${variant}-${colorTheme}-hover`,
-      active: `${variant}-${colorTheme}-press`,
+      default: `${variant}-${buttonIntent}-default`,
+      hover: `${variant}-${buttonIntent}-hover`,
+      active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
-    borderRadius: radiusTheme === 'lg' ? 'max' : sizeTheme,
-    padding: sizeTheme,
+    borderRadius: variant === 'text' || variant === 'floating' ? variant : radiusTheme === 'pill' ? 'max' : sizeTheme,
+    padding:
+      variant === 'floating'
+        ? isExpanded
+          ? 'floating-extended'
+          : 'floating-default'
+        : variant === 'text'
+          ? 'text'
+          : sizeTheme,
     fontSize: sizeTheme,
   });
 }
