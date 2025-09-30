@@ -15,5 +15,6 @@ export { Tooltip } from './Tooltip';
 export * from './Skeleton';
 export * from './FieldBox';
 export * from './Tag';
+export * from './BottomSheet';
 // test component
 export { default as Test } from './Test';
