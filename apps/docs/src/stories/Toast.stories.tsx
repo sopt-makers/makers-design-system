@@ -20,27 +20,32 @@ interface ToastStoryArgs {
 const meta: Meta<ToastStoryArgs> = {
   title: 'Components/Toast',
   tags: ['autodocs'],
+
   argTypes: {
     icon: {
       control: 'select',
       options: ['default', 'success', 'alert', 'error', 'custom'],
       defaultValue: undefined,
       description:
-        '토스트의 아이콘으로 사용할 아이콘을 지정합니다.<br />기본(default) 값으로 `undefined`값을 가집니다. <br /><br />custom의 경우 사용자가 직접 아이콘을 지정합니다.',
+        '토스트의 아이콘을 지정합니다.<br />기본(default) 값으로 `undefined`값을 가집니다. <br /><br />custom의 경우 사용자가 직접 아이콘을 지정합니다.',
       mapping: { default: undefined, custom: COPY_ICON },
       table: { type: { summary: 'success | alert | error | custom' } },
     },
+
     content: { description: '토스트의 내용을 작성합니다.', control: 'text', table: { type: { summary: 'string' } } },
+
     actionName: {
-      description: '토스트 액션 버튼의 텍스트를 지정합니다.',
+      description: '토스트 액션 버튼의 텍스트를 지정합니다.<br />`action.name` 속성에 해당합니다.',
       control: 'text',
-      table: { type: { summary: 'string' } },
+      table: { type: { summary: 'string (action.name)' } },
     },
+
     onActionClick: {
-      description: '토스트 액션 버튼 클릭 시 실행할 함수를 지정합니다.',
+      description: '토스트 액션 버튼 클릭 시 실행할 함수를 지정합니다.<br />`action.onClick` 속성에 해당합니다.',
       action: 'action clicked',
-      table: { type: { summary: '() => void' } },
+      table: { type: { summary: '() => void (action.onClick)' } },
     },
+
     style: {
       description: '토스트의 스타일을 지정합니다.',
       control: 'object',
