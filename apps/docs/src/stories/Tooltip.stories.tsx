@@ -12,6 +12,21 @@ const meta = {
   argTypes: {
     isOpen: {
       control: 'boolean',
+      description: '툴팁의 열림 상태를 지정합니다.',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      defaultValue: false,
+    },
+    style: {
+      description: '툴팁의 스타일을 지정합니다.',
+      table: {
+        type: {
+          summary: 'object',
+        },
+      },
     },
   },
   decorators: [
