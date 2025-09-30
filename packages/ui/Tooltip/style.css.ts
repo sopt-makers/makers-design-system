@@ -55,6 +55,7 @@ export const contentWrapperPosition = styleVariants({
 export const bubblePointIcon = style({
   position: 'absolute',
   right: '16px',
+  color: theme.colors.gray600,
 });
 
 export const bubblePointIconPosition = styleVariants({

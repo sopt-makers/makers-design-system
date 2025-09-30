@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 import BubblePointIcon from 'Tooltip/icons/bubblePoint';
 import clsx from 'clsx';
@@ -6,9 +6,15 @@ import * as S from './style.css';
 import { useTooltipContext } from './TooltipContext';
 import { useTooltipContentPosition } from 'Tooltip/useTooltip';
 
-const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children }) => {
+export interface TooltipContentProps extends HTMLAttributes<HTMLDivElement> {
+  style?: React.CSSProperties;
+}
+
+const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ children, style, ...props }) => {
   const { isOpen, tooltipId, contentRef } = useTooltipContext();
   const { position } = useTooltipContentPosition();
+
+  const iconColor = { color: style?.backgroundColor };
 
   return (
     <div
@@ -21,8 +27,10 @@ const TooltipContent = forwardRef<HTMLDivElement, PropsWithChildren>(({ children
       id={tooltipId}
       ref={contentRef}
       role='tooltip'
+      style={style}
+      {...props}
     >
-      <BubblePointIcon className={clsx(S.bubblePointIcon, S.bubblePointIconPosition[position])} />
+      <BubblePointIcon className={clsx(S.bubblePointIcon, S.bubblePointIconPosition[position])} style={iconColor} />
       <span className={S.content}>{children}</span>
     </div>
   );
