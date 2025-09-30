@@ -14,7 +14,7 @@ export interface TagProps extends HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg';
   shape?: 'rect' | 'pill';
   variant?: 'default' | 'primary' | 'secondary';
-  type?: 'solid' | 'line';
+  type?: 'solid' | 'line' | 'accent';
   LeftIcon?: React.ComponentType<IconProps>;
 }
 
