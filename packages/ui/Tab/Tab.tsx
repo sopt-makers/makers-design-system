@@ -42,6 +42,7 @@ function Tab<T extends string>(props: TabProps<T>) {
                 handleClickTabItem(item);
               }}
               role='tab'
+              tabIndex={isSelected ? 0 : -1}
               type='button'
             >
               {translator ? translator[item] : item}
