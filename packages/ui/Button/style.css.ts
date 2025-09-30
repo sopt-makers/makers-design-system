@@ -24,12 +24,14 @@ const sprinkleProperties = defineProperties({
       'fill-disabled': theme.colors.gray800,
       'outlined-disabled': 'transparent',
       'text-disabled': 'transparent',
+      'floating-disabled': theme.colors.gray800,
     },
     color: {
       ...textColors,
       'fill-disabled': theme.colors.gray500,
       'outlined-disabled': theme.colors.gray500,
       'text-disabled': theme.colors.gray500,
+      'floating-disabled': theme.colors.gray500,
     },
     borderRadius: { ...borderRadiuses, max: '9999px' },
     boxShadow: {
@@ -37,6 +39,7 @@ const sprinkleProperties = defineProperties({
       'fill-disabled': 'none',
       'outlined-disabled': `inset 0 0 0 1px ${theme.colors.gray500}`,
       'text-disabled': 'none',
+      'floating-disabled': 'none',
     },
     padding: paddings,
     fontSize: fontSizes,

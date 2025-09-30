@@ -38,6 +38,18 @@ export const bgColors: Record<ButtonColorThemeWithStatus, string> = {
   'text-secondary-press': 'transparent',
   'text-success-press': 'transparent',
   'text-danger-press': 'transparent',
+  'floating-primary-default': theme.colors.white,
+  'floating-secondary-default': theme.colors.gray700,
+  'floating-success-default': theme.colors.success,
+  'floating-danger-default': theme.colors.error,
+  'floating-primary-hover': theme.colors.gray50,
+  'floating-secondary-hover': theme.colors.gray600,
+  'floating-success-hover': theme.colors.blue500,
+  'floating-danger-hover': theme.colors.red500,
+  'floating-primary-press': theme.colors.gray100,
+  'floating-secondary-press': theme.colors.gray500,
+  'floating-success-press': theme.colors.blue600,
+  'floating-danger-press': theme.colors.red600,
 };
 
 export const textColors: Record<ButtonColorThemeWithStatus, string> = {
@@ -77,6 +89,18 @@ export const textColors: Record<ButtonColorThemeWithStatus, string> = {
   'text-secondary-press': theme.colors.gray100,
   'text-success-press': theme.colors.gray100,
   'text-danger-press': theme.colors.gray100,
+  'floating-primary-default': theme.colors.black,
+  'floating-secondary-default': theme.colors.white,
+  'floating-success-default': theme.colors.white,
+  'floating-danger-default': theme.colors.white,
+  'floating-primary-hover': theme.colors.black,
+  'floating-secondary-hover': theme.colors.white,
+  'floating-success-hover': theme.colors.white,
+  'floating-danger-hover': theme.colors.white,
+  'floating-primary-press': theme.colors.black,
+  'floating-secondary-press': theme.colors.white,
+  'floating-success-press': theme.colors.white,
+  'floating-danger-press': theme.colors.white,
 };
 
 export const borders: Record<ButtonColorThemeWithStatus, string> = {
@@ -116,20 +140,35 @@ export const borders: Record<ButtonColorThemeWithStatus, string> = {
   'text-secondary-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
   'text-success-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
   'text-danger-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
+  'floating-primary-default': 'none',
+  'floating-secondary-default': 'none',
+  'floating-success-default': 'none',
+  'floating-danger-default': 'none',
+  'floating-primary-hover': 'none',
+  'floating-secondary-hover': 'none',
+  'floating-success-hover': 'none',
+  'floating-danger-hover': 'none',
+  'floating-primary-press': 'none',
+  'floating-secondary-press': 'none',
+  'floating-success-press': 'none',
+  'floating-danger-press': 'none',
 };
 
-export const borderRadiuses: Record<ButtonSizeTheme | 'none', string> = {
+export const borderRadiuses: Record<ButtonSizeTheme | 'text' | 'floating', string> = {
   sm: '8px',
   md: '10px',
   lg: '12px',
-  none: 'none',
+  text: 'none',
+  floating: '18px',
 };
 
-export const paddings: Record<ButtonSizeTheme | 'text', string> = {
-  sm: '9px 14px',
-  md: '12px 20px',
-  lg: '16px 26px',
-  text: '0 0 4px',
+export const paddings: Record<ButtonSizeTheme | 'text' | 'floating-default' | 'floating-extended', string> = {
+  'sm': '9px 14px',
+  'md': '12px 20px',
+  'lg': '16px 26px',
+  'text': '0 0 4px',
+  'floating-default': '10px',
+  'floating-extended': '12px 14px',
 };
 
 export const fontSizes: Record<ButtonSizeTheme, string> = {
@@ -138,8 +177,9 @@ export const fontSizes: Record<ButtonSizeTheme, string> = {
   lg: '18px',
 };
 
-export const iconSizes: Record<ButtonSizeTheme, number> = {
+export const iconSizes: Record<ButtonSizeTheme | 'floating', number> = {
   sm: 16,
   md: 20,
   lg: 24,
+  floating: 28,
 };

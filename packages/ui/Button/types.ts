@@ -1,4 +1,4 @@
-export type ButtonVariant = 'fill' | 'outlined' | 'text';
+export type ButtonVariant = 'fill' | 'outlined' | 'text' | 'floating';
 
 export type ButtonColorTheme = 'white' | 'black' | 'blue' | 'red';
 

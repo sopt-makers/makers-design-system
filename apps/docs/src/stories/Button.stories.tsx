@@ -6,7 +6,7 @@ interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';
   intent?: 'primary' | 'secondary' | 'success' | 'danger';
   shape?: 'rect' | 'pill';
-  variant?: 'fill' | 'outlined' | 'text';
+  variant?: 'fill' | 'outlined' | 'text' | 'floating';
   disabled?: boolean;
   LeftIcon?: React.ComponentType;
   RightIcon?: React.ComponentType;
@@ -85,3 +85,11 @@ export const Text: StoryObj<ButtonStoryProps> = {
 };
 
 // floating 버튼 스토리
+export const Floating: StoryObj<ButtonStoryProps> = {
+  args: {
+    children: '글쓰기',
+    variant: 'floating',
+    disabled: false,
+    LeftIcon: IconPlus,
+  },
+};

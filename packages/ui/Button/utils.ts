@@ -1,4 +1,3 @@
-import React from 'react';
 import { sprinkles } from './style.css';
 import type { ButtonIntent, ButtonSizeTheme, ButtonShape, ButtonColorTheme, ButtonVariant } from './types';
 
@@ -7,6 +6,7 @@ function createButtonVariant(
   radiusTheme: ButtonShape,
   sizeTheme: ButtonSizeTheme,
   variant: ButtonVariant,
+  isExpanded: boolean,
 ) {
   return sprinkles({
     backgroundColor: {
@@ -27,42 +27,17 @@ function createButtonVariant(
       active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
-    borderRadius: variant === 'text' ? 'none' : radiusTheme === 'pill' ? 'max' : sizeTheme,
-    padding: variant === 'text' ? 'text' : sizeTheme,
+    borderRadius: variant === 'text' || variant === 'floating' ? variant : radiusTheme === 'pill' ? 'max' : sizeTheme,
+    padding:
+      variant === 'floating'
+        ? isExpanded
+          ? 'floating-extended'
+          : 'floating-default'
+        : variant === 'text'
+          ? 'text'
+          : sizeTheme,
     fontSize: sizeTheme,
   });
 }
 
 export default createButtonVariant;
-
-interface UseResolvedProps {
-  intent: ButtonIntent;
-  shape: ButtonShape;
-  theme?: ButtonColorTheme;
-  rounded?: 'md' | 'lg';
-}
-
-export const useResolvedProps = ({ intent, shape, theme, rounded }: UseResolvedProps) => {
-  const finalIntent = React.useMemo(() => {
-    if (!theme) return intent;
-    switch (theme) {
-      case 'white':
-        return 'primary';
-      case 'black':
-        return 'secondary';
-      case 'blue':
-        return 'success';
-      case 'red':
-        return 'danger';
-      default:
-        return intent;
-    }
-  }, [intent, theme]);
-
-  const finalShape = React.useMemo(() => {
-    if (!rounded) return shape;
-    return rounded === 'lg' ? 'pill' : 'rect';
-  }, [shape, rounded]);
-
-  return { finalIntent, finalShape };
-};
