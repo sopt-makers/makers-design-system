@@ -14,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
-  theme?: 'white' | 'black' | 'blue' | 'red'; // @deprecated - `type` prop 사용
+  theme?: 'white' | 'black' | 'blue' | 'red'; // @deprecated - `intent` prop 사용
   rounded?: 'md' | 'lg'; // @deprecated - `shape` prop 사용
   variant?: 'fill' | 'outlined';
   LeftIcon?: React.ComponentType<IconProps>;
