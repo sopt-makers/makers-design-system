@@ -22,9 +22,10 @@ const meta = {
     },
     style: {
       description: '툴팁의 스타일을 지정합니다.',
+      control: 'object',
       table: {
         type: {
-          summary: 'object',
+          summary: 'CSSProperties',
         },
       },
     },
@@ -55,7 +56,6 @@ export const Default: Story = {
       <Tooltip.Content>툴팁 내용입니다.</Tooltip.Content>
     </Tooltip.Root>
   ),
-  args: {},
 };
 
 export const CustomContent: Story = {
@@ -73,5 +73,4 @@ export const CustomContent: Story = {
       </Tooltip.Content>
     </Tooltip.Root>
   ),
-  args: {},
 };
