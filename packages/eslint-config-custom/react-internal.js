@@ -34,6 +34,7 @@ module.exports = {
   ignorePatterns: ['node_modules/', 'dist/', '.eslintrc.js'],
 
   rules: {
+    'import/no-extraneous-dependencies': 'off',
     'import/no-default-export': 'off',
     'import/prefer-default-export': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'off',
