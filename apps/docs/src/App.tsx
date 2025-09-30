@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from 'react';
 import '@sopt-makers/ui/dist/index.css';
 
 import { colors } from '@sopt-makers/colors';
-import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2, Tooltip, Toast } from '@sopt-makers/ui';
+import { FieldBox, SearchField, Test, TextArea, TextField, SelectV2, Tooltip } from '@sopt-makers/ui';
 
 interface Option<T> {
   label: string;
@@ -165,16 +165,6 @@ function App() {
           <Tooltip.Trigger>툴팁 트리거</Tooltip.Trigger>
           <Tooltip.Content>콘텐츠</Tooltip.Content>
         </Tooltip.Root>
-
-        <Toast
-          content='토스트 컨텐츠'
-          action={{
-            name: '확인',
-            onClick: () => {
-              console.log('확인');
-            },
-          }}
-        />
       </div>
     </>
   );
