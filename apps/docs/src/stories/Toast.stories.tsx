@@ -26,10 +26,9 @@ const meta: Meta<ToastStoryArgs> = {
       control: 'select',
       options: ['default', 'success', 'alert', 'error', 'custom'],
       defaultValue: undefined,
-      description:
-        '토스트의 아이콘을 지정합니다.<br />기본(default) 값으로 `undefined`값을 가집니다. <br /><br />custom의 경우 사용자가 직접 아이콘을 지정합니다.',
+      description: '토스트의 아이콘을 지정합니다.<br />기본 값으로 `undefined`값을 가집니다.',
       mapping: { default: undefined, custom: COPY_ICON },
-      table: { type: { summary: 'success | alert | error | custom' } },
+      table: { type: { summary: 'success | alert | error | ReactElement' } },
     },
 
     content: { description: '토스트의 내용을 작성합니다.', control: 'text', table: { type: { summary: 'string' } } },
