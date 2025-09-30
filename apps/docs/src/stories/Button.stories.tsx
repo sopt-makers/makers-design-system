@@ -4,8 +4,8 @@ import { IconPlus, IconChevronRight } from '@sopt-makers/icons';
 
 interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';
-  theme?: 'white' | 'black' | 'blue' | 'red';
-  rounded?: 'md' | 'lg';
+  intent?: 'primary' | 'secondary' | 'success' | 'danger';
+  shape?: 'rect' | 'pill';
   variant?: 'fill' | 'outlined';
   disabled?: boolean;
   LeftIcon?: React.ComponentType;
@@ -20,8 +20,8 @@ export default {
   tags: ['autodocs'],
   argTypes: {
     size: { control: 'radio', options: ['sm', 'md', 'lg'] },
-    theme: { control: 'radio', options: ['white', 'black', 'blue', 'red'] },
-    rounded: { control: 'radio', options: ['md', 'lg'] },
+    intent: { control: 'radio', options: ['primary', 'secondary', 'success', 'danger'] },
+    shape: { control: 'radio', options: ['rect', 'pill'] },
     variant: { control: 'radio', options: ['fill', 'outlined'] },
     LeftIcon: { control: false },
     RightIcon: { control: false },
@@ -33,8 +33,8 @@ export const Default: StoryObj<ButtonStoryProps> = {
   args: {
     children: 'Default Button',
     size: 'md',
-    theme: 'white',
-    rounded: 'md',
+    intent: 'primary',
+    shape: 'rect',
     disabled: false,
   },
 };
@@ -44,8 +44,8 @@ export const Outlined: StoryObj<ButtonStoryProps> = {
   args: {
     children: 'Outlined Button',
     size: 'md',
-    theme: 'white',
-    rounded: 'md',
+    intent: 'primary',
+    shape: 'rect',
     variant: 'outlined',
     disabled: false,
   },
@@ -56,8 +56,8 @@ export const LeftIcon: StoryObj<ButtonStoryProps> = {
   args: {
     children: 'LeftIcon Button',
     size: 'sm',
-    theme: 'red',
-    rounded: 'lg',
+    intent: 'danger',
+    shape: 'pill',
     disabled: false,
     LeftIcon: IconPlus,
   },
@@ -67,8 +67,8 @@ export const RightIcon: StoryObj<ButtonStoryProps> = {
   args: {
     children: 'RightIcon Button',
     size: 'lg',
-    theme: 'blue',
-    rounded: 'lg',
+    intent: 'success',
+    shape: 'pill',
     disabled: false,
     RightIcon: IconChevronRight,
   },

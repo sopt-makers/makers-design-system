@@ -1,35 +1,68 @@
+import React from 'react';
 import { sprinkles } from './style.css';
-import type { ButtonColorTheme, ButtonRadiusTheme, ButtonSizeTheme } from './types';
+import type { ButtonIntent, ButtonSizeTheme, ButtonShape, ButtonColorTheme } from './types';
 
 function createButtonVariant(
-  colorTheme: ButtonColorTheme,
-  radiusTheme: ButtonRadiusTheme,
+  buttonIntent: ButtonIntent,
+  radiusTheme: ButtonShape,
   sizeTheme: ButtonSizeTheme,
   variant: 'fill' | 'outlined',
 ) {
   return sprinkles({
     backgroundColor: {
-      default: `${variant}-${colorTheme}-default`,
-      hover: `${variant}-${colorTheme}-hover`,
-      active: `${variant}-${colorTheme}-press`,
+      default: `${variant}-${buttonIntent}-default`,
+      hover: `${variant}-${buttonIntent}-hover`,
+      active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
     color: {
-      default: `${variant}-${colorTheme}-default`,
-      hover: `${variant}-${colorTheme}-hover`,
-      active: `${variant}-${colorTheme}-press`,
+      default: `${variant}-${buttonIntent}-default`,
+      hover: `${variant}-${buttonIntent}-hover`,
+      active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
     boxShadow: {
-      default: `${variant}-${colorTheme}-default`,
-      hover: `${variant}-${colorTheme}-hover`,
-      active: `${variant}-${colorTheme}-press`,
+      default: `${variant}-${buttonIntent}-default`,
+      hover: `${variant}-${buttonIntent}-hover`,
+      active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
-    borderRadius: radiusTheme === 'lg' ? 'max' : sizeTheme,
+    borderRadius: radiusTheme === 'pill' ? 'max' : sizeTheme,
     padding: sizeTheme,
     fontSize: sizeTheme,
   });
 }
 
 export default createButtonVariant;
+
+interface UseResolvedProps {
+  intent: ButtonIntent;
+  shape: ButtonShape;
+  theme?: ButtonColorTheme;
+  rounded?: 'md' | 'lg';
+}
+
+export const useResolvedProps = ({ intent, shape, theme, rounded }: UseResolvedProps) => {
+  const finalIntent = React.useMemo(() => {
+    if (!theme) return intent;
+    switch (theme) {
+      case 'white':
+        return 'primary';
+      case 'black':
+        return 'secondary';
+      case 'blue':
+        return 'success';
+      case 'red':
+        return 'danger';
+      default:
+        return intent;
+    }
+  }, [intent, theme]);
+
+  const finalShape = React.useMemo(() => {
+    if (!rounded) return shape;
+    return rounded === 'lg' ? 'pill' : 'rect';
+  }, [shape, rounded]);
+
+  return { finalIntent, finalShape };
+};
