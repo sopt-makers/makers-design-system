@@ -7,12 +7,13 @@ import * as S from './style.css';
 
 interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
+  style?: React.CSSProperties;
 }
 
-const TooltipRoot = ({ isOpen: controlledOpen, children, ...props }: TooltipRootProps) => {
+const TooltipRoot = ({ isOpen: controlledOpen, children, style, ...props }: TooltipRootProps) => {
   return (
     <TooltipProvider controlledOpen={controlledOpen}>
-      <div className={clsx(S.tooltipWrapper, props.className)} {...props}>
+      <div className={clsx(S.tooltipWrapper, props.className)} style={style} {...props}>
         {children}
       </div>
     </TooltipProvider>
