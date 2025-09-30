@@ -1,12 +1,12 @@
 import React from 'react';
 import { sprinkles } from './style.css';
-import type { ButtonIntent, ButtonSizeTheme, ButtonShape, ButtonColorTheme } from './types';
+import type { ButtonIntent, ButtonSizeTheme, ButtonShape, ButtonColorTheme, ButtonVariant } from './types';
 
 function createButtonVariant(
   buttonIntent: ButtonIntent,
   radiusTheme: ButtonShape,
   sizeTheme: ButtonSizeTheme,
-  variant: 'fill' | 'outlined',
+  variant: ButtonVariant,
 ) {
   return sprinkles({
     backgroundColor: {
@@ -27,8 +27,8 @@ function createButtonVariant(
       active: `${variant}-${buttonIntent}-press`,
       disabled: `${variant}-disabled`,
     },
-    borderRadius: radiusTheme === 'pill' ? 'max' : sizeTheme,
-    padding: sizeTheme,
+    borderRadius: variant === 'text' ? 'none' : radiusTheme === 'pill' ? 'max' : sizeTheme,
+    padding: variant === 'text' ? 'text' : sizeTheme,
     fontSize: sizeTheme,
   });
 }

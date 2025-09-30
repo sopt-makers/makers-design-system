@@ -2,7 +2,7 @@ import React, { type ButtonHTMLAttributes } from 'react';
 import * as S from './style.css';
 import createButtonVariant, { useResolvedProps } from './utils';
 import { iconSizes } from './constants';
-import { ButtonIntent, ButtonShape } from './types';
+import { ButtonIntent, ButtonShape, ButtonVariant } from './types';
 
 interface IconProps {
   color?: string;
@@ -16,7 +16,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg';
   theme?: 'white' | 'black' | 'blue' | 'red'; // @deprecated - `intent` prop 사용
   rounded?: 'md' | 'lg'; // @deprecated - `shape` prop 사용
-  variant?: 'fill' | 'outlined';
+  variant?: ButtonVariant;
   LeftIcon?: React.ComponentType<IconProps>;
   RightIcon?: React.ComponentType<IconProps>;
   shape?: ButtonShape;

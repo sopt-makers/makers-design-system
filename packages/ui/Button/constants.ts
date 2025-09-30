@@ -26,6 +26,18 @@ export const bgColors: Record<ButtonColorThemeWithStatus, string> = {
   'outlined-secondary-press': 'transparent',
   'outlined-success-press': theme.colors.blueAlpha100,
   'outlined-danger-press': theme.colors.redAlpha100,
+  'text-primary-default': 'transparent',
+  'text-secondary-default': 'transparent',
+  'text-success-default': 'transparent',
+  'text-danger-default': 'transparent',
+  'text-primary-hover': 'transparent',
+  'text-secondary-hover': 'transparent',
+  'text-success-hover': 'transparent',
+  'text-danger-hover': 'transparent',
+  'text-primary-press': 'transparent',
+  'text-secondary-press': 'transparent',
+  'text-success-press': 'transparent',
+  'text-danger-press': 'transparent',
 };
 
 export const textColors: Record<ButtonColorThemeWithStatus, string> = {
@@ -53,6 +65,18 @@ export const textColors: Record<ButtonColorThemeWithStatus, string> = {
   'outlined-secondary-press': theme.colors.white,
   'outlined-success-press': theme.colors.blue600,
   'outlined-danger-press': theme.colors.red600,
+  'text-primary-default': theme.colors.gray30,
+  'text-secondary-default': theme.colors.gray30,
+  'text-success-default': theme.colors.gray30,
+  'text-danger-default': theme.colors.gray30,
+  'text-primary-hover': theme.colors.gray50,
+  'text-secondary-hover': theme.colors.gray50,
+  'text-success-hover': theme.colors.gray50,
+  'text-danger-hover': theme.colors.gray50,
+  'text-primary-press': theme.colors.gray100,
+  'text-secondary-press': theme.colors.gray100,
+  'text-success-press': theme.colors.gray100,
+  'text-danger-press': theme.colors.gray100,
 };
 
 export const borders: Record<ButtonColorThemeWithStatus, string> = {
@@ -80,18 +104,32 @@ export const borders: Record<ButtonColorThemeWithStatus, string> = {
   'outlined-secondary-press': `inset 0 0 0 1px ${theme.colors.white}`,
   'outlined-success-press': `inset 0 0 0 1px ${theme.colors.blue600}`,
   'outlined-danger-press': `inset 0 0 0 1px ${theme.colors.red600}`,
+  'text-primary-default': 'none',
+  'text-secondary-default': 'none',
+  'text-success-default': 'none',
+  'text-danger-default': 'none',
+  'text-primary-hover': `inset 0 -0.8px 0 0 ${theme.colors.gray50}`,
+  'text-secondary-hover': `inset 0 -0.8px 0 0 ${theme.colors.gray50}`,
+  'text-success-hover': `inset 0 -0.8px 0 0 ${theme.colors.gray50}`,
+  'text-danger-hover': `inset 0 -0.8px 0 0 ${theme.colors.gray50}`,
+  'text-primary-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
+  'text-secondary-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
+  'text-success-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
+  'text-danger-press': `inset 0 -0.8px 0 0 ${theme.colors.gray100}`,
 };
 
-export const borderRadiuses: Record<ButtonSizeTheme, string> = {
+export const borderRadiuses: Record<ButtonSizeTheme | 'none', string> = {
   sm: '8px',
   md: '10px',
   lg: '12px',
+  none: 'none',
 };
 
-export const paddings: Record<ButtonSizeTheme, string> = {
+export const paddings: Record<ButtonSizeTheme | 'text', string> = {
   sm: '9px 14px',
   md: '12px 20px',
   lg: '16px 26px',
+  text: '0 0 4px',
 };
 
 export const fontSizes: Record<ButtonSizeTheme, string> = {

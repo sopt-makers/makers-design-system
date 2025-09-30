@@ -6,7 +6,7 @@ interface ButtonOwnProps {
   size?: 'sm' | 'md' | 'lg';
   intent?: 'primary' | 'secondary' | 'success' | 'danger';
   shape?: 'rect' | 'pill';
-  variant?: 'fill' | 'outlined';
+  variant?: 'fill' | 'outlined' | 'text';
   disabled?: boolean;
   LeftIcon?: React.ComponentType;
   RightIcon?: React.ComponentType;
@@ -73,3 +73,15 @@ export const RightIcon: StoryObj<ButtonStoryProps> = {
     RightIcon: IconChevronRight,
   },
 };
+
+// text 버튼 스토리
+export const Text: StoryObj<ButtonStoryProps> = {
+  args: {
+    children: 'Text Button',
+    variant: 'text',
+    disabled: false,
+    RightIcon: IconChevronRight,
+  },
+};
+
+// floating 버튼 스토리
