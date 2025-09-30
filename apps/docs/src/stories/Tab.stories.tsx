@@ -18,8 +18,8 @@ const meta = {
     translator: { Tab1: '탭1', Tab2: '탭2', Tab3: '탭3' },
   },
   argTypes: {
-    style: { control: 'radio', options: ['primary', 'secondary'] },
-    size: { control: 'radio', options: ['sm', 'md', 'lg'] },
+    style: { control: 'inline-radio', options: ['primary', 'secondary'] },
+    size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
     selectedInitial: { control: 'select', options: ['Tab1', 'Tab2', 'Tab3'] },
   },
 } as Meta<typeof Tab>;
