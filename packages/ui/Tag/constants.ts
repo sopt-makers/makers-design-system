@@ -46,3 +46,9 @@ export const fonts = {
   md: theme.fontsObject.LABEL_3_14_SB,
   lg: theme.fontsObject.LABEL_2_16_SB,
 };
+
+export const iconSizes: Record<TagSizeTheme, number> = {
+  sm: 14,
+  md: 16,
+  lg: 18,
+};
