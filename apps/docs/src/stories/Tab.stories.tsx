@@ -18,9 +18,32 @@ const meta = {
     translator: { Tab1: '탭1', Tab2: '탭2', Tab3: '탭3' },
   },
   argTypes: {
-    style: { control: 'inline-radio', options: ['primary', 'secondary'] },
-    size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
-    selectedInitial: { control: 'select', options: ['Tab1', 'Tab2', 'Tab3'] },
+    tabItems: {
+      description: '여러 Tab 항목을 전달합니다.',
+      table: { type: { summary: 'T[]' } },
+    },
+    selectedInitial: {
+      control: 'select',
+      options: ['Tab1', 'Tab2', 'Tab3'],
+      description: 'Tab의 초기 선택 값을 설정합니다.',
+      table: { type: { summary: 'T (optional)' } },
+    },
+    translator: {
+      description: 'Tab 항목의 텍스트를 원하는 컴포넌트로 변경합니다.',
+      table: { type: { summary: 'Record<T, ReactNode>' } },
+    },
+    style: {
+      control: 'inline-radio',
+      options: ['primary', 'secondary'],
+      description: 'Tab의 스타일을 설정합니다.',
+      table: { type: { summary: 'primary | secondary' } },
+    },
+    size: {
+      control: 'inline-radio',
+      options: ['sm', 'md', 'lg'],
+      description: 'Tab의 크기를 설정합니다.',
+      table: { type: { summary: 'sm | md | lg' } },
+    },
   },
 } as Meta<typeof Tab>;
 
