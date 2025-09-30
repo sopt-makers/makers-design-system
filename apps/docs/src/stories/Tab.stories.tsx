@@ -5,6 +5,13 @@ const meta = {
   title: 'Components/Tab',
   component: Tab,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: '동일한 위계의 요소를 그룹화하여 화면이동 없이 빠르게 탐색합니다.',
+      },
+    },
+  },
   args: {
     tabItems: ['Tab1', 'Tab2', 'Tab3'],
     selectedInitial: 'Tab1',
