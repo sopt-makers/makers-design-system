@@ -1,8 +1,8 @@
 import { HTMLAttributes, forwardRef } from "react";
   
-  interface IconPlusProps extends HTMLAttributes<SVGSVGElement> {}
+  interface IconArrowSolidUpProps extends HTMLAttributes<SVGSVGElement> {}
   
-  const IconPlus = forwardRef<SVGSVGElement, IconPlusProps>(
+  const IconArrowSolidUp = forwardRef<SVGSVGElement, IconArrowSolidUpProps>(
     (props, ref) => {
       return (
         <svg
@@ -13,7 +13,7 @@ import { HTMLAttributes, forwardRef } from "react";
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M12 5V19M5 12H19"
+            d="M8.3 15L15.7 15C16.0296 15 16.2178 14.6237 16.02 14.36L12.32 9.42667C12.16 9.21333 11.84 9.21333 11.68 9.42667L7.98 14.36C7.78223 14.6237 7.97038 15 8.3 15Z"
             stroke="currentColor"
             strokeWidth="1.5"
             strokeLinecap="round"
@@ -24,4 +24,4 @@ import { HTMLAttributes, forwardRef } from "react";
     }
   );
   
-  export default IconPlus;
+  export default IconArrowSolidUp;
