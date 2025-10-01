@@ -24,3 +24,5 @@ export { default as IconSwitchHorizontal } from "./ic-switch-horizontal";
 export { default as IconSwitchVertical } from "./ic-switch-vertical";
 export { default as IconXCircle } from "./ic-x-circle";
 export { default as IconXClose } from "./ic-x-close";
+export { default as ChevronDown } from './ic-chevron-down';
+export { default as PlusCircleFilled } from './ic-plus-circle-filled';
