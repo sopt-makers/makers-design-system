@@ -12,3 +12,4 @@ export { default as IconPower } from "./ic-power";
 export { default as IconRepeat } from "./ic-repeat";
 export { default as IconVideoOff } from "./ic-video-off";
 export { default as IconVideo } from "./ic-video";
+export { default as ImagePlusFilled } from './ic-image-plus-filled';
