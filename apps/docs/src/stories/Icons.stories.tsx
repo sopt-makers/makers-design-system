@@ -1,14 +1,19 @@
 import * as Icons from '@sopt-makers/icons';
-
 export const Default = {
   argTypes: {
-    color: { control: 'color' },
+    color: {
+      control: 'color'
+    }
   },
-  render: (props: { color: string }) => {
-    const style = { width: 24, height: 24, color: props.color };
-
-    return (
-      <div className='icons-wrap'>
+  render: (props: {
+    color: string;
+  }) => {
+    const style = {
+      width: 24,
+      height: 24,
+      color: props.color
+    };
+    return <div className='icons-wrap'>
         <div className='icons-group'>
           <h4>Communication</h4>
           <div>
@@ -459,7 +464,10 @@ export const Default = {
             <Icons.IconXClose style={style} />
             <p>x-close</p>
           </div>
-        </div>
+        <div>
+        <Icons.ArrowSolidDown style={style} />
+        <p>arrow-solid-down</p>
+      </div></div>
 
         <div className='icons-group'>
           <h4>Media</h4>
@@ -668,12 +676,10 @@ export const Default = {
             <p>playstore</p>
           </div>
         </div>
-      </div>
-    );
-  },
+      </div>;
+  }
 };
-
 export default {
   title: 'icons/Icons',
-  component: Default,
+  component: Default
 };
