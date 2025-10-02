@@ -1,14 +1,19 @@
 import * as Icons from '@sopt-makers/icons';
-
 export const Default = {
   argTypes: {
-    color: { control: 'color' },
+    color: {
+      control: 'color'
+    }
   },
-  render: (props: { color: string }) => {
-    const style = { width: 24, height: 24, color: props.color };
-
-    return (
-      <div className='icons-wrap'>
+  render: (props: {
+    color: string;
+  }) => {
+    const style = {
+      width: 24,
+      height: 24,
+      color: props.color
+    };
+    return <div className='icons-wrap'>
         <div className='icons-group'>
           <h4>Communication</h4>
           <div>
@@ -351,7 +356,10 @@ export const Default = {
             <Icons.IconUploadCloud style={style} />
             <p>upload-cloud</p>
           </div>
-        </div>
+        <div>
+              <Icons.Download style={style} />
+              <p>download</p>
+            </div></div>
 
         <div className='icons-group'>
           <h4>Interaction</h4>
@@ -459,7 +467,22 @@ export const Default = {
             <Icons.IconXClose style={style} />
             <p>x-close</p>
           </div>
-        </div>
+        <div>
+              <Icons.Reply style={style} />
+              <p>reply</p>
+            </div><div>
+              <Icons.ArrowSolidUp style={style} />
+              <p>arrow-solid-up</p>
+            </div><div>
+              <Icons.ArrowSolidLeft style={style} />
+              <p>arrow-solid-left</p>
+            </div><div>
+              <Icons.ArrowSolidRight style={style} />
+              <p>arrow-solid-right</p>
+            </div><div>
+              <Icons.ArrowSolidDown style={style} />
+              <p>arrow-solid-down</p>
+            </div></div>
 
         <div className='icons-group'>
           <h4>Media</h4>
@@ -668,12 +691,10 @@ export const Default = {
             <p>playstore</p>
           </div>
         </div>
-      </div>
-    );
-  },
+      </div>;
+  }
 };
-
 export default {
   title: 'icons/Icons',
-  component: Default,
+  component: Default
 };
