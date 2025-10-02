@@ -21,3 +21,4 @@ export { default as IconPin } from './ic-pin';
 export { default as IconSend } from './ic-send';
 export { default as IconLocation } from './ic-location';
 export { default as IconLocationFilled } from './ic-location-filled';
+export { default as MessageSquareFilled } from './ic-message-square-filled';
