@@ -14,3 +14,4 @@ export { default as IconSliders } from "./ic-sliders";
 export { default as IconTrash } from "./ic-trash";
 export { default as IconUnlocked } from "./ic-unlocked";
 export { default as IconUploadCloud } from "./ic-upload-cloud";
+export { default as Search } from './ic-search';
