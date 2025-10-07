@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { createContext, useContext, useId, useRef, useState } from 'react';
+import type { Placement } from 'Tooltip/types';
 
 interface TooltipContextProps {
   isOpen: boolean;
@@ -7,16 +8,18 @@ interface TooltipContextProps {
   hideTooltip: () => void;
   contentRef: React.RefObject<HTMLDivElement>;
   tooltipId: string;
+  placement?: Placement;
 }
 
 interface TooltipProviderProps {
   controlledOpen?: boolean;
+  placement?: Placement;
   children: ReactNode;
 }
 
 export const TooltipContext = createContext<TooltipContextProps | null>(null);
 
-export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderProps) => {
+export const TooltipProvider = ({ controlledOpen, placement, children }: TooltipProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const id = useId();
@@ -39,6 +42,7 @@ export const TooltipProvider = ({ controlledOpen, children }: TooltipProviderPro
         hideTooltip,
         contentRef,
         tooltipId,
+        placement,
       }}
     >
       {children}

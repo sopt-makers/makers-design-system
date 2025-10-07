@@ -3,15 +3,17 @@ import clsx from 'clsx';
 import TooltipTrigger from 'Tooltip/Trigger';
 import TooltipContent from 'Tooltip/Content';
 import { TooltipProvider } from './TooltipContext';
+import { Placement } from 'Tooltip/types';
 import * as S from './style.css';
 
 interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean;
+  placement?: Placement;
 }
 
-const TooltipRoot = ({ isOpen: controlledOpen, children, ...props }: TooltipRootProps) => {
+const TooltipRoot = ({ isOpen: controlledOpen, placement, children, ...props }: TooltipRootProps) => {
   return (
-    <TooltipProvider controlledOpen={controlledOpen}>
+    <TooltipProvider controlledOpen={controlledOpen} placement={placement}>
       <div className={clsx(S.tooltipWrapper, props.className)} {...props}>
         {children}
       </div>
