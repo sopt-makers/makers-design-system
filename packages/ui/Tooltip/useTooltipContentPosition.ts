@@ -1,13 +1,12 @@
 import { useLayoutEffect, useState, useCallback, useEffect } from 'react';
 import { useTooltipContext } from './TooltipContext';
+import { Placement } from 'Tooltip/types';
 
 const TOOLTIP_MARGIN = 20;
 
-type ContentPosition = 'top' | 'bottom';
-
-export const useTooltipContentPosition = () => {
-  const { contentRef, isOpen } = useTooltipContext();
-  const [position, setPosition] = useState<ContentPosition>('bottom');
+export const useTooltipContentPosition = (): { position: Placement } => {
+  const { contentRef, isOpen, position: controlledPosition } = useTooltipContext();
+  const [calculatedPosition, setCalculatedPosition] = useState<Placement>('bottom');
 
   const calculateTooltipPosition = useCallback(() => {
     if (!contentRef.current) return;
@@ -16,17 +15,17 @@ export const useTooltipContentPosition = () => {
     const spaceBelow = window.innerHeight - contentRect.bottom;
     const isSpaceBelowEnough = spaceBelow < contentRect.height + TOOLTIP_MARGIN;
 
-    setPosition(isSpaceBelowEnough ? 'top' : 'bottom');
+    setCalculatedPosition(isSpaceBelowEnough ? 'top' : 'bottom');
   }, [contentRef]);
 
   useLayoutEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || controlledPosition) return;
 
     calculateTooltipPosition();
-  }, [isOpen, calculateTooltipPosition]);
+  }, [isOpen, calculateTooltipPosition, controlledPosition]);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen || controlledPosition) return;
 
     window.addEventListener('resize', calculateTooltipPosition);
     window.addEventListener('scroll', calculateTooltipPosition);
@@ -34,7 +33,7 @@ export const useTooltipContentPosition = () => {
       window.removeEventListener('resize', calculateTooltipPosition);
       window.removeEventListener('scroll', calculateTooltipPosition);
     };
-  }, [isOpen, calculateTooltipPosition]);
+  }, [isOpen, calculateTooltipPosition, controlledPosition]);
 
-  return { position };
+  return { position: controlledPosition || calculatedPosition };
 };
