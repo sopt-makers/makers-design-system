@@ -17,15 +17,39 @@ export const trigger = style({
   ...theme.fontsObject.LABEL_4_12_SB,
 });
 
+const bridgeBase = {
+  content: '""',
+  position: 'absolute' as const,
+  backgroundColor: 'transparent',
+  pointerEvents: 'auto' as const,
+};
+
+const bridgeVariants = {
+  vertical: {
+    ...bridgeBase,
+    left: '0',
+    width: '100%',
+    height: '35px',
+  },
+  horizontal: {
+    ...bridgeBase,
+    top: '0',
+    width: '20px',
+    height: '100%',
+  },
+};
+
 export const commonContentWrapper = style({
-  position: 'absolute',
-  width: 'max-content',
-  maxWidth: '191px',
-  minWidth: '160px',
-  padding: '16px',
-  borderRadius: '10px',
-  backgroundColor: theme.colors.gray600,
-  transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
+  'position': 'absolute',
+  'width': 'max-content',
+  'maxWidth': '191px',
+  'minWidth': '160px',
+  'padding': '16px',
+  'borderRadius': '10px',
+  'backgroundColor': theme.colors.gray600,
+  'transition': 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
+
+  '::before': bridgeBase,
 });
 
 export const contentWrapperSize = styleVariants({
@@ -50,84 +74,144 @@ export const contentWrapper = styleVariants({
 
 export const contentWrapperPosition = styleVariants({
   top: {
-    bottom: '35px',
-    top: 'auto',
-    left: '50%',
-    right: 'auto',
-    transform: 'translateX(-50%)',
+    'bottom': '35px',
+    'top': 'auto',
+    'left': '50%',
+    'right': 'auto',
+    'transform': 'translateX(-50%)',
+
+    '::before': {
+      ...bridgeVariants.vertical,
+      top: '100%',
+    },
   },
   bottom: {
-    top: '35px',
-    bottom: 'auto',
-    left: '50%',
-    right: 'auto',
-    transform: 'translateX(-50%)',
+    'top': '35px',
+    'bottom': 'auto',
+    'left': '50%',
+    'right': 'auto',
+    'transform': 'translateX(-50%)',
+
+    '::before': {
+      ...bridgeVariants.vertical,
+      bottom: '100%',
+    },
   },
   left: {
-    right: '100%',
-    left: 'auto',
-    top: '50%',
-    bottom: 'auto',
-    transform: 'translateY(-50%) translateX(-20px)',
+    'right': '100%',
+    'left': 'auto',
+    'top': '50%',
+    'bottom': 'auto',
+    'transform': 'translateY(-50%) translateX(-20px)',
+
+    '::before': {
+      ...bridgeVariants.horizontal,
+      left: '100%',
+    },
   },
   right: {
-    left: '100%',
-    right: 'auto',
-    top: '50%',
-    bottom: 'auto',
-    transform: 'translateY(-50%) translateX(20px)',
+    'left': '100%',
+    'right': 'auto',
+    'top': '50%',
+    'bottom': 'auto',
+    'transform': 'translateY(-50%) translateX(20px)',
+
+    '::before': {
+      ...bridgeVariants.horizontal,
+      right: '100%',
+    },
   },
   topLeft: {
-    bottom: '35px',
-    top: 'auto',
-    left: 0,
-    right: 'auto',
+    'bottom': '35px',
+    'top': 'auto',
+    'left': '0',
+    'right': 'auto',
+
+    '::before': {
+      ...bridgeVariants.vertical,
+      top: '100%',
+    },
   },
   topRight: {
-    bottom: '35px',
-    top: 'auto',
-    left: 'auto',
-    right: 0,
+    'bottom': '35px',
+    'top': 'auto',
+    'left': 'auto',
+    'right': '0',
+
+    '::before': {
+      ...bridgeVariants.vertical,
+      top: '100%',
+    },
   },
   bottomLeft: {
-    top: '35px',
-    bottom: 'auto',
-    left: 0,
-    right: 'auto',
+    'top': '35px',
+    'bottom': 'auto',
+    'left': '0',
+    'right': 'auto',
+
+    '::before': {
+      ...bridgeVariants.vertical,
+      bottom: '100%',
+    },
   },
   bottomRight: {
-    top: '35px',
-    bottom: 'auto',
-    left: 'auto',
-    right: 0,
+    'top': '35px',
+    'bottom': 'auto',
+    'left': 'auto',
+    'right': '0',
+
+    '::before': {
+      ...bridgeVariants.vertical,
+      bottom: '100%',
+    },
   },
   leftTop: {
-    right: '100%',
-    left: 'auto',
-    top: '50%',
-    bottom: 'auto',
-    transform: 'translateY(-50%) translateX(-20px)',
+    'right': '100%',
+    'left': 'auto',
+    'top': '50%',
+    'bottom': 'auto',
+    'transform': 'translateY(-50%) translateX(-20px)',
+
+    '::before': {
+      ...bridgeVariants.horizontal,
+      left: '100%',
+    },
   },
   leftBottom: {
-    right: '100%',
-    left: 'auto',
-    top: '50%',
-    bottom: 'auto',
-    transform: 'translateY(-50%) translateX(-20px)',
+    'right': '100%',
+    'left': 'auto',
+    'top': '50%',
+    'bottom': 'auto',
+    'transform': 'translateY(-50%) translateX(-20px)',
+
+    '::before': {
+      ...bridgeVariants.horizontal,
+      left: '100%',
+    },
   },
   rightTop: {
-    left: '100%',
-    right: 'auto',
-    top: '50%',
-    bottom: 'auto',
-    transform: 'translateY(-50%) translateX(20px)',
+    'left': '100%',
+    'right': 'auto',
+    'top': '50%',
+    'bottom': 'auto',
+    'transform': 'translateY(-50%) translateX(20px)',
+
+    '::before': {
+      ...bridgeVariants.horizontal,
+      right: '100%',
+    },
   },
   rightBottom: {
-    left: '100%',
-    right: 'auto',
-    top: '50%',
-    bottom: 'auto',
-    transform: 'translateY(-50%) translateX(20px)',
+    'left': '100%',
+    'right': 'auto',
+    'top': '50%',
+    'bottom': 'auto',
+    'transform': 'translateY(-50%) translateX(20px)',
+
+    '::before': {
+      ...bridgeVariants.horizontal,
+      right: '100%',
+    },
   },
 });
 

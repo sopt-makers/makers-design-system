@@ -11,7 +11,7 @@ export interface TooltipContentProps extends PropsWithChildren {
 }
 
 const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ children, size = 'small' }) => {
-  const { isOpen, tooltipId, contentRef } = useTooltipContext();
+  const { isOpen, tooltipId, contentRef, showTooltip, hideTooltip } = useTooltipContext();
   const { placement } = useTooltipContentPlacement();
 
   return (
@@ -26,6 +26,8 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(({ childr
       id={tooltipId}
       ref={contentRef}
       role='tooltip'
+      onMouseEnter={showTooltip}
+      onMouseLeave={hideTooltip}
     >
       <BubblePointIcon className={clsx(S.bubblePointIcon, S.bubblePointIconPosition[placement])} />
       <span className={S.content}>{children}</span>

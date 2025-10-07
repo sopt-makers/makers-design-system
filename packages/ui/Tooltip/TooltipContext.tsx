@@ -30,6 +30,7 @@ export const TooltipProvider = ({ controlledOpen, placement, children }: Tooltip
   const showTooltip = () => {
     setIsOpen(true);
   };
+
   const hideTooltip = () => {
     setIsOpen(false);
   };
@@ -42,7 +43,7 @@ export const TooltipProvider = ({ controlledOpen, placement, children }: Tooltip
         hideTooltip,
         contentRef,
         tooltipId,
-        placement,
+        placement: placement ?? 'right',
       }}
     >
       {children}
