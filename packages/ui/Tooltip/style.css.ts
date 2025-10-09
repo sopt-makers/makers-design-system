@@ -318,6 +318,10 @@ export const content = style({
 
 export const closeButton = style({
   position: 'absolute',
+  top: '16px',
+  right: '18px',
+  width: '18px',
+  height: '18px',
   backgroundColor: 'transparent',
   border: 'none',
   cursor: 'pointer',
@@ -326,18 +330,6 @@ export const closeButton = style({
   justifyContent: 'center',
   color: theme.colors.gray300,
   zIndex: 1,
-  width: '18px',
-  height: '18px',
-});
-
-export const titleCloseButton = style({
-  top: '16px',
-  right: '18px',
-});
-
-export const bodyCloseButton = style({
-  top: '16px',
-  right: '18px',
 });
 
 export const prefixIcon = style({
