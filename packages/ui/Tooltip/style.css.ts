@@ -100,9 +100,9 @@ export const contentWrapperPosition = styleVariants({
   left: {
     'right': '100%',
     'left': 'auto',
-    'top': '50%',
+    'top': 'calc(50% - 16px)',
     'bottom': 'auto',
-    'transform': 'translateY(-50%) translateX(-20px)',
+    'transform': 'translateX(-20px)',
 
     '::before': {
       ...bridgeVariants.horizontal,
@@ -112,9 +112,9 @@ export const contentWrapperPosition = styleVariants({
   right: {
     'left': '100%',
     'right': 'auto',
-    'top': '50%',
+    'top': 'calc(50% - 16px)',
     'bottom': 'auto',
-    'transform': 'translateY(-50%) translateX(20px)',
+    'transform': 'translateX(20px)',
 
     '::before': {
       ...bridgeVariants.horizontal,
@@ -168,9 +168,9 @@ export const contentWrapperPosition = styleVariants({
   leftTop: {
     'right': '100%',
     'left': 'auto',
-    'top': '50%',
+    'top': '-16px',
     'bottom': 'auto',
-    'transform': 'translateY(-50%) translateX(-20px)',
+    'transform': 'translateX(-20px)',
 
     '::before': {
       ...bridgeVariants.horizontal,
@@ -180,9 +180,9 @@ export const contentWrapperPosition = styleVariants({
   leftBottom: {
     'right': '100%',
     'left': 'auto',
-    'top': '50%',
-    'bottom': 'auto',
-    'transform': 'translateY(-50%) translateX(-20px)',
+    'bottom': '-16px',
+    'top': 'auto',
+    'transform': 'translateX(-20px)',
 
     '::before': {
       ...bridgeVariants.horizontal,
@@ -192,9 +192,9 @@ export const contentWrapperPosition = styleVariants({
   rightTop: {
     'left': '100%',
     'right': 'auto',
-    'top': '50%',
+    'top': '-16px',
     'bottom': 'auto',
-    'transform': 'translateY(-50%) translateX(20px)',
+    'transform': 'translateX(20px)',
 
     '::before': {
       ...bridgeVariants.horizontal,
@@ -204,9 +204,9 @@ export const contentWrapperPosition = styleVariants({
   rightBottom: {
     'left': '100%',
     'right': 'auto',
-    'top': '50%',
-    'bottom': 'auto',
-    'transform': 'translateY(-50%) translateX(20px)',
+    'bottom': '-16px',
+    'top': 'auto',
+    'transform': 'translateX(20px)',
 
     '::before': {
       ...bridgeVariants.horizontal,
