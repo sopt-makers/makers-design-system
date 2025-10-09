@@ -100,7 +100,7 @@ export const contentWrapperPosition = styleVariants({
   left: {
     'right': '100%',
     'left': 'auto',
-    'top': 'calc(50% - 16px)',
+    'top': 'calc(50% - 20px)',
     'bottom': 'auto',
     'transform': 'translateX(-20px)',
 
@@ -112,7 +112,7 @@ export const contentWrapperPosition = styleVariants({
   right: {
     'left': '100%',
     'right': 'auto',
-    'top': 'calc(50% - 16px)',
+    'top': 'calc(50% - 20px)',
     'bottom': 'auto',
     'transform': 'translateX(20px)',
 
@@ -238,16 +238,16 @@ export const bubblePointIconPosition = styleVariants({
   left: {
     right: '-13px',
     left: 'auto',
-    top: '16px',
+    top: '50%',
     bottom: 'auto',
-    transform: 'rotate(90deg)',
+    transform: 'translateY(-50%) rotate(90deg)',
   },
   right: {
     left: '-13px',
     right: 'auto',
-    top: '16px',
+    top: '50%',
     bottom: 'auto',
-    transform: 'rotate(-90deg)',
+    transform: 'translateY(-50%) rotate(-90deg)',
   },
   topLeft: {
     bottom: '-13px',
