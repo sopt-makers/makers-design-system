@@ -217,6 +217,7 @@ export const contentWrapperPosition = styleVariants({
 
 export const bubblePointIcon = style({
   position: 'absolute',
+  color: theme.colors.gray600,
 });
 
 export const bubblePointIconPosition = styleVariants({
@@ -310,4 +311,47 @@ export const content = style({
   wordBreak: 'break-word',
   color: theme.colors.gray50,
   ...theme.fontsObject.LABEL_4_12_SB,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '8px',
+});
+
+export const closeButton = style({
+  position: 'absolute',
+  backgroundColor: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: theme.colors.gray300,
+  zIndex: 1,
+  width: '18px',
+  height: '18px',
+});
+
+export const titleCloseButton = style({
+  top: '16px',
+  right: '18px',
+});
+
+export const bodyCloseButton = style({
+  top: '16px',
+  right: '18px',
+});
+
+export const prefixIcon = style({
+  display: 'flex',
+  alignItems: 'center',
+  marginBottom: '4px',
+});
+
+export const titleSection = style({
+  color: theme.colors.gray30,
+  ...theme.fontsObject.TITLE_7_14_SB,
+});
+
+export const bodySection = style({
+  color: theme.colors.gray50,
+  ...theme.fontsObject.BODY_4_13_M,
 });
