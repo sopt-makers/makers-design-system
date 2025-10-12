@@ -13,11 +13,12 @@ export interface TooltipContentProps extends PropsWithChildren {
   title?: ReactNode;
   bodyText?: ReactNode;
   closeButton?: boolean;
+  secondaryButton?: ReactNode;
   style?: CSSProperties;
 }
 
 const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
-  ({ size = 'small', prefixIcon, title, bodyText, closeButton, style, children }) => {
+  ({ size = 'small', prefixIcon, title, bodyText, closeButton, secondaryButton, style, children }) => {
     const { isOpen, tooltipId, contentRef, showTooltip, hideTooltip } = useTooltipContext();
     const { placement } = useTooltipContentPlacement();
 
@@ -48,12 +49,21 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
           </button>
         )}
 
-        <div className={clsx(S.content)}>
-          {prefixIcon && <span className={S.prefixIcon}>{prefixIcon}</span>}
-          {title && <div className={S.titleSection}>{title}</div>}
-          {bodyText && <div className={S.bodySection}>{bodyText}</div>}
-          {children}
-        </div>
+        <section className={S.content}>
+          {(prefixIcon || title) && (
+            <div className={S.titleRow}>
+              {prefixIcon && <span className={S.prefixIcon}>{prefixIcon}</span>}
+              {title && <div className={S.titleSection}>{title}</div>}
+            </div>
+          )}
+
+          <div className={S.contentBody}>
+            {bodyText && <div className={S.bodySection}>{bodyText}</div>}
+            {children}
+          </div>
+
+          {secondaryButton && <div className={S.secondaryButton}>{secondaryButton}</div>}
+        </section>
       </div>
     );
   },
