@@ -19,10 +19,16 @@ export default {
   },
 } as Meta<CalloutProps>;
 
+const content = (
+  <>
+    hasIcon 옵션으로 통해 아이콘을 표시할 수 있으며 <br />
+    buttonLabel과 onClick 옵션을 통해 버튼의 text와 클릭 핸들러를 설정할 수 있어요
+  </>
+);
 // danger 콜아웃 스토리
 export const Danger: StoryObj<CalloutProps> = {
   args: {
-    children: 'hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요',
+    children: content,
     type: 'danger',
     hasIcon: false,
   },
@@ -30,7 +36,7 @@ export const Danger: StoryObj<CalloutProps> = {
 // information 콜아웃 스토리
 export const Information: StoryObj<CalloutProps> = {
   args: {
-    children: 'hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요',
+    children: content,
     type: 'information',
     hasIcon: false,
   },
@@ -38,7 +44,7 @@ export const Information: StoryObj<CalloutProps> = {
 // warning 콜아웃 스토리
 export const Warning: StoryObj<CalloutProps> = {
   args: {
-    children: 'hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요',
+    children: content,
     type: 'warning',
     hasIcon: false,
   },
