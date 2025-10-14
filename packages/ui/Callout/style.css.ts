@@ -76,6 +76,8 @@ const calloutBase = style({
   alignItems: 'flex-start',
   padding: '14px 18px',
 
+  minWidth: 358,
+  minHeight: 50,
   border: '1px solid',
   borderRadius: 10,
 });
