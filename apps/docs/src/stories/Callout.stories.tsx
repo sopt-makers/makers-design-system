@@ -1,14 +1,8 @@
 import { Callout } from '@sopt-makers/ui';
 import { Meta, StoryObj } from '@storybook/react';
+import type React from 'react';
 
-interface CalloutProps {
-  children: React.ReactNode;
-  type: 'danger' | 'information' | 'warning';
-  hasIcon?: boolean;
-  buttonLabel?: string;
-  isButtonDisabled?: boolean;
-  onClick?: () => void;
-}
+type CalloutProps = React.ComponentProps<typeof Callout>;
 
 export default {
   title: 'Components/Callout',
@@ -49,21 +43,40 @@ export const Warning: StoryObj<CalloutProps> = {
     hasIcon: false,
   },
 };
+// danger+icon 콜아웃 스토리
+export const MultipleIconCallouts: StoryObj<CalloutProps> = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Callout {...(Danger.args as CalloutProps)} hasIcon />
+      <Callout {...(Information.args as CalloutProps)} hasIcon />
+      <Callout {...(Warning.args as CalloutProps)} hasIcon />
+    </div>
+  ),
+};
 
-// warning+icon+button 콜아웃 스토리
-export const CalloutWithBtn: StoryObj<CalloutProps> = {
-  args: {
-    children: (
-      <>
-        버튼이 있는 경우 hasIcon과 무관하게 아이콘이 항상 표시돼요. <br />
-        isButtonDisabled 옵션으로 disabled state를 확인해보세요.
-      </>
-    ),
-    type: 'warning',
-    hasIcon: true,
-    buttonLabel: 'hover, press 해보세요!',
-    isButtonDisabled: false,
-  },
+export const MultipleButtonCallouts: StoryObj<CalloutProps> = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <Callout {...(Danger.args as CalloutProps)} buttonLabel='hover, press 해보세요!'>
+        <>
+          버튼이 있는 경우 hasIcon과 무관하게 아이콘이 항상 표시돼요. <br />
+          isButtonDisabled 옵션으로 disabled state를 확인해보세요.
+        </>
+      </Callout>
+      <Callout {...(Information.args as CalloutProps)} buttonLabel='hover, press 해보세요!'>
+        <>
+          버튼이 있는 경우 hasIcon과 무관하게 아이콘이 항상 표시돼요. <br />
+          isButtonDisabled 옵션으로 disabled state를 확인해보세요.
+        </>
+      </Callout>
+      <Callout {...(Warning.args as CalloutProps)} buttonLabel='hover, press 해보세요!'>
+        <>
+          버튼이 있는 경우 hasIcon과 무관하게 아이콘이 항상 표시돼요. <br />
+          isButtonDisabled 옵션으로 disabled state를 확인해보세요.
+        </>
+      </Callout>
+    </div>
+  ),
 };
 
 // 여러줄 텍스트 콜아웃 스토리
