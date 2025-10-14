@@ -1,47 +1,47 @@
-import { style, styleVariants } from "@vanilla-extract/css";
-import theme from "../theme.css";
-import { calloutColors, iconColors } from "./constants";
+import { style, styleVariants } from '@vanilla-extract/css';
+import theme from '../theme.css';
+import { calloutColors, iconColors } from './constants';
 
 export const container = style({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
   gap: 18,
 });
 
 export const text = style({
-  textAlign: "left",
+  textAlign: 'left',
   ...theme.fontsObject.BODY_3_14_M,
   color: theme.colors.gray30,
 });
 
 export const button = style({
-  display: "flex",
-  alignItems: "center",
+  'display': 'flex',
+  'alignItems': 'center',
 
-  paddingBottom: 4,
+  'paddingBottom': 4,
 
-  borderWidth: "0px 0px 0.8px 0px",
-  borderStyle: "solid",
-  borderColor: "transparent",
-  backgroundColor: "transparent",
+  'borderWidth': '0px 0px 0.8px 0px',
+  'borderStyle': 'solid',
+  'borderColor': 'transparent',
+  'backgroundColor': 'transparent',
 
-  cursor: "pointer",
-  color: theme.colors.gray30,
+  'cursor': 'pointer',
+  'color': theme.colors.gray30,
   ...theme.fontsObject.LABEL_4_12_SB,
 
-  ":hover": {
+  ':hover': {
     color: theme.colors.gray50,
     borderColor: theme.colors.gray50,
   },
-  ":active": {
+  ':active': {
     color: theme.colors.gray100,
     borderColor: theme.colors.gray100,
   },
-  ":disabled": {
+  ':disabled': {
     color: theme.colors.gray500,
-    borderColor: "transparent",
-    cursor: "default",
+    borderColor: 'transparent',
+    cursor: 'default',
   },
 });
 
@@ -67,26 +67,20 @@ const iconBase = style({
   width: 20,
 });
 
-export const iconVariant = styleVariants(iconColors, (color) => [
-  iconBase,
-  { color },
-]);
+export const iconVariant = styleVariants(iconColors, (color) => [iconBase, { color }]);
 
 // ▶️ callout styleVariants
 const calloutBase = style({
-  display: "flex",
+  display: 'flex',
   gap: 10,
-  alignItems: "flex-start",
-  padding: "14px 18px",
+  alignItems: 'flex-start',
+  padding: '14px 18px',
 
-  border: "1px solid",
+  border: '1px solid',
   borderRadius: 10,
 });
 
-export const calloutVariant = styleVariants(
-  calloutColors,
-  ({ backgroundColor, borderColor }) => [
-    calloutBase,
-    { backgroundColor, borderColor },
-  ]
-);
+export const calloutVariant = styleVariants(calloutColors, ({ backgroundColor, borderColor }) => [
+  calloutBase,
+  { backgroundColor, borderColor },
+]);

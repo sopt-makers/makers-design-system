@@ -1,9 +1,9 @@
-import { Callout } from "@sopt-makers/ui";
-import { Meta, StoryObj } from "@storybook/react";
+import { Callout } from '@sopt-makers/ui';
+import { Meta, StoryObj } from '@storybook/react';
 
 interface CalloutProps {
   children: React.ReactNode;
-  type: "danger" | "information" | "warning";
+  type: 'danger' | 'information' | 'warning';
   hasIcon?: boolean;
   buttonLabel?: string;
   isButtonDisabled?: boolean;
@@ -11,35 +11,35 @@ interface CalloutProps {
 }
 
 export default {
-  title: "Components/Callout",
+  title: 'Components/Callout',
   component: Callout,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     type: { control: 'radio', options: ['danger', 'information', 'warning'] },
-  }
+  },
 } as Meta<CalloutProps>;
 
 // danger 콜아웃 스토리
 export const Danger: StoryObj<CalloutProps> = {
   args: {
-    children: "hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요",
-    type: "danger",
+    children: 'hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요',
+    type: 'danger',
     hasIcon: false,
   },
 };
 // information 콜아웃 스토리
 export const Information: StoryObj<CalloutProps> = {
   args: {
-    children: "hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요",
-    type: "information",
+    children: 'hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요',
+    type: 'information',
     hasIcon: false,
   },
 };
 // warning 콜아웃 스토리
 export const Warning: StoryObj<CalloutProps> = {
   args: {
-    children: "hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요",
-    type: "warning",
+    children: 'hasIcon 옵션으로 통해 아이콘을 표시할 수 있어요',
+    type: 'warning',
     hasIcon: false,
   },
 };
@@ -53,9 +53,9 @@ export const CalloutWithBtn: StoryObj<CalloutProps> = {
         isButtonDisabled 옵션으로 disabled state를 확인해보세요.
       </>
     ),
-    type: "warning",
+    type: 'warning',
     hasIcon: true,
-    buttonLabel: "hover, press 해보세요!",
+    buttonLabel: 'hover, press 해보세요!',
     isButtonDisabled: false,
   },
 };
@@ -64,10 +64,10 @@ export const CalloutWithBtn: StoryObj<CalloutProps> = {
 export const CalloutWithLongText: StoryObj<CalloutProps> = {
   args: {
     children:
-      "Facebook 정책이 변경되어, 앞으로 Facebook 로그인이 불가해요. 다른 계정으로 재설정 부탁드려요. Facebook 정책이 변경되어, 앞으로 Facebook 로그인이 불가해요. 다른 계정으로 재설정 부탁드려요.",
-    type: "information",
+      'Facebook 정책이 변경되어, 앞으로 Facebook 로그인이 불가해요. 다른 계정으로 재설정 부탁드려요. Facebook 정책이 변경되어, 앞으로 Facebook 로그인이 불가해요. 다른 계정으로 재설정 부탁드려요.',
+    type: 'information',
     hasIcon: true,
-    buttonLabel: "소셜 계정 재설정하기",
+    buttonLabel: '소셜 계정 재설정하기',
     isButtonDisabled: false,
   },
 };
