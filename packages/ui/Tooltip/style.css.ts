@@ -42,7 +42,7 @@ const bridgeVariants = {
 export const commonContentWrapper = style({
   'position': 'absolute',
   'width': 'max-content',
-  'maxWidth': '191px',
+  'maxWidth': '273px',
   'minWidth': '160px',
   'padding': '16px',
   'borderRadius': '10px',
@@ -100,25 +100,25 @@ export const contentWrapperPosition = styleVariants({
   left: {
     'right': '100%',
     'left': 'auto',
-    'top': 'calc(50% - 20px)',
+    'top': '50%',
     'bottom': 'auto',
-    'transform': 'translateX(-20px)',
+    'transform': 'translateX(-20px) translateY(-50%)',
 
     '::before': {
       ...bridgeVariants.horizontal,
-      left: '100%',
+      right: '100%',
     },
   },
   right: {
     'left': '100%',
     'right': 'auto',
-    'top': 'calc(50% - 20px)',
+    'top': '50%',
     'bottom': 'auto',
-    'transform': 'translateX(20px)',
+    'transform': 'translateX(20px) translateY(-50%)',
 
     '::before': {
       ...bridgeVariants.horizontal,
-      right: '100%',
+      left: '100%',
     },
   },
   topLeft: {
@@ -174,7 +174,7 @@ export const contentWrapperPosition = styleVariants({
 
     '::before': {
       ...bridgeVariants.horizontal,
-      left: '100%',
+      right: '100%',
     },
   },
   leftBottom: {
@@ -186,7 +186,7 @@ export const contentWrapperPosition = styleVariants({
 
     '::before': {
       ...bridgeVariants.horizontal,
-      left: '100%',
+      right: '100%',
     },
   },
   rightTop: {
@@ -198,7 +198,7 @@ export const contentWrapperPosition = styleVariants({
 
     '::before': {
       ...bridgeVariants.horizontal,
-      right: '100%',
+      left: '100%',
     },
   },
   rightBottom: {
@@ -210,7 +210,7 @@ export const contentWrapperPosition = styleVariants({
 
     '::before': {
       ...bridgeVariants.horizontal,
-      right: '100%',
+      left: '100%',
     },
   },
 });
@@ -308,12 +308,22 @@ export const bubblePointIconPosition = styleVariants({
 });
 
 export const content = style({
-  wordBreak: 'break-word',
   color: theme.colors.gray50,
   ...theme.fontsObject.LABEL_4_12_SB,
   display: 'flex',
   flexDirection: 'column',
   gap: '8px',
+});
+
+export const titleRow = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '4px',
+});
+
+export const contentBody = style({
+  display: 'flex',
+  flexDirection: 'column',
 });
 
 export const closeButton = style({
@@ -332,18 +342,35 @@ export const closeButton = style({
   zIndex: 1,
 });
 
-export const prefixIcon = style({
+export const secondaryButton = style({
   display: 'flex',
   alignItems: 'center',
-  marginBottom: '4px',
+  marginTop: '24px',
+});
+
+export const prefixIcon = style({
+  display: 'flex',
+  alignItems: 'flex-start',
 });
 
 export const titleSection = style({
+  display: 'flex',
+  alignItems: 'center',
   color: theme.colors.gray30,
   ...theme.fontsObject.TITLE_7_14_SB,
+  wordBreak: 'keep-all',
 });
 
 export const bodySection = style({
   color: theme.colors.gray50,
   ...theme.fontsObject.BODY_4_13_M,
+  wordBreak: 'keep-all',
+});
+
+export const contentBodyWithPrefixIcon = style({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+  gap: '4px',
+  wordBreak: 'keep-all',
 });
