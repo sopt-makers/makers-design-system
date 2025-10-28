@@ -25,6 +25,8 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
     const iconColor = { color: style?.backgroundColor };
     const isLargeWithCloseButton = size === 'large' && closeButton;
 
+    const prefixIconWithBodyOnly = prefixIcon && !title && bodyText;
+
     return (
       <div
         aria-hidden={!isOpen}
@@ -50,17 +52,25 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
         )}
 
         <section className={S.content}>
-          {(prefixIcon || title) && (
-            <div className={S.titleRow}>
-              {prefixIcon && <span className={S.prefixIcon}>{prefixIcon}</span>}
-              {title && <div className={S.titleSection}>{title}</div>}
+          {prefixIconWithBodyOnly ? (
+            <div className={S.contentBodyWithPrefixIcon}>
+              <i className={S.prefixIcon}>{prefixIcon}</i>
+              <span className={S.bodySection}>{bodyText}</span>
             </div>
+          ) : (
+            <>
+              {(prefixIcon || title) && (
+                <div className={S.titleRow}>
+                  {prefixIcon && <i className={S.prefixIcon}>{prefixIcon}</i>}
+                  {title && <h1 className={S.titleSection}>{title}</h1>}
+                </div>
+              )}
+              <div className={S.contentBody}>
+                {bodyText && <span className={S.bodySection}>{bodyText}</span>}
+                {children}
+              </div>
+            </>
           )}
-
-          <div className={S.contentBody}>
-            {bodyText && <div className={S.bodySection}>{bodyText}</div>}
-            {children}
-          </div>
 
           {secondaryButton && <div className={S.secondaryButton}>{secondaryButton}</div>}
         </section>
