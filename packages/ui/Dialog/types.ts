@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import type React from 'react';
 import type { CheckBoxProps } from 'Control/CheckBox';
 
-
 export interface ChildrenProp {
   children: ReactNode;
 }
@@ -18,7 +17,12 @@ export interface DialogFooterProp extends ChildrenProp {
 interface TypeOptionsProp {
   cancelButtonText?: string;
   approveButtonText?: string;
+
+  /** @deprecated  deprecated buttonFunction to onApprove  */
   buttonFunction?: () => void;
+
+  onApprove?: () => void;
+  onCancel?: () => void;
 }
 
 export interface DialogOptionType {
@@ -40,4 +44,6 @@ export interface DialogProps {
   children?: ReactNode;
 }
 
-export interface ProviderChildren { children: React.ReactNode }
+export interface ProviderChildren {
+  children: React.ReactNode;
+}
