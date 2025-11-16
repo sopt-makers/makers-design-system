@@ -1,6 +1,6 @@
-import type { CSSProperties } from "react";
-import theme from "../theme.css";
-import type { CalloutType } from "./types";
+import type { CSSProperties } from 'react';
+import theme from '../theme.css';
+import type { CalloutType } from './types';
 
 export const iconColors: Record<CalloutType, string> = {
   danger: theme.colors.red500,
@@ -18,7 +18,7 @@ export const calloutColors: Record<CalloutType, CSSProperties> = {
     borderColor: theme.colors.blueAlpha600,
   },
   warning: {
-    backgroundColor: "rgba(255, 194, 52, 0.1)",
+    backgroundColor: 'rgba(255, 194, 52, 0.1)',
     borderColor: theme.colors.yellow600,
   },
 };

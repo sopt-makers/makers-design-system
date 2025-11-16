@@ -1,18 +1,7 @@
-import {
-  IconAlertCircle,
-  IconChevronRight,
-  IconInfoCircle,
-} from "@sopt-makers/icons";
-import type { ReactNode } from "react";
-import {
-  buttonIcon,
-  button,
-  calloutVariant,
-  container,
-  iconVariant,
-  text,
-} from "./style.css";
-import type { CalloutType } from "./types";
+import { IconAlertCircle, IconChevronRight, IconInfoCircle } from '@sopt-makers/icons';
+import type { ReactNode } from 'react';
+import { buttonIcon, button, calloutVariant, container, iconVariant, text } from './style.css';
+import type { CalloutType } from './types';
 
 const icons = {
   danger: IconAlertCircle,
@@ -29,8 +18,7 @@ interface CalloutProps {
 }
 
 function Callout(props: CalloutProps) {
-  const { children, type, hasIcon, buttonLabel, isButtonDisabled, onClick } =
-    props;
+  const { children, type, hasIcon, buttonLabel, isButtonDisabled, onClick } = props;
   const Icon = icons[type];
 
   return (
@@ -39,12 +27,7 @@ function Callout(props: CalloutProps) {
       <div className={container}>
         <span className={text}>{children}</span>
         {buttonLabel ? (
-          <button
-            className={button}
-            disabled={isButtonDisabled}
-            onClick={onClick}
-            type="button"
-          >
+          <button className={button} disabled={isButtonDisabled} onClick={onClick} type='button'>
             <span>{buttonLabel}</span>
             <IconChevronRight className={buttonIcon} />
           </button>
