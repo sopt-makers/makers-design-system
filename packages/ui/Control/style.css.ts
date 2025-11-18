@@ -71,8 +71,8 @@ const checkBoxBase = style({
 });
 
 export const checkBox = styleVariants({
-  sm: [checkBoxBase, { width: '16px', height: '18px' }],
-  lg: [checkBoxBase, { width: '22px', height: '24px' }],
+  sm: [checkBoxBase, { width: '16px', height: '16px' }],
+  lg: [checkBoxBase, { width: '22px', height: '22px' }],
 });
 
 export const checkBoxInput = style({
