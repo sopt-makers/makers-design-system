@@ -26,7 +26,7 @@ function Callout(props: CalloutProps) {
       {buttonLabel || hasIcon ? <Icon className={iconVariant[type]} /> : null}
       <div className={container}>
         <span className={text}>{children}</span>
-        {buttonLabel ? (
+        {children && buttonLabel ? (
           <button className={button} disabled={isButtonDisabled} onClick={onClick} type='button'>
             <span>{buttonLabel}</span>
             <IconChevronRight className={buttonIcon} />
