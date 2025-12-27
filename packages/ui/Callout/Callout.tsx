@@ -23,13 +23,13 @@ function Callout(props: CalloutProps) {
 
   return (
     <aside className={calloutVariant[type]}>
-      {buttonLabel || hasIcon ? <Icon className={iconVariant[type]} /> : null}
+      {buttonLabel || hasIcon ? <Icon aria-hidden='true' className={iconVariant[type]} /> : null}
       <div className={container}>
         <span className={text}>{children}</span>
         {children && buttonLabel ? (
           <button className={button} disabled={isButtonDisabled} onClick={onClick} type='button'>
             <span>{buttonLabel}</span>
-            <IconChevronRight className={buttonIcon} />
+            <IconChevronRight aria-hidden='true' className={buttonIcon} />
           </button>
         ) : null}
       </div>
