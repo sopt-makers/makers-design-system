@@ -22,7 +22,6 @@ export default {
       options: ['danger', 'information', 'warning'],
       table: {
         type: { summary: 'danger | information | warning' },
-        defaultValue: { summary: 'information' },
       },
     },
     hasIcon: {
@@ -30,7 +29,7 @@ export default {
       control: 'boolean',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: 'true' },
       },
     },
     buttonLabel: {
