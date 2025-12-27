@@ -18,7 +18,7 @@ interface CalloutProps {
 }
 
 function Callout(props: CalloutProps) {
-  const { children, type, hasIcon, buttonLabel, isButtonDisabled, onClick } = props;
+  const { children, type, hasIcon = true, buttonLabel, isButtonDisabled, onClick } = props;
   const Icon = icons[type];
 
   return (
