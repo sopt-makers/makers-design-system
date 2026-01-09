@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState, useCallback, useEffect } from 'react';
+import type { Placement } from 'Tooltip/types';
 import { useTooltipContext } from './TooltipContext';
-import { Placement } from 'Tooltip/types';
 
 const TOOLTIP_MARGIN = 20;
 
@@ -21,7 +21,7 @@ const OPPOSITE_PLACEMENT: Record<Placement, Placement> = {
   rightBottom: 'leftBottom',
 };
 
-export const useTooltipContentPlacement = (): { placement: Placement } => {
+export const useTooltipContentPlacement = () => {
   const { contentRef, triggerRef, isOpen, placement: controlledPlacement } = useTooltipContext();
   const [calculatedPlacement, setCalculatedPlacement] = useState<Placement>(controlledPlacement ?? 'right');
 
@@ -69,7 +69,7 @@ export const useTooltipContentPlacement = (): { placement: Placement } => {
     };
 
     if (!hasSpace(defaultPlacement)) {
-      const alternative = OPPOSITE_PLACEMENT[defaultPlacement] ?? defaultPlacement;
+      const alternative = OPPOSITE_PLACEMENT[defaultPlacement];
       newPlacement = hasSpace(alternative) ? alternative : defaultPlacement;
     }
 
