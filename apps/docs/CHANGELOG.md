@@ -1,5 +1,13 @@
 # docs
 
+## 0.1.1
+
+### Patch Changes
+
+- 97aed2e: chore: solve tooltip lint errors
+- Updated dependencies [97aed2e]
+  - @sopt-makers/ui@2.10.1
+
 ## 0.1.0
 
 ### Minor Changes

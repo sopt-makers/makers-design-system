@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.10.1
+
+### Patch Changes
+
+- 97aed2e: chore: solve tooltip lint errors
+
 ## 2.10.0
 
 ### Minor Changes
