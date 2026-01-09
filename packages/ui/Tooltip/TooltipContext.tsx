@@ -7,6 +7,7 @@ interface TooltipContextProps {
   showTooltip: () => void;
   hideTooltip: () => void;
   contentRef: React.RefObject<HTMLDivElement>;
+  triggerRef: React.RefObject<HTMLDivElement>;
   tooltipId: string;
   placement?: Placement;
 }
@@ -26,6 +27,7 @@ export const TooltipProvider = ({ controlledOpen, placement, children }: Tooltip
   const tooltipId = `${id}-tooltip`;
 
   const contentRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   const showTooltip = () => {
     setIsOpen(true);
@@ -42,6 +44,7 @@ export const TooltipProvider = ({ controlledOpen, placement, children }: Tooltip
         showTooltip,
         hideTooltip,
         contentRef,
+        triggerRef,
         tooltipId,
         placement: placement ?? 'right',
       }}

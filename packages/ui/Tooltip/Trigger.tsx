@@ -7,13 +7,14 @@ export interface TooltipTriggerProps extends PropsWithChildren {
 }
 
 const TooltipTrigger = ({ style, children }: TooltipTriggerProps) => {
-  const { showTooltip, hideTooltip, tooltipId } = useTooltipContext();
+  const { showTooltip, hideTooltip, tooltipId, triggerRef } = useTooltipContext();
 
   return (
     <div
       aria-describedby={tooltipId}
       className={S.trigger}
       style={style}
+      ref={triggerRef}
       onMouseEnter={showTooltip}
       onMouseLeave={hideTooltip}
     >

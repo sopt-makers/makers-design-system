@@ -22,21 +22,23 @@ const OPPOSITE_PLACEMENT: Record<Placement, Placement> = {
 };
 
 export const useTooltipContentPlacement = (): { placement: Placement } => {
-  const { contentRef, isOpen, placement: controlledPlacement } = useTooltipContext();
-  const [calculatedPlacement, setCalculatedPlacement] = useState<Placement>('bottom');
+  const { contentRef, triggerRef, isOpen, placement: controlledPlacement } = useTooltipContext();
+  const [calculatedPlacement, setCalculatedPlacement] = useState<Placement>(controlledPlacement ?? 'right');
 
   const calculateTooltipPlacement = useCallback(() => {
-    if (!contentRef.current) return;
+    if (!contentRef.current || !triggerRef.current) return;
 
-    const rect = contentRef.current.getBoundingClientRect();
-    const { width, height, top, bottom, left, right } = rect;
+    const contentRect = contentRef.current.getBoundingClientRect();
+    const triggerRect = triggerRef.current.getBoundingClientRect();
+    const { width, height } = contentRect;
+    const { top, bottom, left, right } = triggerRect;
 
     const spaceTop = top;
     const spaceBottom = window.innerHeight - bottom;
     const spaceLeft = left;
     const spaceRight = window.innerWidth - right;
 
-    const defaultPlacement = controlledPlacement || 'bottom';
+    const defaultPlacement = controlledPlacement ?? 'right';
     let newPlacement = defaultPlacement;
 
     const hasSpace = (placement: Placement) => {
@@ -72,7 +74,7 @@ export const useTooltipContentPlacement = (): { placement: Placement } => {
     }
 
     setCalculatedPlacement(newPlacement);
-  }, [contentRef, controlledPlacement]);
+  }, [contentRef, triggerRef, controlledPlacement]);
 
   useLayoutEffect(() => {
     if (isOpen) calculateTooltipPlacement();
