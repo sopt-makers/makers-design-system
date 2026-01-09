@@ -1,5 +1,16 @@
 # docs
 
+## 0.1.0
+
+### Minor Changes
+
+- 94334a5: feat: tooltip 컴포넌트 추가
+
+### Patch Changes
+
+- Updated dependencies [94334a5]
+  - @sopt-makers/ui@2.10.0
+
 ## 0.0.38
 
 ### Patch Changes
