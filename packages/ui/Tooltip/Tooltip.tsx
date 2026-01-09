@@ -1,9 +1,9 @@
-import { CSSProperties, type HTMLAttributes } from 'react';
+import type { CSSProperties, HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import TooltipTrigger from 'Tooltip/Trigger';
 import TooltipContent from 'Tooltip/Content';
+import type { Placement } from 'Tooltip/types';
 import { TooltipProvider } from './TooltipContext';
-import { Placement } from 'Tooltip/types';
 import * as S from './style.css';
 
 interface TooltipRootProps extends HTMLAttributes<HTMLDivElement> {

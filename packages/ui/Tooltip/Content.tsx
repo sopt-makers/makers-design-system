@@ -1,11 +1,11 @@
 import type { CSSProperties, PropsWithChildren, ReactNode } from 'react';
 import { forwardRef } from 'react';
-import BubblePointIcon from 'Tooltip/icons/bubblePoint';
 import clsx from 'clsx';
-import * as S from './style.css';
-import { useTooltipContext } from './TooltipContext';
+import BubblePointIcon from 'Tooltip/icons/bubblePoint';
 import { useTooltipContentPlacement } from 'Tooltip/useTooltipContentPlacement';
 import CloseIcon from 'Tooltip/icons/close';
+import * as S from './style.css';
+import { useTooltipContext } from './TooltipContext';
 
 export interface TooltipContentProps extends PropsWithChildren {
   size?: 'small' | 'large';
@@ -37,16 +37,16 @@ const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
           S.contentWrapperSize[size],
         )}
         id={tooltipId}
-        ref={contentRef}
-        role='tooltip'
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
+        ref={contentRef}
+        role='tooltip'
         style={style}
       >
         <BubblePointIcon className={clsx(S.bubblePointIcon, S.bubblePointIconPosition[placement])} style={iconColor} />
 
         {isLargeWithCloseButton && (
-          <button type='button' onClick={hideTooltip} className={S.closeButton}>
+          <button className={S.closeButton} onClick={hideTooltip} type='button'>
             <CloseIcon />
           </button>
         )}
