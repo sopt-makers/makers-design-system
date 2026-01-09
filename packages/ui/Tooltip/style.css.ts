@@ -47,7 +47,7 @@ export const commonContentWrapper = style({
   'padding': '16px',
   'borderRadius': '10px',
   'backgroundColor': theme.colors.gray600,
-  'transition': 'opacity 0.3s ease-in-out, transform 0.3s ease-out',
+  'transition': 'opacity 0.3s ease-in-out',
 
   '::before': bridgeBase,
 });
