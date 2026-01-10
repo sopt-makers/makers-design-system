@@ -24,7 +24,7 @@ export function useBottomSheetContext() {
   const context = useContext(BottomSheetContext);
 
   if (context === null) {
-    throw new Error('this hook muse be used within a BottomSheetProvider');
+    throw new Error('this hook must be used within a BottomSheetProvider');
   }
 
   return context;
