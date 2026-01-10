@@ -5,6 +5,7 @@ export const iconStyle = style({
   width: '24px',
   height: '24px',
   color: theme.colors.gray10,
+  cursor: 'pointer',
 });
 
 export const overlayStyle = style({
@@ -12,6 +13,7 @@ export const overlayStyle = style({
   bottom: 0,
   left: 0,
 
+  zIndex: 999,
   width: 'calc(100% - 32px)',
   padding: '12px 8px',
   margin: '0px 16px',
@@ -53,7 +55,10 @@ export const dimStyle = style({
   left: 0,
   top: 0,
 
+  zIndex: 999,
   width: '100%',
   height: '100%',
   backgroundColor: theme.colors.backgroundDimmed,
+  overflowY: 'hidden',
+  touchAction: 'none',
 });
