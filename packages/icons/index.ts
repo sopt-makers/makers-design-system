@@ -8,3 +8,14 @@ export * from './src/Media/index';
 export * from './src/Time/index';
 export * from './src/Users/index';
 export * from './src/Logo/index';
+
+export * as Communication from './src/Communication/index';
+export * as Editor from './src/Editor/index';
+export * as Feedback from './src/Feedback/index';
+export * as Files from './src/Files/index';
+export * as General from './src/General/index';
+export * as Interaction from './src/Interaction/index';
+export * as Media from './src/Media/index';
+export * as Time from './src/Time/index';
+export * as Users from './src/Users/index';
+export * as Logo from './src/Logo/index';
