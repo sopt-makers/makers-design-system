@@ -91,7 +91,7 @@ body {
   .color-chips {
     display: flex;
 
-    a {
+    span {
       width: 80px;
       height: 80px;
       position: relative;
@@ -101,11 +101,9 @@ body {
       text-decoration: none;
       color: transparent;
       transition: color 160ms ease;
-      /* GPU layer for smoother fade */
-      will-change: color;
     }
 
-    a::before {
+    span::before {
       content: '';
       position: absolute;
       inset: 0;
@@ -116,7 +114,7 @@ body {
       z-index: 1;
     }
 
-    a::after {
+    span::after {
       content: attr(data-title);
       position: absolute;
       inset: 0;
@@ -137,13 +135,13 @@ body {
       z-index: 2;
     }
 
-    a:hover::before {
+    span:hover::before {
       opacity: 1;
     }
-    a:hover::after {
+    span:hover::after {
       opacity: 1;
     }
-    a .alpha-bg {
+    span .alpha-bg {
       position: absolute;
       inset: 0;
       background-image: url('/src/assets/Opacity.png');
@@ -153,7 +151,7 @@ body {
       border-radius: 6px;
       z-index: 0;
     }
-    a .alpha-fill {
+    span .alpha-fill {
       position: absolute;
       inset: 0;
       border-radius: 6px;
@@ -165,7 +163,7 @@ body {
     gap: 10px;
     border-radius: 8px;
   }
-  .alpha-surface a {
+  .alpha-surface span {
     border: 1px solid rgba(255, 255, 255);
     border-radius: 6px;
   }
