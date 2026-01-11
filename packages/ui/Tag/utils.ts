@@ -10,7 +10,7 @@ function createTagStyle(
   return sprinkles({
     backgroundColor: `${variantTheme}-${typeTheme}`,
     boxShadow: `${variantTheme}-${typeTheme}`,
-    color: variantTheme,
+    color: `${variantTheme}-${typeTheme}`,
     borderRadius: shapeTheme,
     padding: sizeTheme,
     fontStyle: sizeTheme,
