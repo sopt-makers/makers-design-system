@@ -57,7 +57,7 @@ export const colors = {
   yellow600: '#EBA01E',
   yellow700: '#B57B1D',
   yellow800: '#72531E',
-  yellow900: '#3D301A',
+  yellow900: '#534123',
 
   orange50: '#FFECE5',
   orange100: '#FFCEBD',
@@ -118,4 +118,24 @@ export const colors = {
   grayAlpha700: 'rgba(15, 15, 18, 0.7)',
   grayAlpha800: 'rgba(15, 15, 18, 0.8)',
   grayAlpha900: 'rgba(15, 15, 18, 0.9)',
+
+  greenAlpha100: 'rgba(22, 191, 129, 0.1)',
+  greenAlpha200: 'rgba(22, 191, 129, 0.2)',
+  greenAlpha300: 'rgba(22, 191, 129, 0.3)',
+  greenAlpha400: 'rgba(22, 191, 129, 0.4)',
+  greenAlpha500: 'rgba(22, 191, 129, 0.5)',
+  greenAlpha600: 'rgba(22, 191, 129, 0.6)',
+  greenAlpha700: 'rgba(22, 191, 129, 0.7)',
+  greenAlpha800: 'rgba(22, 191, 129, 0.8)',
+  greenAlpha900: 'rgba(22, 191, 129, 0.9)',
+
+  yellowAlpha100: 'rgba(255, 194, 52, 0.1)',
+  yellowAlpha200: 'rgba(255, 194, 52, 0.2)',
+  yellowAlpha300: 'rgba(255, 194, 52, 0.3)',
+  yellowAlpha400: 'rgba(255, 194, 52, 0.4)',
+  yellowAlpha500: 'rgba(255, 194, 52, 0.5)',
+  yellowAlpha600: 'rgba(255, 194, 52, 0.6)',
+  yellowAlpha700: 'rgba(255, 194, 52, 0.7)',
+  yellowAlpha800: 'rgba(255, 194, 52, 0.8)',
+  yellowAlpha900: 'rgba(255, 194, 52, 0.9)',
 };
