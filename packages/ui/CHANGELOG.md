@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.10.2
+
+### Patch Changes
+
+- 05b580b: feat: disableApprove interface 추가
+
 ## 2.10.1
 
 ### Patch Changes
