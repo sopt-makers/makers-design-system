@@ -21,6 +21,8 @@ interface TypeOptionsProp {
   /** @deprecated  deprecated buttonFunction to onApprove  */
   buttonFunction?: () => void;
 
+  disableApprove?: boolean;
+
   onApprove?: () => void;
   onCancel?: () => void;
 }
