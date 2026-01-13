@@ -48,7 +48,14 @@ export default function DialogComponent({
               <Button className={buttonSize} onClick={onCancel} rounded='md' size='md' theme='black'>
                 {typeOptions.cancelButtonText}
               </Button>
-              <Button className={buttonSize} onClick={onApprove} rounded='md' size='md' theme='white'>
+              <Button
+                className={buttonSize}
+                disabled={typeOptions.disableApprove}
+                onClick={onApprove}
+                rounded='md'
+                size='md'
+                theme='white'
+              >
                 {typeOptions.approveButtonText}
               </Button>
             </>
@@ -58,13 +65,27 @@ export default function DialogComponent({
               <Button className={buttonSize} onClick={onCancel} rounded='md' size='md' theme='black'>
                 {typeOptions.cancelButtonText}
               </Button>
-              <Button className={buttonSize} onClick={onApprove} rounded='md' size='md' theme='red'>
+              <Button
+                className={buttonSize}
+                disabled={typeOptions.disableApprove}
+                onClick={onApprove}
+                rounded='md'
+                size='md'
+                theme='red'
+              >
                 {typeOptions.approveButtonText}
               </Button>
             </>
           )}
           {type === 'single' && (
-            <Button className={buttonSize} onClick={onApprove} rounded='md' size='md' theme='white'>
+            <Button
+              className={buttonSize}
+              disabled={typeOptions.disableApprove}
+              onClick={onApprove}
+              rounded='md'
+              size='md'
+              theme='white'
+            >
               {typeOptions.approveButtonText}
             </Button>
           )}
