@@ -1,1 +1,1 @@
-export type CalloutType = "danger" | "information" | "warning";
+export type CalloutType = 'danger' | 'information' | 'warning';
