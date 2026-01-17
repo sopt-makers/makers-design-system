@@ -6,8 +6,19 @@ import { fn } from '@storybook/test';
 
 const COPY_ICON = <IconCopy />;
 
+const DEFAULT_OPTION = (args: ToastStoryArgs): ToastOptionType => ({
+  content: args.content,
+  action: args.actionName
+    ? {
+        name: args.actionName,
+        onClick: args.onActionClick || fn(),
+      }
+    : undefined,
+  style: args.style ? { root: args.style } : undefined,
+});
+
 interface ToastStoryArgs {
-  icon?: 'success' | 'alert' | 'error' | 'custom' | undefined;
+  icon?: 'success' | 'alert' | 'error' | 'custom';
   content: string;
 
   /* NOTE: 스토리북 전용 인터페이스 (action 속성을 개별 속성으로 평면화) */
@@ -65,8 +76,9 @@ export default meta;
 
 const ToastSample = ({ option }: { option: ToastOptionType }) => {
   const { open } = useToast();
-  return <button onClick={() => open(option)}>Open Toast</button>;
+  return <button type='button' onClick={() => open(option)} aria-label='Open Toast'>Open Toast</button>;
 };
+
 
 export const Default: StoryObj<ToastStoryArgs> = {
   args: {
@@ -77,21 +89,12 @@ export const Default: StoryObj<ToastStoryArgs> = {
     style: undefined,
   },
   render: (args) => {
-    const { open } = useToast();
-
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: args.icon === 'custom' ? COPY_ICON : args.icon,
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
 
-    return <button onClick={() => open(option)}>Open Toast</button>;
+    return <ToastSample option={option} />;
   },
 };
 
@@ -107,15 +110,8 @@ export const SuccessIcon: StoryObj<ToastStoryArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: 'success',
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -133,15 +129,8 @@ export const AlertIcon: StoryObj<ToastStoryArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: 'alert',
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -159,15 +148,8 @@ export const ErrorIcon: StoryObj<ToastStoryArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: 'error',
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -186,14 +168,7 @@ export const CustomIcon: StoryObj<ToastStoryArgs> = {
   render: (args) => {
     const option: ToastOptionType = {
       icon: COPY_ICON,
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
+      ...DEFAULT_OPTION(args),
     };
     return <ToastSample option={option} />;
   },
@@ -208,15 +183,8 @@ export const ActionButton: StoryObj<ToastStoryArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: args.icon === 'custom' ? COPY_ICON : args.icon,
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -232,15 +200,8 @@ export const TextOver: StoryObj<ToastStoryArgs> = {
   },
   render: (args) => {
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: args.icon === 'custom' ? COPY_ICON : args.icon,
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
     return <ToastSample option={option} />;
   },
@@ -255,22 +216,16 @@ export const CloseToast: StoryObj<ToastStoryArgs> = {
   },
   render: (args) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { open, close } = useToast();
+    const { close } = useToast();
+
     const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
       icon: args.icon === 'custom' ? COPY_ICON : args.icon,
-      content: args.content,
-      action: args.actionName
-        ? {
-            name: args.actionName,
-            onClick: args.onActionClick || fn(),
-          }
-        : undefined,
-      style: args.style ? { root: args.style } : undefined,
     };
     return (
       <>
-        <button onClick={() => open(option)}>Open Toast</button>
-        <button onClick={close}>Close Toast</button>
+        <ToastSample option={option} />
+        <button type='button' onClick={close} aria-label='Close Toast'>Close Toast</button>
       </>
     );
   },
