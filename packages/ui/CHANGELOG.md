@@ -1,5 +1,11 @@
 # @sopt-makers/ui
 
+## 2.11.0
+
+### Minor Changes
+
+- a1cec7d: bottom sheet component
+
 ## 2.10.2
 
 ### Patch Changes
