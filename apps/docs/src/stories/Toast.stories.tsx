@@ -1,154 +1,231 @@
-import { Meta, StoryObj, StoryFn } from "@storybook/react";
-import { useToast, ToastProvider, type ToastOptionType } from "@sopt-makers/ui";
-import { IconCopy } from "@sopt-makers/icons";
+import { Meta, StoryObj, StoryFn } from '@storybook/react';
+import { useToast, ToastProvider, type ToastOptionType } from '@sopt-makers/ui';
+import { IconCopy } from '@sopt-makers/icons';
+import { CSSProperties } from 'react';
+import { fn } from '@storybook/test';
 
-const meta: Meta = {
-  title: "Components/Toast",
-  tags: ["autodocs"],
+const COPY_ICON = <IconCopy />;
+
+const DEFAULT_OPTION = (args: ToastStoryArgs): ToastOptionType => ({
+  content: args.content,
+  action: args.actionName
+    ? {
+        name: args.actionName,
+        onClick: args.onActionClick || fn(),
+      }
+    : undefined,
+  style: args.style ? { root: args.style } : undefined,
+});
+
+interface ToastStoryArgs {
+  icon?: 'success' | 'alert' | 'error' | 'custom';
+  content: string;
+
+  /* NOTE: 스토리북 전용 인터페이스 (action 속성을 개별 속성으로 평면화) */
+  actionName?: string;
+  onActionClick?: () => void;
+
+  style?: CSSProperties;
+}
+
+const meta: Meta<ToastStoryArgs> = {
+  title: 'Components/Toast',
+  tags: ['autodocs'],
+
   argTypes: {
     icon: {
-      control: "radio",
-      options: ["success", "alert", "error", "custom"],
-      description: "토스트의 아이콘을 지정합니다.",
-      mapping: { custom: <IconCopy /> },
-      table: {
-        type: {
-          summary: "success | alert | error | ReactElement",
-        },
-      },
+      control: 'select',
+      options: ['default', 'success', 'alert', 'error', 'custom'],
+      defaultValue: undefined,
+      description: '토스트의 아이콘을 지정합니다.<br />기본 값으로 `undefined`값을 가집니다.',
+      mapping: { default: undefined, custom: COPY_ICON },
+      table: { type: { summary: 'success | alert | error | ReactElement' } },
     },
-    content: { description: "토스트의 내용을 작성합니다." },
-    action: {
-      description: "토스트의 액션을 지정합니다.",
-      table: { type: { summary: "object" } },
+
+    content: { description: '토스트의 내용을 작성합니다.', control: 'text', table: { type: { summary: 'string' } } },
+
+    actionName: {
+      description: '토스트 액션 버튼의 텍스트를 지정합니다.<br />`action.name` 속성에 해당합니다.',
+      control: 'text',
+      table: { type: { summary: 'string (action.name)' } },
     },
+
+    onActionClick: {
+      description: '토스트 액션 버튼 클릭 시 실행할 함수를 지정합니다.<br />`action.onClick` 속성에 해당합니다.',
+      action: 'action clicked',
+      table: { type: { summary: '() => void (action.onClick)' } },
+    },
+
     style: {
-      description: "토스트의 스타일을 사용자가 지정합니다.",
-      table: { type: { summary: "object" } },
+      description: '토스트의 스타일을 지정합니다.',
+      control: 'object',
+      table: { type: { summary: 'CSSProperties' } },
     },
   },
   decorators: [
     (Story: StoryFn) => (
       <ToastProvider>
-        <Story />
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'start', height: '80px' }}>
+          <Story />
+        </div>
       </ToastProvider>
     ),
   ],
 };
 export default meta;
 
-// export const Component = {
-//   component: Toast,
-//   args: {
-//     icon: "success",
-//     content: "프로젝트가 등록되었어요.",
-//     action: { name: "보러가기", onClick: () => {} },
-//     style: {
-//       root: { position: "static", animation: "none", transform: "none" },
-//     },
-//   },
-// };
-
 const ToastSample = ({ option }: { option: ToastOptionType }) => {
   const { open } = useToast();
-  return <button onClick={() => open(option)}>Open Toast</button>;
+  return <button type='button' onClick={() => open(option)} aria-label='Open Toast'>Open Toast</button>;
 };
 
-export const Default: StoryObj = {
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+
+export const Default: StoryObj<ToastStoryArgs> = {
+  args: {
+    icon: undefined,
+    content: '토스트 메시지입니다.',
+    actionName: '',
+    onActionClick: fn(),
+    style: undefined,
+  },
+  render: (args) => {
     const option: ToastOptionType = {
-      content: "저는 토스트예요.",
+      ...DEFAULT_OPTION(args),
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
+    };
+
+    return <ToastSample option={option} />;
+  },
+};
+
+export const SuccessIcon: StoryObj<ToastStoryArgs> = {
+  name: 'Success',
+  args: {
+    content: '프로젝트가 등록되었어요.',
+    actionName: '',
+    onActionClick: fn(),
+  },
+  parameters: {
+    controls: { exclude: ['icon'] },
+  },
+  render: (args) => {
+    const option: ToastOptionType = {
+      ...DEFAULT_OPTION(args),
+      icon: 'success',
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const SuccessIcon: StoryObj = {
-  name: "Icon - Success ",
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+export const AlertIcon: StoryObj<ToastStoryArgs> = {
+  name: 'Alert',
+  args: {
+    content: '이메일을 입력해주세요.',
+    actionName: '',
+    onActionClick: fn(),
+  },
+  parameters: {
+    controls: { exclude: ['icon'] },
+  },
+  render: (args) => {
     const option: ToastOptionType = {
-      icon: "success",
-      content: "프로젝트가 등록되었어요.",
+      ...DEFAULT_OPTION(args),
+      icon: 'alert',
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const AlertIcon: StoryObj = {
-  name: "Icon - Alert",
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+export const ErrorIcon: StoryObj<ToastStoryArgs> = {
+  name: 'Error',
+  args: {
+    content: '프로젝트 수정에 실패했어요.',
+    actionName: '',
+    onActionClick: fn(),
+  },
+  parameters: {
+    controls: { exclude: ['icon'] },
+  },
+  render: (args) => {
     const option: ToastOptionType = {
-      icon: "alert",
-      content: "이메일을 입력해주세요.",
+      ...DEFAULT_OPTION(args),
+      icon: 'error',
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const ErrorIcon: StoryObj = {
-  name: "Icon - Error",
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+export const CustomIcon: StoryObj<ToastStoryArgs> = {
+  name: 'Custom',
+  args: {
+    content: '링크를 복사했어요.',
+    actionName: '',
+    onActionClick: fn(),
+  },
+  parameters: {
+    controls: { exclude: ['icon'] },
+  },
+  render: (args) => {
     const option: ToastOptionType = {
-      icon: "error",
-      content: "프로젝트 수정에 실패했어요.",
+      icon: COPY_ICON,
+      ...DEFAULT_OPTION(args),
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const CustomIcon: StoryObj = {
-  name: "Icon - Custom",
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+export const ActionButton: StoryObj<ToastStoryArgs> = {
+  args: {
+    icon: 'success',
+    content: '프로젝트가 등록되었어요.',
+    actionName: '보러가기',
+    onActionClick: fn(),
+  },
+  render: (args) => {
     const option: ToastOptionType = {
-      icon: <IconCopy />,
-      content: "링크를 복사했어요.",
+      ...DEFAULT_OPTION(args),
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const ActionButton: StoryObj = {
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+export const TextOver: StoryObj<ToastStoryArgs> = {
+  args: {
+    icon: 'alert',
+    content:
+      '토스트 내용은 두 줄을 초과할 수 없습니다. 토스트 내용은 두 줄을 초과할 수 없습니다. 토스트 내용은 두 줄을 초과할 수 없습니다. ',
+    actionName: '',
+    onActionClick: fn(),
+  },
+  render: (args) => {
     const option: ToastOptionType = {
-      icon: "success",
-      content: "프로젝트가 등록되었어요.",
-      action: { name: "보러가기", onClick: () => { } },
+      ...DEFAULT_OPTION(args),
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
     };
     return <ToastSample option={option} />;
   },
 };
 
-export const TextOver: StoryObj = {
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
-    const option: ToastOptionType = {
-      icon: "alert",
-      content:
-        "토스트 내용은 두 줄을 초과할 수 없습니다. 토스트 내용은 두 줄을 초과할 수 없습니다. 토스트 내용은 두 줄을 초과할 수 없습니다. ",
-    };
-    return <ToastSample option={option} />;
+export const CloseToast: StoryObj<ToastStoryArgs> = {
+  args: {
+    icon: 'success',
+    content: '토스트를 원하는 타이밍에 닫을 수 있습니다.',
+    actionName: '',
+    onActionClick: fn(),
   },
-};
-
-export const CloseToast: StoryObj = {
-  argTypes: { icon: { control: { disable: true } } },
-  render: () => {
+  render: (args) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { open, close } = useToast();
+    const { close } = useToast();
+
     const option: ToastOptionType = {
-      icon: "success",
-      content: "토스트를 원하는 타이밍에 닫을 수 있습니다.",
+      ...DEFAULT_OPTION(args),
+      icon: args.icon === 'custom' ? COPY_ICON : args.icon,
     };
     return (
       <>
-        <button onClick={() => open(option)}>Open Toast</button>
-        <button onClick={close}>Close Toast</button>
+        <ToastSample option={option} />
+        <button type='button' onClick={close} aria-label='Close Toast'>Close Toast</button>
       </>
     );
   },
