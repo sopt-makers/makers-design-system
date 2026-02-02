@@ -4,6 +4,8 @@ export type StrictPropsWithChildren<P = unknown> = P & Children;
 
 export type DefaultIconType = "success" | "alert" | "error";
 
+export type Svg = React.ReactElement<React.SVGProps<SVGSVGElement>>;
+
 export type ActionType = {
   name: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -15,7 +17,7 @@ export type StyleType = {
 };
 
 export interface ToastOptionType {
-  icon?: DefaultIconType | React.ReactElement;
+  icon?: DefaultIconType | Svg;
   content: string;
   action?: ActionType;
   style?: StyleType,

@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { ActionType, DefaultIconType, StrictPropsWithChildren } from '../types';
+import type { ActionType, DefaultIconType, StrictPropsWithChildren, Svg } from '../types';
 import { ToastIconSuccess, ToastIconAlert, ToastIconError } from '../icons';
 import * as styles from './style.css';
 
@@ -12,14 +12,14 @@ const convertToIcon = {
 };
 
 interface RootProps {
-  icon?: DefaultIconType | React.ReactElement;
+  icon?: DefaultIconType | Svg;
   style?: React.CSSProperties;
 }
 
 function Root(props: StrictPropsWithChildren<RootProps>, ref: React.Ref<HTMLDivElement>) {
   const { children, icon, style } = props;
   const isDefaultIcon = typeof icon === 'string';
-  const DefaultIcon = isDefaultIcon ? convertToIcon[icon] : undefined;
+  const DefaultIcon = isDefaultIcon ? convertToIcon[icon as DefaultIconType] : undefined;
 
   return (
     <div className={styles.root} ref={ref} style={style} aria-live='polite' aria-atomic='true'>
