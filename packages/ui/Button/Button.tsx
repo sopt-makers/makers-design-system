@@ -2,7 +2,7 @@ import React, { useEffect, useState, type ButtonHTMLAttributes } from 'react';
 import * as S from './style.css';
 import createButtonVariant from './utils';
 import { iconSizes } from './constants';
-import { ButtonIntent, ButtonShape, ButtonVariant } from './types';
+import type { ButtonIntent, ButtonShape, ButtonVariant } from './types';
 import { useResolvedProps, useScrollDirection } from './hooks';
 
 interface IconProps {
@@ -39,7 +39,7 @@ function Button({
 }: ButtonProps) {
   const { finalIntent, finalShape } = useResolvedProps({ intent, shape, theme, rounded });
   const isFloating = variant === 'floating';
-  const scrollDirection = isFloating ? useScrollDirection() : null;
+  const scrollDirection = useScrollDirection(isFloating);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function Button({
   return (
     <button className={`${S.root} ${style} ${className}`} type='button' {...buttonElementProps}>
       {LeftIcon ? <LeftIcon height={iconSize} width={iconSize} /> : null}
-      {(!isFloating || isExpanded) && <span>{children}</span>}
+      {!isFloating || isExpanded ? <span>{children}</span> : null}
       {RightIcon && !LeftIcon ? <RightIcon height={iconSize} width={iconSize} /> : null}
     </button>
   );

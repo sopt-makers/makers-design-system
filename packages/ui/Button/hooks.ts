@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ButtonColorTheme, ButtonIntent, ButtonShape } from './types';
+import { useEffect, useMemo, useState } from 'react';
+import type { ButtonColorTheme, ButtonIntent, ButtonShape } from './types';
 
 interface UseResolvedProps {
   intent: ButtonIntent;
@@ -9,7 +9,7 @@ interface UseResolvedProps {
 }
 
 export const useResolvedProps = ({ intent, shape, theme, rounded }: UseResolvedProps) => {
-  const finalIntent = React.useMemo(() => {
+  const finalIntent = useMemo(() => {
     if (!theme) return intent;
     switch (theme) {
       case 'white':
@@ -25,7 +25,7 @@ export const useResolvedProps = ({ intent, shape, theme, rounded }: UseResolvedP
     }
   }, [intent, theme]);
 
-  const finalShape = React.useMemo(() => {
+  const finalShape = useMemo(() => {
     if (!rounded) return shape;
     return rounded === 'lg' ? 'pill' : 'rect';
   }, [shape, rounded]);
@@ -33,10 +33,15 @@ export const useResolvedProps = ({ intent, shape, theme, rounded }: UseResolvedP
   return { finalIntent, finalShape };
 };
 
-export const useScrollDirection = () => {
+export const useScrollDirection = (enabled = true) => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
 
   useEffect(() => {
+    if (!enabled) {
+      setScrollDirection(null);
+      return;
+    }
+
     let lastScrollY = window.pageYOffset;
     const updateScrollDirection = () => {
       const scrollY = window.pageYOffset;
@@ -48,7 +53,7 @@ export const useScrollDirection = () => {
     return () => {
       window.removeEventListener('scroll', updateScrollDirection);
     };
-  }, [scrollDirection]);
+  }, [enabled]);
 
   return scrollDirection;
 };
