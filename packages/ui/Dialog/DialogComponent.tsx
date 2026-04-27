@@ -15,6 +15,12 @@ export default function DialogComponent({
 }: DialogValueProps) {
   const onApprove = () => {
     typeOptions?.buttonFunction && typeOptions.buttonFunction();
+    typeOptions?.onApprove && typeOptions.onApprove();
+    onClose();
+  };
+
+  const onCancel = () => {
+    typeOptions?.onCancel && typeOptions.onCancel();
     onClose();
   };
 
@@ -39,26 +45,47 @@ export default function DialogComponent({
         <Dialog.Footer align='default'>
           {type === 'default' && (
             <>
-              <Button className={buttonSize} onClick={onClose} rounded='md' size='md' theme='black'>
+              <Button className={buttonSize} onClick={onCancel} rounded='md' size='md' theme='black'>
                 {typeOptions.cancelButtonText}
               </Button>
-              <Button className={buttonSize} onClick={onApprove} rounded='md' size='md' theme='white'>
+              <Button
+                className={buttonSize}
+                disabled={typeOptions.disableApprove}
+                onClick={onApprove}
+                rounded='md'
+                size='md'
+                theme='white'
+              >
                 {typeOptions.approveButtonText}
               </Button>
             </>
           )}
           {type === 'danger' && (
             <>
-              <Button className={buttonSize} onClick={onClose} rounded='md' size='md' theme='black'>
+              <Button className={buttonSize} onClick={onCancel} rounded='md' size='md' theme='black'>
                 {typeOptions.cancelButtonText}
               </Button>
-              <Button className={buttonSize} onClick={onApprove} rounded='md' size='md' theme='red'>
+              <Button
+                className={buttonSize}
+                disabled={typeOptions.disableApprove}
+                onClick={onApprove}
+                rounded='md'
+                size='md'
+                theme='red'
+              >
                 {typeOptions.approveButtonText}
               </Button>
             </>
           )}
           {type === 'single' && (
-            <Button className={buttonSize} onClick={onApprove} rounded='md' size='md' theme='white'>
+            <Button
+              className={buttonSize}
+              disabled={typeOptions.disableApprove}
+              onClick={onApprove}
+              rounded='md'
+              size='md'
+              theme='white'
+            >
               {typeOptions.approveButtonText}
             </Button>
           )}

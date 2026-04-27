@@ -1,5 +1,45 @@
 # docs
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [a1cec7d]
+  - @sopt-makers/ui@2.11.0
+
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [05b580b]
+  - @sopt-makers/ui@2.10.2
+
+## 0.1.1
+
+### Patch Changes
+
+- 97aed2e: chore: solve tooltip lint errors
+- Updated dependencies [97aed2e]
+  - @sopt-makers/ui@2.10.1
+
+## 0.1.0
+
+### Minor Changes
+
+- 94334a5: feat: tooltip 컴포넌트 추가
+
+### Patch Changes
+
+- Updated dependencies [94334a5]
+  - @sopt-makers/ui@2.10.0
+
+## 0.0.38
+
+### Patch Changes
+
+- Updated dependencies [baf5f6c]
+  - @sopt-makers/ui@2.9.0
+
 ## 0.0.37
 
 ### Patch Changes

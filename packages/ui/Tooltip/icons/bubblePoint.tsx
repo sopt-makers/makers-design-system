@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-type BubblePointIconProps = HTMLAttributes<SVGSVGElement>
+type BubblePointIconProps = HTMLAttributes<SVGSVGElement>;
 
 function BubblePointIcon({ className, ...props }: BubblePointIconProps) {
   return (
@@ -15,7 +15,7 @@ function BubblePointIcon({ className, ...props }: BubblePointIconProps) {
     >
       <path
         d='M7.61889 0.666999L0 14.0001H16L8.38111 0.666998C8.20848 0.364907 7.79152 0.364907 7.61889 0.666999Z'
-        fill='#3F3F47'
+        fill='currentColor'
       />
     </svg>
   );

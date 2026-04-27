@@ -1,13 +1,7 @@
 import { Meta, StoryFn, StoryObj } from '@storybook/react';
 
 import { useContext } from 'react';
-import {
-  Dialog,
-  DialogProvider,
-  DialogContext,
-  type DialogOptionType,
-  useDialog,
-} from '@sopt-makers/ui';
+import { Dialog, DialogProvider, DialogContext, type DialogOptionType, useDialog } from '@sopt-makers/ui';
 
 export default {
   title: 'Components/Dialog',
@@ -41,7 +35,7 @@ export const DesktopDefault: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -60,7 +54,7 @@ export const DesktopDanger: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -78,7 +72,7 @@ export const DesktopSingle: StoryObj = {
       type: 'single',
       typeOptions: {
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -103,7 +97,7 @@ export const DesktopSingleLabel: StoryObj = {
       type: 'single',
       typeOptions: {
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -176,7 +170,7 @@ export const DesktopSingleLong: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -204,7 +198,7 @@ export const MobileDefault: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -223,7 +217,7 @@ export const MobileDanger: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -241,7 +235,7 @@ export const MobileSingle: StoryObj = {
       type: 'single',
       typeOptions: {
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -266,7 +260,7 @@ export const MobileSingleLabel: StoryObj = {
       type: 'single',
       typeOptions: {
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
@@ -331,7 +325,7 @@ export const MobileSingleLong: StoryObj = {
       typeOptions: {
         cancelButtonText: '취소',
         approveButtonText: '확인',
-        buttonFunction: closeDialog,
+        onApprove: closeDialog,
       },
     };
 
