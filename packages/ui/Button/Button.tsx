@@ -40,19 +40,19 @@ function Button({
   const { finalIntent, finalShape } = useResolvedProps({ intent, shape, theme, rounded });
   const isFloating = variant === 'floating';
   const scrollDirection = useScrollDirection(isFloating);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExtended, setIsExtended] = useState(false);
 
   useEffect(() => {
     if (!isFloating) return;
-    setIsExpanded(scrollDirection === 'down');
+    setIsExtended(scrollDirection === 'down');
   }, [scrollDirection, isFloating]);
 
-  const style = createButtonVariant(finalIntent, finalShape, size, variant, isExpanded);
+  const style = createButtonVariant(finalIntent, finalShape, size, variant, isExtended);
   const iconSize = iconSizes[size];
   return (
     <button className={`${S.root} ${style} ${className}`} type='button' {...buttonElementProps}>
       {LeftIcon ? <LeftIcon height={iconSize} width={iconSize} /> : null}
-      {!isFloating || isExpanded ? <span>{children}</span> : null}
+      {!isFloating || isExtended ? <span>{children}</span> : null}
       {RightIcon && !LeftIcon ? <RightIcon height={iconSize} width={iconSize} /> : null}
     </button>
   );
